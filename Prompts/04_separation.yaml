@@ -1,0 +1,327 @@
+default_model: gpt-5.2
+max_threads: 4
+
+model_settings:
+  gpt-5.2:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+optimizer_config:
+  enable_optimizer: true
+  sample_size: 5  
+  validation_sample_size: 3  
+  optimizer_model: gpt-5.2
+  optimizer_model_settings:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+datasets:
+  papers:
+    type: file
+    path: ./papers_dataset.json
+
+operations:
+  - name: extract_separation
+    type: map
+    model: gpt-5.2
+    model_params:
+      reasoning:
+        effort: medium
+      text:
+        verbosity: low
+    prompt: |
+      You are extracting separation and chromatography metadata from proteomics research papers.
+      
+      Paper: {{ input.filename }}
+      
+      {% if input.abstract %}
+      Abstract:
+      """{{ input.abstract }}"""
+      {% endif %}
+      
+      {% if input.methods %}
+      Methods:
+      """{{ input.methods }}"""
+      {% endif %}
+      
+      {% if input.supplementary %}
+      Supplementary Information:
+      """{{ input.supplementary }}"""
+      {% endif %}
+      
+      CRITICAL FIRST STEP - IDENTIFY PROTEOMICS SECTIONS:
+      Before extracting any annotations, you MUST:
+      1. Read through ALL sections of the paper (abstract, methods, results, figures, supplementary)
+      2. Identify which parts describe PROTEOMICS or MASS SPECTROMETRY experiments
+      3. Look for IMPLICIT proteomics indicators including:
+         - Affinity purification followed by mass spectrometry (AP-MS)
+         - Tandem affinity purification (TAP) - commonly used for MS
+         - Protein purification workflows that precede MS analysis
+         - Immunoprecipitation (IP) followed by MS
+         - Pull-down assays analyzed by MS
+         - References to MS in abstract even if methods don't explicitly mention it
+      4. Extract annotations from these proteomics-specific sections
+      5. IGNORE sections about non-MS techniques (western blot only, microscopy only)
+      
+      PROTEOMICS WORKFLOW DETECTION SIGNALS:
+      - Direct mentions: "mass spectrometry", "MS", "LC-MS", "proteomics"
+      - Affinity purification techniques: "TAP", "AP-MS", "pull-down MS"
+      - Protein identification workflows followed by unspecified analysis (assume MS if in proteomics paper)
+      - Abstract mentions proteomics while methods describe protein purification
+      
+      The annotations you extract must describe HOW THE PROTEOMICS PART OF THE STUDY WAS PERFORMED.
+      If a paper contains multiple experiment types, focus exclusively on the proteomics/mass spectrometry workflow.
+      
+      Extract the following separation and chromatography annotation types from proteomics sections only:
+      
+      - Separation: Any on-line method used to separate the samples into fractions before MS
+      - FractionationMethod: Any off line method used to fraction bulk sample into the primary samples used in the MS or LC/MS.
+      - FractionIdentifier: Specific labels or naming scheme used to identify individual fractions
+      - NumberOfFractions: Total number of fractions generated from each sample
+      - EnrichmentMethod: Peptide or protein enrichment protocol used
+      - Bait: The protein or molecule used as bait in an affinity-purification experiment
+      - FlowRateChromatogram: LC flow rate values with units
+      - GradientTime: Total LC gradient length or gradient duration
+      
+      CRITICAL EXTRACTION RULES:
+      
+      PROTEOMICS-ONLY EXTRACTION (HIGHEST PRIORITY):
+      
+      A. PROTEOMICS SECTION IDENTIFICATION:
+         - First, identify all sections that describe proteomics or mass spectrometry experiments
+         - Extract annotations ONLY from these proteomics-specific sections
+         - DO NOT extract from sections about non-MS techniques
+         - ALLOW reasonable inference when abstract mentions proteomics but methods describe protein purification
+      
+      B. SAMPLE DIFFERENTIATION TEST:
+         - Before extracting, ask: "Is this metadata important for differentiating between proteomics samples?"
+         - If NO, do not extract it
+         - Focus on metadata that distinguishes one proteomics sample from another
+      
+      C. UTILITY TEST:
+         - Before extracting, ask: "Is this metadata trivial or useful?"
+         - Do NOT extract typical values used commonly across most proteomics experiments
+         - Focus on metadata that provides meaningful experimental context
+      
+      D. BALANCED ANNOTATION APPROACH:
+         - Avoid being too liberal: Don't fill with useless metadata
+         - Avoid being too conservative: Don't miss key differentiating metadata
+         - Apply both tests (B and C) to achieve balance
+      
+      E. COMPREHENSIVE PROTEOMICS SECTION REVIEW:
+         - Use ALL parts of the paper that discuss proteomics
+         - Some critical information only appears in results or figure captions
+         - Search thoroughly across all proteomics-relevant sections before finalizing extraction
+      
+      1. SOURCE FIDELITY: Extract ONLY text that exists verbatim in the source material
+         - MUST copy exact wording, spelling, and punctuation from the text
+         - Do NOT paraphrase, rephrase, or reword anything
+         - Do NOT standardize or normalize terminology
+      
+      2. CONTROLLED INFERENCE: Extract explicitly stated information, with LIMITED inference allowed for:
+         - Bait identification from TAP-tagged or FLAG-tagged proteins in purification workflows
+         - EnrichmentMethod identification from standard affinity purification protocols
+         - DO NOT infer other annotation types without explicit mention
+      
+      3. NO HALLUCINATION: Do NOT generate or fabricate any information
+         - Every extracted annotation MUST be traceable to the proteomics sections
+         - If you cannot find it in the proteomics-relevant text, do NOT include it
+         - Do NOT use your background knowledge to add information
+      
+      4. NO DUPLICATES: Extract each unique annotation only ONCE
+         - If the same term appears multiple times, extract it only ONCE
+         - Do NOT repeat the same annotation
+         - Check for uniqueness before adding to the list
+         - This is critical for maintaining clean, non-redundant metadata
+      
+      5. VERIFY BEFORE EXTRACTION: Before extracting any annotation, verify:
+         - Is this from a section describing proteomics/MS experiments OR protein purification for MS?
+         - Can you point to the exact location in the proteomics text where it appears?
+         - Is it written exactly as you are extracting it?
+         - Does it clearly match the annotation type definition?
+         - Does it pass the sample differentiation test?
+         - Does it pass the utility test?
+         - If you cannot answer YES to all six, do NOT extract it
+      
+      6. ABBREVIATION PAIRING PRINCIPLES:
+         - If text contains abbreviation only, extract only the abbreviation
+         - If text contains full form only, extract only the full form
+         - If text contains both with one in parentheses, extract BOTH as separate items
+         - Do NOT create abbreviation-fullform pairs that don't exist in text
+         - Search nearby text for potential paired forms when you find one form
+      
+      7. CATEGORY DISAMBIGUATION:
+         - If a method enriches without creating multiple fractions then EnrichmentMethod
+         - If a method creates numbered fractions analyzed separately then FractionationMethod
+         - If a method separates peptides online into MS then Separation
+         - If a method captures protein complexes then look for the biological Bait
+         - When uncertain which category, do NOT extract
+      
+      8. ENRICHMENT METHOD EXTRACTION PRINCIPLES:
+         - EnrichmentMethod captures techniques that SELECTIVELY CONCENTRATE, ISOLATE, or PURIFY specific peptide or protein subsets before MS analysis
+         - Extract affinity-based enrichment techniques 
+         - Extract enrichment workflows even if not explicitly called "enrichment" or if mentioned "enriched" or "enrichment"
+         - Context clue: If TAP or FLAG purification is described, this IS an enrichment method
+         - DO NOT extract metabolic labeling techniques used solely for quantification
+         - DO NOT extract general reduction, alkylation, or digestion steps
+         - DO NOT extract separation methods that are already covered under Separation or FractionationMethod
+         - Only extract if used in proteomics experiments and described in proteomics sections
+      
+      9. BAIT EXTRACTION PRINCIPLES:
+         - Extract the BIOLOGICAL TARGET molecule used to capture interacting proteins
+         - CRITICAL: Tagged proteins in purification workflows are baits
+         - Extract protein names from TAP-tagged constructs
+         - Extract protein names from FLAG-tagged constructs 
+         - Extract protein names from GFP-tagged constructs used in purification
+         - Extract mutant variants as separate baits 
+         - Extract endogenous proteins being immunoprecipitated by name
+         - Extract peptides or small molecules used as affinity baits
+         - DO NOT extract the tag itself (TAP, FLAG, GFP) as the bait
+         - DO NOT extract antibodies, beads, resins, or capture reagents
+         - DO NOT extract generic controls without biological context
+         - Focus on: What specific biological molecule (protein/peptide) was used to capture protein complexes?
+         - Only extract from affinity purification-MS or pull-down-MS experiments
+      
+      10. FLOW RATE EXTRACTION PRINCIPLES:
+          - Extract complete flow rate values including numeric value and unit
+          - Maintain exact format including unit variations as written
+          - Extract ALL flow rates mentioned in chromatography sections
+          - Only extract if used in proteomics experiments
+      
+      11. GRADIENT TIME EXTRACTION PRINCIPLES:
+          - Extract gradient duration values for liquid chromatography separation specifically
+          - This is ONLY for chromatographic separation gradients
+          - Extract overall gradient length AND segment durations when specified
+          - Do NOT extract other types of time durations here
+          - Only extract if used in proteomics experiments
+      
+      12. SEPARATION EXTRACTION PRINCIPLES:
+          - Extract ONLY online separation coupled directly to mass spectrometer
+          - Extract liquid chromatography systems and platforms
+          - Extract column specifications used for online peptide separation
+          - Extract chromatography methods immediately before MS detection
+          - DO NOT extract offline enrichment performed before LC-MS
+          - DO NOT extract purification steps performed on proteins before digestion
+          - DO NOT extract sample cleanup or desalting procedures
+          - Test: "Does this separate peptides in real-time as they enter the MS?" - if NO, don't extract
+          - Only extract separation directly coupled to MS in the proteomics workflow
+      
+      13. FRACTIONATION EXTRACTION PRINCIPLES:
+          - FractionationMethod: Extract ONLY techniques that physically DIVIDE a sample into multiple discrete fractions
+          - Each fraction must be analyzed separately by MS
+          - Extract techniques that produce numbered or labeled fraction sets
+          - Extract density-based separation methods that generate multiple fractions
+          - Extract gel-based fractionation where gel slices become separate samples
+          - Extract chromatographic methods that collect multiple fractions offline
+          - DO NOT extract single-step enrichment that doesn't create multiple fractions
+          - DO NOT extract sample preparation methods that don't divide samples
+          - DO NOT extract cleanup or purification that produces one final sample
+          - Test: "Does this create numbered/labeled fractions analyzed separately?" - if NO, not fractionation
+          - Only extract if used in proteomics experiments
+      
+      14. FRACTION IDENTIFIER EXTRACTION PRINCIPLES:
+          - FractionIdentifier: Extract ONLY the specific labels or codes used to identify individual fractions
+          - Extract alphanumeric identifiers assigned to fractions
+          - Extract naming schemes or numbering systems for fractions
+          - DO NOT extract descriptions of what the fractions contain
+          - DO NOT extract the fractionation method name
+          - DO NOT extract explanatory text about the fractions
+          - DO NOT extract the total number of fractions
+          - Test: "Is this a label or code that identifies a specific fraction?" - if NO, don't extract
+          - FractionIdentifier and FractionationMethod and NumberOfFractions must describe the SAME fractionation workflow
+          - Only extract if fractionation is used in proteomics experiments
+      
+      15. NUMBER OF FRACTIONS EXTRACTION PRINCIPLES:
+          - NumberOfFractions: Extract ONLY statements about the total count of fractions generated
+          - Extract explicit numbers indicating how many fractions were created
+          - Extract text that quantifies the fractionation output
+          - DO NOT extract fraction identifiers or labels
+          - DO NOT extract the fractionation method name
+          - Test: "Does this tell me the total number of fractions created?" - if NO, don't extract
+          - FractionIdentifier and FractionationMethod and NumberOfFractions must describe the SAME fractionation workflow
+          - Only extract if fractionation is used in proteomics experiments
+      
+      16. PROTEOMICS WORKFLOW CONTEXT:
+          - Verify the method is part of the MS sample preparation or analysis
+          - Methods for western blotting, cell culture, or non-MS experiments do NOT count
+          - Only extract methods that directly affect what peptides/proteins enter the mass spectrometer
+          - TAP and FLAG purifications followed by MS analysis ARE proteomics workflows
+      
+      17. ACCURACY OVER COMPLETENESS:
+          - When in doubt, do NOT extract
+          - Better to miss information than extract from non-proteomics sections
+          - Only extract when certain it matches the annotation type AND is from proteomics sections
+          - Empty lists are PERFECTLY ACCEPTABLE if annotations are not found
+      
+      18. NO TEXT IN OUTPUT:
+          - Return ONLY the JSON object with annotation lists
+          - Do NOT include source text sections
+          - Do NOT include explanations outside the JSON structure
+          - DO NOT include document identifiers in output
+      
+      19. EMPTY RESULTS ARE OK:
+          - If an annotation type is not found in the proteomics sections, return an empty list []
+          - Do NOT attempt to fill in likely values
+          - Do NOT extract related but different information
+          - It is better to return [] than to extract incorrect information
+      
+      20. SPECIFICITY REQUIREMENTS:
+          - Extract only information from proteomics sections that directly matches the annotation category
+          - DO NOT extract tangentially related information
+          - Verify category assignment is correct before including any term
+          - When category assignment is ambiguous, do NOT extract
+      
+      21. MENTAL VERIFICATION PROCESS:
+          - For each potential extraction, mentally note:
+            * Is this from a proteomics/mass spectrometry section of the paper?
+            * Where exactly in the proteomics section is this stated?
+            * Is this the exact wording from the source?
+            * Why does this qualify as this specific annotation type?
+            * For EnrichmentMethod: Does this selectively concentrate or isolate a peptide/protein subset?
+            * For Bait: Is this the biological molecule (not the tag or reagent) used to capture proteins?
+            * For FractionIdentifier: Is this a label or code for a specific fraction?
+            * For NumberOfFractions: Does this state the total count of fractions?
+            * For abbreviations: is the paired form also present?
+            * Does this help differentiate proteomics samples?
+            * Is this useful metadata or trivial information?
+          - Only include if you can clearly answer all relevant questions
+      
+      22. CONTEXT-BASED EXTRACTION:
+          - Pay attention to section context
+          - Some terms have different meanings in different contexts
+          - Extract based on functional role in the experimental workflow
+          - Consider whether the information describes a critical experimental parameter
+          - Only extract from proteomics-relevant contexts
+      
+      23. UNIT AND FORMAT PRESERVATION:
+          - For FlowRateChromatogram: preserve exact unit format as written
+          - For GradientTime: preserve time format as written
+          - Do NOT convert between formats or standardize units during extraction
+      
+      Return ONLY a valid JSON object with lists of extracted values and no other text.
+    output:
+      schema:
+        Separation: list[string]
+        FractionationMethod: list[string]
+        FractionIdentifier: list[string]
+        NumberOfFractions: list[string]
+        EnrichmentMethod: list[string]
+        Bait: list[string]
+        FlowRateChromatogram: list[string]
+        GradientTime: list[string]
+
+pipeline:
+  steps:
+    - name: separation_pipeline
+      input: papers
+      operations:
+        - extract_separation
+
+  output:
+    type: file
+    path: ./output/separation_complete.json
+    intermediate_dir: ./checkpoints

@@ -1,0 +1,278 @@
+default_model: gpt-5.2
+max_threads: 4
+
+model_settings:
+  gpt-5.2:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+optimizer_config:
+  enable_optimizer: true
+  sample_size: 5  
+  validation_sample_size: 3  
+  optimizer_model: gpt-5.2
+  optimizer_model_settings:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+datasets:
+  papers:
+    type: file
+    path: ./papers_dataset.json
+
+operations:
+  - name: extract_ms_instruments
+    type: map
+    model: gpt-5.2
+    model_params:
+      reasoning:
+        effort: medium
+      text:
+        verbosity: low
+    prompt: |
+      You are extracting mass spectrometry instrumentation metadata from proteomics research papers.
+      
+      Paper: {{ input.filename }}
+      
+      {% if input.abstract %}
+      Abstract:
+      """{{ input.abstract }}"""
+      {% endif %}
+      
+      {% if input.methods %}
+      Methods:
+      """{{ input.methods }}"""
+      {% endif %}
+      
+      {% if input.supplementary %}
+      Supplementary Information:
+      """{{ input.supplementary }}"""
+      {% endif %}
+      
+      CRITICAL FIRST STEP - IDENTIFY PROTEOMICS SECTIONS:
+      Before extracting any annotations, you MUST:
+      1. Read through ALL sections of the paper (abstract, methods, results, figures, supplementary)
+      2. Identify which parts describe PROTEOMICS or MASS SPECTROMETRY experiments
+      3. Look for IMPLICIT proteomics indicators including:
+         - Affinity purification followed by mass spectrometry (AP-MS)
+         - Tandem affinity purification (TAP) - commonly used for MS
+         - Protein purification workflows that precede MS analysis
+         - Immunoprecipitation (IP) followed by MS
+         - Pull-down assays analyzed by MS
+         - References to MS in abstract even if methods don't explicitly mention it
+      4. Extract annotations from these proteomics-specific sections
+      5. IGNORE sections about non-MS techniques
+      
+      PROTEOMICS WORKFLOW DETECTION SIGNALS:
+      - Direct mentions: "mass spectrometry", "MS", "LC-MS", "proteomics"
+      - Affinity purification techniques: "TAP", "AP-MS", "pull-down MS"
+      - Protein identification workflows followed by unspecified analysis (assume MS if in proteomics paper)
+      - Abstract mentions proteomics while methods describe protein purification
+      
+      The annotations you extract must describe HOW THE PROTEOMICS PART OF THE STUDY WAS PERFORMED.
+      If a paper contains multiple experiment types, focus exclusively on the proteomics/mass spectrometry workflow.
+      
+      Extract the following MS instrumentation annotation types from proteomics sections only:
+      
+      - Instrument: Mass spec make/model
+      - AcquisitionMethod: MS acquisition scheme
+      - IonizationType: Ionization source
+      - FragmentationMethod: Ion-fragmentation technique
+      - MS2MassAnalyzer: Analyzer used for MS2
+      - CollisionEnergy: Collision energy applied in MS/MS
+      - PrecursorMassTolerance: Mass tolerance for precursor matching
+      - FragmentMassTolerance: Mass tolerance for fragment matching
+      
+      CRITICAL EXTRACTION RULES:
+      
+      PROTEOMICS-ONLY EXTRACTION (HIGHEST PRIORITY):
+      
+      A. PROTEOMICS SECTION IDENTIFICATION:
+         - First, identify all sections that describe proteomics or mass spectrometry experiments
+         - Extract annotations ONLY from these proteomics-specific sections
+         - DO NOT extract from sections about non-MS techniques
+         - ALLOW reasonable inference when abstract mentions proteomics but methods describe protein purification
+      
+      B. SAMPLE DIFFERENTIATION TEST:
+         - Before extracting, ask: "Is this metadata important for differentiating between proteomics samples?"
+         - If NO, do not extract it
+         - Focus on metadata that distinguishes one proteomics sample from another
+      
+      C. UTILITY TEST:
+         - Before extracting, ask: "Is this metadata trivial or useful?"
+         - Do NOT extract typical values used commonly across most proteomics experiments
+         - Focus on metadata that provides meaningful experimental context
+      
+      D. BALANCED ANNOTATION APPROACH:
+         - Avoid being too liberal: Don't fill with useless metadata
+         - Avoid being too conservative: Don't miss key differentiating metadata
+         - Apply both tests (B and C) to achieve balance
+      
+      E. COMPREHENSIVE PROTEOMICS SECTION REVIEW:
+         - Use ALL parts of the paper that discuss proteomics
+         - Some critical information only appears in results or figure captions
+         - Search thoroughly across all proteomics-relevant sections before finalizing extraction
+      
+      F. CONCISE EXTRACTION:
+         - Extract ONLY the specific requested information, NOT entire sentences
+         - Remove unnecessary context, articles, and explanatory phrases
+         - Extract the minimal phrase that captures the annotation
+         - Do NOT include surrounding text or full sentence structure
+      
+      1. SOURCE FIDELITY: Extract ONLY text that exists verbatim in the source material
+         - MUST copy exact wording, spelling, and punctuation from the text
+         - Do NOT paraphrase, rephrase, or reword anything
+         - Do NOT standardize or normalize terminology
+         - Extract the minimal necessary phrase, not full sentences
+      
+      2. CONTROLLED INFERENCE: Extract explicitly stated information, with LIMITED inference allowed for:
+         - AcquisitionMethod identification from standard proteomics workflows (e.g., AP-MS from affinity purification-mass spectrometry)
+         - DO NOT infer other annotation types without explicit mention
+      
+      3. NO HALLUCINATION: Do NOT generate or fabricate any information
+         - Every extracted annotation MUST be traceable to the proteomics sections
+         - If you cannot find it in the proteomics-relevant text, do NOT include it
+         - Do NOT use your background knowledge to add information
+      
+      4. NO DUPLICATES: Extract each unique annotation only ONCE
+         - If the same term appears multiple times, extract it only ONCE
+         - Do NOT repeat the same annotation
+         - Check for uniqueness before adding to the list
+         - This is critical for maintaining clean, non-redundant metadata
+      
+      5. VERIFY BEFORE EXTRACTION: Before extracting any annotation, verify:
+         - Is this from a section describing proteomics/MS experiments OR protein purification for MS?
+         - Can you point to the exact location in the proteomics text where it appears?
+         - Is it written exactly as you are extracting it?
+         - Does it clearly match the annotation type definition?
+         - Does it pass the sample differentiation test?
+         - Does it pass the utility test?
+         - Have I extracted only the essential information without full sentences?
+         - If you cannot answer YES to all seven, do NOT extract it
+      
+      6. INSTRUMENT-SPECIFIC RULES:
+         - Extract ONLY complete mass spectrometer make/model names
+         - Include manufacturer when stated together with model
+         - Do NOT extract standalone manufacturer names
+         - Do NOT extract LC/HPLC systems
+         - Do NOT extract column materials or hardware
+         - Do NOT extract software names
+         - Only extract if this instrument was used in proteomics experiments
+      
+      7. ACQUISITION METHOD EXTRACTION:
+         - Extract MS acquisition schemes including:
+           * Data-dependent acquisition (DDA)
+           * Data-independent acquisition (DIA)
+           * Selected reaction monitoring (SRM/MRM)
+           * Parallel reaction monitoring (PRM)
+           * Affinity purification-mass spectrometry (AP-MS)
+           * Tandem affinity purification-mass spectrometry (TAP-MS)
+         - If abstract or methods mention "affinity purification-mass spectrometry" or similar, extract as AcquisitionMethod
+         - Look for hyphenated or combined workflow names that include MS
+         - Only extract if used in proteomics experiments
+      
+      8. ABBREVIATION PAIRING RULES:
+         - For AcquisitionMethod, IonizationType, and FragmentationMethod:
+         - If text has abbreviation only, extract only the abbreviation
+         - If text has full form only, extract only the full form
+         - If text has both in parentheses format, extract BOTH separately
+         - Do NOT create pairings that don't exist in the text
+      
+      9. MS2 MASS ANALYZER RULES (CRITICAL - NO INFERENCE ALLOWED):
+         - Extract ONLY if the text explicitly states the analyzer was used for MS2, MS/MS, or tandem MS analysis
+         - The text must clearly indicate the analyzer's role in MS2/MS/MS fragmentation or analysis
+         - Look for phrases like:
+           * "analyzer used for MS2"
+           * "MS/MS analyzer"
+           * "MS2 was performed using [analyzer]"
+           * "tandem MS was performed in the [analyzer]"
+           * "[analyzer] for MS/MS analysis"
+         - Do NOT infer MS2 analyzer from instrument name alone
+         - Do NOT extract analyzer types without explicit MS2/MS/MS context
+         - Do NOT assume an analyzer was used for MS2 just because it's part of the instrument
+         - When in doubt or if MS2/MS/MS usage is not explicitly stated, do NOT extract
+         - Only extract if used in proteomics experiments
+      
+      10. COLLISION ENERGY AND TOLERANCE RULES:
+          - Extract complete phrases including values and units
+          - For collision energy: extract values applied in MS/MS
+          - Distinguish precursor tolerance from fragment tolerance carefully
+          - Extract exactly as written with proper units
+          - Only extract if used in proteomics experiments
+      
+      11. ACCURACY OVER COMPLETENESS:
+          - When in doubt, do NOT extract
+          - Better to miss information than extract from non-proteomics sections
+          - Only extract when certain it matches the annotation type AND is from proteomics sections
+          - Empty lists are PERFECTLY ACCEPTABLE if annotations are not found
+      
+      12. NO TEXT IN OUTPUT:
+          - Return ONLY the JSON object with annotation lists
+          - Do NOT include source text sections
+          - Do NOT include explanations outside the JSON structure
+          - Do NOT include document identifiers in output
+      
+      13. EMPTY RESULTS ARE OK:
+          - If an annotation type is not found in the proteomics sections, return an empty list []
+          - Do NOT attempt to fill in likely values
+          - Do NOT extract related but different information
+          - It is better to return [] than to extract incorrect information
+      
+      14. SPECIFICITY REQUIREMENTS:
+          - Extract only information from proteomics sections that directly matches the annotation category
+          - DO NOT extract tangentially related information
+          - For Instrument: extract only MS instruments, not LC systems
+          - Verify category assignment is correct before including any term
+          - When category assignment is ambiguous, do NOT extract
+      
+      15. COMPOUND MENTIONS:
+          - If text mentions multiple values with "or" or "and", extract each separately
+          - Extract each component as a separate list item
+          - Do NOT combine them into a single string
+      
+      16. MENTAL VERIFICATION PROCESS:
+          - For each potential extraction, mentally note:
+            * Is this from a proteomics/mass spectrometry section of the paper?
+            * Where exactly in the proteomics section is this stated?
+            * Is this the exact wording from the source?
+            * Have I removed unnecessary sentence structure and context?
+            * Why does this qualify as this specific annotation type?
+            * Does this help differentiate proteomics samples?
+            * Is this useful metadata or trivial information?
+            * For MS2MassAnalyzer: Does the text explicitly state this analyzer was used for MS2/MS/MS?
+          - Only include if you can clearly answer all relevant questions
+      
+      17. CONTEXT-BASED EXTRACTION:
+          - Pay attention to section context
+          - Some terms have different meanings in different contexts
+          - Extract based on functional role in the proteomics workflow
+          - Consider whether the information describes proteomics instrumentation
+          - Only extract from proteomics-relevant contexts
+      
+      Return ONLY a valid JSON object with lists of extracted values and no other text.
+    output:
+      schema:
+        Instrument: list[string]
+        AcquisitionMethod: list[string]
+        IonizationType: list[string]
+        FragmentationMethod: list[string]
+        MS2MassAnalyzer: list[string]
+        CollisionEnergy: list[string]
+        PrecursorMassTolerance: list[string]
+        FragmentMassTolerance: list[string]
+
+pipeline:
+  steps:
+    - name: ms_pipeline
+      input: papers
+      operations:
+        - extract_ms_instruments
+
+  output:
+    type: file
+    path: ./output/ms_instruments_complete.json
+    intermediate_dir: ./checkpoints

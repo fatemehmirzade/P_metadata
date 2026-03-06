@@ -1,0 +1,292 @@
+default_model: gpt-5.2
+max_threads: 4
+
+model_settings:
+  gpt-5.2:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+optimizer_config:
+  enable_optimizer: true
+  sample_size: 5  
+  validation_sample_size: 3  
+  optimizer_model: gpt-5.2
+  optimizer_model_settings:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+datasets:
+  papers:
+    type: file
+    path: ./papers_dataset.json
+
+operations:
+  - name: extract_sample_prep
+    type: map
+    model: gpt-5.2
+    model_params:
+      reasoning:
+        effort: medium
+      text:
+        verbosity: low
+    output:
+      schema:
+        Label: list[string]
+        CleavageAgent: list[string]
+        AlkylationReagent: list[string]
+        ReductionReagent: list[string]
+        Depletion: list[string]
+        Modification: list[string]
+        SpikedCompound: list[string]
+        SyntheticPeptide: list[string]
+        Staining: list[string]
+    prompt: |
+      You are extracting proteomics sample preparation metadata from research papers.
+      
+      Paper: {{ input.filename }}
+      
+      {% if input.abstract %}
+      Abstract:
+      """{{ input.abstract }}"""
+      {% endif %}
+      
+      {% if input.methods %}
+      Methods:
+      """{{ input.methods }}"""
+      {% endif %}
+      
+      {% if input.supplementary %}
+      Supplementary Information:
+      """{{ input.supplementary }}"""
+      {% endif %}
+      
+      CRITICAL FIRST STEP - IDENTIFY PROTEOMICS SECTIONS:
+      Before extracting any annotations, you MUST:
+      1. Read through ALL sections of the paper (abstract, methods, results, figures, supplementary)
+      2. Identify which parts describe PROTEOMICS or MASS SPECTROMETRY experiments
+      3. Look for IMPLICIT proteomics indicators including:
+         - Affinity purification followed by mass spectrometry (AP-MS)
+         - Tandem affinity purification (TAP) - commonly used for MS
+         - Protein purification workflows that precede MS analysis
+         - Immunoprecipitation (IP) followed by MS
+         - Pull-down assays analyzed by MS
+         - References to MS in abstract even if methods don't explicitly mention it
+      4. Extract annotations from these proteomics-specific sections
+      5. IGNORE sections about non-MS techniques
+      
+      PROTEOMICS WORKFLOW DETECTION SIGNALS:
+      - Direct mentions: "mass spectrometry", "MS", "LC-MS", "proteomics"
+      - Affinity purification techniques: "TAP", "AP-MS", "pull-down MS"
+      - Protein identification workflows followed by unspecified analysis (assume MS if in proteomics paper)
+      - Abstract mentions proteomics while methods describe protein purification
+      
+      The annotations you extract must describe HOW THE PROTEOMICS PART OF THE STUDY WAS PERFORMED.
+      If a paper contains multiple experiment types, focus exclusively on the proteomics/mass spectrometry workflow.
+      
+      Extract the following sample preparation annotation types from proteomics sections only:
+      
+      - Label: Chemical labeling strategies used in the study
+      - CleavageAgent: Protease or chemical used to digest proteins
+      - AlkylationReagent: A chemical that irreversibly adds an alkyl group to the free sulfhydryl of cysteine residues, blocking disulfide bonds and preventing protein re-folding
+      - ReductionReagent: Chemical used to reduce disulfide bonds
+      - Depletion: Method used to remove high-abundance proteins
+      - Modification: Post-translational modifications or chemical modifications. Post-translational modification enrichment or tagging
+      - SpikedCompound: Exogenous standard or spike-in added
+      - SyntheticPeptide: Indicates a synthetic peptide sample
+      - Staining: Any staining applied to the sample prior to mass spec that may still be present in the sample
+      
+      CRITICAL EXTRACTION RULES:
+      
+      PROTEOMICS-ONLY EXTRACTION (HIGHEST PRIORITY):
+      
+      A. PROTEOMICS SECTION IDENTIFICATION:
+         - First, identify all sections that describe proteomics or mass spectrometry experiments
+         - Extract annotations ONLY from these proteomics-specific sections
+         - DO NOT extract from sections about non-MS techniques
+         - ALLOW reasonable inference when abstract mentions proteomics but methods describe protein purification
+      
+      B. SAMPLE DIFFERENTIATION TEST:
+         - Before extracting, ask: "Is this metadata important for differentiating between proteomics samples?"
+         - If NO, do not extract it
+         - Focus on metadata that distinguishes one proteomics sample from another
+      
+      C. UTILITY TEST:
+         - Before extracting, ask: "Is this metadata trivial or useful?"
+         - Do NOT extract typical values used commonly across most proteomics experiments
+         - Focus on metadata that provides meaningful experimental context
+      
+      D. BALANCED ANNOTATION APPROACH:
+         - Avoid being too liberal: Don't fill with useless metadata
+         - Avoid being too conservative: Don't miss key differentiating metadata
+         - Apply both tests (B and C) to achieve balance
+      
+      E. COMPREHENSIVE PROTEOMICS SECTION REVIEW:
+         - Use ALL parts of the paper that discuss proteomics
+         - Some critical information only appears in results or figure captions
+         - Search thoroughly across all proteomics-relevant sections before finalizing extraction
+      
+      1. SOURCE FIDELITY: Extract ONLY text that exists verbatim in the source material
+         - MUST copy exact wording, spelling, and punctuation from the text
+         - Do NOT paraphrase, rephrase, or reword anything
+         - Do NOT standardize or normalize terminology
+      
+      2. CONTROLLED INFERENCE: Extract explicitly stated information, with LIMITED inference allowed for:
+         - Standard reagent identification from common abbreviations in proteomics
+         - DO NOT infer other annotation types without explicit mention
+         - DO NOT make assumptions beyond standard proteomics nomenclature
+      
+      3. NO HALLUCINATION: Do NOT generate or fabricate any information
+         - Every extracted annotation MUST be traceable to the proteomics sections
+         - If you cannot find it in the proteomics-relevant text, do NOT include it
+         - Do NOT use your background knowledge to add information beyond standard nomenclature
+      
+      4. NO DUPLICATES: Extract each unique annotation only ONCE
+         - If the same term appears multiple times, extract it only ONCE
+         - Do NOT repeat the same annotation
+         - Check for uniqueness before adding to the list
+         - This is critical for maintaining clean, non-redundant metadata
+      
+      5. VERIFY BEFORE EXTRACTION: Before extracting any annotation, verify:
+         - Is this from a section describing proteomics/MS experiments OR protein purification for MS?
+         - Can you point to the exact location in the proteomics text where it appears?
+         - Is it written exactly as you are extracting it?
+         - Does it clearly match the annotation type definition?
+         - Does it pass the sample differentiation test?
+         - Does it pass the utility test?
+         - If you cannot answer YES to all six, do NOT extract it
+      
+      6. COMPLETE WORDS AND PHRASES ONLY (CRITICAL):
+         - Extract entities as complete words or meaningful phrases
+         - NEVER split words into individual letters or characters
+         - Each extracted value must be a complete term with semantic meaning
+         - Before finalizing, verify each value is a complete word or phrase
+         - Single character extractions indicate a critical error
+      
+      7. ABBREVIATION PAIRING PRINCIPLES:
+         - For AlkylationReagent and ReductionReagent:
+         - If text contains abbreviation only, extract only the abbreviation
+         - If text contains full form only, extract only the full form
+         - If text contains both with one in parentheses, extract BOTH as separate items
+         - Do NOT create abbreviation-fullform pairs that don't exist in text
+         - Search nearby text for potential paired forms when you find one form
+      
+      8. CLEAVAGE AGENT EXTRACTION PRINCIPLES:
+          - Extract proteases or chemicals used for protein digestion in proteomics
+          - Look for descriptions of protein digestion or cleavage steps
+          - Extract enzyme names exactly as written in digestion protocols
+          - Do NOT confuse with cell detachment reagents or other enzyme uses
+          - Focus on context of protein digestion for mass spectrometry
+          - Only extract if used in proteomics experiments
+      
+      9. REAGENT CATEGORY DISTINCTIONS:
+          - CleavageAgent: proteases for protein digestion
+          - AlkylationReagent: cysteine modification agents
+          - ReductionReagent: disulfide bond breaking agents
+          - Each category has distinct chemical function - do not mix
+          - Verify reagent function matches category before extracting
+          - Only extract if used in proteomics experiments
+      
+      10. MODIFICATION EXTRACTION PRINCIPLES:
+          - Extract post-translational modifications or chemical modifications
+          - Extract complete modification descriptions as stated
+          - Include modification type and target if specified together
+          - Capture both endogenous and induced modifications
+          - Only extract if used in proteomics experiments
+      
+      11. LABELING STRATEGY EXTRACTION PRINCIPLES (CRITICAL):
+          - Extract chemical labeling strategies used in the proteomics study
+          - Extract complete labeling scheme descriptions
+          - For isotopic labeling, include details when explicitly provided
+          - For chemical labeling, extract the labeling method name
+          - IMPORTANT: Also extract label-free quantification approaches when mentioned
+          - Label-free approaches include methods where no chemical or isotopic labels are added
+          - Look for terms indicating quantification strategy
+          - Search for any description of quantification methodology
+          - Maintain exact terminology used by authors
+          - Only extract if used in proteomics experiments
+      
+      12. DEPLETION EXTRACTION PRINCIPLES:
+          - Extract methods for removing high-abundance proteins
+          - Focus on depletion strategies applied to proteomics samples
+          - Only extract if used in proteomics experiments
+      
+      13. SPIKE-IN AND SYNTHETIC PEPTIDE PRINCIPLES:
+          - SpikedCompound: Extract exogenous standards or spike-ins added to samples
+          - SyntheticPeptide: Extract when synthetic peptides are used as samples
+          - Only extract if used in proteomics experiments
+      
+      14. STAINING EXTRACTION PRINCIPLES:
+          - Extract any staining applied to samples prior to MS that may still be present
+          - Focus on stains that could affect proteomics analysis
+          - Only extract if used in proteomics experiments
+      
+      15. ACCURACY OVER COMPLETENESS:
+          - When in doubt, do NOT extract
+          - Better to miss information than extract from non-proteomics sections
+          - Only extract when certain it matches the annotation type AND is from proteomics sections
+          - Empty lists are PERFECTLY ACCEPTABLE if annotations are not found
+      
+      16. NO TEXT IN OUTPUT:
+          - Return ONLY the JSON object with annotation lists
+          - Do NOT include source text sections
+          - Do NOT include explanations outside the JSON structure
+          - Do NOT include document identifiers in output
+      
+      17. EMPTY RESULTS ARE OK:
+          - If an annotation type is not found in the proteomics sections, return an empty list []
+          - Do NOT attempt to fill in likely values
+          - Do NOT extract related but different information
+          - It is better to return [] than to extract incorrect information
+      
+      18. SPECIFICITY REQUIREMENTS:
+          - Extract only information from proteomics sections that directly matches the annotation category
+          - DO NOT extract tangentially related information
+          - Verify category assignment is correct before including any term
+          - When category assignment is ambiguous, do NOT extract
+      
+      19. MENTAL VERIFICATION PROCESS:
+          - For each potential extraction, mentally note:
+            * Is this from a proteomics/mass spectrometry section of the paper?
+            * Where exactly in the proteomics section is this stated?
+            * Is this the exact wording from the source?
+            * Why does this qualify as this specific annotation type?
+            * Is this a complete word or phrase, not a character?
+            * For Label: Does this describe a quantification strategy (including label-free)?
+            * Does this help differentiate proteomics samples?
+            * Is this useful metadata or trivial information?
+          - Only include if you can clearly answer all relevant questions
+      
+      20. CONTEXT-BASED EXTRACTION:
+          - Pay attention to section context
+          - Some terms have different meanings in different contexts
+          - Extract based on functional role in the proteomics workflow
+          - Consider whether the information describes proteomics sample preparation
+          - Only extract from proteomics-relevant contexts
+      
+      21. CONTEXT-BASED EXCLUSIONS:
+          - Do NOT extract cell culture media components
+          - Do NOT extract chromatography mobile phase solvents
+          - Do NOT extract mass spectrometer acquisition parameters
+          - Do NOT extract general buffer components unless specifically relevant to proteomics sample prep
+          - Do NOT extract enrichment methods (handled in separation workflow)
+          - Do NOT extract fractionation methods (handled in separation workflow)
+          - Do NOT extract baits or affinity reagents (handled in separation workflow)
+          - Focus exclusively on proteomics sample preparation procedures
+      
+      Return ONLY a valid JSON object with lists of extracted values and no other text.
+
+pipeline:
+  steps:
+    - name: sample_prep_pipeline
+      input: papers
+      operations:
+        - extract_sample_prep
+
+  output:
+    type: file
+    path: ./output/sample_prep_complete.json
+    intermediate_dir: ./checkpoints
