@@ -1,0 +1,12 @@
+# Core script dependencies
+pandas
+numpy
+matplotlib
+openai
+
+# LLM evaluation framework
+deepeval
+
+# docetl + required rate limiter version
+docetl
+pyrate-limiter>=3.7.0,<4.0.0
