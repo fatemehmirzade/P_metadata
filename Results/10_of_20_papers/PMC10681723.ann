@@ -1,0 +1,10 @@
+GeneticModification: Spt16-TAP
+GeneticModification: Flag-tagged
+GeneticModification: GFP-tagged
+Genotype: isogenic W303-1 background
+MaterialType: cells
+Organism: S. cerevisiae
+Organism: Escherichia coli
+Staining: coomassie brilliant blue (CBB) staining
+Strain: W303-1
+Strain: BL21(DE3) CodonPlus RIL

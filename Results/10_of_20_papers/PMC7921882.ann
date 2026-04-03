@@ -1,0 +1,25 @@
+AcquisitionMethod: top 12 method
+AlkylationReagent: iodoacetamide
+CleavageAgent: MS-grade trypsin
+CollisionEnergy: normalized fragmentation energy at 27%
+Disease: house dust mite allergic individuals
+EnrichmentMethod: peptides were enriched and desalted using 100 μl Pierce C18 Tips (Thermo Fisher Scientific)
+FlowRateChromatogram: 300 nl/min
+GradientTime: 5–45% B in 120 min
+Instrument: Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific)
+IonizationType: nano electrospray
+Modification: carbamidomethylation (C)
+Modification: deamidation (NQ)
+Modification: oxidation (M)
+NumberOfSamples: 16
+NumberOfTechnicalReplicates: 4 to 6 independent experiments for each sample
+Organism: Dermatophagoides pteronyssinus
+Organism: Dermatophagoides farinae
+Organism: Blomia tropicalis
+Organism: Suidasia medanensis
+Organism: Cicer arietinum
+Organism: baker's yeast
+PooledSample: pooled
+ReductionReagent: dithiothreitol (DTT)
+Separation: reverse-phase nano-HPLC (Dionex Ultimate 3000, Thermo Fisher Scientific, Bremen, Germany), directly coupled via nano electrospray to a Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific)
+Separation: The column (Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific) was developed with an acetonitrile gradient

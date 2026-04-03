@@ -1,0 +1,30 @@
+AcquisitionMethod: data-dependent (dd) positive acquisition mode
+Bait: FLAG-BirA*-MOB1
+CellLine: HFF-1 (SCRC-1041; ATCC, Manassas, VA, USA)
+CleavageAgent: Trypsin/LysC
+CollisionEnergy: normalized collision energy of 27%
+Compound: biotin 150 µM
+EnrichmentMethod: The BioID method employs proximity-dependent biotin labeling
+EnrichmentMethod: incubated with agarose-streptavidin beads overnight at 18 °C
+FactorValue: FLAG-BirA*
+FactorValue: FLAG-BirA*-MOB1
+FlowRateChromatogram: 250 nl/min
+FragmentMassTolerance: 0.02 Da
+FragmentationMethod: HCD MS/MS
+GradientTime: 5 min (2.5% B to 10% B), 120 min (10% B to 30% B), 20 min (30% B to 50% B), 5 min (50% B to 99% B) and 10 min (hold 99% B)
+Instrument: Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer
+IonizationType: ESI
+Label: label-free quantitation
+MaterialType: cells
+Modification: Cysteine carbamidomethylation
+Modification: Methionine oxidation
+Modification: protein N-terminus acetylation
+NumberOfBiologicalReplicates: 3
+NumberOfMissedCleavages: 2
+Organism: Toxoplasma gondii
+OrganismPart: tachyzoites
+PrecursorMassTolerance: 10 ppm
+Separation: a trapping cartridge (Acclaim PepMap C18 100 Å, 5 mm × 300 µm i.d., 160454; Thermo Fisher Scientific, Inc., Waltham, MA, USA)
+Separation: a 50 cm by 75 μm inner diameter EASY-Spray column (ES803, PepMap RSLC, C18, 2 μm; Thermo Fisher Scientific, Inc., Waltham, MA, USA)
+Strain: FLAG-BirA*
+Strain: FLAG-BirA*-MOB1

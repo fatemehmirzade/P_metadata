@@ -1,0 +1,34 @@
+AcquisitionMethod: Data-dependent acquisition mode
+AlkylationReagent: iodoacetamide (IAA)
+CellLine: HeLa cells (ATCC)
+CleavageAgent: Trypsin
+CleavageAgent: Lys-C
+CollisionEnergy: collision energy of 28%
+Disease: type 1 diabetic
+Disease: non-diabetic
+FactorValue: type 1 diabetic
+FactorValue: control
+FlowRateChromatogram: 500 nL/min
+FlowRateChromatogram: 60 nL/min
+FlowRateChromatogram: 400 nL/min
+FragmentMassTolerance: 20, 10, and 7 ppm
+FragmentationMethod: high energy dissociation
+GradientTime: A linear 150-min gradient
+GradientTime: 20 min
+Instrument: Orbitrap Fusion Lumos Tribrid MS (ThermoFisher)
+IonizationType: Electrospray
+Label: LFQ
+MaterialType: cell line
+MaterialType: tissue
+Modification: N-terminal protein acetylation
+Modification: methionine oxidation
+Modification: Carbamidomethylation of cysteine residues
+NumberOfMissedCleavages: 2
+Organism: human
+OrganismPart: human pancreatic islet thin sections
+PrecursorMassTolerance: 4.5 ppm
+ReductionReagent: DTT
+Separation: SPE-LC-MS
+Separation: slurry-packed with 3-μm C18 packing
+Specimen: OCT (optimal cutting temperature compound) blocks
+Temperature: 37 °C

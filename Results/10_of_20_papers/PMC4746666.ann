@@ -1,0 +1,54 @@
+AcquisitionMethod: A data dependent mass spectrometric method
+Age: 40y
+Age: 39y
+Age: 27y
+Age: 20y
+AlkylationReagent: iodoacetamide
+CellLine: human embryonic stem cell line (hESC) ES04 (WiCell institute)
+CellPart: cytosolic (CYT)
+CellPart: nuclear (NUC)
+CellPart: chromatin-bound (CH)
+CellType: Mesenchymal stem cells (MSC)
+CellType: ESC-derived MSC
+CellType: Bone marrow-derived mesenchymal stem cells
+CellType: human embryonic stem cells (hESC)
+CleavageAgent: Lys-C
+CleavageAgent: Trypsin/P
+CollisionEnergy: (normalized collision energy 25)
+FactorValue: ESC
+FactorValue: ESC-MSC
+FactorValue: BM-MSC
+FactorValue: cytosolic (CYT)
+FactorValue: nuclear (NUC)
+FactorValue: chromatin-bound (CH)
+FlowRateChromatogram: 250 nl/min
+FractionationMethod: Subcellular fractionation
+FractionationMethod: in-solution isoelectric focusing (OFFGEL fractionator, Agilent)
+FragmentMassTolerance: FTMS MS/MS tolerance 20 ppm
+FragmentationMethod: higher energy collisional dissociation
+GradientTime: from 10 to 60% mobile phase B over 100 min
+Instrument: Q Exactive mass spectrometer (Thermo Scientific, Bremen, Germany)
+Label: SILAC
+Label: “light” labeling
+Label: L-lysine – U-13C615N2 (Lys8)
+Label: L-arginine – U-13C615N4 (Arg10)
+Label: L-lysine – U-13C415N0 (Lys4)
+Label: L-arginine – U-13C615N0 (Arg6)
+MaterialType: cells
+Modification: N-terminal acetylation
+Modification: methionine oxidation
+Modification: cysteine carbamidomethylation
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: 12 fractions
+NumberOfMissedCleavages: maximum two missed cleavages
+NumberOfTechnicalReplicates: 36 MS runs per sample
+NumberOfTechnicalReplicates: 12 MS runs per sample
+Organism: Homo Sapiens
+OrganismPart: bone marrow
+PrecursorMassTolerance: first search mass accuracy tolerance 20 ppm
+PrecursorMassTolerance: main search mass accuracy tolerance 4.5 ppm
+ReductionReagent: DTT
+Separation: EASY nLC-II
+Separation: ReproSil-Pur 120 C18-AQ 3 μ m diameter beads
+Sex: male
+Temperature: 37 °C

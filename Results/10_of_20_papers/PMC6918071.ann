@@ -1,0 +1,18 @@
+CleavageAgent: tryptic digest
+Depletion: S-depleted
+FactorValue: trophosome
+FactorValue: vestimentum
+FactorValue: plume
+FactorValue: S-rich
+FactorValue: S-depleted
+GradientTime: 4-h gradients
+MaterialType: tissue
+NumberOfBiologicalReplicates: 3
+NumberOfSamples: 18 samples
+NumberOfTechnicalReplicates: technical triplicates
+Organism: Riftia pachyptila
+OrganismPart: trophosome
+OrganismPart: vestimentum
+OrganismPart: plume
+ReductionReagent: dithiothreitol
+Separation: one-dimensional LC-MS/MS

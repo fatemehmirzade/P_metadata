@@ -1,0 +1,50 @@
+AcquisitionMethod: data-dependent auto-MS/MS mode
+AlkylationReagent: iodoacetamide
+CellLine: HeLa
+CellPart: Pelleted ribosomes
+CleavageAgent: LysC
+CleavageAgent: trypsin
+CollisionEnergy: NCE 28
+CollisionEnergy: collision energy ranged from 23 to 65 eV
+CollisionEnergy: collision energy was 42.0 eV
+Compound: human recombinant IFNβ 1000 U/mL
+EnrichmentMethod: purified using homemade Stop-and-go-extraction tips (StageTips) composed of C18 Empore material (3 M) packed in to 200 μL pipette tips
+FactorValue: 1000 U/mL
+FactorValue: 4 h
+FactorValue: 24 h
+FlowRateChromatogram: flow rate of 50 μL/min
+FlowRateChromatogram: a flow rate of 0.5 mL/min
+FlowRateChromatogram: 0.25 μL/min flow rate
+FlowRateChromatogram: 0.35 μL/min flow rate
+FractionIdentifier: fractions 6–65
+FractionationMethod: loaded onto a linear 10–50% sucrose gradient
+FractionationMethod: high pH reverse-phase (RP) fractionation on an Agilent 1100 HPLC system
+FractionationMethod: size exclusion chromatography (SEC)
+FragmentMassTolerance: fragment mass accuracy, 0.05 Da
+FragmentationMethod: HCD
+GradientTime: over 180 min
+GradientTime: Standard 90-min gradients
+GradientTime: from 5% B to 15% B over 60 min
+Instrument: Q-Exactive mass spectrometer (Thermo Fisher)
+Instrument: Impact II; Bruker Daltonics
+Instrument: timsTOF Pro; Bruker Daltonics
+IonizationType: Captive spray nanospray ionization source (Bruker Daltonics)
+Label: SILAC
+Label: label-free quantitation (LFQ)
+MaterialType: cell line
+Modification: carbamidomethyl
+Modification: methionine oxidation
+Modification: deamidation (NQ)
+Modification: N-acetylation (protein N-terminus)
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: 80 fractions
+Organism: Homo sapiens
+PooledSample: pooled
+PrecursorMassTolerance: peptide mass accuracy, 20 ppm (ppm) for first search, 10 ppm for second search
+ReductionReagent: DTT
+Separation: Easy nano LC 1000 nanoflow HPLC (Thermo Fisher) on-line coupled to a Q-Exactive mass spectrometer (Thermo Fisher)
+SpikedCompound: light reference mixture
+Temperature: 37 °C
+Time: 4 h
+Time: 24 h
+Treatment: IFNβ stimulation

@@ -1,0 +1,44 @@
+AcquisitionMethod: data dependent acquisition
+AlkylationReagent: iodoacetamide
+AnatomicSiteTumor: resected prostate cancer tissue specimens
+CellPart: urinary EV (uEV)
+CellPart: extracellular vesicles (EV)
+CellPart: EV separated from prostate tumour conditioned medium
+CleavageAgent: Trypsin/Lys-C mix
+CollisionEnergy: normalized collision energy of 27%
+Disease: prostate cancer
+Disease: benign prostate hyperplasia
+Disease: urothelial cancer of the bladder
+Disease: renal cell carcinoma
+DiseaseTreatment: radical prostatectomy
+DiseaseTreatment: intensity-modulated radiation therapy
+FactorValue: prostate cancer
+FactorValue: benign prostate hyperplasia
+FactorValue: urothelial cancer of the bladder
+FactorValue: renal cell carcinoma
+FactorValue: radical prostatectomy
+FactorValue: intensity-modulated radiation therapy
+FractionIdentifier: fractions 4–7
+FractionationMethod: Urine fractionation by bottom-up Optiprep density gradient centrifugation
+FractionationMethod: size exclusion chromatography (SEC)-based separation of EV from iodixanol
+FractionationMethod: A combination of SEC and top-down ODG
+FragmentationMethod: higher energy collisional dissociation (HCD)
+GradientTime: a 50-min gradient from 8% to 35% of solvent B
+Instrument: Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific)
+IonizationType: nano‐electrospray ionization
+Label: Label-free quantification (LFQ)
+MaterialType: biofluid
+MaterialType: tissue
+Modification: Carbamidomethyl (C)
+Modification: oxidation (M)
+Modification: acetylation of the protein N-terminus
+NumberOfMissedCleavages: two
+NumberOfTechnicalReplicates: Three
+Organism: homo sapiens
+OrganismPart: urine
+OrganismPart: prostate cancer tissue specimens
+ReductionReagent: dithiothreitol
+SamplingTime: 3 months after local treatment by radical prostatectomy or intensity-modulated radiation therapy
+Separation: nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific) coupled to a Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific)
+Sex: men
+TumorSite: prostate tumour

@@ -1,0 +1,26 @@
+AlkylationReagent: IAA
+CleavageAgent: trypsin
+DevelopmentalStage: mature pistils
+DevelopmentalStage: three DAP
+DevelopmentalStage: seven DAP
+EnrichmentMethod: incubated with pre-washed antibody beads (PTM Biolabs, Hangzhou, China) by gentle shaking at 4 °C overnight to enrich Kac peptides
+FactorValue: pistil
+FactorValue: three DAP
+FactorValue: seven DAP
+FlowRateChromatogram: 300 µL∙min−1
+FragmentMassTolerance: 0.02 Da
+Instrument: Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)
+Label: label-free
+MaterialType: tissue
+Modification: acetylation on Lys protein N-terminal
+Modification: carbamidomethylation on Cys
+Modification: oxidation on Met
+NumberOfBiologicalReplicates: 3
+NumberOfMissedCleavages: 4 missing cleavages
+Organism: Oryza sativa
+OrganismPart: pistil
+OrganismPart: seeds
+PrecursorMassTolerance: 10 ppm
+ReductionReagent: DL-Dithiothreitol
+Separation: reversed-phase analytical column (Thermo, Waltham, MA, USA.)
+Strain: Nipponbare
