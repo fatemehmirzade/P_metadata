@@ -1,0 +1,51 @@
+AcquisitionMethod: data in-dependent acquisition (DIA)
+AcquisitionMethod: data dependent acquisition (DDA)
+Age: Nine-week-old
+AlkylationReagent: iodoacetamide
+CellType: leukocytes
+CleavageAgent: trypsin
+CollisionEnergy: stepped normalized collision energy (NCE) of 25.5, 27 and 30
+Compound: Methylprednisolone (Solu-MedrolTM, Pfizer)
+Compound: meropenem (Pfizer)
+Disease: sepsis
+DiseaseTreatment: meropenem (Mem)
+DiseaseTreatment: methylprednisolone (Gcc)
+FactorValue: 18 h post-infection
+FactorValue: liver
+FactorValue: kidney
+FactorValue: spleen
+FactorValue: heart
+FactorValue: lung
+FactorValue: plasma
+FactorValue: leukocytes
+FlowRateChromatogram: 350 nl/min
+FractionationMethod: fractionated with High pH Reversed-Phase (Pierce)
+GradientTime: over 90 min
+GradientTime: 120 min
+Instrument: Q Exactive HF-X mass spectrometer (Thermo Fisher Scientific)
+MaterialType: biofluid
+MaterialType: cells
+MaterialType: tissue
+NumberOfBiologicalReplicates: 1
+NumberOfFractions: a total of 96 samples
+NumberOfSamples: n = 568
+Organism: mouse
+OrganismPart: plasma
+OrganismPart: liver
+OrganismPart: kidney
+OrganismPart: spleen
+OrganismPart: heart
+OrganismPart: lung
+PooledSample: pooled
+ReductionReagent: Tris(2-carboxyethyl)phosphine hydrochloride
+SamplingTime: 0-, 6-, 12-, and 18 h post-infection
+SamplingTime: 2- and 8 h.p.i.
+Separation: Peptides were trapped on precolumn (PepMap100 C18 3 mum; 75 mum x 2 cm; Thermo Fisher Scientific) and separated on an EASY-Spray column (ES903, column temperature 45 degreesC; Thermo Fisher Scientific).
+Sex: female
+Sex: male
+SpikedCompound: PROCAL standard peptides
+Strain: C57BL/6J
+Temperature: 37 degreesC
+Treatment: sterile DPBS
+Treatment: Methylprednisolone
+Treatment: meropenem

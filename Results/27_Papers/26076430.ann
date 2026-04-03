@@ -1,0 +1,45 @@
+AlkylationReagent: iodoacetamide
+CellLine: HEK293
+CleavageAgent: Lys-C
+CleavageAgent: trypsin
+CollisionEnergy: Normalized collision energies were set to 35%
+CollisionEnergy: Normalized collision energies were set to 25%
+FlowRateChromatogram: a flow rate of 0.8 mL/min
+FlowRateChromatogram: a flow rate of ~300 nL/min
+FractionationMethod: basic pH reverse phase fractionation
+FragmentMassTolerance: The fragment ion tolerance was set very narrow (0.01 Da)
+FragmentationMethod: HCD-MS2
+GradientTime: a 50 min linear gradient
+GradientTime: a 3 hr gradient
+Instrument: LTQ Orbitrap Elite, Thermo Scientific, San Jose, CA
+Instrument: Q-Exactive Orbitrap mass spectrometer
+IonizationType: LC-ESI-MS/MS
+MaterialType: cells
+MaterialType: tissue
+Modification: static modification for cysteine alkylation (57.02146 Da)
+Modification: Oxidation (M)
+Modification: deamidation (N, Q)
+Modification: phosphorylation (ST)
+Modification: pyro-glutamate (N-term Q)
+Modification: carbamylation (K)
+Modification: Formylation (ST)
+Modification: iron (ED)
+Modification: iodoacetmaide (M)
+Modification: N-terminal methionine cleavage and acetylation
+Modification: Acetylation (K)
+Modification: dihydroxy tryptophan (W)
+Modification: methylation (K)
+Modification: iodination (Y)
+Modification: N-terminal methionine cleavage
+NumberOfFractions: a total of 96 fractions
+NumberOfFractions: 24
+NumberOfMissedCleavages: 1 missed cleavage
+NumberOfSamples: 24
+Organism: Homo_sapiens
+Organism: Mus_musculus
+OrganismPart: mouse whole brain
+PrecursorMassTolerance: a precursor ion tolerance of 5 ppm
+PrecursorMassTolerance: The precursor ion tolerance was set to 500 Da
+ReductionReagent: dithiothreitol
+Separation: Peptide mixtures were separated on a 100 mum I.D. microcapillary column packed first with ~0.5 cm of Magic C4 resin (5 mum, 100 Aa, Michrom Bioresources, Auburn, CA) followed by 20 cm of Maccel C18AQ resin (3 mum, 200 Aa, Nest Group, Southborough, MA).
+Strain: C57BL/6 x 129/sv

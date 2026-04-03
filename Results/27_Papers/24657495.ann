@@ -1,0 +1,34 @@
+AcquisitionMethod: standard data dependent acquisition mode
+AcquisitionMethod: data dependent neutral loss-triggered-ETD (DDNL) strategy
+AcquisitionMethod: decision-tree method
+AlkylationReagent: iodoacetamide
+CellType: human erythrocytes
+CleavageAgent: Trypsin Gold
+Depletion: saponin lysis
+EnrichmentMethod: IMAC purification
+FactorValue: DDNL
+FactorValue: decision-tree
+FlowRateChromatogram: 0.3 mul/min
+FragmentMassTolerance: 0.5 Da for MS/MS mass tolerance
+FragmentationMethod: CID
+FragmentationMethod: ETD
+GradientTime: 320 min RP gradient (4-30% acetonitrile/0.1% formic acid)
+GradientTime: 4-hour LC gradients
+Instrument: LTQ Orbitrap Velos hybrid mass spectrometer (Thermo Scientific)
+IonizationType: nanospray ion source
+MaterialType: cells
+Modification: Carbamidomethyl (C)
+Modification: Phospho (ST)
+NumberOfFractions: 6 aliquots
+NumberOfMissedCleavages: 3
+NumberOfTechnicalReplicates: triplicate experiments using CID fragmentation
+Organism: Plasmodium falciparum
+Organism: Human
+OrganismPart: schizont
+PooledSample: pooled
+PrecursorMassTolerance: 10 ppm for MS mass tolerance
+ReductionReagent: DTT
+Separation: Ultimate 3000 nano/Capillary LC System (Dionex)
+Separation: micro-Precolumn cartridge (C18 Pepmap 100, LC Packings)
+Separation: Acclaim PepMap100 C18 analytical column (3 mum, 75 mum id x 50 cm) (Dionex)
+Strain: 3D7

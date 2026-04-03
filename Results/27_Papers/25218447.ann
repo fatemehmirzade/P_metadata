@@ -1,0 +1,44 @@
+AcquisitionMethod: data-dependent acquisition mode
+AlkylationReagent: chloroacetamide
+Bait: His10-SUMO-2-K0-Q87R
+CellLine: HeLa
+CellLine: U2-OS
+CleavageAgent: Sequencing Grade Endoproteinase Lys-C
+CleavageAgent: Sequencing Grade Modified Trypsin
+CollisionEnergy: a normalized collision energy of 25%
+Compound: MG-132 10 muM
+Compound: PR-619 20 muM
+Compound: Trichostatin A (TSA, Sigma) 150 nM
+Compound: curcumin (Sigma) 50 muM
+EnrichmentMethod: Ni-NTA agarose beads (Qiagen)
+FlowRateChromatogram: 250 nL per minute
+FragmentMassTolerance: a mass tolerance of 20 ppm was used for fragment ions
+FragmentationMethod: Higher-Collisional Dissociation (HCD)
+GeneticModification: His10-SUMO-2
+GeneticModification: His10-SUMO-2-K0-Q87R
+GradientTime: a 120 minute gradient from 5% to 75% acetonitrile in 0.1% formic acid
+Instrument: a Q-Exactive (Thermo)
+Label: Label-Free Quantification (LFQ)
+MaterialType: cell line
+Modification: Cysteine carbamidomethylation
+Modification: Protein N-terminal acetylation
+Modification: peptide N-terminal carbamylation
+Modification: methionine oxidation
+Modification: QQTGG
+Modification: pyro-QQTGG
+Modification: lysine acetylation
+Modification: serine-threonine-tyrosine phosphorylation
+NumberOfBiologicalReplicates: 17
+NumberOfMissedCleavages: Up to 3 missed tryptic cleavages
+NumberOfTechnicalReplicates: 11 technical replicates
+NumberOfTechnicalReplicates: 6 technical replicates
+NumberOfTechnicalReplicates: 9 technical replicates
+Organism: human
+PrecursorMassTolerance: a mass tolerance of 6 ppm for precursor masses
+ReductionReagent: beta-mercaptoethanol
+ReductionReagent: dithiothreitol (DTT)
+Separation: an EASY-nLC system (Proxeon) connected to a Q-Exactive (Thermo)
+Separation: 20 cm long analytical columns (ID 75 mum, Polymicro Avantes) packed in-house with 1.8 mum C18 beads (Reprospher 100)
+Temperature: 43degreesC
+Time: overnight
+Treatment: heat shock

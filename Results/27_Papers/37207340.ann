@@ -1,0 +1,31 @@
+Bait: mtPrA
+Bait: PrA-tagged bait proteins
+CellLine: ATCC 50162
+CellPart: mitochondria
+CleavageAgent: trypsin
+CollisionEnergy: a normalized collision energy at 30 V
+Compound: chloramphenicol (40 mg/l)
+Compound: G418 was added at 75-150 mg/l
+Compound: G418 selection ranging from 45 to 83 mug/ml
+Compound: 75 mug/ml G418
+EnrichmentMethod: Single-step affinity purification (AP)
+EnrichmentMethod: immunoprecipitation-mass spectrometry (IP-MS) experiments
+FlowRateChromatogram: 250 nl/min
+FragmentationMethod: HCD
+GeneticModification: C-terminally PrA-tagged
+GeneticModification: mitochondria-targeted PrA (mtPrA)
+GradientTime: 1 to 34% in 74 min
+GradientTime: 34 to 93% in 8 min
+Instrument: Orbitrap Fusion mass spectrometer (Thermo Scientific)
+IonizationType: Nanospray Flex Ion Source
+MaterialType: cells
+NumberOfTechnicalReplicates: quadruplicate
+NumberOfTechnicalReplicates: triplicate
+Organism: Diplonema papillatum
+ReductionReagent: DTT
+Separation: 75 mum i.d. x 150 mm Self-Pack C18 column installed in the Easy-nLC 1200 system (Proxeon Biosystems)
+Strain: ATCC 50162
+Temperature: 15-22degreesC
+Temperature: 27degreesC
+Treatment: chloramphenicol
+Treatment: G418

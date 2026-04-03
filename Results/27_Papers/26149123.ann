@@ -1,0 +1,40 @@
+AlkylationReagent: Iodoacetamide
+CellType: O+ human RBC
+CleavageAgent: trypsin (Promega)
+CollisionEnergy: normalized collision energy of 42.5
+Compound: Compound 2 (2 muM)
+DevelopmentalStage: schizonts
+Disease: human malaria
+EnrichmentMethod: IMAC enrichment of phosphopeptides
+EnrichmentMethod: titanium dioxide (TiO2) enrichment of phosphopeptides
+FactorValue: Compound 2
+FactorValue: wild-type
+FactorValue: PfPKGT618Q
+FlowRateChromatogram: 0.3 mul min-1
+FractionIdentifier: fractions 2-4
+FractionIdentifier: fractions 5-7
+FractionIdentifier: fractions 10-16
+FractionationMethod: Resource Q anion-exchange column (1 ml bed volume, GE Healthcare)
+FractionationMethod: linear gradient of 0-1 M NaCl in 10 mM TEAB, pH 7.0, collecting 1 ml fractions
+FragmentMassTolerance: 0.02 Da
+FragmentationMethod: higher-energy collision dissociation (HCD)
+Genotype: wild type
+GradientTime: 4 h
+Instrument: LTQ-Orbitrap-Velos mass spectrometer (Thermo Scientific)
+IonizationType: nanospray ion source
+Label: 6-plex TMT reagents (Thermo scientific)
+MaterialType: cells
+Modification: phosphorylation (S/T/Y)
+NumberOfBiologicalReplicates: 3
+Organism: Plasmodium falciparum
+OrganismPart: blood stage
+OrganismPart: late-stage schizonts
+PooledSample: pooled
+PrecursorMassTolerance: 10 p.p.m.
+ReductionReagent: DTT
+Separation: reverse-phase trap column (0.3 mm i.d. x 1 mm), containing 5 mum C18 300 Aa Acclaim PepMap medium (Dionex)
+Separation: reverse-phase PicoFrit capillary column (75 mum i.d. x 400 mm) containing Symmetry C18 100 Aa medium (Waters)
+Strain: 3D7
+Strain: PfPKGT618Q
+Temperature: 37 degreesC
+Time: 1 h

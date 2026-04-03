@@ -1,0 +1,39 @@
+AlkylationReagent: iodoacetamide
+AnatomicSiteTumor: rectal
+CleavageAgent: Trypsin Gold (Promega)
+CollisionEnergy: normalized collision energy 35%
+Compound: 5-fluorouracil (5-FU)
+Disease: locally advanced non-metastatic rectal adenocarcinoma
+DiseaseTreatment: neoadjuvant radio-chemotherapy (NRCT) with 5-fluorouracil (5-FU)
+DiseaseTreatment: 1600 mg/m2 intravenous 5-FU
+DiseaseTreatment: radiotherapy (RT) with a concomitant chemotherapy (CT), in a neoadjuvant situation (preoperatively)
+FactorValue: non-responders (NR)
+FactorValue: partial responders (PR)
+FactorValue: total responders (TR)
+FlowRateChromatogram: 4 microL/min
+FlowRateChromatogram: 200 nL/min
+FractionationMethod: Each lane was divided into four gel slices.
+FragmentMassTolerance: 20 ppm
+FragmentationMethod: collision induced dissociation
+GradientTime: 240 min
+Instrument: OrbiTrap QExactive mass spectrometer (Thermo Fisher Scientific Inc)
+IonizationType: EasySpray source
+MaterialType: tissue
+Modification: carbamidomethylation on cysteine
+Modification: methionine oxidation
+Modification: protein N-terminal acetylation
+NumberOfBiologicalReplicates: 23
+NumberOfFractions: four
+NumberOfMissedCleavages: 2 miscleavages allowed
+NumberOfSamples: twenty-three
+Organism: Homo sapiens
+PrecursorMassTolerance: 7 ppm
+ReductionReagent: dithiothreitol
+Separation: Acclaim PepMap100 C18 column (0.3 mm id x 5 mm)
+Separation: PepMap C18 nanocolumn (75 microm x 50 cm)
+Specimen: FFPE biopsies
+Staining: Coomassie Blue (SimplyBlue SafeStain)
+Treatment: 5-fluorouracil
+Treatment: capecitabine
+Treatment: radiotherapy
+TumorStage: (T3-T4, any N, M0/any T, N1-N2, M0)

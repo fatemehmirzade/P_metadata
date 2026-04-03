@@ -1,0 +1,64 @@
+AcquisitionMethod: data dependent acquisition
+CellPart: nuclear pellet
+CellPart: chromatin
+CellType: ES cells
+CellType: Capsaspora owczarzaki strain ATCC30864 filopodial cells
+CleavageAgent: trypsin
+DevelopmentalStage: vegetative stage
+DevelopmentalStage: adult sponges
+FragmentationMethod: collision induced dissociation (CID)
+FragmentationMethod: high energy collision dissociation (HCD)
+GradientTime: 90 min chromatographic gradient
+Instrument: LTQ-Orbitrap Fusion Lumos mass spec-trometer (Thermo Fisher Scientific, San Jose, CA)
+MaterialType: cells
+MaterialType: tissue
+Modification: Propionylation on N-terminal
+Modification: Propionylation on Lysines
+Modification: Phenylisocyanate on N-terminal
+Modification: Dimethyl lysine
+Modification: trimethyl lysine
+Modification: propionyl + methyl lysine
+Modification: acetyl lysine
+Modification: crotonyl lysine
+NumberOfMissedCleavages: up to 5 missed cleavages
+Organism: Capsaspora owczarzaki
+Organism: Corallochytrium limacisporum
+Organism: Creolimax fragrantissima
+Organism: Spizellomyces punctatus
+Organism: Thecamonas trahens
+Organism: Chlamydomonas reinhardtii
+Organism: Guillardia theta
+Organism: Emiliania huxleyi
+Organism: Thalassiosira pseudonana
+Organism: Bigelowiella natans
+Organism: Naegleria gruberi
+Organism: Gefionella okellyi
+Organism: Fabomonas tropica
+Organism: Homo sapiens
+Organism: Physcomitrella patens
+Organism: Sycon ciliatum
+Organism: Phytophthora infestans
+Organism: Methanobrevibacter cuticularis
+Organism: Methanospirillum stamsii
+Organism: Methanosarcina spelaei
+Organism: Nitrososphaera viennensis
+PrecursorMassTolerance: Precursor ion mass tolerance of 7 ppm at the MS1 level
+Separation: reversed-phase chromatography
+Strain: ATCC30864
+Strain: CH2
+Strain: DAOM BR117
+Strain: ATCC50062
+Strain: CC-503 cw92 mt+
+Strain: CCMP2712
+Strain: CCMP1516
+Strain: CCMP1335
+Strain: CCMP2755
+Strain: ATCC30224
+Strain: 249
+Strain: NYK3C
+Strain: Gransden 2004
+Strain: T30-4
+Strain: DSM 11139
+Strain: DSM 26304
+Strain: DSM 26047
+Strain: EN76

@@ -1,0 +1,43 @@
+AcquisitionMethod: data-dependent acquisition
+AcquisitionMethod: data-independent acquisition
+AlkylationReagent: iodoacetamide
+BMI: a body mass index below 30
+CleavageAgent: trypsin
+CollisionEnergy: collision energy: 30
+Disease: primary breast cancer
+FactorValue: spiculated
+FactorValue: nonspiculated
+FactorValue: whole tissue lysates (WTL)
+FactorValue: ALLPREP flow-throughs (FT)
+FactorValue: breast cancer tissues
+FactorValue: normal breast tissues
+FlowRateChromatogram: flow: 300 nL/min
+FractionIdentifier: different pHs: 8, 6, 5, 4, and 3
+FractionationMethod: strong anion-exchange (SAX; six stacked layers; 66888-U, Sigma) stage tips
+FragmentMassTolerance: within 1 ppm
+FragmentationMethod: higher energy induced collision dissociation
+GradientTime: 5% B for 5 min, 5-30% B in 85 min, 95% B for 10 min
+GradientTime: 10-30% B in 90 min; 30-45% B in 20 min; 45-90% B in 30 s, and 90% B for 9 min
+Instrument: Q-Exactive Plus (Thermo Fisher)
+Instrument: Q-Exactive HF-X (Thermo Fisher)
+Label: Label-free quantification (LFQ)
+MaterialType: tissues
+Modification: carbamidomethylation of Cys residues
+Modification: acetylation of the N-terminal residue
+Modification: oxidation of Met residues
+NumberOfBiologicalReplicates: 21
+NumberOfBiologicalReplicates: 24
+NumberOfBiologicalReplicates: 4
+NumberOfFractions: n of fractions: 6
+NumberOfSamples: 21 samples
+NumberOfSamples: 24 samples
+NumberOfSamples: four normal breast tissues
+Organism: human
+OrganismPart: primary breast tumor tissues
+OrganismPart: normal breast tissues
+PrecursorMassTolerance: 20 and 4.5 ppm for first and main searches, respectively
+ReductionReagent: dithiothreitol
+Separation: RP-HPLC EasySpray column (ID 75 mum x 25 cm C18 2 mum 100 Aa resin, Thermo Fisher)
+Separation: RP-HPLC (ID 75 mum x 50 cm C18 2 mum 100 Aa resin, Thermo Fisher)
+Sex: women
+TumorSite: breast

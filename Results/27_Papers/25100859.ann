@@ -1,0 +1,26 @@
+AcquisitionMethod: data-dependent acquisition (DDA)
+AcquisitionMethod: top-20 method
+AlkylationReagent: iodoacetamide
+CellLine: HeLa cell line
+CleavageAgent: trypsin
+CollisionEnergy: 25 V of normalized collisional energy
+FlowRateChromatogram: 250 nL/min
+FragmentMassTolerance: 20 ppm
+FragmentationMethod: higher-energy collisional dissociation
+GradientTime: 150 min
+GradientTime: two-hour gradient
+GradientTime: 80 min gradient
+Instrument: Orbitrap Q Exactive mass spectrometer (Thermo Scientific)
+MaterialType: cell line
+Modification: carbamidomethylation of C
+Modification: oxidation of M
+Modification: acetylation of protein N terminus
+NumberOfBiologicalReplicates: 3
+NumberOfMissedCleavages: 3
+Organism: human
+PrecursorMassTolerance: +/-20 ppm
+PrecursorMassTolerance: 10 ppm
+PrecursorMassTolerance: 6 ppm
+ReductionReagent: DTT
+Separation: Thermo Scientific EASY-Spray columns (PepMap(R) RSLC, C18, 100 Ang, 2 mum bead packed 50 cm column) connected to an Easy-nLC 1000 pump
+Specimen: cell lysate

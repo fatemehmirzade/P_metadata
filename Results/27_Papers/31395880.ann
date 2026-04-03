@@ -1,0 +1,31 @@
+AcquisitionMethod: data independent acquisition (DIA)
+AcquisitionMethod: data-dependent manner
+AlkylationReagent: iodoacetamide
+CleavageAgent: trypsin
+CollisionEnergy: normalized collision energy 30
+Disease: lung squamous cell carcinoma
+FlowRateChromatogram: 0.6 ml/min
+FlowRateChromatogram: 300 nl/min
+FractionationMethod: bRPLC separation
+FragmentMassTolerance: 0.5 m/z
+GradientTime: 95% solvent A (aqueous 2% acetonitrile + 0.1% formic acid) for 8 min, solvent B (aqueous 90% acetonitrile + 0.1% formic acid) from 5% to 38.5% in 60 min, then from 38.5 to 90% in 7 min, and held at 90% for 5 min, followed by solvent B from 90 to 5% in 1 min and re-equilibration for 10 min
+GradientTime: 100% bRPLC A (aqueous 2% acetonitrile with 5 mM ammonium formate, pH 10) for 9 min, then the concentration of bRPLC solvent B (aqueous 90% acetonitrile with 5 mM ammonium formate, pH 10) was increased to 6% over 4 min, to 28.5% over 50 min, to 34% over 5.5 min, and to 60% over 13 min, and then kept constant for 8.5 min prior to re-equilibration at the original conditions
+Instrument: Q Exactive Plus, Thermo, San Jose, CA
+IonizationType: electrospray
+Label: tandem mass tag (TMT)
+MaterialType: tissue
+Modification: carboamidomethylation
+Modification: oxidation
+Modification: pyroglutamine
+Modification: TMT label
+NumberOfBiologicalReplicates: 108
+NumberOfFractions: Twelve concatenated fractions
+NumberOfSamples: 174
+Organism: human
+OrganismPart: lung squamous cell carcinoma tumor tissues
+PooledSample: pooled
+PrecursorMassTolerance: 10 p.p.m.
+ReductionReagent: DTT
+Separation: pre-column (2 cm x 100 microm ID packed with C18 reversed-phase resin, 5 microm particle size, 100 Aa pore size)
+Separation: analytical column, (C18, 75 microm ID x 50 cm, 2 microm, 100 Aa, Dionex, Sunnyvale, CA)
+SpikedCompound: PRTC

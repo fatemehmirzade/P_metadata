@@ -1,0 +1,64 @@
+AcquisitionMethod: data-dependent mode
+AlkylationReagent: iodoacetamide
+CellType: Human RBCs
+CleavageAgent: LysC
+CleavageAgent: trypsin
+CollisionEnergy: the HCD collision energy was set at 38
+CollisionEnergy: the CID collision energy was set at 35
+CollisionEnergy: the HCD collision energy was set at 65
+CollisionEnergy: the HCD normalized collision energy was set at 33
+Compound: 100nM Rapamycin
+DevelopmentalStage: Asexual RBC stage
+Disease: human malaria
+EnrichmentMethod: TiO2 beads (Titansphere, 5 mum GL Sciences Japan)
+EnrichmentMethod: High Select Fe-NTA phosphopeptide enrichment kit (Thermo Fisher Scientific)
+FactorValue: DMSO
+FactorValue: RAP-treated
+FactorValue: P. falciparum iRBCs
+FactorValue: P. knowlesi iRBCs
+FactorValue: uRBCs
+FactorValue: A+=AB+=O+
+FlowRateChromatogram: at a flow rate of 0.8mL/minute
+FlowRateChromatogram: at a flow rate of 250 nL/minute
+FractionationMethod: Strong cation exchange (SCX) fractionation
+FractionationMethod: High pH sample fractionation
+FragmentationMethod: HCD MS/MS
+FragmentationMethod: CID MS/MS
+GradientTime: linear gradient of 5-60% B in 150 minutes (Lumos)
+GradientTime: 2-35% in 155 minutes (Q-Exactive)
+Instrument: Q-Exactive mass spectrometer
+Instrument: Orbitrap Lumos
+IonizationType: EasySpray nano source
+Label: TMT
+MaterialType: cells
+Modification: Cysteine carbamidomethylation
+Modification: Methionine oxidation
+Modification: acetylation of protein N-terminus
+Modification: deamidation (NQ)
+Modification: phosphorylation (S, T, Y)
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: A total of 12 fractions were collected
+NumberOfMissedCleavages: 2
+NumberOfMissedCleavages: 3
+NumberOfSamples: ten samples
+NumberOfTechnicalReplicates: 3 technical replicates each
+Organism: Homo sapiens
+Organism: Plasmodium falciparum
+Organism: Plasmodium knowlesi
+OrganismPart: erythrocyte
+OrganismPart: schizont-stage
+OrganismPart: ring-stage
+OrganismPart: trophozoite iRBCs
+PrecursorMassTolerance: 20 ppm
+PrecursorMassTolerance: 4.5 ppm
+ReductionReagent: DTT
+SamplingTime: 40-46hpi
+SamplingTime: ~24hpi
+Separation: Reverse phase chromatography was performed using the RSLC nano U3000 (Thermo Fisher Scientific) with a binary buffer system (solvent A: 0.1% formic acid, 5% DMSO; solvent B: 80% acetonitrile, 0.1% formic acid, 5% DMSO)
+Separation: loaded on a 50 cm Easy Spray PepMap column (75 mum inner diameter, 2 mum particle size, Thermo Fisher Scientific) equipped with an integrated electrospray emitter.
+Strain: NF54
+Strain: 1G5
+Temperature: 37degreesC
+Time: 4 hours
+Treatment: DMSO
+Treatment: Rapamycin

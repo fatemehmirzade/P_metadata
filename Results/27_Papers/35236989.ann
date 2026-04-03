@@ -1,0 +1,35 @@
+AcquisitionMethod: data-dependent acquisition mode
+Age: 8-12 weeks
+AlkylationReagent: iodoacetamide
+CleavageAgent: trypsin
+Depletion: multiple affinity removal system (MARS; Agilent)
+DevelopmentalStage: pregnant
+DevelopmentalStage: term delivery (>37 weeks)
+DevelopmentalStage: E15.5-E17.5
+DevelopmentalStage: E16.5-E18.5
+EnrichmentMethod: SNA-I lectin chromatography
+FactorValue: non-pregnant
+FactorValue: pregnant
+FactorValue: virgin
+FactorValue: xmOVA-pregnant
+FactorValue: pregnant women
+FlowRateChromatogram: 300 nl min-1
+FractionIdentifier: The flow-through fractions
+FractionIdentifier: Eluates
+FragmentationMethod: collision-induced dissociation
+GradientTime: a linear gradient of 3-40% B for 105 min
+Instrument: TripleTOF 6600 mass spectrometer (SCIEX)
+IonizationType: electrospray ionization
+MaterialType: biofluid
+NumberOfBiologicalReplicates: 3
+Organism: humans
+Organism: mice
+OrganismPart: Human plasma
+OrganismPart: Mouse plasma
+PooledSample: pooled
+ReductionReagent: 10 mM TCEP
+SamplingTime: Plasma from pregnant women was collected at the time of term delivery (>37 weeks).
+Separation: trap column (NanoLC Trap ChromXP, 350 mum i.d. x 0.5 mm, 3-mum particle size, 120 Aa pore size)
+Separation: ChromXP C18 column (75 mum i.d. x 15 cm, 3-mum particle size, 120 Aa pore size)
+Sex: women
+Strain: C57BL/6

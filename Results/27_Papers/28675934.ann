@@ -1,0 +1,37 @@
+AcquisitionMethod: data-dependent mode
+AlkylationReagent: iodoacetamide
+CleavageAgent: Lys-C
+CleavageAgent: trypsin
+CollisionEnergy: normal collision energy of 28
+Disease: high-grade serous ovarian cancer (HGSOC)
+Disease: triple-negative breast cancer (TNBC)
+EnrichmentMethod: ECM proteins were enriched from frozen whole tissue or tumor sections (20 x 30 mum sections, ~40-50 mg of tissue), as previously described.
+FactorValue: triple-negative breast cancer
+FactorValue: adjacent mammary tissue
+FactorValue: omental metastasis from high-grade serous ovarian cancer
+FactorValue: normal omentum
+FlowRateChromatogram: 1 mL/min
+FractionationMethod: Off-Line Fractionation of Peptides by Reversed-Phase Chromatography at High pH
+FragmentMassTolerance: 15 mmu for fragment-ion mass tolerance
+GradientTime: an 80 min gradient
+GradientTime: The gradient conditions were 0-10% B (0-5 min), 10-30% B (5-105 min), 30-40% B (105-119 min), 40-60% B (119-124 min), 60-100% B (124-126 min), 100% B (126-136 min), 100-0% B (136-138 min), and 0% B (138-140 min)
+Instrument: QExactive mass spectrometer (Thermo)
+IonizationType: nanoelectrospray
+MaterialType: tissue
+Modification: carbamidomethylation of cysteine
+Modification: oxidized methionine
+Modification: deamidation of asparagine
+Modification: pyro-glutamic acid modification at N-terminal glutamine
+Modification: hydroxylation of lysine and proline
+NumberOfBiologicalReplicates: 2
+NumberOfFractions: 15
+NumberOfMissedCleavages: two missed cleavages
+Organism: Homo sapiens
+OrganismPart: triple-negative breast cancer
+OrganismPart: adjacent mammary tissue
+OrganismPart: normal omentum
+PrecursorMassTolerance: 10 ppm mass tolerance for precursor ions
+ReductionReagent: dithiothreitol
+Separation: reversed-phase HPLC using an EASY-nLC1000 (Thermo Scientific) using a pre-column (made in house, 6 cm of 10 mum C18) and a self-pack 5 mum tip analytical column (12 cm of 5 mum C18, New Objective)
+Sex: women
+Temperature : 37 degreesC

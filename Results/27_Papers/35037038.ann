@@ -1,0 +1,22 @@
+Bait: 3xHA-miniTurbo-TRbeta
+Bait: 3X-HA-miniTurbo-TRbeta-GS125
+Bait: 3X-HA-miniTurbo-TRbeta-PV
+CellLine: Nthy-ORI
+CellPart: nuclear extract
+Compound: 10 nM T3
+Compound: 1 N NaOH
+Compound: 250 muM biotin
+EnrichmentMethod: streptavidin-coated magnetic beads
+FractionationMethod: SDS-PAGE
+GeneticModification: 3X-HA-miniTurbo-TRbeta vector
+GeneticModification: 3X-HA-miniTurbo-TRbeta-GS125
+Instrument: LTQ-Orbitrap instrument (ThermoFisher)
+Label: MaxQuant label-free quantification (LFQ) workflow
+MaterialType: cell line
+Modification: biotin labeling
+Organism: human
+OrganismPart: thyroid
+Specimen: cell pellet
+Staining: silver stained
+Time: 15 min
+Treatment: vehicle

@@ -1,0 +1,32 @@
+AcquisitionMethod: Data-Dependent Acquisition (DDA)
+AcquisitionMethod: PRM-MS
+Age: >=18 years of age
+AlkylationReagent: iodoacetamide
+CellLine: A549
+CellType: platelets
+CleavageAgent: trypsin
+CollisionEnergy: 28% normalized collision energy (NCE)
+Disease: COVID-19
+FactorValue: survivors
+FactorValue: non-survivors
+FactorValue: controls
+FlowRateChromatogram: 30 muL/min
+FlowRateChromatogram: 400 nL/min
+FragmentMassTolerance: 20 ppm
+FragmentationMethod: higher-energy collisional dissociation (HCD)
+GradientTime: over 98 min
+Instrument: Orbitrap Fusion(TM) Lumos(TM) Tribrid(TM) Mass Spectrometer
+IonizationType: electrospray ionization
+Label: label-free quantification (LFQ)
+MaterialType: biofluid
+MaterialType: cells
+Modification: Methionine oxidation
+Modification: cysteine carbamidomethylation
+NumberOfMissedCleavages: 2 missed cleavages
+Organism: Homo sapience
+PrecursorMassTolerance: 20 ppm
+PrecursorMassTolerance: 4.5 ppm
+ReductionReagent: dithiothreitol
+SamplingTime: median: 2 days after admission
+Separation: Ulti-Mate(TM) 3000 RSLCnano system (Thermo Fisher Scientific, Waltham, MA USA) with a trap column (Acclaim PepMap 100, 300 mum x 5 mm, C18, 5 mum, 100 Aa
+Separation: analytical column (Acclaim PepMap RSLC, 75 mum x 50 cm, nano Viper, C18, 2 mum, 100 Aa)

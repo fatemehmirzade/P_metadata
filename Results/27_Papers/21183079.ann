@@ -1,0 +1,35 @@
+Age: three-week-old
+CleavageAgent: trypsin
+EnrichmentMethod: phosphopeptide enrichment via immobilized metal affinity chromatography
+FactorValue: brain
+FactorValue: brown fat
+FactorValue: heart
+FactorValue: liver
+FactorValue: lung
+FactorValue: kidney
+FactorValue: pancreas
+FactorValue: spleen
+FactorValue: testis
+FractionationMethod: strong cation exchange chromatography
+FractionationMethod: SDS-PAGE
+Instrument: LTQ-Orbitrap mass spectrometer
+Instrument: LTQ-Velos-Orbitrap mass spectrometer
+MaterialType: tissue
+Modification: phosphorylation
+NumberOfSamples: 9
+NumberOfTechnicalReplicates: duplicate
+Organism: mouse
+OrganismPart: brain
+OrganismPart: brown fat
+OrganismPart: heart
+OrganismPart: liver
+OrganismPart: lung
+OrganismPart: kidney
+OrganismPart: pancreas
+OrganismPart: spleen
+OrganismPart: testis
+SamplingTime: Mice were sacrificed after overnight feeding, 6 hours after lights were turned on and eating ceased.
+Sex: male
+Strain: Swiss-Webster
+Time: overnight
+Treatment: overnight feeding

@@ -1,0 +1,38 @@
+AlkylationReagent: iodoacetamide
+CellType: O+ erythrocytes
+CleavageAgent: Trypsin
+CollisionEnergy: 35% normalized collision energy
+Compound: Shld-1
+Compound: 2.5 nM WR99210
+Compound: IBMX (250 muM)
+Compound: BAPTA-AM (40 muM)
+Compound: 8Br-cAMP (100 muM)
+Compound: PKI (20 muM)
+DevelopmentalStage: late schizont
+Disease: malaria
+EnrichmentMethod: TiO2 based enrichment of phosphopeptides
+FlowRateChromatogram: 1 ml flow rate per minute
+FractionationMethod: fractionated on Xbridge C18 5 um 250 x 4.6 mm column (Waters Corporation, Milford, MA, USA) using Agilent 1100 binary pump (Agilent Technologies, Santa Clara, CA, USA).
+FractionationMethod: The sample was resolved through reverse-phase liquid chromatography method using a gradient of 5 to 60% solvent B (10 mM triethylammonium bicarbonate, pH 8.5 in 95% Acetonitrile) with 1 ml flow rate per minute for over 60 min.
+FragmentMassTolerance: 0.1 Da
+FragmentationMethod: higher-energy collisional dissociation (HCD)
+GeneticModification: PfCDPK1 locus with 3HA-DD
+Genotype: PfCDPK1-3HA-DD parasites
+GradientTime: over 60 min
+GradientTime: over 120 min
+Instrument: Orbitrap Fusion Tribrid mass spectrometer
+Label: iTRAQ labeling
+MaterialType: cells
+Modification: Oxidation of methionine
+Modification: phosphorylation of serine, threonine and tyrosine
+NumberOfBiologicalReplicates: 4
+NumberOfFractions: A total of 96 fractions were concatenated into 12 fractions
+NumberOfMissedCleavages: one
+NumberOfSamples: four samples
+NumberOfTechnicalReplicates: technical duplicates
+Organism: Plasmodium falciparum
+PooledSample: pooled
+PrecursorMassTolerance: 20 ppm
+ReductionReagent: DTT
+Separation: Peptides were resolved on an analytical column (75 micro x 15 cm, 3 micro particle and 100 Aa pore size) using a linear gradient of 7 to 30% of solvent B (0.1% formic acid in 95% Acetonitrile) over 120 min.
+Temperature: 37 degreesC

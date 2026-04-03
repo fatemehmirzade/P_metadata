@@ -1,0 +1,43 @@
+AcquisitionMethod: data-dependent mode
+Bait: Bud20-TAP
+Bait: Arx1-TAP
+CleavageAgent: trypsin
+CollisionEnergy: 35% collision energy
+EnrichmentMethod: Crosslinked peptides were enriched by size exclusion chromatography (SEC)
+FactorValue: DSS-d0/DSS-d12
+FactorValue: BS3-d0/BS3-d12
+FactorValue: no crosslinking
+FactorValue: drg1-18 mutant
+FactorValue: 37 degreesC
+FlowRateChromatogram: 300 nl/minute
+FractionIdentifier: 0.9-1.0
+FractionIdentifier: 1.0-1.1
+FractionIdentifier: 1.1-1.2
+FractionIdentifier: 1.2-1.3
+FractionIdentifier: 1.3-1.4
+FractionationMethod: size exclusion chromatography (SEC)
+FragmentationMethod: CID
+Genotype: crm1T539C
+Genotype: drg1-18 mutant
+GradientTime: an 80-minute gradient
+Instrument: Orbitrap Fusion Tribrid mass spectrometer (Thermo Electron)
+Label: isotopically labeled crosslinking reagent A (disuccinimidyl suberate, DSS-d0/DSS-d12, Creative molecules)
+Label: isotopically labeled Crosslinker reagent B (bis(sulfosuccinimidyl)suberate, BS3-d0/BS3-d12, Sigma)
+MaterialType: cells
+NumberOfBiologicalReplicates: 2
+NumberOfBiologicalReplicates: 3
+NumberOfBiologicalReplicates: 4
+NumberOfFractions: four fractions
+NumberOfTechnicalReplicates: technical duplicates
+Organism: Saccharomyces cerevisiae
+PrecursorMassTolerance: 10 ppm
+SamplingTime: after 1 hour of incubation at 37 degreesC
+Separation: Peptides were separated on an EASY-nLC 1200 system (Thermo Scientific)
+Strain: thermosensitive drg1-18 mutant
+Strain: LmB-sensitive S. cerevisiae mutant strain (crm1T539C)
+Temperature: 37 degreesC
+Time: 1 hour
+Treatment: 1 hour of incubation at 37 degreesC
+Treatment: 1 mM ATPgammaS
+Treatment: 1.5 mM isotopically labeled crosslinking reagent A (disuccinimidyl suberate, DSS-d0/DSS-d12
+Treatment: 1.5 mM isotopically labeled Crosslinker reagent B (bis(sulfosuccinimidyl)suberate, BS3-d0/BS3-d12)

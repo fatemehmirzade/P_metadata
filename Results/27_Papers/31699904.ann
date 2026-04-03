@@ -1,0 +1,68 @@
+AcquisitionMethod: data-dependent acquisition (DDA)
+AcquisitionMethod: data-independent acquisition (DIA)
+AlkylationReagent: iodoacetamide
+CellLine: C2C12
+CellType: immortalized mouse myoblast
+CleavageAgent: trypsin
+CollisionEnergy: 27% NCE
+CollisionEnergy: (25.5%, 27 and 30% NCE)
+Compound: beta-lactoglobulin
+Compound: fibrinogen alpha
+Compound: fibrinogen beta
+Compound: fibrinogen gamma
+Compound: glucose oxidase
+Compound: human hemoglobin alpha
+Compound: human hemoglobin beta
+Compound: lipases 1
+Compound: lipases 2
+Compound: lipases 3
+Compound: lysozyme
+Compound: myoglobin
+FractionationMethod: Protein Fractionation by SDS-PAGE
+FractionationMethod: the "Pierce High pH Reversed-Phase Peptide Fractionation Kit" (Thermo Fisher Scientific)
+FragmentMassTolerance: 20 mmu
+FragmentationMethod: HCD
+GradientTime: 120 min gradient
+Instrument: Q Exactive HF mass spectrometer (Thermo Fisher Scientific)
+IonizationType: electrospray ionization
+Label: label-free quantification (LFQ)
+MaterialType: cells
+Modification: carbamidomethylation at C
+Modification: oxidation (M)
+Modification: Gln->pyro-Glu (N-terminal Q)
+Modification: deamidated (NQ)
+Modification: ammonium (DE)
+Modification: ammonia-loss (N, N-terminal C)
+NumberOfFractions: 10 different fractions
+NumberOfFractions: 8 fractions
+NumberOfMissedCleavages: two
+NumberOfSamples: five spike-in states
+NumberOfTechnicalReplicates: triplicate
+Organism: Aspergillus niger
+Organism: bovine
+Organism: Candida rugosa
+Organism: chicken
+Organism: equine
+Organism: human
+Organism: mouse
+OrganismPart: bovine milk
+OrganismPart: chicken egg white
+OrganismPart: equine skeletal muscle
+OrganismPart: human plasma
+PrecursorMassTolerance: 5 ppm
+ReductionReagent: dithiothreitol
+Separation: PepMap 100 C18 (100 mum ID x 2 cm, particle size 5 mum, pore size 100 Ang; Thermo Fisher Scientific) as precolumn
+Separation: PepMap C18 (75 mum x 50 cm, particle size 2 mum, pore size 100 Ang; Thermo Fisher Scientific) as analytical column
+SpikedCompound: iRT kit
+SpikedCompound: human alpha-synuclein
+SpikedCompound: beta-lactoglobulin from bovine milk
+SpikedCompound: fibrinogen alpha, beta and gamma from human plasma
+SpikedCompound: glucose oxidase from Aspergillus niger
+SpikedCompound: human hemoglobin alpha and beta
+SpikedCompound: lipases 1, 2 and 3 from Candida rugosa
+SpikedCompound: lysozyme from chicken egg white
+SpikedCompound: myoglobin from equine skeletal muscle
+Time : 120 min
+Time : overnight
+Staining: SimplyBlue SafeStain
+Temperature: 37 degreesC

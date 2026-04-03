@@ -1,0 +1,18 @@
+AlkylationReagent: acrylamide
+CellLine: ExpiCHO-S cells
+CleavageAgent: sequencing grade porcine trypsin
+CleavageAgent: bovine chymotrypsin
+CleavageAgent: endoproteinase Glu-C from Staphylococcus aureus V8
+FlowRateChromatogram: 5 microL/min
+FragmentMassTolerance: 0.1 Da
+FragmentationMethod: collision induced dissociation (CID)
+GradientTime: 5-35% solution B (6 min)
+GradientTime: 5-35% solution B over 22 min
+Instrument: ZenoTOF 7600 mass spectrometer (SCIEX)
+Modification: Propionamide at cysteine
+Modification: Oxidation at methionine
+Modification: deamidation of asparagine
+NumberOfMissedCleavages: two missed cleavages
+PrecursorMassTolerance: 20 ppm
+ReductionReagent: dithiothreitol
+Separation: Waters nanoEase M/Z HSS T3 C18 column (300 microm x 150 mm, 1.8 microm, 100 Aa)

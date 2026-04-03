@@ -1,0 +1,32 @@
+AcquisitionMethod: top 10
+AlkylationReagent: iodoacetamide
+CleavageAgent: trypsin
+CollisionEnergy: 25% normalized collision energy
+Disease: pancreatic ductal adenocarcinoma (PDAC)
+FlowRateChromatogram: 6 mul/min
+FlowRateChromatogram: 300 nl/min
+FractionIdentifier: gel band 1
+FractionIdentifier: gel band 2
+FractionIdentifier: gel band 5
+FractionationMethod: protein lysates were separated on pre-cast 4%-12% gradient gels using the NuPAGE SDS-PAGE system (Invitrogen, Carlsbad, CA, USA).
+FragmentMassTolerance: 20 ppm
+FragmentationMethod: HCD (higher-energy collision)
+GradientTime: 10-40% buffer B gradient for 75 min
+Instrument: Q Exactive mass spectrometer (Thermo Fisher, Bremen, Germany)
+Label: label-free quantification option
+MaterialType: tissue
+Modification: Cysteine carboxamidomethylation (Cys, +57.021464 Da)
+Modification: methionine oxidation (Met, +15.994915 Da)
+Modification: N-terminal acetylation (N-terminal, +42.010565 Da)
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: five bands
+NumberOfMissedCleavages: two
+NumberOfSamples: 20
+Organism: Homo sapiens
+OrganismPart: bulk tumor tissue
+PrecursorMassTolerance: 4.5 ppm
+ReductionReagent: DTT
+Separation: Ultimate 3000 nanoLC system (Dionex LC-Packings, Amsterdam, The Netherlands) equipped with a 40 cm x 75 mum internal diameter (ID) fused silica column custom packed with 1.9 mum 120 Aa ReproSil Pur C18 aqua (Dr Maisch GMBH, Ammerbuch-Entringen, Germany).
+Staining: Coomassie brilliant blue G-250
+Temperature: 37 degreesC
+TumorCellularity: 5-10% tumor surface

@@ -1,0 +1,30 @@
+Age: 2-week-old seedlings
+CellPart: nuclei
+CleavageAgent: trypsin
+EnrichmentMethod: pre-washed GFP-Trap_A agarose beads (ChromoTek) was added to pull down target protein complex
+FactorValue: WT
+FractionationMethod: SDS-PAGE gel
+GeneticModification: mta ABI3:MTA
+GeneticModification: fip37-4
+GeneticModification: vir-1
+GeneticModification: hakai-2
+GeneticModification: Salk_045882 (hiz1-1)
+GeneticModification: Salk_000717 (hiz1-2)
+GeneticModification: Salk_120590 (hiz2-1)
+GeneticModification: Salk_020625 (hiz2-2)
+GeneticModification: Salk_126486 (hiz2-3)
+GeneticModification: HAKAIpro:HAKAI-GFP
+GeneticModification: MTApro:MTA-GFP
+GeneticModification: FIP37pro:FIP37-GFP
+GeneticModification: HIZ1pro:HIZ1-GFP
+Genotype: WT
+Instrument: LTQ Orbitrap Velos Pro mass spectrometer (Thermo Fisher Scientific)
+Label: label free quantification (LFQ)
+MaterialType: tissue
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: five slices
+Organism: Arabidopsis
+OrganismPart: seedlings
+ReductionReagent: DTT
+Strain: Colombia-0
+Treatment: 1% formaldehyde

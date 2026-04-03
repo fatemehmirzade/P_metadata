@@ -1,0 +1,38 @@
+AcquisitionMethod: SPS-MS3-based TMT method
+AcquisitionMethod: Top10 method
+AlkylationReagent: iodoacetamide
+CleavageAgent: LysC
+CleavageAgent: trypsin
+CollisionEnergy: a normalized collision energy (NCE) of 34
+CollisionEnergy: an NCE of 45%
+Compound: glucose 20 g/L
+EnrichmentMethod: Samples were enriched using the Pierce High Select Fe-NTA phosphopeptide enrichment kit (A32992)
+FlowRateChromatogram: 0.6 mL/min
+FlowRateChromatogram: 500 nL/min
+FractionationMethod: basic reverse-phase fractionation on an Agilent 300Extend-C18 column (3.5 mum, 4.6 x 250 mm) using an Agilent Infinity 1260 HPLC
+FragmentMassTolerance: a 0.9 Da product ion tolerance
+FragmentationMethod: collision-induced dissociation
+GradientTime: 75 min
+GradientTime: 90 min
+Instrument: Orbitrap Fusion Lumos mass spectrometer (Thermo Fisher Scientific)
+Label: labeling with the TMT11 (Thermo A37727) reagent
+MaterialType: cells
+Modification: oxidation of methionine residues (+15.9949 Da)
+Modification: deamidation on asparagine and glutamine (+0.9840 Da)
+Modification: phosphorylation (+79.9663 Da)
+Modification: deamidation on asparagine and glutamine
+Modification: carbamidomethylation of cysteine residues
+Modification: TMT tags on lysine residues and peptide N termini
+NumberOfFractions: 96 fractions
+NumberOfFractions: 24
+NumberOfFractions: 12
+Organism: Saccharomyces cerevisiae
+PooledSample: pooled
+PrecursorMassTolerance: a 20 ppm precursor ion tolerance
+ReductionReagent: TCEP
+ReductionReagent: DTT
+Separation: Peptides were separated on a 35 cm column (100 mum i.d., Accucore, 2.6 mum, 150 Aa, packed in-house) using a 90 min gradient (from 5 to 30% acetonitrile with 0.1% formic acid) at 500 nL/min.
+Specimen: Frozen cell pellets
+Strain: BY4742
+Temperature: 30 degreesC
+Treatment: 20 g/L glucose

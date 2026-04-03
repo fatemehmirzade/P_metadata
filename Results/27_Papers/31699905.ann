@@ -1,0 +1,33 @@
+AcquisitionMethod: data-dependent MS/MS
+AlkylationReagent: chloroacetamide
+CleavageAgent: trypsin
+CleavageAgent: Lys-C
+CollisionEnergy: 30-40% normalized collision energy
+Disease: Alzheimer disease (AD)
+Disease: sporadic AD
+FactorValue: sporadic AD
+FactorValue: control
+FlowRateChromatogram: 250 nl/min
+FractionationMethod: pre-fractionated into 72 fractions using HiRIEF with the broad range pH 3-10 IPG drystrip
+FragmentMassTolerance: fragment ion mass tolerance of 0.02 Da
+FragmentationMethod: higher energy collision dissociation
+Instrument: hybrid Q-Exactive-HF mass spectrometer (Thermo Scientific)
+Label: TMT10plex 126-131Da
+Label: amine-reactive isobaric tandem mass tags (TMTs)
+MaterialType: tissue
+Modification: carbamidomethylation on cysteine residues
+Modification: oxidation on methionine residues
+Modification: TMT10plex on peptide N termini
+Modification: lysine residues
+NumberOfBiologicalReplicates: 10
+NumberOfFractions: 72 contiguous fractions
+NumberOfMissedCleavages: 2 missed cleavages
+NumberOfSamples: ten samples
+NumberOfTechnicalReplicates: No technical replicates
+Organism: human
+OrganismPart: outer two-thirds of the molecular layer of the dentate gyrus
+OrganismPart: frozen hippocampal tissues
+PooledSample: pooled
+PrecursorMassTolerance: precursor mass tolerance of 10 ppm
+ReductionReagent: DTT
+Separation: Samples were trapped on a C18 guard-desalting column (Acclaim PepMap 100, 75 mum x 2 cm, nanoViper, C18, 5 mum, 100Ang), and separated on a 50 cm long C18 column (Easy spray PepMap RSLC, C18, 2 mum, 100Ang, 75 mum x 50 cm).
