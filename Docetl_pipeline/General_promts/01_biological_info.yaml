@@ -1,0 +1,275 @@
+default_model: gpt-5.2
+max_threads: 4
+
+model_settings:
+  gpt-5.2:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+optimizer_config:
+  enable_optimizer: true
+  sample_size: 5  
+  validation_sample_size: 3  
+  optimizer_model: gpt-5.2
+  optimizer_model_settings:
+    reasoning:
+      effort: medium
+    text:
+      verbosity: low
+
+datasets:
+  papers:
+    type: file
+    path: ./papers_dataset.json
+
+operations:
+  - name: extract_biological_info
+    type: map
+    model: gpt-5.2
+    model_params:
+      reasoning:
+        effort: medium
+      text:
+        verbosity: low
+    prompt: |
+      You are an expert in proteomics research extracting biological sample annotations from scientific papers.
+      
+      Paper: {{ input.filename }}
+      
+      {% if input.abstract %}
+      Abstract:
+      """{{ input.abstract }}"""
+      {% endif %}
+      
+      {% if input.methods %}
+      Methods:
+      """{{ input.methods }}"""
+      {% endif %}
+      
+      {% if input.supplementary %}
+      Supplementary Information:
+      """{{ input.supplementary }}"""
+      {% endif %}
+      
+      CRITICAL FIRST STEP - IDENTIFY PROTEOMICS SECTIONS:
+      Before extracting any annotations, you MUST:
+      1. Read through ALL sections of the paper (abstract, methods, results, figures, supplementary)
+      2. Identify which parts describe PROTEOMICS or MASS SPECTROMETRY experiments
+      3. Look for IMPLICIT proteomics indicators including:
+         - Affinity purification followed by mass spectrometry (AP-MS)
+         - Tandem affinity purification (TAP) - commonly used for MS
+         - Protein purification workflows that precede MS analysis
+         - Immunoprecipitation (IP) followed by MS
+         - Pull-down assays analyzed by MS
+         - References to MS in abstract even if methods don't explicitly mention it
+      4. Extract annotations from these proteomics-specific sections
+      5. IGNORE sections about non-MS techniques (western blot, microscopy, cell culture only)
+      
+      PROTEOMICS WORKFLOW DETECTION SIGNALS:
+      - Direct mentions: "mass spectrometry", "MS", "LC-MS", "proteomics"
+      - Affinity purification techniques: "TAP", "AP-MS", "pull-down MS"
+      - Protein identification workflows followed by unspecified analysis (assume MS if in proteomics paper)
+      - Abstract mentions proteomics while methods describe protein purification
+      
+      The annotations you extract must describe HOW THE PROTEOMICS PART OF THE STUDY WAS PERFORMED.
+      If a paper contains multiple experiment types, focus exclusively on the proteomics/mass spectrometry workflow.
+      
+      Extract the following biological sample annotation types from proteomics sections only:
+      
+      - Organism: Source species which the proteomics experiment or study was about
+      - Strain: Specific organism strain, animal strain, or cultivar designations
+      - Age: Age of biological subjects in any format
+      - Sex: Biological sex of subjects
+      - OrganismPart: Tissue or organ of origin, anatomical structures
+      - MaterialType: Broad class of material (type of biological material)
+      - Specimen: Description of biological specimen 
+      - AncestryCategory: Human ancestry or ethnicity only
+      - DevelopmentalStage: Stage of development for the sample source, life phase
+      - Genotype: Genetic background description
+      - GeneticModification: Genetic modifications applied (includes tagged proteins for MS workflows)
+      - Treatment: Experimental treatment applied in the Proteomics Experiment only
+      
+      CRITICAL EXTRACTION RULES:
+      
+      PROTEOMICS-ONLY EXTRACTION (HIGHEST PRIORITY):
+      
+      A. PROTEOMICS SECTION IDENTIFICATION:
+         - First, identify all sections that describe proteomics or mass spectrometry experiments
+         - Extract annotations ONLY from these proteomics-specific sections
+         - DO NOT extract from sections about non-MS techniques
+         - ALLOW reasonable inference when abstract mentions proteomics but methods describe protein purification
+      
+      B. SAMPLE DIFFERENTIATION TEST:
+         - Before extracting, ask: "Is this metadata important for differentiating between proteomics samples?"
+         - If NO, do not extract it
+         - Focus on metadata that distinguishes one proteomics sample from another
+      
+      C. UTILITY TEST:
+         - Before extracting, ask: "Is this metadata trivial or useful?"
+         - Do NOT extract typical values used commonly across most proteomics experiments
+         - Focus on metadata that provides meaningful experimental context
+      
+      D. BALANCED ANNOTATION APPROACH:
+         - Avoid being too liberal: Don't fill with useless metadata
+         - Avoid being too conservative: Don't miss key differentiating metadata
+         - Apply both tests (B and C) to achieve balance
+      
+      E. COMPREHENSIVE PROTEOMICS SECTION REVIEW:
+         - Use ALL parts of the paper that discuss proteomics
+         - Some critical information only appears in results or figure captions
+         - Search thoroughly across all proteomics-relevant sections before finalizing extraction
+      
+      F. CONCISE EXTRACTION:
+         - Extract ONLY the specific requested information, NOT entire sentences
+         - Remove unnecessary context, articles, and explanatory phrases
+         - Extract the minimal phrase that captures the annotation
+         - Do NOT include surrounding text or full sentence structure
+      
+      1. SOURCE FIDELITY: Extract ONLY text that exists verbatim in the source material
+         - MUST copy exact wording, spelling, and punctuation from the text
+         - Do NOT paraphrase, rephrase, or reword anything
+         - Do NOT standardize or normalize terminology
+         - Extract the minimal necessary phrase, not full sentences
+      
+      2. CONTROLLED INFERENCE: Extract explicitly stated information, with LIMITED inference allowed for:
+         - Organism names from standardized strain names
+         - Common laboratory organism identification from strain nomenclature
+         - Standard genetic backgrounds when strain names are provided
+         - MaterialType when cell culture or tissue work is described
+         - DO NOT infer other annotation types
+         - DO NOT make assumptions beyond standard nomenclature
+      
+      3. NO HALLUCINATION: Do NOT generate or fabricate any information
+         - Every extracted annotation MUST be traceable to the proteomics sections
+         - If you cannot find it in the proteomics-relevant text, do NOT include it
+         - Do NOT use your background knowledge to add information beyond standard nomenclature
+      
+      4. NO DUPLICATES: Extract each unique annotation only ONCE
+         - If the same term appears multiple times, extract it only ONCE
+         - Do NOT repeat the same annotation
+         - Check for uniqueness before adding to the list
+         - This is critical for maintaining clean, non-redundant metadata
+      
+      5. VERIFY BEFORE EXTRACTION: Before extracting any annotation, verify:
+         - Is this from a section describing proteomics/MS experiments OR protein purification for MS?
+         - Can you point to the exact location in the proteomics text where it appears?
+         - Is it written exactly as you are extracting it (or standard nomenclature inference)?
+         - Does it clearly match the annotation type definition?
+         - Does it pass the sample differentiation test?
+         - Does it pass the utility test?
+         - Have I extracted only the essential information without full sentences?
+         - If you cannot answer YES to all seven, do NOT extract it
+      
+      6. ORGANISM-SPECIFIC RULES:
+         - Extract the source species for the proteomics experiment
+         - For cell lines, extract the organism species, NOT the cell line name
+         - For bacterial strains, extract the species name as Organism
+         - Extract ONLY species-level taxonomic names
+         - ALLOWED INFERENCE: Standard strain nomenclature to species
+         - Do NOT extract descriptive terms as organism names
+         - Only extract if these samples underwent proteomics analysis
+      
+      7. STRAIN-SPECIFIC RULES:
+         - Extract ONLY specific strain, animal strain, or cultivar designations
+         - Extract exact strain names as written 
+         - Do NOT extract cell line names
+         - Do NOT extract cell types or general descriptions
+         - Only extract if these strains were analyzed by MS
+      
+      8. MATERIAL TYPE RULES:
+         - Extract broad class of material only
+         - ALLOWED extraction: "cells", "tissue", "plasma", "serum", "lysate"
+         - Do NOT extract specific cell types or cell line names
+         - Do NOT extract preparation methods
+         - Only extract if this material was used in proteomics experiments
+      
+      9. GENETIC MODIFICATION RULES:
+         - Extract ALL genetic modifications 
+         - Tags used for MS purification workflows ARE genetic modifications
+         - Extract the complete modification descriptor as written
+         - Include both the gene/protein name and the modification type
+         - Only extract if these modifications are in samples analyzed by MS
+      
+      10. TREATMENT RULES:
+          - Extract ONLY experimental treatments applied in the proteomics experiment
+          - Do NOT extract treatments from non-proteomics parts of the study
+          - If multiple treatments are mentioned but only some groups were analyzed by MS, extract ONLY those
+          - Verify that the treated samples were actually subjected to mass spectrometry
+          - Extract only the treatment name or identifier, not full experimental descriptions
+      
+      11. DEVELOPMENTALSTAGE RULES:
+          - Extract the stage of development for the sample source
+          - Focus on life phase or developmental stage
+          - Only extract if this describes samples used in proteomics
+      
+      12. ACCURACY OVER COMPLETENESS:
+          - When in doubt, do NOT extract
+          - Better to miss information than extract from non-proteomics sections
+          - Only extract when certain it matches the annotation type AND is from proteomics sections
+          - Empty lists are PERFECTLY ACCEPTABLE if annotations are not found
+      
+      13. NO TEXT IN OUTPUT:
+          - Return ONLY the JSON object with annotation lists
+          - Do NOT include source text sections
+          - Do NOT include explanations outside the JSON structure
+          - Do NOT include document identifiers in output
+      
+      14. EMPTY RESULTS ARE OK:
+          - If an annotation type is not found in the proteomics sections, return an empty list []
+          - Do NOT attempt to fill in likely values
+          - Do NOT extract related but different information
+          - It is better to return [] than to extract incorrect information
+      
+      15. SPECIFICITY REQUIREMENTS:
+          - Extract only information from proteomics sections that directly matches the annotation category
+          - DO NOT extract tangentially related information
+          - Verify category assignment is correct before including any term
+          - When category assignment is ambiguous, do NOT extract
+      
+      16. MENTAL VERIFICATION PROCESS:
+          - For each potential extraction, mentally note:
+            * Is this from a proteomics/mass spectrometry section of the paper?
+            * Where exactly in the proteomics section is this stated?
+            * Is this the exact wording from the source?
+            * Have I removed unnecessary sentence structure and context?
+            * Why does this qualify as this specific annotation type?
+            * Does this help differentiate proteomics samples?
+            * Is this useful metadata or trivial information?
+          - Only include if you can clearly answer all relevant questions
+      
+      17. CONTEXT-BASED EXTRACTION:
+          - Pay attention to section context
+          - Some terms have different meanings in different contexts
+          - Extract based on functional role in the proteomics workflow
+          - Consider whether the information describes proteomics samples
+          - Only extract from proteomics-relevant contexts
+      
+      Return ONLY a valid JSON object with lists of extracted values and no other text.
+    output:
+      schema:
+        Organism: list[string]
+        Strain: list[string]
+        Age: list[string]
+        Sex: list[string]
+        OrganismPart: list[string]
+        MaterialType: list[string]
+        Specimen: list[string]
+        AncestryCategory: list[string]
+        DevelopmentalStage: list[string]
+        Genotype: list[string]
+        GeneticModification: list[string]
+        Treatment: list[string]
+
+pipeline:
+  steps:
+    - name: biological_pipeline
+      input: papers
+      operations:
+        - extract_biological_info
+
+  output:
+    type: file
+    path: ./output/biological_info_complete.json
+    intermediate_dir: ./checkpoints
