@@ -1,0 +1,12 @@
+Metric,Value
+Micro-averaged Precision,0.7429
+Micro-averaged Recall,0.6078
+Micro-averaged F1,0.6686
+Macro-averaged Precision,0.5227
+Macro-averaged Recall,0.4922
+Macro-averaged F1,0.4802
+Total GT Entities,1336
+Total Pred Entities,1093
+True Positives,812
+False Positives,281
+False Negatives,524

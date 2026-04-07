@@ -1,0 +1,282 @@
+Entity_Type,File,Pred_Text,Pred_Line
+AcquisitionMethod,37681923,PRM-MS,2
+Age,35236848,2-week-old seedlings,1
+AnatomicSiteTumor,29681787,rectal,2
+BMI,33855848,a body mass index below 30,4
+Bait,25218447,His10-SUMO-2-K0-Q87R,3
+Bait,28091603,GST:Repo-Man,2
+Bait,28091603,GST alone,3
+Bait,35037038,3xHA-miniTurbo-TRbeta,1
+Bait,35037038,3X-HA-miniTurbo-TRbeta-GS125,2
+Bait,35037038,3X-HA-miniTurbo-TRbeta-PV,3
+Bait,36097293,Arx1-TAP,3
+Bait,37207340,mtPrA,1
+CellLine,37328468,ExpiCHO-S cells,2
+CellLine,37681923,A549,5
+CellPart,28091603,chromatin,5
+CellPart,35037038,nuclear extract,5
+CellPart,35236848,nuclei,2
+CellPart,35680998,nuclear pellet,2
+CellPart,35680998,chromatin,3
+CellType,26149123,O+ human RBC,2
+CellType,28680058,O+ erythrocytes,2
+CellType,35680998,ES cells,4
+Compound,25218447,MG-132 10 muM,9
+Compound,25218447,PR-619 20 muM,10
+Compound,25218447,"Trichostatin A (TSA, Sigma) 150 nM",11
+Compound,25218447,curcumin (Sigma) 50 muM,12
+Compound,28091603,alkaline phosphatase,7
+Compound,28680058,2.5 nM WR99210,6
+Compound,28680058,IBMX (250 muM),7
+Compound,28680058,BAPTA-AM (40 muM),8
+Compound,28680058,8Br-cAMP (100 muM),9
+Compound,28680058,PKI (20 muM),10
+Compound,31699904,beta-lactoglobulin,9
+Compound,31699904,fibrinogen alpha,10
+Compound,31699904,fibrinogen beta,11
+Compound,31699904,fibrinogen gamma,12
+Compound,31699904,glucose oxidase,13
+Compound,31699904,human hemoglobin alpha,14
+Compound,31699904,human hemoglobin beta,15
+Compound,31699904,lipases 1,16
+Compound,31699904,lipases 2,17
+Compound,31699904,lipases 3,18
+Compound,31699904,lysozyme,19
+Compound,31699904,myoglobin,20
+Compound,32284562,100nM Rapamycin,10
+Compound,33630598,glucose 20 g/L,8
+Compound,35037038,1 N NaOH,7
+Compound,35037038,250 muM biotin,8
+Compound,37207340,chloramphenicol (40 mg/l),7
+Compound,37207340,G418 was added at 75-150 mg/l,8
+Compound,37207340,G418 selection ranging from 45 to 83 mug/ml,9
+Compound,37207340,75 mug/ml G418,10
+Compound,37330510,"Methylprednisolone (Solu-MedrolTM, Pfizer)",8
+Compound,37330510,meropenem (Pfizer),9
+Depletion,24657495,saponin lysis,7
+DevelopmentalStage,32284562,Asexual RBC stage,11
+DevelopmentalStage,35236989,pregnant,6
+DevelopmentalStage,35236989,term delivery (>37 weeks),7
+DevelopmentalStage,35236989,E15.5-E17.5,8
+DevelopmentalStage,35236989,E16.5-E18.5,9
+DevelopmentalStage,35680998,vegetative stage,7
+DevelopmentalStage,35680998,adult sponges,8
+EnrichmentMethod,25218447,Ni-NTA agarose beads (Qiagen),13
+EnrichmentMethod,28091603,incubated overnight (4 degreesC) with either GST:Repo-Man or GST alone glutathione beads (Thermo Scientific),8
+EnrichmentMethod,28091603,Bound fraction was washed with binding buffer and eluted with glutathione reduced,9
+EnrichmentMethod,28675934,"ECM proteins were enriched from frozen whole tissue or tumor sections (20 x 30 mum sections, ~40-50 mg of tissue), as previously described.",8
+EnrichmentMethod,35236848,pre-washed GFP-Trap_A agarose beads (ChromoTek) was added to pull down target protein complex,4
+FlowRateChromatogram,24657495,0.3 mul/min,11
+FlowRateChromatogram,25100859,250 nL/min,7
+FlowRateChromatogram,28675934,1 mL/min,13
+FlowRateChromatogram,32284562,at a flow rate of 250 nL/minute,22
+FlowRateChromatogram,37681923,30 muL/min,13
+FractionIdentifier,32860207,gel band 1,8
+FractionIdentifier,32860207,gel band 2,9
+FractionIdentifier,32860207,gel band 5,10
+FractionIdentifier,35236989,The flow-through fractions,17
+FractionIdentifier,35236989,Eluates,18
+FractionIdentifier,36097293,0.9-1.0,13
+FractionIdentifier,36097293,1.0-1.1,14
+FractionIdentifier,36097293,1.1-1.2,15
+FractionIdentifier,36097293,1.2-1.3,16
+FractionIdentifier,36097293,1.3-1.4,17
+FractionationMethod,21183079,SDS-PAGE,14
+FractionationMethod,26149123,"linear gradient of 0-1 M NaCl in 10 mM TEAB, pH 7.0, collecting 1 ml fractions",18
+FractionationMethod,28680058,"fractionated on Xbridge C18 5 um 250 x 4.6 mm column (Waters Corporation, Milford, MA, USA) using Agilent 1100 binary pump (Agilent Technologies, Santa Clara, CA, USA).",15
+FractionationMethod,28680058,"The sample was resolved through reverse-phase liquid chromatography method using a gradient of 5 to 60% solvent B (10 mM triethylammonium bicarbonate, pH 8.5 in 95% Acetonitrile) with 1 ml flow rate per minute for over 60 min.",16
+FractionationMethod,29681787,Each lane was divided into four gel slices.,15
+FractionationMethod,31395880,bRPLC separation,9
+FractionationMethod,35037038,SDS-PAGE,10
+FragmentMassTolerance,33855848,within 1 ppm,17
+GeneticModification,25218447,His10-SUMO-2,17
+GeneticModification,25218447,His10-SUMO-2-K0-Q87R,18
+GeneticModification,28091603,GST: Repo-Man403-1023,14
+GeneticModification,28091603,GST: Repo-Man1-135,15
+GeneticModification,35037038,3X-HA-miniTurbo-TRbeta vector,11
+GeneticModification,35037038,3X-HA-miniTurbo-TRbeta-GS125,12
+GeneticModification,35236848,mta ABI3:MTA,7
+GeneticModification,35236848,fip37-4,8
+GeneticModification,35236848,vir-1,9
+GeneticModification,35236848,hakai-2,10
+GeneticModification,35236848,Salk_045882 (hiz1-1),11
+GeneticModification,35236848,Salk_000717 (hiz1-2),12
+GeneticModification,35236848,Salk_120590 (hiz2-1),13
+GeneticModification,35236848,Salk_020625 (hiz2-2),14
+GeneticModification,35236848,Salk_126486 (hiz2-3),15
+GeneticModification,35236848,HAKAIpro:HAKAI-GFP,16
+GeneticModification,35236848,MTApro:MTA-GFP,17
+GeneticModification,35236848,FIP37pro:FIP37-GFP,18
+GeneticModification,35236848,HIZ1pro:HIZ1-GFP,19
+GeneticModification,37207340,C-terminally PrA-tagged,15
+GeneticModification,37207340,mitochondria-targeted PrA (mtPrA),16
+Genotype,26149123,wild type,21
+Genotype,28680058,PfCDPK1-3HA-DD parasites,20
+Genotype,35236848,WT,20
+Genotype,36097293,crm1T539C,20
+Genotype,36097293,drg1-18 mutant,21
+GradientTime,24657495,4-hour LC gradients,16
+GradientTime,25100859,150 min,10
+GradientTime,28680058,over 60 min,21
+GradientTime,31699904,120 min gradient,25
+GradientTime,37207340,1 to 34% in 74 min,17
+GradientTime,37207340,34 to 93% in 8 min,18
+GradientTime,37328468,5-35% solution B (6 min),9
+GradientTime,37328468,5-35% solution B over 22 min,10
+GradientTime,37330510,over 90 min,23
+Instrument,24657495,LTQ Orbitrap Velos hybrid mass spectrometer (Thermo Scientific),17
+IonizationType,32284562,EasySpray nano source,31
+Label,31699904,label-free quantification (LFQ),28
+Label,36097293,"isotopically labeled crosslinking reagent A (disuccinimidyl suberate, DSS-d0/DSS-d12, Creative molecules)",24
+Label,36097293,"isotopically labeled Crosslinker reagent B (bis(sulfosuccinimidyl)suberate, BS3-d0/BS3-d12, Sigma)",25
+MaterialType,21183079,tissue,17
+MaterialType,24657495,cells,19
+MaterialType,25100859,cell line,14
+MaterialType,25218447,cell line,22
+MaterialType,26076430,cells,17
+MaterialType,26076430,tissue,18
+MaterialType,26149123,cells,26
+MaterialType,26725330,cell line,22
+MaterialType,26725330,tissue,23
+MaterialType,28091603,cells,18
+MaterialType,28675934,tissue,20
+MaterialType,28680058,cells,25
+MaterialType,29681787,tissue,21
+MaterialType,31395880,tissue,16
+MaterialType,31699904,cells,29
+MaterialType,31699905,tissue,17
+MaterialType,32284562,cells,33
+MaterialType,32860207,tissue,17
+MaterialType,33630598,cells,19
+MaterialType,33855848,tissues,24
+MaterialType,35037038,cell line,15
+MaterialType,35236848,tissue,23
+MaterialType,35236989,biofluid,23
+MaterialType,35680998,cells,13
+MaterialType,35680998,tissue,14
+MaterialType,36097293,cells,26
+MaterialType,37207340,cells,21
+MaterialType,37330510,biofluid,26
+MaterialType,37330510,cells,27
+MaterialType,37330510,tissue,28
+MaterialType,37681923,biofluid,21
+MaterialType,37681923,cells,22
+Modification,25218447,serine-threonine-tyrosine phosphorylation,30
+Modification,28680058,"phosphorylation of serine, threonine and tyrosine",27
+Modification,35037038,biotin labeling,16
+NumberOfBiologicalReplicates,26149123,3,28
+NumberOfBiologicalReplicates,28675934,2,26
+NumberOfBiologicalReplicates,29681787,23,25
+NumberOfBiologicalReplicates,31395880,108,21
+NumberOfBiologicalReplicates,31699905,10,22
+NumberOfBiologicalReplicates,32284562,3,39
+NumberOfBiologicalReplicates,32860207,3,21
+NumberOfBiologicalReplicates,33855848,21,28
+NumberOfBiologicalReplicates,33855848,24,29
+NumberOfBiologicalReplicates,33855848,4,30
+NumberOfBiologicalReplicates,35236989,3,24
+NumberOfBiologicalReplicates,36097293,2,27
+NumberOfBiologicalReplicates,36097293,3,28
+NumberOfBiologicalReplicates,36097293,4,29
+NumberOfBiologicalReplicates,37330510,1,29
+NumberOfFractions,24657495,6 aliquots,22
+NumberOfFractions,29681787,four,26
+NumberOfFractions,31699904,8 fractions,37
+NumberOfFractions,33630598,12,28
+NumberOfFractions,35236848,five slices,25
+NumberOfMissedCleavages,26076430,1 missed cleavage,36
+NumberOfSamples,26076430,24,37
+NumberOfSamples,31395880,174,23
+NumberOfSamples,31699905,ten samples,25
+NumberOfSamples,33855848,four normal breast tissues,34
+NumberOfSamples,37330510,n = 568,31
+NumberOfTechnicalReplicates,32284562,3 technical replicates each,44
+NumberOfTechnicalReplicates,37207340,quadruplicate,22
+NumberOfTechnicalReplicates,37207340,triplicate,23
+Organism,24657495,Human,26
+Organism,26076430,Homo_sapiens,38
+Organism,31395880,human,24
+Organism,31699904,Aspergillus niger,41
+Organism,31699904,bovine,42
+Organism,31699904,Candida rugosa,43
+Organism,31699904,chicken,44
+Organism,31699904,equine,45
+Organism,31699904,human,46
+Organism,32860207,Homo sapiens,25
+Organism,35680998,Nitrososphaera viennensis,44
+Organism,37681923,Homo sapience,26
+OrganismPart,24657495,schizont,27
+OrganismPart,26149123,blood stage,30
+OrganismPart,26149123,late-stage schizonts,31
+OrganismPart,28675934,triple-negative breast cancer,30
+OrganismPart,28675934,normal omentum,32
+OrganismPart,31395880,lung squamous cell carcinoma tumor tissues,25
+OrganismPart,31699904,bovine milk,48
+OrganismPart,31699904,chicken egg white,49
+OrganismPart,31699904,equine skeletal muscle,50
+OrganismPart,31699904,human plasma,51
+OrganismPart,32284562,schizont-stage,49
+OrganismPart,32284562,ring-stage,50
+OrganismPart,32860207,bulk tumor tissue,26
+OrganismPart,35236848,seedlings,27
+PooledSample,26149123,pooled,32
+PooledSample,26725330,pooled,30
+PooledSample,31395880,pooled,26
+PooledSample,33630598,pooled,30
+PooledSample,35236989,pooled,29
+PrecursorMassTolerance,25100859,10 ppm,22
+PrecursorMassTolerance,26076430,The precursor ion tolerance was set to 500 Da,42
+ReductionReagent,24657495,DTT,30
+ReductionReagent,37207340,DTT,25
+SamplingTime,21183079,"Mice were sacrificed after overnight feeding, 6 hours after lights were turned on and eating ceased.",31
+SamplingTime,32284562,40-46hpi,55
+SamplingTime,32284562,~24hpi,56
+SamplingTime,36097293,after 1 hour of incubation at 37 degreesC,34
+SamplingTime,37330510,2- and 8 h.p.i.,42
+SamplingTime,37681923,median: 2 days after admission,30
+Separation,24657495,"micro-Precolumn cartridge (C18 Pepmap 100, LC Packings)",32
+Separation,24657495,"Acclaim PepMap100 C18 analytical column (3 mum, 75 mum id x 50 cm) (Dionex)",33
+Separation,28091603,"Ultimate 3000 RSLCnano Systems (Dionex, Thermo Scientific)",29
+Separation,31699904,"PepMap 100 C18 (100 mum ID x 2 cm, particle size 5 mum, pore size 100 Ang; Thermo Fisher Scientific) as precolumn",54
+Separation,31699904,"PepMap C18 (75 mum x 50 cm, particle size 2 mum, pore size 100 Ang; Thermo Fisher Scientific) as analytical column",55
+Separation,33630598,"Peptides were separated on a 35 cm column (100 mum i.d., Accucore, 2.6 mum, 150 Aa, packed in-house) using a 90 min gradient (from 5 to 30% acetonitrile with 0.1% formic acid) at 500 nL/min.",34
+Specimen,25100859,cell lysate,26
+Specimen,29681787,FFPE biopsies,34
+Specimen,33630598,Frozen cell pellets,35
+Specimen,35037038,cell pellet,19
+SpikedCompound,37330510,PROCAL standard peptides,46
+Strain,21183079,Swiss-Webster,33
+Strain,32284562,NF54,59
+Strain,32284562,1G5,60
+Strain,35236848,Colombia-0,29
+Strain,35236989,C57BL/6,35
+Strain,35680998,EN76,64
+Strain,36097293,thermosensitive drg1-18 mutant,36
+Temperature,25218447,43degreesC,42
+Temperature,26149123,37 degreesC,39
+Temperature,36097293,37 degreesC,38
+Temperature,37207340,15-22degreesC,28
+Temperature,37207340,27degreesC,29
+Time,21183079,overnight,34
+Time,32284562,4 hours,62
+Time,36097293,1 hour,39
+Treatment,21183079,overnight feeding,35
+Treatment,25218447,heat shock,44
+Treatment,29681787,capecitabine,37
+Treatment,32284562,DMSO,63
+Treatment,32284562,Rapamycin,64
+Treatment,33630598,20 g/L glucose,38
+Treatment,35037038,vehicle,22
+Treatment,35236848,1% formaldehyde,30
+Treatment,36097293,1 hour of incubation at 37 degreesC,40
+Treatment,36097293,1 mM ATPgammaS,41
+Treatment,36097293,"1.5 mM isotopically labeled crosslinking reagent A (disuccinimidyl suberate, DSS-d0/DSS-d12",42
+Treatment,36097293,"1.5 mM isotopically labeled Crosslinker reagent B (bis(sulfosuccinimidyl)suberate, BS3-d0/BS3-d12)",43
+Treatment,37207340,chloramphenicol,30
+Treatment,37207340,G418,31
+Treatment,37330510,sterile DPBS,49
+TumorCellularity,32860207,5-10% tumor surface,32
+TumorStage,29681787,"(T3-T4, any N, M0/any T, N1-N2, M0)",39
+treatment,29681787,1600 mg/m2 intravenous 5-FU,8
+treatment,37330510,meropenem (Mem),11
+treatment,37330510,methylprednisolone (Gcc),12

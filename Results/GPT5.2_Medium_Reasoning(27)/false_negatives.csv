@@ -1,0 +1,525 @@
+Entity_Type,File,GT_Text,GT_Line
+AcquisitionMethod,24657495,DT,4
+AcquisitionMethod,25100859,tandem,2
+AcquisitionMethod,25100859,Q Exactive,3
+AcquisitionMethod,26149123,data-dependent,1
+AlkylationReagent,35236989,TCEP,4
+CellLine,26725330,HMEC,3
+CellLine,28091603,DT40,2
+CellLine,28091603,HT1080,4
+CellLine,28680058,PfCDPK1-3HA-DD,2
+CellLine,28680058,wild type,3
+CellPart,28675934,ECMs,3
+CellPart,28675934,extracellular matrix,4
+CellPart,28680058,glideosome-actomyosin motor assembly,4
+CellPart,28680058,Inner Membrane Complex,5
+CellPart,36097293,pre-60S particles,3
+CellPart,37207340,mitoribosome,4
+CellPart,37330510,mitochondrial,7
+CellType,24657495,schizont,6
+CellType,25100859,HeLa,7
+CellType,26149123,schizonts,3
+CellType,28680058,schizont,6
+CellType,32284562,endothelial,3
+CellType,32284562,Red blood cells,4
+CellType,32284562,erythrocytes,5
+CellType,33855848,epithelial,5
+CellType,35037038,thyroid epithelial,2
+CellType,35236989,B cells,5
+CellType,35236989,CD4(+) T cells,6
+CellType,35236989,macrophages,7
+CellType,35236989,trophoblasts,8
+CellType,37681923,B cells,5
+CleavageAgent,24657495,Promega,9
+CleavageAgent,25218447,Promega,6
+CleavageAgent,37328468,proteolytic enzymes,4
+CollisionEnergy,33855848,HCD,8
+Compound,24657495,protein,10
+Compound,26149123,"4-[7-[(dimethylamino)-methyl]-2-(4-fluorphenyl)imidazo[1,2-alpha]pyridine-3-yl] pyrimidin-2-amine",7
+Compound,29681787,Capecitabine,8
+Compound,33630598,methanol/chloroform,8
+Compound,35236848,glycine,2
+Compound,35236848,formaldehyde,3
+ConcentrationOfCompound,24657495,4 mg,11
+ConcentrationOfCompound,25100859,80 mug,10
+ConcentrationOfCompound,25100859,Three micrograms,11
+ConcentrationOfCompound,25218447,1:25 enzyme-to-protein ratio,9
+ConcentrationOfCompound,25218447,1 mM,10
+ConcentrationOfCompound,25218447,5 mM,11
+ConcentrationOfCompound,26076430,5 mM,7
+ConcentrationOfCompound,26076430,~0.5 mg,8
+ConcentrationOfCompound,26076430,10 mM,9
+ConcentrationOfCompound,26149123,2 muM,9
+ConcentrationOfCompound,26149123,1 M,10
+ConcentrationOfCompound,26149123,10 mM,11
+ConcentrationOfCompound,26725330,100 mM,10
+ConcentrationOfCompound,28091603,12.5 ng mul-1,6
+ConcentrationOfCompound,28091603,55 mM,7
+ConcentrationOfCompound,28091603,10 mM,8
+ConcentrationOfCompound,28675934,5 mM,8
+ConcentrationOfCompound,28675934,8.3 mM,9
+ConcentrationOfCompound,28675934,40 muL of beads per 250 mug of protein,10
+ConcentrationOfCompound,28675934,1.6 mug,11
+ConcentrationOfCompound,28680058,5 mM,10
+ConcentrationOfCompound,28680058,10 mM,11
+ConcentrationOfCompound,29681787,2 mM,9
+ConcentrationOfCompound,29681787,12.5 ng/ml,10
+ConcentrationOfCompound,29681787,50 mM,11
+ConcentrationOfCompound,29681787,50 microg,12
+ConcentrationOfCompound,31395880,Twenty-five femtomoles,7
+ConcentrationOfCompound,31395880,11 mM,8
+ConcentrationOfCompound,31395880,4.5 mM,9
+ConcentrationOfCompound,31699904,13.75 mm,12
+ConcentrationOfCompound,31699904,"0,12 mug",13
+ConcentrationOfCompound,31699904,200 ng,14
+ConcentrationOfCompound,32284562,5mM,13
+ConcentrationOfCompound,32284562,5mg,14
+ConcentrationOfCompound,32284562,14mM,15
+ConcentrationOfCompound,32860207,50 mM,5
+ConcentrationOfCompound,33630598,5 mM,9
+ConcentrationOfCompound,33630598,10 mM,10
+ConcentrationOfCompound,33855848,50 mM,9
+ConcentrationOfCompound,35037038,10 nM,4
+ConcentrationOfCompound,35236848,5 mM,4
+ConcentrationOfCompound,37207340,500 ng,7
+ConcentrationOfCompound,37328468,25 mM,5
+ConcentrationOfCompound,37328468,10 mM,6
+ConcentrationOfCompound,37330510,25 mM,13
+ConcentrationOfCompound,37681923,15 mM,9
+ConcentrationOfCompound,37681923,10 mM,10
+Depletion,35236989,3 most abundant proteins in mouse plasma,12
+Depletion,35236989,14 most abundant proteins in human plasma,14
+DevelopmentalStage,24657495,schizont,12
+DevelopmentalStage,28680058,erythrocytic,12
+Disease,26725330,Her2 positive,12
+Disease,26725330,oestrogen receptor positive,13
+Disease,26725330,ERPR,14
+Disease,26725330,triple negative,15
+Disease,26725330,TN,16
+Disease,28675934,normal omentum,13
+Disease,28675934,Normal,17
+Disease,28675934,cardiovascular diseases,18
+Disease,28675934,adjacent mammary tissue,19
+Disease,28675934,tumor,20
+Disease,28675934,fibrosis,22
+Disease,28675934,Diseased,23
+Disease,29681787,CRC,15
+Disease,31395880,SCC,10
+Disease,31699905,neurologically healthy,8
+Disease,33855848,BC,12
+Disease,35236989,xmOVA-pregnant,15
+Disease,35236989,healthy,16
+Disease,35236989,autoimmune,17
+Disease,35236989,virgin,18
+Disease,37328468,severe pneumonic disease,8
+Disease,37330510,infected,17
+Disease,37330510,control,18
+Disease,37681923,healthy,11
+EnrichmentMethod,24657495,Phos-Select beads,13
+EnrichmentMethod,26149123,immobilized metal affinity chromatography,20
+EnrichmentMethod,26725330,31570;31626 31661 highly cellular regions selected based on hematoxylin and eosin staining punched out from the paraffin block,17
+EnrichmentMethod,28675934,decellularization,24
+EnrichmentMethod,28675934,CNMCS compartmental protein extraction kit,25
+EnrichmentMethod,32284562,magnet purification,18
+EnrichmentMethod,35037038,enrich biotinylated proteins,6
+Experiment,26149123,Phosphoproteomics,21
+Experiment,28680058,conditional knockdown,16
+Experiment,28680058,phosphopeptides,17
+Experiment,28680058,proteomic,18
+Experiment,35236848,knockout,5
+FractionIdentifier,26076430,Basic pH reverse phase,30
+FractionIdentifier,26149123,gradient eluate,29
+FractionIdentifier,26149123,flow-through,31
+FractionIdentifier,28091603,regions of gel containing the histones,12
+FractionIdentifier,37681923,Fraction 1,17
+FractionationFraction,21183079,SDS-PAGE,7
+FractionationFraction,26076430,pH reverse phase,31
+FractionationFraction,26076430,24,32
+FractionationFraction,26149123,wash fractions,33
+FractionationFraction,26149123,gradient eluate fractions,34
+FractionationFraction,26149123,flow-through,35
+FractionationFraction,26149123,soluble,36
+FractionationFraction,28675934,urea-soluble fraction,33
+FractionationFraction,32284562,High pH sample fractionation,32
+FractionationFraction,33855848,SAX-fractionated samples,21
+FractionationFraction,36097293,1.2-1.3,13
+FractionationFraction,36097293,1.3-1.4,14
+FractionationFraction,36097293,1.1-1.2,15
+FractionationFraction,36097293,0.9-1.0,16
+FractionationFraction,36097293,1.0-1.1,17
+FractionationFraction,37681923,large platelets,18
+FractionationFraction,37681923,plasma proteins,19
+FractionationMethod,26076430,HCD,29
+FractionationMethod,31699905,high resolution isoelectric focusing,15
+FractionationMethod,32284562,Agilent 1200 (Agilent) HPLC with a binary buffer system,26
+FractionationMethod,32284562,Polysulfoethyl-A column,27
+FractionationMethod,32284562,RSLC nano U3000,31
+FragmentMassTolerance,26076430,500-Da,34
+FragmentMassTolerance,32284562,4.5 ppm,35
+FragmentMassTolerance,32284562,0.003 Da,36
+FragmentationMethod,21183079,SDS-PAGE,8
+FragmentationMethod,21183079,strong cation exchange chromatography,9
+FragmentationMethod,28680058,0.1 Da,25
+FragmentationMethod,33855848,HCD,23
+GradientTime,25218447,2-hour,17
+GradientTime,31395880,90 min gradient,17
+GrowthRate,28091603,exponential growth,13
+Instrument,25218447,EASY-nLC system,20
+Instrument,26149123,RSLCnano HPLC system,42
+Instrument,26725330,EASY-nLC nano high performance liquid chromatography system,31
+Instrument,28091603,on-line to Ultimate 3000 RSLCnano Systems,15
+Instrument,31699905,Orbitrap,21
+Instrument,32860207,orbitrap,26
+IonizationType,32284562,HCD,41
+IonizationType,32284562,electrospray,42
+IonizationType,32284562,CID,43
+IonizationType,32860207,Q Exactive mass spectrometer,28
+Label,25100859,label-free,18
+Label,26149123,TMT labelling,44
+Label,26149123,tandem mass tag labelling,45
+Label,26725330,heavy,37
+Label,28680058,117,32
+Label,28680058,116,33
+Label,28680058,115,34
+Label,28680058,114,36
+MS2MassAnalyzer,24657495,Orbitrap,30
+MS2MassAnalyzer,24657495,linear ion trap,31
+MS2MassAnalyzer,26076430,LTQ Orbitrap Elite,61
+MS2MassAnalyzer,26076430,Mascot,62
+MS2MassAnalyzer,26076430,Sequest,63
+MS2MassAnalyzer,28091603,Orbitrap,23
+MS2MassAnalyzer,29681787,Orbitrap,42
+MS2MassAnalyzer,29681787,OrbiTrap,43
+MS2MassAnalyzer,31699905,Orbitrap,31
+MS2MassAnalyzer,32284562,Orbitrap,52
+MS2MassAnalyzer,32860207,orbitrap,35
+MS2MassAnalyzer,33630598,quadrupole ion tra,31
+MS2MassAnalyzer,33630598,Orbitrap,32
+MS2MassAnalyzer,35236989,TripleTOF,31
+MS2MassAnalyzer,35680998,Orbitrap,14
+MS2MassAnalyzer,36097293,Orbitrap,21
+MS2MassAnalyzer,36097293,ion trap,22
+MS2MassAnalyzer,37207340,Orbitrap,18
+MS2MassAnalyzer,37207340,linear ion trap,19
+MS2MassAnalyzer,37328468,TOF,20
+MS2MassAnalyzer,37681923,orbitrap,32
+Modification,24657495,Oxidation (M),26
+Modification,24657495,Deamidated (NQ),28
+Modification,24657495,Acetyl (Protein N-term),29
+Modification,26076430,ADP-ribosylation,50
+Modification,26076430,substoichiometric,53
+Modification,26076430,ubiquitylation,54
+Modification,26076430,glycosylation,58
+Modification,26149123,oxidation (M),48
+Modification,26149123,carboxyamidomethyl (C),49
+Modification,28680058,carbamidomethylation of cysteine residues,37
+Modification,37328468,glycan modifications,17
+NumberOfBiologicalReplicates,25218447,hexuplicate,35
+NumberOfBiologicalReplicates,25218447,5,37
+NumberOfBiologicalReplicates,25218447,3,38
+NumberOfBiologicalReplicates,25218447,6,39
+NumberOfBiologicalReplicates,25218447,quintuplicate,40
+NumberOfBiologicalReplicates,25218447,triplicate,41
+NumberOfBiologicalReplicates,26725330,11,53
+NumberOfBiologicalReplicates,26725330,14,54
+NumberOfBiologicalReplicates,26725330,15,55
+NumberOfBiologicalReplicates,28680058,One,49
+NumberOfBiologicalReplicates,31699905,seven,36
+NumberOfBiologicalReplicates,31699905,five,37
+NumberOfBiologicalReplicates,32860207,82,39
+NumberOfBiologicalReplicates,37330510,6,33
+NumberOfBiologicalReplicates,37330510,23,34
+NumberOfFractions,31395880,Two,31
+NumberOfFractions,35037038,SDS-PAGE,14
+NumberOfFractions,37328468,Three,22
+NumberOfFractions,37681923,Three,34
+NumberOfMissedCleavages,33855848,Identification of peptides resulting from missed cleavages was allowed,34
+NumberOfSamples,24657495,6 aliquots,34
+NumberOfSamples,25100859,Three,24
+NumberOfSamples,26149123,two,51
+NumberOfSamples,26725330,15,46
+NumberOfSamples,26725330,11,47
+NumberOfSamples,26725330,40,49
+NumberOfSamples,26725330,14,51
+NumberOfSamples,26725330,37,52
+NumberOfSamples,28091603,one,25
+NumberOfSamples,28675934,2,47
+NumberOfSamples,28680058,five,47
+NumberOfSamples,31395880,108,34
+NumberOfSamples,31699905,five,35
+NumberOfSamples,33630598,12,35
+NumberOfSamples,33855848,Two,37
+NumberOfSamples,37330510,30,30
+NumberOfSamples,37330510,44,31
+NumberOfSamples,37330510,96,32
+NumberOfSamples,37681923,16,35
+NumberOfSamples,37681923,19,36
+NumberOfTechnicalReplicates,28680058,two,43
+NumberOfTechnicalReplicates,28680058,one,45
+NumberOfTechnicalReplicates,31395880,Two,32
+NumberOfTechnicalReplicates,31395880,29,33
+NumberOfTechnicalReplicates,32284562,triplicates,55
+NumberOfTechnicalReplicates,32284562,one,56
+Organism,21183079,human,17
+Organism,26076430,Human,66
+Organism,26076430,human,67
+Organism,26076430,house mouse,68
+Organism,26076430,C57BL/6 x 129/sv,69
+Organism,26076430,Mouse,71
+Organism,26149123,human,53
+Organism,28680058,Human,51
+Organism,33630598,yeast,37
+Organism,33630598,Yeast,38
+Organism,35236989,pups,35
+Organism,36097293,Yeast,26
+Organism,36097293,bacterial,27
+Organism,37207340,ATCC 50162,21
+Organism,37207340,phylum Euglenozoa,22
+Organism,37328468,Langya virus,23
+Organism,37328468,NiV,24
+Organism,37328468,Nipah,25
+Organism,37328468,MojV,26
+Organism,37328468,LayV,27
+Organism,37328468,human,28
+Organism,37328468,HeV,29
+Organism,37328468,henipavirus,30
+Organism,37328468,HNV,31
+Organism,37328468,Hendra,32
+Organism,37328468,Mojiang virus,33
+Organism,37330510,murine,35
+Organism,37330510,Bacterial,36
+Organism,37330510,Escherichia coli,38
+Organism,37330510,E. coli,40
+Organism,37681923,human,37
+OrganismPart,21183079,tissues,21
+OrganismPart,21183079,Mice,22
+OrganismPart,21183079,organs,29
+OrganismPart,24657495,human erythrocytes,36
+OrganismPart,26076430,cells,73
+OrganismPart,26076430,tissue,74
+OrganismPart,26725330,breast,57
+OrganismPart,28675934,tumor sections,50
+OrganismPart,28675934,ECM,52
+OrganismPart,28675934,extracellular matrix,54
+OrganismPart,29681787,rectum,47
+OrganismPart,31699904,myoblast,34
+OrganismPart,31699905,hippocampus,41
+OrganismPart,31699905,brain,44
+OrganismPart,33630598,Cells,40
+OrganismPart,33855848,epithelial,42
+OrganismPart,35236848,m(6)A writer complex,18
+OrganismPart,35236989,placenta,40
+OrganismPart,37207340,mitochondrial ribosome,23
+OrganismPart,37207340,mitoribosome,24
+OrganismPart,37328468,Langya fusion protein,34
+OrganismPart,37328468,PNGase F,35
+OrganismPart,37330510,Blood,44
+OrganismPart,37330510,Organ,48
+OrganismPart,37330510,leukocytes,50
+OrganismPart,37330510,glomeruli,51
+OrganismPart,37330510,organs,52
+OrganismPart,37330510,blood,54
+OrganismPart,37681923,Platelets,38
+OrganismPart,37681923,blood,39
+OriginSiteDisease,28675934,breast,55
+OriginSiteDisease,28675934,ovarian,56
+PooledSample,28680058,four,53
+PooledSample,28680058,12,54
+PooledSample,31395880,total,36
+PooledSample,32860207,pooled,41
+PooledSample,33630598,24,42
+PooledSample,37330510,12 h together with 18 h,55
+PrecursorMassTolerance,25100859,0.01 Da,30
+ReductionReagent,35236989,iodoacetamide,41
+SampleTreatment,21183079,in-gel digestion,33
+SampleTreatment,26149123,sorbitol treatment,62
+SampleTreatment,26725330,FFPE,61
+SampleTreatment,28091603,alkaline phosphatase,30
+SampleTreatment,29681787,concentration,50
+SampleTreatment,29681787,formalin-fixed paraffin-embedded,51
+SampleTreatment,29681787,dewaxing,52
+SampleTreatment,29681787,FFPE,53
+SampleTreatment,29681787,homogenisation,54
+SamplingTime,26076430,60 ms,77
+SamplingTime,26076430,250 ms,78
+SamplingTime,26149123,every 8 h,56
+SamplingTime,26149123,blood stage 3D7,57
+SamplingTime,26149123,24 h,58
+SamplingTime,26149123,500 ms,59
+SamplingTime,26149123,16,60
+SamplingTime,26149123,ate-stage schizonts,61
+SamplingTime,32860207,between January 2014 until November 2015,43
+SamplingTime,37330510,6 h,59
+Separation,21183079,SDS-PAGE,34
+Separation,21183079,immobilized metal affinity chromatography,35
+Separation,24657495,IMAC purification,40
+Separation,26149123,immobilized metal affinity chromatography,65
+Separation,26149123,MACS CS,67
+Separation,26149123,IMAC,68
+Separation,28091603,SDS-PAGE,31
+Separation,28680058,reverse-phase liquid chromatography,57
+Separation,28680058,RPLC,59
+Separation,29681787,NuPAGE gel 4-12% bis-Tris 1.5 mm x 10 well,55
+Separation,29681787,in-gel separated,57
+Separation,29681787,Dionex Ultimate 3000 nanoHPLC system,58
+Separation,31395880,nanoflow ultra-high performance liquid chromatograph,39
+Separation,31699904,SDS-PAGE,38
+Separation,31699904,nanoHPLC system Ultimate 3000,39
+Separation,31699905,liquid chromatography,49
+Separation,31699905,UltiMate(TM) 3000 RSLCnano System,50
+Separation,32284562,HPLC,70
+Separation,32860207,NuPAGE SDS-PAGE,45
+Separation,33630598,HPLC,45
+Separation,33630598,reverse-phase,46
+Separation,35037038,SDS-PAGE,18
+Separation,35236989,NanoLC 425 Ultra system,45
+Separation,35680998,EASY-nLC 1000,38
+Separation,37207340,12% Tris-glycine SDS-PAGE,25
+Separation,37207340,HPLC,26
+Separation,37328468,Microscale LC system,38
+Sex,37681923,sex,45
+Specimen,37328468,henipavirus,40
+Specimen,37328468,MojV,41
+Specimen,37328468,Langya virus,42
+Specimen,37328468,HeV,43
+Specimen,37328468,LayV,44
+Specimen,37328468,Nipah,45
+Specimen,37328468,NiV,46
+Specimen,37328468,HNV,47
+Specimen,37328468,Hendra,48
+Specimen,37328468,Mojiang virus,49
+SpikedCompound,31395880,standard peptides,42
+SpikedCompound,31699904,13 spike-in proteins,49
+SpikedCompound,31699904,spiked with 13 proteins in five different concentrations,50
+SpikedCompound,31699904,pmol,51
+SpikedCompound,31699904,13 non-mouse,57
+Staining,29681787,H&E,60
+Staining,29681787,haematoxylin and eosin,62
+Staining,33630598,BY4742,47
+Strain,35236848,hakai-2,20
+Strain,35680998,India,49
+Strain,36097293,Supplementary Table 2,33
+Strain,37330510,E. coli O18:K1,69
+SupplementaryFile,21183079,Expanded Experimental Procedures,37
+SupplementaryFile,25100859,Table S1,33
+SupplementaryFile,25100859,Fig. S2,34
+SupplementaryFile,25100859,Table S4,35
+SupplementaryFile,25100859,able S3,36
+SupplementaryFile,25218447,Supplementary Fig. 1A-C,50
+SupplementaryFile,25218447,Online Supplementary Information,51
+SupplementaryFile,25218447,(Supplementary Table 1),52
+SupplementaryFile,25218447,Supplementary Data Set 1,53
+SupplementaryFile,26149123,Supplementary Data 1,72
+SupplementaryFile,26149123,Supplementary Fig. 4,73
+SupplementaryFile,26725330,Supplementary Table 1,67
+SupplementaryFile,28091603,Supplementary Fig. 4d,33
+SupplementaryFile,28675934,Supplementary Table S1A,62
+SupplementaryFile,31395880,Supplementary Data 1,44
+SupplementaryFile,31395880,Table 1,45
+SupplementaryFile,31395880,Supplementary Fig. 15,46
+SupplementaryFile,31699904,supplemental Table S2,62
+SupplementaryFile,35037038,Supplemental Figure S4C,20
+SupplementaryFile,36097293,Supplementary Table 2,34
+SupplementaryFile,37207340,Supplementary Table S2,30
+SupplementaryFile,37207340,Supplementary Information,31
+SupplementaryFile,37681923,Table 1,46
+TechnologyType,28091603,mass spectrometry analysis,39
+TechnologyType,28091603,TAG-Proteogenomic,40
+TechnologyType,33630598,Proxeon EASY-nLC 1200 LC pump,52
+TechnologyType,33630598,Orbitrap Fusion Lumos,53
+Temperature,24657495,97 degreesC,44
+Temperature,25100859,37 degreesC,41
+Temperature,25218447,room temperature,55
+Temperature,26725330,37 degreesC,73
+Temperature,28091603,ambient temperature,36
+Temperature,28091603,37 degreesC,37
+Temperature,28675934,room temperature,67
+Temperature,28680058,room temperature,64
+Temperature,28680058,60 degreesC,65
+Temperature,29681787,40 degreesC,63
+Temperature,29681787,37 degreesC,64
+Temperature,29681787,98 degreesC,65
+Temperature,31395880,37 degreesC,55
+Temperature,31395880,room temperature,56
+Temperature,31395880,60 degreesC,57
+Temperature,31699904,ambient temperature,65
+Temperature,31699904,56 degreesC,67
+Temperature,32284562,56degreesC,75
+Temperature,32284562,RT,76
+Temperature,32860207,room temperature,48
+Temperature,33630598,room temperature,51
+Temperature,33855848,37 degreesC,53
+Temperature,35037038,room temperature,22
+Temperature,37328468,30 degreesC,52
+Temperature,37681923,37 degreesC,49
+Temperature,37681923,room temperature,50
+Time,24657495,4 h,42
+Time,24657495,5 min,43
+Time,25100859,150 min,37
+Time,25100859,88,38
+Time,25100859,9 h,39
+Time,25100859,12,40
+Time,26149123,48 h,74
+Time,26149123,24 h,75
+Time,26149123,32,76
+Time,26149123,4 h,77
+Time,26149123,40,79
+Time,26149123,30 min,80
+Time,26149123,overnight,81
+Time,26149123,16,82
+Time,26149123,8 h,83
+Time,26725330,n,72
+Time,28091603,20 min,34
+Time,28091603,overnight,35
+Time,28675934,16 h,63
+Time,28675934,2 h,64
+Time,28675934,1 h,65
+Time,28680058,30 min,60
+Time,28680058,overnight,61
+Time,28680058,1 h,62
+Time,31395880,20 min,51
+Time,31395880,overnight,52
+Time,31395880,1 h,53
+Time,31395880,15 min,54
+Time,32284562,4 hour,74
+Time,33630598,overnight,49
+Time,33855848,30 min,51
+Time,33855848,16 h,52
+Time,35236989,105 min,48
+Time,37328468,30 min,50
+Time,37328468,1 h,51
+Time,37681923,30 min,47
+Time,37681923,overnight,48
+Treatment,21183079,in-gel,38
+Treatment,28680058,sorbitol,66
+Treatment,29681787,NRCT,69
+Treatment,29681787,formalin-fixed paraffin-embedded,70
+Treatment,29681787,FFPE,71
+Treatment,35037038,T3,23
+Treatment,37330510,Mem,72
+Treatment,37330510,Gcc,74
+TumorCellularity,31395880,tumor cellularit,47
+TumorGrade,26725330,2-3,68
+TumorGrade,31395880,tumor necrosis,48
+TumorSite,26725330,ductal carcinomas,69
+TumorSite,26725330,lobular,70
+TumorSite,31395880,squamous cell carcinoma,49
+TumorStage,26725330,I-II,71
+TumorStage,31395880,TNM staging,50
+separation,21183079,immobilized metal affinity chromatography,3
+separation,25218447,EASY-nLC system,12
+separation,26076430,Agilent 300 Extend C18 column,10
+separation,26076430,Agilent 1200 binary HPLC pump,11
+separation,26149123,RSLCnano HPLC system,12
+separation,28091603,Ultimate 3000 RSLCnano,9
+separation,28675934,EASY-nLC1000,12
+separation,29681787,Dionex Ultimate 3000 nanoHPLC,13
+separation,31699904,nanoHPLC system Ultimate 3000,15
+separation,31699905,UltiMate(TM) 3000 RSLCnano System,6
+separation,32860207,Ultimate 3000 nanoLC system,6
+separation,33630598,Proxeon EASY-nLC 1200 LC pump,11
+separation,33855848,EASY-nLC 1000 liquid chromatography,10
+separation,35236989,NanoLC 425 Ultra system,10
+separation,37207340,Easy-nLC 1200,8
+separation,37328468,Microscale LC system,7
+separation,37330510,EASY-nLC 1200 ultra-HPLC,14

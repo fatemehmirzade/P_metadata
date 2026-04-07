@@ -1,0 +1,33 @@
+================================================================================
+HALLUCINATION DETECTION REPORT
+================================================================================
+
+Total Predictions Checked: 975
+Fully Supported  (>=85%):  960
+Partially Supported (70-84%): 6
+Hallucinated (<70%):  9
+
+Hallucination Rate: 0.92%
+
+================================================================================
+HALLUCINATED ITEMS
+================================================================================
+1. 25218447 - Compound: curcumin (Sigma) 50 muM (conf: 0.65)
+2. 29681787 - NumberOfBiologicalReplicates: 23 (conf: 0.67)
+3. 31699904 - Modification: carbamidomethylation at C (conf: 0.00)
+4. 31699905 - Modification: TMT10plex on peptide N termini (conf: 0.69)
+5. 32860207 - Organism: Homo sapiens (conf: 0.57)
+6. 33630598 - PooledSample: pooled (conf: 0.62)
+7. 35236989 - MaterialType: biofluid (conf: 0.62)
+8. 37330510 - MaterialType: biofluid (conf: 0.56)
+9. 37681923 - MaterialType: biofluid (conf: 0.56)
+
+================================================================================
+PARTIALLY SUPPORTED ITEMS
+================================================================================
+1. 25218447 - Compound: Trichostatin A (TSA, Sigma) 150 nM (conf: 0.78)
+2. 26725330 - PooledSample: pooled (conf: 0.71)
+3. 29681787 - Disease: locally advanced non-metastatic rectal adenocarcinoma (conf: 0.81)
+4. 31699904 - Compound: fibrinogen beta (conf: 0.80)
+5. 31699904 - Compound: fibrinogen gamma (conf: 0.77)
+6. 31699904 - Compound: human hemoglobin beta (conf: 0.84)
