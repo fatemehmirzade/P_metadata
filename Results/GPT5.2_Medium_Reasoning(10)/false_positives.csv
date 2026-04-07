@@ -1,0 +1,74 @@
+Entity_Type,File,Pred_Text,Pred_Line
+AlkylationReagent,PMC5535869,IAA,1
+AnatomicSiteTumor,PMC7144211,resected prostate cancer tissue specimens,3
+Bait,PMC8698288,FLAG-BirA*-MOB1,2
+CellLine,PMC8698288,"HFF-1 (SCRC-1041; ATCC, Manassas, VA, USA)",3
+CellPart,PMC7144211,urinary EV (uEV),4
+CellPart,PMC7144211,extracellular vesicles (EV),5
+CellPart,PMC7144211,EV separated from prostate tumour conditioned medium,6
+CellPart,PMC7294662,Pelleted ribosomes,4
+Compound,PMC7367873,20 nM Calyculin A,9
+Compound,PMC7367873,1 µM recombinant phosphatase,10
+Compound,PMC7367873,EGF 100 ng/mL,11
+Compound,PMC7367873,PDP(m)-Nal 50 µM,12
+Compound,PMC8698288,biotin 150 µM,6
+Disease,PMC7144211,renal cell carcinoma,12
+Disease,PMC7921882,house dust mite allergic individuals,5
+EnrichmentMethod,PMC7294662,purified using homemade Stop-and-go-extraction tips (StageTips) composed of C18 Empore material (3 M) packed in to 200 μL pipette tips,11
+EnrichmentMethod,PMC7367873,immunoprecipitation using α-GFP nanobodies covalently coupled to agarose beads,14
+EnrichmentMethod,PMC7921882,peptides were enriched and desalted using 100 μl Pierce C18 Tips (Thermo Fisher Scientific),6
+EnrichmentMethod,PMC8698288,The BioID method employs proximity-dependent biotin labeling,7
+FractionIdentifier,PMC7144211,fractions 4–7,21
+FractionIdentifier,PMC7294662,fractions 6–65,19
+FractionIdentifier,PMC7367873,The 5 and 50% ACN fractions,21
+FractionationMethod,PMC4746666,Subcellular fractionation,25
+FractionationMethod,PMC7144211,size exclusion chromatography (SEC)-based separation of EV from iodixanol,23
+FractionationMethod,PMC7367873,SEC,22
+GeneticModification,PMC10681723,Flag-tagged,2
+GeneticModification,PMC10681723,GFP-tagged,3
+GeneticModification,PMC7367873,pCMV-GAB2-3Flag,27
+GeneticModification,PMC7367873,pTXB1-His-TEV-PP1α-intein,28
+Genotype,PMC10681723,isogenic W303-1 background,4
+Instrument,PMC7294662,Impact II; Bruker Daltonics,29
+IonizationType,PMC5830451,Electrospray,19
+IonizationType,PMC7294662,Captive spray nanospray ionization source (Bruker Daltonics),31
+Label,PMC4746666,“light” labeling,32
+Label,PMC4746666,L-lysine – U-13C615N2 (Lys8),33
+Label,PMC4746666,L-arginine – U-13C615N4 (Arg10),34
+Label,PMC4746666,L-lysine – U-13C415N0 (Lys4),35
+Label,PMC4746666,L-arginine – U-13C615N0 (Arg6),36
+MaterialType,PMC7144211,biofluid,30
+MaterialType,PMC7144211,tissue,31
+NumberOfFractions,PMC7294662,80 fractions,40
+NumberOfFractions,PMC7367873,a total of four fractions,43
+NumberOfMissedCleavages,PMC7367873,6,44
+NumberOfMissedCleavages,PMC7367873,two,45
+NumberOfSamples,PMC6918071,18 samples,11
+NumberOfSamples,PMC7921882,16,14
+NumberOfTechnicalReplicates,PMC4746666,36 MS runs per sample,44
+NumberOfTechnicalReplicates,PMC4746666,12 MS runs per sample,45
+NumberOfTechnicalReplicates,PMC7367873,two technical data points,46
+Organism,PMC10681723,Escherichia coli,7
+Organism,PMC7921882,Suidasia medanensis,19
+Organism,PMC7921882,Cicer arietinum,20
+Organism,PMC7921882,baker's yeast,21
+PooledSample,PMC7294662,pooled,42
+PooledSample,PMC7367873,pooled,48
+PooledSample,PMC7921882,pooled,22
+PrecursorMassTolerance,PMC5830451,4.5 ppm,29
+SamplingTime,PMC7144211,3 months after local treatment by radical prostatectomy or intensity-modulated radiation therapy,41
+Separation,PMC4746666,EASY nLC-II,51
+Separation,PMC5830451,SPE-LC-MS,31
+Separation,PMC6918071,one-dimensional LC-MS/MS,18
+Separation,PMC7144211,"nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific) coupled to a Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific)",42
+Separation,PMC7294662,Easy nano LC 1000 nanoflow HPLC (Thermo Fisher) on-line coupled to a Q-Exactive mass spectrometer (Thermo Fisher),45
+Specimen,PMC5830451,OCT (optimal cutting temperature compound) blocks,33
+SpikedCompound,PMC7294662,light reference mixture,46
+Staining,PMC10681723,coomassie brilliant blue (CBB) staining,8
+Strain,PMC10681723,W303-1,9
+Strain,PMC10681723,BL21(DE3) CodonPlus RIL,10
+Temperature,PMC7294662,37 °C,47
+Temperature,PMC7367873,37 °C,54
+Time,PMC7367873,10–15 min,55
+Time,PMC7367873,12 min,56
+TumorSite,PMC7144211,prostate tumour,44

@@ -1,0 +1,24 @@
+================================================================================
+HALLUCINATION DETECTION REPORT
+================================================================================
+
+Total Predictions Checked: 319
+Fully Supported  (>=85%):  313
+Partially Supported (70-84%): 3
+Hallucinated (<70%):  3
+
+Hallucination Rate: 0.94%
+
+================================================================================
+HALLUCINATED ITEMS
+================================================================================
+1. PMC5535869 - MaterialType: tissue (conf: 0.60)
+2. PMC7367873 - Organism: Homo sapiens (conf: 0.60)
+3. PMC8698288 - Compound: biotin 150 µM (conf: 0.55)
+
+================================================================================
+PARTIALLY SUPPORTED ITEMS
+================================================================================
+1. PMC5830451 - MaterialType: cell line (conf: 0.82)
+2. PMC7294662 - MaterialType: cell line (conf: 0.78)
+3. PMC7921882 - PooledSample: pooled (conf: 0.73)
