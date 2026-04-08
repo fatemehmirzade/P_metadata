@@ -1,0 +1,55 @@
+AcquisitionMethod : data-dependent acquisition
+AlkylationReagent : chloroacetamide
+CellLine : HeLa
+CellLine : U2-OS
+CleavageAgent : trypsin
+CleavageAgent : Promega
+CleavageAgent : Lys-C
+CollisionEnergy : 25%
+ConcentrationOfCompound : 1:25 enzyme-to-protein ratio
+ConcentrationOfCompound : 1 mM
+ConcentrationOfCompound : 5 mM
+Chromatography : EASY-nLC system
+FlowRateChromatogram : 250 nL per minute
+FragmentationMethod : Higher-Collisional Dissociation
+FragmentationMethod : HCD
+FragmentMassTolerance : 20 ppm
+GradientTime : 2-hour
+GradientTime : 120 minute
+Instrument : Q-Exactive
+Instrument : EASY-nLC system
+Label : LFQ
+Label : Label-Free
+Modification : peptide N-terminal carbamylation
+Modification : Pyro-QQTGG
+Modification : Protein N-terminal acetylation
+Modification : Cysteine carbamidomethylation
+Modification : QQTGG
+Modification : 
+Modification : methionine oxidation
+Modification : lysine acetylation
+NumberOfMissedCleavages : 3
+NumberOfTechnicalReplicates : 11
+NumberOfTechnicalReplicates : 6
+NumberOfTechnicalReplicates : 9
+NumberOfBiologicalReplicates : hexuplicate
+NumberOfBiologicalReplicates : 17
+NumberOfBiologicalReplicates : 5
+NumberOfBiologicalReplicates : 3
+NumberOfBiologicalReplicates : 6
+NumberOfBiologicalReplicates : quintuplicate
+NumberOfBiologicalReplicates : triplicate
+Organism : human
+PrecursorMassTolerance : 6 ppm
+ReductionReagent : DTT
+ReductionReagent : dithiothreitol
+ReductionReagent : beta-mercaptoethanol
+Separation : EASY-nLC system
+Separation : Reprospher 100
+Separation : C18 beads
+SupplementaryFile : Supplementary Fig. 1A-C
+SupplementaryFile : Online Supplementary Information
+SupplementaryFile : (Supplementary Table 1)
+SupplementaryFile : Supplementary Data Set 1
+Time : overnight
+Temperature : room temperature
