@@ -34,7 +34,7 @@ CellLine                    : Name of immortalized cell line (e.g. "HEK293T", "U
 CellPart                    : Subcellular compartment / fraction (e.g. "nucleus", "mitochondria").
 CellType                    : Primary cell type or lineage (e.g. "neurons", "fibroblasts").
 CleavageAgent               : Protease or chemical used for protein digestion (e.g. "trypsin", "Lys-C").
-Compound                    : Chemical or small molecule added to sample. NOT the dose/concentration. Example: "IFNbeta", "doxycycline", "rapamycin".
+Compound                    : Chemical or small molecule added to sample. The extracted value MAY include a concentration prefix or suffix (e.g. "20 nM Calyculin A", "PDP(m)-Nal 50 uM", "10 ug/mL EGF") — this is intentional pipeline behaviour where compound and concentration are annotated together, and does NOT make the annotation incorrect or mistyped. NOT the dose/concentration alone without a chemical name. Example standalone names: "IFNbeta", "doxycycline", "rapamycin".
 ConcentrationOfCompound     : The dose or amount of a Compound used. Must be a numeric quantity with a unit (e.g. "10 uM", "1000 U/mL", "100 ng/mL"). Must pair with a named Compound.
 Depletion                   : Method to remove high-abundance proteins (e.g. "albumin depletion kit").
 DevelopmentalStage          : Developmental stage of source (e.g. "adult", "P7 pup").
@@ -43,7 +43,7 @@ DiseaseTreatment            : Pre-treatment applied to diseased samples (e.g. "c
 GeneticModification         : Genetic alteration in organism/cells including tagging constructs (e.g. "GFP-tagged", "Flag-tagged", "CRISPR knockout", "overexpression").
 Genotype                    : Genotypic background (e.g. "C57BL/6J", "BRCA1-mutant").
 GrowthRate                  : Doubling time or growth rate (e.g. "24 h doubling time").
-Label                       : Isobaric or metabolic label applied (e.g. "TMT-126", "SILAC heavy", "label-free", "triple SILAC"). The method name ("SILAC", "triple SILAC"), shorthand isotope pairs ("Arg6/Lys4", "Arg10/Lys8"), AND full IUPAC isotope names ("L-lysine – U-13C4 15N0 (Lys4)", "L-arginine – U-13C6 15N4 (Arg10)") are ALL valid Label representations. Full isotope chemical names are semantically equivalent to their shorthand forms.
+Label                       : Isobaric or metabolic label applied (e.g. "TMT-126", "SILAC heavy", "label-free", "triple SILAC"). The method name ("SILAC", "triple SILAC"), shorthand isotope pairs ("Arg6/Lys4", "Arg10/Lys8"), AND full IUPAC isotope names ("L-lysine - U-13C4 15N0 (Lys4)", "L-arginine - U-13C6 15N4 (Arg10)") are ALL valid Label representations. Full isotope chemical names are semantically equivalent to their shorthand forms.
 MaterialType                : Broad material class (e.g. "tissue", "cell line", "biofluid").
 Modification                : PTM studied or enriched for (e.g. "phosphorylation", "ubiquitination", "acetylation").
 NumberOfBiologicalReplicates: Total COUNT of biological replicates in the study (e.g. "3"). NOT an identifier.
@@ -86,7 +86,7 @@ MS2MassAnalyzer             : Analyzer used for MS2 scans (e.g. "Orbitrap", "ion
 NumberOfMissedCleavages     : Max missed cleavages allowed in database search (e.g. "2").
 NumberOfFractions           : Total COUNT of fractions generated per sample.
 PrecursorMassTolerance      : Mass tolerance for precursor matching in search (e.g. "10 ppm", "5 ppm").
-Separation                  : ON-LINE LC separation method — must describe the stationary phase, column chemistry, or chromatographic approach (e.g. "reverse-phase C18 nano-LC", "RPLC", "ReproSil-Pur C18-AQ beads"). LC instrument model names alone (e.g. "EASY nLC-II", "Eksigent nanoLC", "HPLC") are NOT valid Separation values.
+Separation                  : ON-LINE LC separation method -- must describe the stationary phase, column chemistry, or chromatographic approach (e.g. "reverse-phase C18 nano-LC", "RPLC", "ReproSil-Pur C18-AQ beads"). LC instrument model names alone (e.g. "EASY nLC-II", "Eksigent nanoLC", "HPLC") are NOT valid Separation values.
 """
 
 ANNOTATION_CRITERIA = """You are an expert in proteomics and mass-spectrometry experimental metadata.
@@ -94,7 +94,7 @@ ANNOTATION_CRITERIA = """You are an expert in proteomics and mass-spectrometry e
 You are evaluating ONE predicted annotation extracted from a proteomics paper.
 The 5-tier deterministic matching has ALREADY been run. GEval is called ONLY when
 tiers 1-4 (exact, normalized, ontology, hierarchical) all failed. Your job is to
-assess semantic / domain-knowledge equivalence — tier 5.
+assess semantic / domain-knowledge equivalence -- tier 5.
 
 INPUT LAYOUT:
   - 'actual output'   = the annotation type and extracted value to evaluate.
@@ -103,6 +103,18 @@ INPUT LAYOUT:
   - 'context'[0]      = full source paper text (abstract + methods).
   - 'context'[1]      = definition of this specific annotation type.
   - 'context'[2]      = definitions of ALL annotation types (for type-mismatch detection).
+
+BUNDLED COMPOUND+CONCENTRATION RULE (CRITICAL -- read before Step 1):
+  The extraction pipeline intentionally annotates Compound and concentration
+  together in a single value. A Compound annotation whose value includes a numeric
+  dose or concentration qualifier (e.g. "20 nM Calyculin A", "PDP(m)-Nal 50 uM",
+  "10 ug/mL EGF", "Calyculin A 20 nM") is VALID and CORRECT. You MUST NOT flag
+  such values as a type mismatch or suggest that the correct type is
+  ConcentrationOfCompound. The chemical name must be present in the value; if it
+  is, the bundled form is treated as a correct Compound annotation provided the
+  value appears in the source text. Similarly, a ground-truth value of just the
+  chemical name (e.g. "Calyculin A") matches a predicted value that bundles the
+  concentration (e.g. "20 nM Calyculin A") -- treat them as semantically equivalent.
 
 STEP 1 - TYPE MISMATCH CHECK:
   Carefully read the annotation type definition in context[1].
@@ -115,7 +127,9 @@ STEP 1 - TYPE MISMATCH CHECK:
     phase or chromatographic method. If mismatched, state "Correct type: X".
   - AcquisitionMethod must be a scheme name (DDA, DIA, PRM), not an instrument.
   - Bait must name a specific protein; generic tags alone are GeneticModification.
-  - Compound is a chemical name; a numeric dose is ConcentrationOfCompound.
+  - Compound is a chemical name; a numeric dose WITHOUT any chemical name is
+    ConcentrationOfCompound. A value containing BOTH a chemical name AND a numeric
+    dose is a valid Compound -- do NOT flag it as ConcentrationOfCompound.
 
   IMPORTANT: If you identify a type mismatch, you MUST write "Correct type: <TypeName>"
   explicitly in your reason. Do NOT use vague language like "belongs to another category"
@@ -133,15 +147,18 @@ STEP 2 - HALLUCINATION CHECK:
 
 STEP 3 - VALUE CORRECTNESS (semantic / domain equivalence):
   The value did NOT match exactly, after normalization, as an abbreviation, or as a
-  substring — so assess domain-knowledge equivalence:
+  substring -- so assess domain-knowledge equivalence:
   - "SILAC" is semantically equivalent to "triple SILAC".
   - Full IUPAC isotope names are equivalent to shorthand pairs:
-      "L-lysine – U-13C4 15N0 (Lys4)"   == "Arg6/Lys4"
-      "L-arginine – U-13C6 15N0 (Arg6)" == "Arg6/Lys4"
-      "L-lysine – U-13C6 15N2 (Lys8)"   == "Arg10/Lys8"
-      "L-arginine – U-13C6 15N4 (Arg10)"== "Arg10/Lys8"
+      "L-lysine - U-13C4 15N0 (Lys4)"   == "Arg6/Lys4"
+      "L-arginine - U-13C6 15N0 (Arg6)" == "Arg6/Lys4"
+      "L-lysine - U-13C6 15N2 (Lys8)"   == "Arg10/Lys8"
+      "L-arginine - U-13C6 15N4 (Arg10)"== "Arg10/Lys8"
   - Digit vs word ("3" vs "three") = correct.
-  - Abbreviation vs expansion already tested in tier 3 — if reached here, assess
+  - A Compound value bundling a concentration (e.g. "20 nM Calyculin A") is
+    semantically equivalent to a ground-truth Compound value of just "Calyculin A"
+    and vice versa -- treat them as correct matches.
+  - Abbreviation vs expansion already tested in tier 3 -- if reached here, assess
     whether the values describe the same real-world entity by domain knowledge.
 
 STEP 4 - COMPLETENESS (lenient):
@@ -153,16 +170,17 @@ SCORING:
    8 = Correct but minor completeness issue.
    5 = Same domain concept but detail-level mismatch with ground truth.
    3 = Wrong value or type mismatch, but value present in source.
-   0 = Hallucinated — value absent from source text.
+   0 = Hallucinated -- value absent from source text.
 
 Your reason MUST be a complete paragraph covering type, hallucination, correctness,
 completeness, and which ground-truth value was matched (if any). Do not truncate."""
 
 ANNOTATION_STEPS = [
+    "Read the BUNDLED COMPOUND+CONCENTRATION RULE at the top of the criteria. If the annotation type is Compound and the value contains both a chemical name and a concentration, it is valid -- do NOT flag as type mismatch or ConcentrationOfCompound.",
     "Read context[1] (type definition) and context[2] (all type definitions).",
     "Check type mismatch: if mismatched, you MUST write 'Correct type: X' in your reason. If hallucinated (score=0), do NOT flag as type mismatch.",
     "Search context[0] for the extracted value or any unambiguous synonym. If absent, hallucination=true, score=0.",
-    "Assess semantic / domain-knowledge equivalence against all ground-truth values in 'expected output'. Full IUPAC isotope names for SILAC labels are equivalent to their shorthand pairs.",
+    "Assess semantic / domain-knowledge equivalence against all ground-truth values in 'expected output'. Full IUPAC isotope names for SILAC labels are equivalent to their shorthand pairs. A Compound value bundling a concentration is equivalent to the bare compound name.",
     "Check completeness leniently.",
     "Assign score 0-10. Write a complete paragraph covering all four checks.",
 ]
@@ -226,6 +244,26 @@ _WORD_NUM_MAP = {
     "eleven": "11", "twelve": "12",
 }
 
+_CONC_PREFIX_RE = re.compile(
+    r"^\s*\d+(?:[.,]\d+)?\s*"
+    r"(?:fM|pM|nM|uM|mM|M|ng/mL|ng/ml|ug/mL|ug/ml|mg/mL|mg/ml"
+    r"|U/mL|U/ml|IU/mL|IU/ml|%|v/v|w/v)\s+",
+    re.IGNORECASE,
+)
+_CONC_SUFFIX_RE = re.compile(
+    r"\s+\d+(?:[.,]\d+)?\s*"
+    r"(?:fM|pM|nM|uM|mM|M|ng/mL|ng/ml|ug/mL|ug/ml|mg/mL|mg/ml"
+    r"|U/mL|U/ml|IU/mL|IU/ml|%|v/v|w/v)\s*$",
+    re.IGNORECASE,
+)
+
+
+def _strip_concentration(s: str) -> str:
+    s = _CONC_PREFIX_RE.sub("", s)
+    s = _CONC_SUFFIX_RE.sub("", s)
+    return s.strip()
+
+
 def _ascii_fold(s: str) -> str:
     return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
 
@@ -269,7 +307,8 @@ def _tier3_norm(s: str) -> str:
     base = _tier2_norm(s)
     return _tier2_norm(_expand_abbrevs(base))
 
-def _best_tier(predicted: str, gt_candidates: list) -> dict:
+
+def _best_tier(predicted: str, gt_candidates: list, annotation_type: str = "") -> dict:
 
     result = {
         "tier1_exact":        False,
@@ -286,14 +325,26 @@ def _best_tier(predicted: str, gt_candidates: list) -> dict:
     if not gt_candidates:
         return result
 
-    p1 = _tier1_norm(predicted)
-    p2 = _tier2_norm(predicted)
-    p3 = _tier3_norm(predicted)
+    is_compound = annotation_type.lower() == "compound"
+
+    p1  = _tier1_norm(predicted)
+    p2  = _tier2_norm(predicted)
+    p3  = _tier3_norm(predicted)
     p2s = _strip_trailing_units(p2)
 
+    if is_compound:
+        p1_sc = _tier1_norm(_strip_concentration(predicted))
+        p2_sc = _tier2_norm(_strip_concentration(predicted))
+        p3_sc = _tier3_norm(_strip_concentration(predicted))
+    else:
+        p1_sc = p1
+        p2_sc = p2
+        p3_sc = p3
+
     for gt in gt_candidates:
-        g1 = _tier1_norm(gt)
-        if p1 == g1:
+        g1    = _tier1_norm(gt)
+        g1_sc = _tier1_norm(_strip_concentration(gt)) if is_compound else g1
+        if p1 == g1 or (is_compound and (p1_sc == g1 or p1 == g1_sc or p1_sc == g1_sc)):
             result.update({
                 "tier1_exact": True, "any_match": True, "no_match": False,
                 "match_score": 1.0, "match_type": "EXACT", "matched_gt": gt,
@@ -301,9 +352,11 @@ def _best_tier(predicted: str, gt_candidates: list) -> dict:
             return result
 
     for gt in gt_candidates:
-        g2  = _tier2_norm(gt)
-        g2s = _strip_trailing_units(g2)
-        if p2 == g2 or p2s == g2s:
+        g2    = _tier2_norm(gt)
+        g2s   = _strip_trailing_units(g2)
+        g2_sc = _tier2_norm(_strip_concentration(gt)) if is_compound else g2
+        if (p2 == g2 or p2s == g2s
+                or (is_compound and (p2_sc == g2 or p2 == g2_sc or p2_sc == g2_sc))):
             result.update({
                 "tier2_normalized": True, "any_match": True, "no_match": False,
                 "match_score": 0.9, "match_type": "NORMALIZED", "matched_gt": gt,
@@ -311,41 +364,66 @@ def _best_tier(predicted: str, gt_candidates: list) -> dict:
             return result
 
     for gt in gt_candidates:
-        g3  = _tier3_norm(gt)
-        g3s = _strip_trailing_units(g3)
-        p3s = _strip_trailing_units(p3)
-        if p3 == g3 or p3s == g3s:
+        g3    = _tier3_norm(gt)
+        g3s   = _strip_trailing_units(g3)
+        g3_sc = _tier3_norm(_strip_concentration(gt)) if is_compound else g3
+        p3s   = _strip_trailing_units(p3)
+        p3s_sc = _strip_trailing_units(p3_sc) if is_compound else p3s
+
+        if (p3 == g3 or p3s == g3s
+                or (is_compound and (
+                    p3_sc == g3 or p3 == g3_sc or p3_sc == g3_sc
+                    or p3s_sc == g3s or p3s == _strip_trailing_units(g3_sc)
+                ))):
             result.update({
                 "tier3_ontology": True, "any_match": True, "no_match": False,
                 "match_score": 0.8, "match_type": "ONTOLOGY", "matched_gt": gt,
             })
             return result
-        if p3 and g3 and (p3 in g3 or g3 in p3):
-            if len(min(p3, g3, key=len)) >= 3:
-                pred_is_superset = g3 in p3
-                result.update({
-                    "tier4_hierarchical": True, "any_match": True, "no_match": False,
-                    "match_score": 0.7, "match_type": "HIERARCHICAL", "matched_gt": gt,
-                    "pred_is_superset": pred_is_superset,
-                })
-                return result
 
-    for gt in gt_candidates:
-        p2_tokens = set(p2.split())
-        g2_tokens = set(_tier2_norm(gt).split())
-        if p2_tokens and g2_tokens:
-            overlap = p2_tokens & g2_tokens
-            if len(overlap) >= max(1, min(len(p2_tokens), len(g2_tokens)) // 2):
-                if len(overlap) >= 2 or (len(overlap) == 1 and len(list(overlap)[0]) >= 4):
-                    pred_is_superset = len(p2_tokens) >= len(g2_tokens)
+        candidate_pairs = [(p3, g3)]
+        if is_compound:
+            candidate_pairs += [(p3_sc, g3), (p3, g3_sc), (p3_sc, g3_sc)]
+        for pc, gc in candidate_pairs:
+            if pc and gc and (pc in gc or gc in pc):
+                if len(min(pc, gc, key=len)) >= 3:
+                    pred_is_superset = gc in pc
                     result.update({
                         "tier4_hierarchical": True, "any_match": True, "no_match": False,
-                        "match_score": 0.65, "match_type": "HIERARCHICAL", "matched_gt": gt,
+                        "match_score": 0.7, "match_type": "HIERARCHICAL", "matched_gt": gt,
                         "pred_is_superset": pred_is_superset,
                     })
                     return result
 
+    for gt in gt_candidates:
+        p2_tok    = set(p2.split())
+        g2_tok    = set(_tier2_norm(gt).split())
+        p2_sc_tok = set(p2_sc.split()) if is_compound else p2_tok
+        g2_sc_tok = set(_tier2_norm(_strip_concentration(gt)).split()) if is_compound else g2_tok
+
+        token_pairs = [(p2_tok, g2_tok)]
+        if is_compound:
+            token_pairs += [
+                (p2_sc_tok, g2_tok),
+                (p2_tok,    g2_sc_tok),
+                (p2_sc_tok, g2_sc_tok),
+            ]
+
+        for pt, gt_tok in token_pairs:
+            if pt and gt_tok:
+                overlap = pt & gt_tok
+                if len(overlap) >= max(1, min(len(pt), len(gt_tok)) // 2):
+                    if len(overlap) >= 2 or (len(overlap) == 1 and len(list(overlap)[0]) >= 4):
+                        pred_is_superset = len(pt) >= len(gt_tok)
+                        result.update({
+                            "tier4_hierarchical": True, "any_match": True, "no_match": False,
+                            "match_score": 0.65, "match_type": "HIERARCHICAL", "matched_gt": gt,
+                            "pred_is_superset": pred_is_superset,
+                        })
+                        return result
+
     return result
+
 
 class GPT52MediumReasoning(DeepEvalBaseLLM):
 
@@ -446,7 +524,12 @@ def _score_to_flags(score: float) -> dict:
     else:
         return {"value_correct": False, "value_complete": False, "hallucination": True}
 
-def _parse_type_mismatch_from_reason(reason: str, geval_score: float) -> tuple:
+
+def _parse_type_mismatch_from_reason(
+    reason: str,
+    geval_score: float,
+    annotation_type: str = "",
+) -> tuple:
 
     if geval_score is None or geval_score == 0.0:
         return False, None
@@ -469,11 +552,17 @@ def _parse_type_mismatch_from_reason(reason: str, geval_score: float) -> tuple:
         m = re.search(pat, reason, re.IGNORECASE)
         if m:
             candidate = m.group(1)
+
+            if (annotation_type.lower() == "compound"
+                    and candidate.lower() == "concentrationofcompound"):
+                return False, None
+
             if candidate in known_types:
                 return True, candidate
             return True, None
 
     return False, None
+
 
 def _run_geval_semantic(
     source_text:     str,
@@ -514,7 +603,9 @@ def _run_geval_semantic(
 
     flags = _score_to_flags(score)
 
-    is_mismatch, correct_type = _parse_type_mismatch_from_reason(reason, score)
+    is_mismatch, correct_type = _parse_type_mismatch_from_reason(
+        reason, score, annotation_type
+    )
 
     if flags["hallucination"]:
         is_mismatch  = False
@@ -592,7 +683,8 @@ def evaluate_with_geval(
 
             n_total += 1
 
-            tier = _best_tier(val, gt_candidates) if has_golden else {
+            # Pass annotation_type so Compound concentration-stripping applies.
+            tier = _best_tier(val, gt_candidates, ann_type) if has_golden else {
                 "tier1_exact": False, "tier2_normalized": False,
                 "tier3_ontology": False, "tier4_hierarchical": False,
                 "any_match": False, "no_match": True,
@@ -620,7 +712,7 @@ def evaluate_with_geval(
                     "value_correct":    True,
                     "value_complete":   True,
                     "hallucination":    False,
-                    "issue_summary":    f"Tier 1 — exact match with GT '{tier['matched_gt']}'.",
+                    "issue_summary":    f"Tier 1 -- exact match with GT '{tier['matched_gt']}'.",
                     "corrected_value":  None,
                 })
                 continue
@@ -646,7 +738,7 @@ def evaluate_with_geval(
                     "value_correct":    True,
                     "value_complete":   True,
                     "hallucination":    False,
-                    "issue_summary":    f"Tier 2 — normalized match with GT '{tier['matched_gt']}'.",
+                    "issue_summary":    f"Tier 2 -- normalized match with GT '{tier['matched_gt']}'.",
                     "corrected_value":  None,
                 })
                 continue
@@ -672,7 +764,7 @@ def evaluate_with_geval(
                     "value_correct":    True,
                     "value_complete":   True,
                     "hallucination":    False,
-                    "issue_summary":    f"Tier 3 — ontology/abbreviation match with GT '{tier['matched_gt']}'.",
+                    "issue_summary":    f"Tier 3 -- ontology/abbreviation match with GT '{tier['matched_gt']}'.",
                     "corrected_value":  None,
                 })
                 continue
@@ -680,7 +772,7 @@ def evaluate_with_geval(
             if tier["tier4_hierarchical"]:
                 pred_is_superset = tier.get("pred_is_superset", False)
                 complete_flag    = True if pred_is_superset else False
-                summary_suffix   = "predicted is more detailed than GT (superset — complete)." if pred_is_superset else "predicted is less specific than GT (subset — incomplete)."
+                summary_suffix   = "predicted is more detailed than GT (superset -- complete)." if pred_is_superset else "predicted is less specific than GT (subset -- incomplete)."
                 if not complete_flag:
                     n_incompl += 1
                 print(f"        [T4-hier]   {ann_type}: '{val[:55]}' {'(superset)' if pred_is_superset else '(subset)'}")
@@ -703,7 +795,7 @@ def evaluate_with_geval(
                     "value_correct":    True,
                     "value_complete":   complete_flag,
                     "hallucination":    False,
-                    "issue_summary":    f"Tier 4 — hierarchical match with GT '{tier['matched_gt']}'; {summary_suffix}",
+                    "issue_summary":    f"Tier 4 -- hierarchical match with GT '{tier['matched_gt']}'; {summary_suffix}",
                     "corrected_value":  None,
                 })
                 continue
@@ -1025,7 +1117,7 @@ def save_geval_results(per_paper_judge, per_file_stats, output_dir):
                 "value_correct":      False,
                 "value_complete":     False,
                 "hallucination":      False,
-                "issue_summary":      "Not extracted — present in source text or ground truth.",
+                "issue_summary":      "Not extracted -- present in source text or ground truth.",
                 "corrected_value":    missed.get("correct_value"),
             })
     if rows:
@@ -1092,7 +1184,7 @@ def plot_geval_results(per_file_stats, output_dir):
     w = 0.6
 
     fig, axes = plt.subplots(2, 2, figsize=(20, 14))
-    fig.suptitle("GEval — Annotation Quality Analysis (mutually exclusive categories)",
+    fig.suptitle("GEval -- Annotation Quality Analysis (mutually exclusive categories)",
                  fontsize=15, fontweight="bold", y=0.98)
 
     ax = axes[0, 0]
@@ -1202,7 +1294,7 @@ def plot_geval_results(per_file_stats, output_dir):
     ax2.axhline(0.7, color="#e74c3c", lw=1.5, linestyle=":", alpha=0.7, label="Threshold = 0.70")
     ax2.set_xticks(xb); ax2.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
     ax2.set_ylabel("value_correct rate  (correct / total predicted)", fontsize=12, fontweight="bold")
-    ax2.set_title("LLM Judge — Extraction Accuracy per Paper  (based on value_correct)",
+    ax2.set_title("LLM Judge -- Extraction Accuracy per Paper  (based on value_correct)",
                   fontsize=13, fontweight="bold", pad=10)
     ax2.set_ylim([0, 1.15]); ax2.grid(axis="y", alpha=0.3, linestyle="--"); ax2.set_axisbelow(True)
     ax2.legend(fontsize=10)
@@ -1215,7 +1307,6 @@ def plot_geval_results(per_file_stats, output_dir):
     print(f"Accuracy plot saved to: {out2}")
 
 def plot_tier_distribution(per_paper_judge: dict, output_dir: str):
-
     T1  = "#10B981"
     T2  = "#3B82F6"
     T3  = "#8B5CF6"
@@ -1353,7 +1444,7 @@ def plot_tier_distribution(per_paper_judge: dict, output_dir: str):
     print(f"  Saved: tier_distribution_aggregate.png")
 
 if __name__ == "__main__":
-    print("PART 3 — GEVAL AS JUDGE (5-tier matching)")
+    print("PART 3 -- GEVAL AS JUDGE (5-tier matching)")
     print(f"Ground Truth Dir : {GROUND_TRUTH_DIR}")
     print(f"Predictions Dir  : {PREDICTIONS_DIR}")
     print(f"Papers JSON      : {PAPERS_JSON}")
