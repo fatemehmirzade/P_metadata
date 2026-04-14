@@ -1,0 +1,36 @@
+AcquisitionMethod: Data-dependent acquisition
+AlkylationReagent: iodoacetamide
+CellLine: HeLa
+CellType: mammalian cells
+CellType: human pancreatic islets
+CleavageAgent: trypsin
+CleavageAgent: Lys-C
+CollisionEnergy: 28%
+Disease: type 1 diabetic
+Disease: non-diabetic
+FlowRateChromatogram: 500	nL/min
+FlowRateChromatogram: 60	nL/min
+FlowRateChromatogram: 400	nL/min
+FragmentMassTolerance: 20 ppm
+FragmentationMethod: high energy dissociation
+GradientTime: 150-min
+Instrument: Orbitrap Fusion Lumos Tribrid MS
+IonizationType: Electrospray
+Label: LFQ
+MaterialType: cells
+MaterialType: tissue slices
+Modification: N-terminal protein acetylation
+Modification: methionine oxidation
+Modification: Carbamidomethylation of cysteine residues
+NumberOfMissedCleavages: 2
+Organism: human
+OrganismPart: pancreatic islets
+OrganismPart: pancreata
+PrecursorMassTolerance: <20 and 4.5 ppm
+ReductionReagent: DTT
+Separation: C18 packing material
+Separation: LC column
+Separation: SPE precolumn
+Separation: Self-Pack PicoFrit column
+Separation: nanoACQUITY UPLC pump
+Specimen: LCM tissues

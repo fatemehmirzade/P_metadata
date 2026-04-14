@@ -1,0 +1,52 @@
+AcquisitionMethod: data dependent mass spectrometric method
+Age: 27y
+Age: 39y
+Age: 40y
+AlkylationReagent: iodoacetamide
+BiologicalReplicate: 40y/m
+BiologicalReplicate: 39y/m
+BiologicalReplicate: 27y/m
+CellLine: ES04
+CellPart: cytosolic (CYT)
+CellPart: nuclear (NUC)
+CellPart: chromatin-bound (CH)
+CellType: Embryonic stem cell-derived MSC (ESC-MSC)
+CellType: human bone marrow-derived MSC (BM-MSC)
+CellType: human embryonic stem cells (hESC)
+CleavageAgent: Lys-C
+CleavageAgent: trypsin
+CollisionEnergy: normalized collision energy 25
+DevelopmentalStage: embryonic
+FlowRateChromatogram: 250nl/min
+FractionationMethod: Subcellular fractionation
+FractionationMethod: in-solution isoelectric focusing
+FractionationMethod: OFFGEL fractionator
+FragmentMassTolerance: 20ppm
+FragmentationMethod: higher energy collisional dissociation
+GradientTime: 100min
+Instrument: Q Exactive mass spectrometer
+Label: heavy
+Label: medium
+Label: light
+Label: triple SILAC
+MaterialType: embryonic stem cells
+MaterialType: mesenchymal stem cells
+Modification: N-terminal acetylation
+Modification: methionine oxidation
+Modification: cysteine carbamidomethylation
+NumberOfBiologicalReplicates: three independent experiments
+NumberOfFractions: 12 fractions
+NumberOfMissedCleavages: two
+Organism: human
+OrganismPart: bone marrow
+PrecursorMassTolerance: 20ppm
+PrecursorMassTolerance: 4.5ppm
+ReductionReagent: DTT
+SamplingTime: 80% confluence
+SamplingTime: passages 8991
+SamplingTime: passages 56
+SamplingTime: passages 79
+Separation: liquid chromatography (LC)
+Separation: EASY nLC-II
+Separation: ReproSil-Pur 120 C18-AQ
+Sex: male

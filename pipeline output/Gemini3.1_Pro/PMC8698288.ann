@@ -1,0 +1,43 @@
+AcquisitionMethod: data-dependent (dd) positive acquisition mode
+Bait: FLAG-BirA*
+Bait: FLAG-BirA*-MOB1
+Bait: TgMOB1
+CellLine: HFF-1
+CellType: Human foreskin fibroblasts
+CellType: tachyzoites
+CleavageAgent: trypsin
+CollisionEnergy: normalized collision energy of 27%
+DevelopmentalStage: tachyzoites
+EnrichmentMethod: proximity-dependent biotin labeling
+EnrichmentMethod: agarose-streptavidin beads
+FlowRateChromatogram: 10 µL/min
+FlowRateChromatogram: 250 nl/min
+FragmentMassTolerance: 0.02 Da
+FragmentationMethod: HCD
+GeneticModification: FLAG-BirA*
+GeneticModification: FLAG-BirA*-MOB1
+GradientTime: 5 min
+GradientTime: 120 min
+GradientTime: 20 min
+GradientTime: 10 min
+GradientTime: 17 min
+Instrument: Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer
+IonizationType: ESI
+Label: label-free quantification
+MaterialType: parasites
+MaterialType: protein extracts
+Modification: Cysteine carbamidomethylation
+Modification: Methionine oxidation
+Modification: protein N-terminus acetylation
+Modification: biotin labeling
+NumberOfBiologicalReplicates: three
+NumberOfMissedCleavages: 2
+Organism: Toxoplasma gondii
+PrecursorMassTolerance: 10 ppm
+SamplingTime: 14 h
+SamplingTime: 56 h
+Separation: Ultimate 3000 liquid chromatography system
+Separation: Acclaim PepMap C18 100 Å
+Separation: EASY-Spray column
+Strain: RH
+Treatment: biotin

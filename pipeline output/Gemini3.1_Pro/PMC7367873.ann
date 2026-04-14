@@ -1,0 +1,62 @@
+AcquisitionMethod: data-dependent acquisition
+AlkylationReagent: chloroacetamide
+Bait: eGFP-14-3-3β
+Bait: pEGFP(C1)
+Bait: pEGFP(C1)-14-3-3β
+CellLine: HeLa Kyoto
+CleavageAgent: trypsin
+CollisionEnergy: 32
+CollisionEnergy: 35% normalized collision energy (NCE)
+CollisionEnergy: 55% NCE
+CollisionEnergy: 30% normalized collision energy (NCE)
+EnrichmentMethod: Fe-IMAC
+EnrichmentMethod: immunoprecipitation
+FlowRateChromatogram: 0.3 µL/min
+FlowRateChromatogram: 0.5 mL/min
+FlowRateChromatogram: 300 nL/min
+FlowRateChromatogram: 30 µL/min
+FlowRateChromatogram: 5 µL/min
+FractionationMethod: High-pH RP tip fractionation
+FragmentMassTolerance: 0.05 Da
+FragmentationMethod: collision-induced dissociation
+FragmentationMethod: higher-energy collision-induced dissociation
+GeneticModification: His-tagged recombinant PPP2CA ΔL309
+GeneticModification: pCMV-GAB2-3Flag
+GeneticModification: pEGFP(C1)
+GeneticModification: pEGFP(C1)-14-3-3β
+GeneticModification: pETM20-His-TEV-PPP1R2
+GeneticModification: pTXB1-His-TEV-PP1α-intein
+GradientTime: 120 min
+GradientTime: 60 min
+GradientTime: 90 min
+Instrument: Q Exactive Plus mass spectrometer
+Instrument: Fusion Lumos Tribrid mass spectrometer
+IonizationType: Nanospray-Flex ion source
+Label: TMT-6plex
+Label: LFQ
+MS2MassAnalyzer: Orbitrap
+MaterialType: cells
+MaterialType: lysate
+Modification: phosphorylation
+Modification: Oxidation of methionine
+Modification: N-terminal protein acetylation
+Modification: Carbamidomethylation
+NumberOfBiologicalReplicates: three independent replicates
+NumberOfFractions: four fractions
+NumberOfMissedCleavages: 6
+NumberOfMissedCleavages: two
+Organism: Escherichia coli
+Organism: Homo sapiens
+PooledSample: pooled
+PrecursorMassTolerance: 10 ppm
+ReductionReagent: dithiothreitol
+SamplingTime: 10–15 min
+SamplingTime: 12 min
+SamplingTime: 1 h
+Separation: UltiMate 3000 RSLC nano LC system
+Staining: colloidal Coomassie
+Strain: BL21Star(DE3)pRARE
+SyntheticPeptide: phosphopeptide library
+Treatment: 20 nM Calyculin A
+Treatment: recombinant PP1c
+Treatment: recombinant PP2Ac

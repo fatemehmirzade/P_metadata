@@ -1,0 +1,50 @@
+AcquisitionMethod: data dependent acquisition
+AlkylationReagent: iodoacetamide
+CellPart: urinary EV
+CleavageAgent: trypsin
+CollisionEnergy: normalized collision energy of 27%
+Disease: benign prostate hyperplasia
+Disease: prostate cancer
+Disease: renal cell carcinoma
+Disease: urothelial cancer of the bladder
+EnrichmentMethod: C18-StageTips
+FractionationMethod: bottom-up Optiprep density gradient centrifugation
+FractionationMethod: size exclusion chromatography
+FractionationMethod: differential ultracentrifugation
+FractionationMethod: Exoquick precipitation
+FractionationMethod: top-down Optiprep density gradient centrifugation
+FragmentationMethod: higher energy collisional dissociation
+GradientTime: 50-min
+GradientTime: 60 min
+Instrument: Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer
+IonizationType: nano‐electrospray ionization
+Label: Label-free quantification (LFQ)
+MaterialType: Urine
+MaterialType: Extracellular vesicles (EV)
+MaterialType: Tumour conditioned medium (TCM)
+MaterialType: tissue
+Modification: Carbamidomethyl (C)
+Modification: oxidation (M)
+Modification: acetylation of the protein N-terminus
+NumberOfBiologicalReplicates: n = 12
+NumberOfBiologicalReplicates: n = 10
+NumberOfBiologicalReplicates: n = 3
+NumberOfBiologicalReplicates: n = 5
+NumberOfBiologicalReplicates: n = 6
+NumberOfMissedCleavages: two
+NumberOfTechnicalReplicates: Three repeated runs per sample
+Organism: homo sapiens
+OrganismPart: prostate
+OrganismPart: bladder
+OrganismPart: renal
+PooledSample: pooled
+ReductionReagent: dithiothreitol
+SamplingTime: 3 months after local treatment
+SamplingTime: prior to local treatment
+Separation: Easy-nLC1000
+Sex: men
+Specimen: second morning whole void urine samples
+Specimen: resected prostate cancer tissue samples
+SpikedCompound: GFP-positive rEV
+Treatment: radical prostatectomy
+Treatment: intensity-modulated radiation therapy

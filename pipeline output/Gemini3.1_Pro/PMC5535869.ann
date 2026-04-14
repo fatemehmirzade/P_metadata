@@ -1,0 +1,31 @@
+Age: three days after pollination
+Age: seven days after pollination
+AlkylationReagent: IAA
+CleavageAgent: trypsin
+DevelopmentalStage: early seed development
+DevelopmentalStage: mature
+DevelopmentalStage: developing
+EnrichmentMethod: Acetylpeptide Enrichment
+EnrichmentMethod: antibody beads
+FlowRateChromatogram: 300 µL∙min−1
+FragmentMassTolerance: 0.02 Da
+GradientTime: 24 min
+GradientTime: 8 min
+GradientTime: 5 min
+GradientTime: 3 min
+Instrument: Q Exactive TM mass spectrometer
+Label: label-free
+MaterialType: tissue
+Modification: carbamidomethylation on Cys
+Modification: oxidation on Met
+Modification: acetylation on Lys protein N-terminal
+NumberOfBiologicalReplicates: three
+NumberOfMissedCleavages: 4
+Organism: Oryza sativa
+OrganismPart: pistils
+OrganismPart: seeds
+PrecursorMassTolerance: 10 ppm
+ReductionReagent: DL-Dithiothreitol
+Separation: reversed-phase analytical column
+Separation: Easy-nLC1000 UPLC system
+Strain: Nipponbare

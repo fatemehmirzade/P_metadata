@@ -1,0 +1,23 @@
+GradientTime: 4-h
+MaterialType: tissue
+NumberOfBiologicalReplicates: three biological replicates per tissue
+NumberOfSamples: total of 18 samples
+NumberOfTechnicalReplicates: technical triplicates
+Organism: Riftia pachyptila
+Organism: bacterial endosymbionts
+OrganismPart: trophosome
+OrganismPart: vestimentum
+OrganismPart: plume
+ReductionReagent: dithiothreitol
+Separation: liquid chromatography tandem mass spectrometry (LC-MS/MS)
+Separation: one-dimensional LC-MS/MS
+Separation: 50-cm analytical column
+Separation: 75-cm analytical column
+Specimen: sulfur rich
+Strain: Riftia1
+Strain: Riftia2
+Treatment: energy-rich
+Treatment: energy-limited
+Treatment: S-rich
+Depletion: S depleted
+Depletion: S-depleted

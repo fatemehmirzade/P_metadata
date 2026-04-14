@@ -1,0 +1,30 @@
+AcquisitionMethod: top 12 method
+AlkylationReagent: iodoacetamide
+CleavageAgent: trypsin
+CollisionEnergy: 27%
+FlowRateChromatogram: 300 nl/min
+GradientTime: 120 min
+Instrument: Q Exactive Orbitrap mass spectrometer
+IonizationType: nano electrospray
+IonizationType: nano spray
+MaterialType: Skin prick test (SPT) solutions
+MaterialType: allergy vaccines
+MaterialType: extract
+Modification: carbamidomethylation (C)
+Modification: deamidation (NQ)
+Modification: oxidation (M)
+NumberOfSamples: 16 house dust mite (HDM) SPT solutions and AVs
+NumberOfSamples: 6 HDM samples
+NumberOfTechnicalReplicates: 4 to 6 independent experiments for each sample
+Organism: Dermatophagoides pteronyssinus
+Organism: human
+Organism: Suidasia medanensis
+Organism: Cicer arietinum
+Organism: baker's yeast
+Organism: Dermatophagoides farinae
+Organism: Blomia tropicalis
+OrganismPart: serum
+ReductionReagent: dithiothreitol
+Separation: Acclaim PepMap RSLC C18
+Separation: Dionex Ultimate 3000
+Separation: reverse-phase nano-HPLC
