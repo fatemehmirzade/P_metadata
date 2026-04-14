@@ -1,0 +1,27 @@
+================================================================================
+HALLUCINATION DETECTION REPORT
+================================================================================
+
+Total Predictions Checked: 421
+Fully Supported  (>=85%):  412
+Partially Supported (70-84%): 3
+Hallucinated (<70%):  6
+
+Hallucination Rate: 1.43%
+
+================================================================================
+HALLUCINATED ITEMS
+================================================================================
+1. PMC5535869 - MaterialType: tissue (conf: 0.60)
+2. PMC5830451 - Organism: Homo sapiens (conf: 0.57)
+3. PMC7367873 - Organism: Homo sapiens (conf: 0.60)
+4. PMC7367873 - Organism: Escherichia coli (conf: 0.58)
+5. PMC7921882 - Organism: Homo sapiens (conf: 0.55)
+6. PMC8698288 - Compound: biotin 150 µM (conf: 0.55)
+
+================================================================================
+PARTIALLY SUPPORTED ITEMS
+================================================================================
+1. PMC7294662 - MaterialType: cell line (conf: 0.78)
+2. PMC7294662 - Treatment: siRPS26 (conf: 0.77)
+3. PMC8698288 - CellType: Toxoplasma gondii tachyzoites (conf: 0.84)

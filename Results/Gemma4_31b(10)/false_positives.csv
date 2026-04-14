@@ -1,0 +1,146 @@
+Entity_Type,File,Pred_Text,Pred_Line
+AlkylationReagent,PMC5535869,IAA,1
+Bait,PMC10681723,Mcm2HBD,2
+Bait,PMC7294662,IFI35,5
+Bait,PMC7294662,NMI,6
+Bait,PMC7294662,STAT1,7
+Bait,PMC7294662,PNPT1,8
+Bait,PMC7367873,14-3-3β,4
+Bait,PMC7367873,GAB2,5
+Bait,PMC8698288,MOB1,3
+CellLine,PMC7367873,Caco-2 BBe1 cells,7
+CellLine,PMC7367873,SW-480 cells,8
+CellLine,PMC8698288,HFF-1,4
+CellPart,PMC7144211,extracellular vesicles,4
+CellPart,PMC7294662,ribosome,11
+CellPart,PMC7294662,polysome,12
+CellType,PMC10681723,budding yeast,3
+CellType,PMC5830451,mammalian cells,5
+CellType,PMC8698288,Toxoplasma gondii tachyzoites,5
+CollisionEnergy,PMC7294662,42 eV,17
+Compound,PMC7294662,siRPL28,20
+Compound,PMC7367873,Calyculin A 20 nM,13
+Compound,PMC7367873,recombinant PP1c 1 μM,14
+Compound,PMC7367873,recombinant PP2Ac 1 μM,15
+Compound,PMC8698288,biotin 150 µM,8
+Disease,PMC7144211,renal cell carcinoma,10
+Disease,PMC7921882,dust mite allergies,5
+EnrichmentMethod,PMC10681723,Flag-tagged protein purification,5
+EnrichmentMethod,PMC10681723,GFP nanobody-based purification,6
+EnrichmentMethod,PMC10681723,GST pull-down,7
+EnrichmentMethod,PMC10681723,histone pull-down,8
+EnrichmentMethod,PMC10681723,FACT pull-down,9
+EnrichmentMethod,PMC7144211,bottom-up Optiprep density gradient centrifugation,13
+EnrichmentMethod,PMC7144211,size exclusion chromatography (SEC)-based separation of EV from iodixanol,14
+EnrichmentMethod,PMC7294662,Immunoprecipitation,21
+EnrichmentMethod,PMC7294662,IP-MS,22
+EnrichmentMethod,PMC7367873,immunoprecipitation,17
+EnrichmentMethod,PMC7367873,pull-down,18
+EnrichmentMethod,PMC7921882,ZipTips C18,6
+EnrichmentMethod,PMC7921882,Pierce C18 Tips,7
+EnrichmentMethod,PMC8698288,proximity-dependent biotin labeling,9
+EnrichmentMethod,PMC8698288,BioID,10
+FlowRateChromatogram,PMC8698288,10 µL/min,14
+FractionIdentifier,PMC7144211,9–10,21
+FractionIdentifier,PMC7294662,fractions 6–65,32
+FractionationMethod,PMC7294662,linear 10–50% sucrose gradient,35
+FragmentMassTolerance,PMC5830451,7 ppm,14
+GeneticModification,PMC10681723,Flag-tagged,11
+GeneticModification,PMC10681723,GFP-tagged,12
+GeneticModification,PMC7294662,HA-tagged IFI35,38
+GeneticModification,PMC7367873,pcDNA3-FLAG-HA-14-3-3β,30
+GeneticModification,PMC7367873,pEGFP(C1)-14-3-3β,31
+GeneticModification,PMC7367873,pmKate2-N-GAB2,32
+GeneticModification,PMC7367873,pCMV-GAB2-3Flag,33
+GeneticModification,PMC7367873,pET-PPP1R2,34
+GeneticModification,PMC7367873,pTXB1-His-TEV-PP1α-intein,35
+GeneticModification,PMC7367873,His-tagged recombinant PPP2CA ΔL309,36
+GeneticModification,PMC7367873,pETM20-His-TEV-PPP1R2,37
+GeneticModification,PMC7367873,His-PP1c,38
+GeneticModification,PMC8698288,FLAG-BirA*,18
+GeneticModification,PMC8698288,FLAG-BirA*-MOB1,19
+Genotype,PMC10681723,W303-1,14
+GradientTime,PMC7367873,120 min,39
+IonizationType,PMC5830451,Electrospray,18
+IonizationType,PMC7294662,Captive spray nanospray ionization source,46
+MS2MassAnalyzer,PMC5830451,Orbitrap,20
+MS2MassAnalyzer,PMC7367873,Orbitrap,48
+MaterialType,PMC7144211,biofluid,29
+MaterialType,PMC7144211,tissue,30
+NumberOfFractions,PMC7294662,80 fractions,58
+NumberOfFractions,PMC7367873,four fractions,56
+NumberOfMissedCleavages,PMC7367873,6,57
+NumberOfMissedCleavages,PMC7367873,two,58
+NumberOfSamples,PMC6918071,18,12
+NumberOfSamples,PMC7921882,16,15
+NumberOfTechnicalReplicates,PMC6918071,3,13
+NumberOfTechnicalReplicates,PMC7367873,two,59
+Organism,PMC7367873,Escherichia coli,61
+Organism,PMC7921882,Suidasia medanensis,18
+Organism,PMC7921882,Cicer arietinum,19
+Organism,PMC7921882,Homo sapiens,21
+OrganismPart,PMC7144211,bladder,39
+OrganismPart,PMC7144211,renal,40
+OrganismPart,PMC7921882,serum,22
+OriginSiteDisease,PMC5830451,pancreatic islet,29
+OriginSiteDisease,PMC7144211,prostate,41
+OriginSiteDisease,PMC7144211,bladder,42
+OriginSiteDisease,PMC7144211,renal,43
+PooledSample,PMC4746666,pooled,38
+PooledSample,PMC7294662,pooled,60
+PooledSample,PMC7367873,pooled,62
+PrecursorMassTolerance,PMC7294662,5 ppm,61
+PrecursorMassTolerance,PMC7294662,20 ppm,63
+SamplingTime,PMC5535869,three days after pollination,30
+SamplingTime,PMC5535869,seven days after pollination,31
+SamplingTime,PMC7144211,3 months after local treatment,45
+SamplingTime,PMC7294662,4 h IFNβ stimulation,65
+SamplingTime,PMC7294662,24 h IFNβ stimulation,66
+SamplingTime,PMC7367873,10–15 min,66
+SamplingTime,PMC8698288,14 h of host cell infection,37
+SamplingTime,PMC8698288,56 h,38
+Separation,PMC4746666,EASY nLC-II,41
+Separation,PMC5535869,Easy-nLC1000 UPLC system,34
+Separation,PMC6918071,one-dimensional LC-MS/MS,23
+Separation,PMC7144211,"nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific)",46
+Separation,PMC7294662,Agilent 1100 HPLC system,67
+Separation,PMC7294662,"Agilent Zorbax Extend column (1.0 × 50 mm, 3.5 μm particles)",68
+Separation,PMC7294662,Easy nano LC 1000 nanoflow HPLC,69
+Separation,PMC7294662,fused silica trap column,70
+Separation,PMC7294662,analytical column was from 75-μm-inner-diameter fused silica capillary,71
+Separation,PMC7294662,Aqua C-18 beads,72
+Separation,PMC7294662,Reprosil-Pur C-18-AQ beads,73
+Separation,PMC7294662,Easy nano LC 1000 HPLC,74
+Separation,PMC7294662,fused silica fritted trap column,75
+Separation,PMC7294662,"40-cm-long, 75-μm-inner-diameter fused silica analytical column",76
+Separation,PMC7367873,UltiMate 3000 RSLC nano LC system,67
+Separation,PMC7367873,Dionex Ultimate3000 nano-HPLC,70
+Separation,PMC8698288,nanoLC-MS/MS,39
+Separation,PMC8698288,Ultimate 3000 liquid chromatography system,40
+Specimen,PMC7921882,SPT solutions,27
+Specimen,PMC7921882,allergy vaccines,28
+Specimen,PMC7921882,extracts,29
+SpikedCompound,PMC6918071,human hair,24
+Strain,PMC10681723,W303-1,17
+SyntheticPeptide,PMC7367873,phosphopeptide library,73
+SyntheticPeptide,PMC7367873,PDP-Nal,74
+SyntheticPeptide,PMC7367873,PDPm-Nal,75
+Temperature,PMC10681723,30°C,18
+Temperature,PMC7294662,37 °C,77
+Temperature,PMC7367873,37 °C,76
+Temperature,PMC8698288,37 °C,45
+Time,PMC5535869,three DAP,36
+Time,PMC5535869,seven DAP,37
+Time,PMC7367873,10–15 min,77
+Time,PMC8698288,14 h,46
+Time,PMC8698288,56 h,47
+Treatment,PMC5830451,type 1 diabetic,34
+Treatment,PMC6918071,S-rich,25
+Treatment,PMC6918071,S-depleted,26
+Treatment,PMC7144211,radical prostatectomy,49
+Treatment,PMC7144211,intensity-modulated radiation therapy,50
+Treatment,PMC7294662,siRPL28,81
+Treatment,PMC7294662,siRPS26,82
+Treatment,PMC7294662,siRPS28,83
+Treatment,PMC7367873,Calyculin A,78
+Treatment,PMC8698288,biotin,48

@@ -1,0 +1,25 @@
+Entity_Type,File,GT_Text,GT_Line
+AcquisitionMethod,PMC10681723,affinity purification-mass spectrometry (AP-MS),1
+AcquisitionMethod,PMC7921882,top 12 method,1
+CellType,PMC5535869,rice suspension cell,1
+CellType,PMC7367873,epithelial,4
+CollisionEnergy,PMC7367873,55,9
+FlowRateChromatogram,PMC5830451,400 nL/min,12
+FlowRateChromatogram,PMC5830451,500 nL/min,13
+FlowRateChromatogram,PMC7294662,300 nL/min,17
+FractionIdentifier,PMC7144211,EV-enriched,16
+FractionIdentifier,PMC7144211,protein-enriched,17
+FractionIdentifier,PMC7144211,THP-enriched,18
+FragmentMassTolerance,PMC5830451,4.5 ppm,15
+GradientTime,PMC5830451,20 min,17
+Label,PMC4746666,Arg6/Lys4,29
+Label,PMC4746666,Arg10/Lys8,30
+NumberOfBiologicalReplicates,PMC10681723,n = 3,10
+NumberOfTechnicalReplicates,PMC6918071,triplicates,10
+NumberOfTechnicalReplicates,PMC6918071,Two,11
+NumberOfTechnicalReplicates,PMC7921882,4 to 6 independent experiments for each sample,12
+Organism,PMC5535869,rice,26
+Organism,PMC6918071,Candidatus Endoriftia persephone,14
+Organism,PMC7921882,Euroglyphus maynei,16
+PrecursorMassTolerance,PMC4746666,20 ppm,40
+Treatment,PMC7367873,untreated,42

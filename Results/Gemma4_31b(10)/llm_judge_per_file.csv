@@ -1,0 +1,11 @@
+file_name,judge_n_total,judge_n_clean,judge_n_value_correct,judge_n_high,judge_n_medium,judge_n_low,judge_hallucination_rate,judge_type_mismatch_count,judge_wrong_value_count,judge_incomplete_count,judge_missed_count
+PMC10681723,14,8,9,8,1,5,0.0,1,4,1,1
+PMC4746666,39,34,39,34,5,0,0.0,0,0,5,0
+PMC5535869,28,24,26,24,2,2,0.0,1,1,2,1
+PMC5830451,27,22,25,22,3,2,0.0,0,2,3,0
+PMC6918071,15,13,15,13,2,0,0.0,0,0,2,0
+PMC7144211,32,27,29,27,2,3,0.0,1,2,2,0
+PMC7294662,53,43,52,43,9,1,0.018867924528301886,0,0,9,0
+PMC7367873,54,44,50,44,6,4,0.0,1,3,6,2
+PMC7921882,20,16,18,16,2,2,0.0,0,2,2,2
+PMC8698288,36,31,35,31,4,1,0.0,1,0,4,0

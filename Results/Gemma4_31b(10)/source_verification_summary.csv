@@ -1,0 +1,7 @@
+Metric,Value
+Total Predictions Checked,421
+Fully Supported (>=85%),412
+Partially Supported (70-84%),3
+Hallucinated (<70%),6
+Hallucination Rate,1.43%
+Full Support Rate,97.86%

@@ -1,0 +1,1205 @@
+paper_id,annotation_type,extracted_value,golden_value,has_golden,verdict,match_type,any_match,no_match,type_mismatch,correct_type,value_correct,value_complete,hallucination,issue_summary,corrected_value
+PMC10681723,Bait,Spt16,Spt16; Spt16-ΔN,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC10681723,Bait,Mcm2HBD,Spt16; Spt16-ΔN,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “Mcm2HBD” names a specific protein construct/domain used in a GST pull-down, so it fits the Bait definition (an affinity handle molecule in a pull-down).
+SOURCE CHECK:      “Mcm2HBD” appears in the paper methods (e.g., “GST-tagged Mcm2HBD (residues 1–200)” and “GST-Mcm2HBD pull-down”).
+CORRECTNESS CHECK: It does not match either reference value (“Spt16” or “Spt16-ΔN”); it is a different bait/handle than the expert-annotated baits.
+COMPLETENESS CHECK: The paper specifies “GST-tagged Mcm2HBD”; reporting only “Mcm2HBD” omits the tag/format used as the immobilized bait, but the construct is still largely identifiable.
+HALLUCINATED: no
+VERDICT: low",
+PMC10681723,CellType,budding yeast,,False,low,TYPE_MISMATCH,False,True,True,Organism,False,False,False,"TYPE CHECK:        “budding yeast” refers to the organism/species used (Saccharomyces cerevisiae), not a primary cell type/lineage — Correct type: Organism.  
+SOURCE CHECK:      The paper explicitly mentions “budding yeast” in the abstract and methods (e.g., “budding yeast strains”).  
+CORRECTNESS CHECK: No reference values are provided; however, as a CellType annotation this is not correct because it denotes an organism rather than a cell type.  
+COMPLETENESS CHECK: The term is sufficiently specific to identify the organism at a common-name level, but completeness is not applicable for CellType given the type mismatch.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC10681723,EnrichmentMethod,Tandem affinity purification,tandem affinity purification (TAP),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Tandem affinity purification” is an affinity-based protein enrichment/purification workflow, which fits the definition of an EnrichmentMethod.  
+SOURCE CHECK:      “Tandem affinity purification” appears explicitly as a Methods subsection title and is described in the paper text.  
+CORRECTNESS CHECK: It matches the reference value “tandem affinity purification (TAP)” (same method; reference just includes the common abbreviation).  
+COMPLETENESS CHECK: The value is complete and unambiguous as an enrichment/purification method (TAP).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC10681723,EnrichmentMethod,Flag-tagged protein purification,tandem affinity purification (TAP),True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “Flag-tagged protein purification” describes an affinity purification/enrichment procedure for a tagged protein, so it can fit the EnrichmentMethod category (even though the paper uses it for biochemical pull-downs rather than explicitly “before MS”).  
+SOURCE CHECK:      The methods section contains a subsection titled “Flag-tagged protein purification,” so the value is present in the paper text.  
+CORRECTNESS CHECK: It does not match the reference value “tandem affinity purification (TAP)”—Flag-based affinity purification is a different enrichment/purification approach than TAP.  
+COMPLETENESS CHECK:The value is complete as a method name; no critical qualifier is missing for identifying the procedure at a high level.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC10681723,EnrichmentMethod,GFP nanobody-based purification,tandem affinity purification (TAP),True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “GFP nanobody-based purification” describes an affinity-based protein enrichment/purification workflow prior to downstream analysis, which fits the EnrichmentMethod definition.
+SOURCE CHECK:      “GFP nanobody-based purification” appears explicitly as a section heading in the provided Methods text.
+CORRECTNESS CHECK: The extracted value does not match the reference value “tandem affinity purification (TAP)”; it is a different enrichment/purification method.
+COMPLETENESS CHECK: The value is complete and specific (it clearly identifies the enrichment approach).
+HALLUCINATED: no
+VERDICT: low",
+PMC10681723,GeneticModification,Spt16-TAP,Spt16-ΔN; Spt16-TAP tag,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Spt16-TAP” denotes a TAP-tagged version of the Spt16 protein (a tagging construct), which fits the GeneticModification definition.  
+SOURCE CHECK:      “Spt16-TAP” appears explicitly in the methods (e.g., “For Spt16-TAP ChIP …” and “Spt16-TAP was purified …”).  
+CORRECTNESS CHECK: It matches the reference value “Spt16-TAP tag” (same tagged construct).  
+COMPLETENESS CHECK:“Spt16-TAP” is a complete, unambiguous identifier for the tagging modification (Spt16 fused to a TAP tag).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC10681723,GeneticModification,Flag-tagged,Spt16-ΔN; Spt16-TAP tag,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “Flag-tagged” describes a tagging construct (FLAG epitope tag) and therefore fits the GeneticModification definition.  
+SOURCE CHECK:      The paper explicitly mentions “Flag-tagged protein purification” and “Flag tag” antibody, supporting the presence of FLAG-tagged constructs.  
+CORRECTNESS CHECK: It does not match either reference value (“Spt16-ΔN” or “Spt16-TAP tag”) and refers to a different genetic modification than those references.  
+COMPLETENESS CHECK: The value is incomplete because it does not specify *which protein* is FLAG-tagged (e.g., “Flag-<protein>”), which is typically needed to identify the actual genetic construct.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC10681723,GeneticModification,GFP-tagged,Spt16-ΔN; Spt16-TAP tag,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “GFP-tagged” describes a tagging genetic construct, which fits the GeneticModification definition (correct type).  
+SOURCE CHECK:      The methods explicitly mention “GFP-tagged proteins” in the “GFP nanobody-based purification” section, so it is present in the paper text.  
+CORRECTNESS CHECK: It does not match either reference value (“Spt16-ΔN” or “Spt16-TAP tag”) and is not semantically equivalent to them.  
+COMPLETENESS CHECK:“GFP-tagged” is incomplete as a genetic modification here because it does not specify which protein/strain is GFP-tagged.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC10681723,GeneticModification,Spt16-ΔN,Spt16-ΔN; Spt16-TAP tag,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC10681723,MaterialType,cells,cells,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC10681723,Organism,Saccharomyces cerevisiae,Saccharomyces cerevisiae,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC10681723,Strain,W303-1,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “W303-1” is a specific laboratory strain/background identifier (here for budding yeast) and fits the Strain annotation type.  
+SOURCE CHECK:      The methods explicitly state “the budding yeast strains used in this study were in the isogenic W303-1 background.”  
+CORRECTNESS CHECK: No reference values were provided; “W303-1” is well-supported by the source text as the strain background.  
+COMPLETENESS CHECK:“W303-1” is a complete, unambiguous strain designation.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC10681723,Temperature,30°C,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “30°C” is a temperature value describing a growth/incubation condition, which fits the Temperature annotation type.  
+SOURCE CHECK:      “30°C” appears in the paper text (“MATa yeast cells were cultured in YPD medium at 30°C…”).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the explicit temperature stated in the methods.  
+COMPLETENESS CHECK: The value is complete and unambiguous (numeric temperature with unit).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC10681723,AcquisitionMethod,MISSING,affinity purification-mass spectrometry (AP-MS),True,low,NO_MATCH,False,True,False,,False,False,False,Not extracted -- present in ground truth.,affinity purification-mass spectrometry (AP-MS)
+PMC4746666,AcquisitionMethod,data dependent mass spectrometric method,data dependent; data dependent mass spectrometric method,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Age,40y,40y; 39y; 27y; 20y,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Age,39y,40y; 39y; 27y; 20y,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Age,27y,40y; 39y; 27y; 20y,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Age,20y,40y; 39y; 27y; 20y,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,AlkylationReagent,iodoacetamide,iodoacetamide,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,CellLine,ES04 (WiCell institute),hESC ES04 (WiCell institute),True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “ES04 (WiCell institute)” names a specific embryonic stem cell line, so it fits the CellLine definition.  
+SOURCE CHECK:      The methods explicitly mention “the human embryonic stem cell line (hESC) ES04 (WiCell institute)”, so the value is present.  
+CORRECTNESS CHECK: This is a partial match to the reference value “hESC ES04 (WiCell institute)”; it matches the same cell line but omits the “hESC” descriptor.  
+COMPLETENESS CHECK:The core cell line identifier “ES04” and its source “WiCell institute” are present; however, the missing “hESC” qualifier makes it slightly less specific than the reference.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC4746666,CellPart,cytosolic (CYT),cytosolic (CYT); nuclear (NUC); chromatin-bound (CH),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,CellPart,nuclear (NUC),cytosolic (CYT); nuclear (NUC); chromatin-bound (CH),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,CellPart,chromatin-bound (CH),cytosolic (CYT); nuclear (NUC); chromatin-bound (CH),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,CellType,human ESC-MSC,mesenchymal stem cells (MSC); embryonic stem cells (ESC); bone marrow-derived MSC (BM-MSC),True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “human ESC-MSC” describes a specific cell lineage (embryonic stem cell-derived mesenchymal stem cells) — correct type for CellType.  
+SOURCE CHECK:      The paper explicitly mentions “human ESC-MSC” in the abstract and describes “ESC-derived MSC (ESC-MSC)” in the methods.  
+CORRECTNESS CHECK: The value does not exactly match any listed reference value; it is closest to “mesenchymal stem cells (MSC)” but is a more specific subtype (ESC-derived MSC).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a cell type designation (human ESC-derived mesenchymal stem cells).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC4746666,CellType,human bone marrow-derived MSC (BM-MSC),mesenchymal stem cells (MSC); embryonic stem cells (ESC); bone marrow-derived MSC (BM-MSC),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “human bone marrow-derived MSC (BM-MSC)” names a primary cell lineage (mesenchymal stem cells) and thus fits the CellType definition.  
+SOURCE CHECK:      The methods section explicitly mentions “Bone marrow-derived mesenchymal stem cells … (BM-MSC)”.  
+CORRECTNESS CHECK: This is semantically equivalent to the reference value “bone marrow-derived MSC (BM-MSC)” (adds only the species “human”).  
+COMPLETENESS CHECK: The value is complete and unambiguous (cell type + tissue origin + abbreviation).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,CellType,human embryonic stem cells (hESC),mesenchymal stem cells (MSC); embryonic stem cells (ESC); bone marrow-derived MSC (BM-MSC),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “human embryonic stem cells (hESC)” names a primary cell type/lineage (embryonic stem cells) — correct type for CellType.  
+SOURCE CHECK:      The methods section explicitly mentions “human embryonic stem cell line (hESC) ES04”.  
+CORRECTNESS CHECK: This is semantically consistent with the reference value “embryonic stem cells (ESC)” (hESC is the human form of ESC).  
+COMPLETENESS CHECK: The value is complete and unambiguous (it specifies embryonic stem cells and indicates human origin).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,CleavageAgent,Lys-C,trypsin; Lys-C; Trypsin/P,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,CleavageAgent,trypsin,trypsin; Lys-C; Trypsin/P,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,CollisionEnergy,normalized collision energy 25,normalized collision energy 25,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,FlowRateChromatogram,250 nl/min,250 nL/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,FractionationMethod,in-solution isoelectric focusing,Isoelectric focusing (OFFGEL fractionator),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “in-solution isoelectric focusing” is an off-line peptide fractionation approach performed prior to LC-MS/MS, so it fits FractionationMethod.  
+SOURCE CHECK:      The methods explicitly state “Peptides were separated by in-solution isoelectric focusing (OFFGEL fractionator, Agilent) into 12 fractions…”.  
+CORRECTNESS CHECK: This matches the reference value “Isoelectric focusing (OFFGEL fractionator)” (same fractionation technique; OFFGEL is the specific device used).  
+COMPLETENESS CHECK: The core fractionation method is fully specified; omitting “OFFGEL fractionator” does not change the identity of the fractionation method.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,FractionationMethod,OFFGEL fractionator,Isoelectric focusing (OFFGEL fractionator),True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “OFFGEL fractionator” refers to the device used for OFFGEL isoelectric focusing, i.e., an off-line peptide fractionation approach, so it fits FractionationMethod (though it is phrased more as an instrument name than a method).
+SOURCE CHECK:      The methods explicitly state “in-solution isoelectric focusing (OFFGEL fractionator, Agilent)”.
+CORRECTNESS CHECK: It is consistent with the reference value “Isoelectric focusing (OFFGEL fractionator)” but is a partial/shortened form of that reference.
+COMPLETENESS CHECK: Incomplete—the fractionation *method* (“isoelectric focusing”) is omitted, leaving only the fractionator name.
+HALLUCINATED: no
+VERDICT: medium",
+PMC4746666,FragmentMassTolerance,20 ppm,20 ppm,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,FragmentationMethod,higher energy collisional dissociation,higher energy collisional dissociation (HCD),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “higher energy collisional dissociation” is an ion-fragmentation technique name — correct type for FragmentationMethod.  
+SOURCE CHECK:      The methods explicitly state ions were “fragmented using higher energy collisional dissociation (HCD).”  
+CORRECTNESS CHECK: This matches the reference value “higher energy collisional dissociation (HCD)” (same method; abbreviation omitted).  
+COMPLETENESS CHECK: The value is complete and unambiguous even without the “(HCD)” abbreviation.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,GradientTime,100 min,100 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Instrument,"Q Exactive mass spectrometer (Thermo Scientific, Bremen, Germany)",Q Exactive mass spectrometer (Thermo Scientific),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Q Exactive mass spectrometer (Thermo Scientific, Bremen, Germany)” is a mass spectrometer make/model description, so it is the correct type for Instrument.  
+SOURCE CHECK:      The methods explicitly state “EASY nLC-II coupled to a Q Exactive mass spectrometer (Thermo Scientific, Bremen, Germany),” so the value is present in the paper text.  
+CORRECTNESS CHECK: The extracted value matches the reference value “Q Exactive mass spectrometer (Thermo Scientific)” with additional location detail (Bremen, Germany).  
+COMPLETENESS CHECK: The instrument model and manufacturer are given; the added location does not reduce completeness.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,Label,SILAC,triple SILAC; Arg6/Lys4; Arg10/Lys8,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “SILAC” is a metabolic labeling strategy name, which fits the Label definition.  
+SOURCE CHECK:      “SILAC” is explicitly mentioned in the abstract (“nanoLC-MS/MS using SILAC”) and throughout the methods (“SILAC labeling”).  
+CORRECTNESS CHECK: “SILAC” is semantically equivalent to the reference value “triple SILAC” per the stated equivalence rule (“SILAC” = “triple SILAC”).  
+COMPLETENESS CHECK: The value is complete as a label method identifier; the paper further specifies triple SILAC with medium/heavy isotope pairs, but “SILAC” still unambiguously identifies the labeling approach.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,MaterialType,cells,cell line,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “cells” is a broad material class description, so it fits the MaterialType definition (though it is very general).
+SOURCE CHECK:      The paper repeatedly refers to the samples as cells (ESC, ESC-MSC, BM-MSC) in the methods, so this value is present in the text.
+CORRECTNESS CHECK: It does not match the reference value “cell line” (and the study includes BM-MSC primary cells as well as an hESC cell line), so “cells” is only a partial/looser match rather than equivalent.
+COMPLETENESS CHECK:“cells” is incomplete/overly generic for the study context; a more specific material type such as “cell line” (for hESC) and/or “primary cells/cultured cells” (for MSC) would better capture the material class.
+HALLUCINATED: no
+VERDICT: medium",
+PMC4746666,Modification,N-terminal acetylation,N-terminal acetylation; methionine oxidation; cysteine carbamidomethylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Modification,methionine oxidation,N-terminal acetylation; methionine oxidation; cysteine carbamidomethylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Modification,cysteine carbamidomethylation,N-terminal acetylation; methionine oxidation; cysteine carbamidomethylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,NumberOfBiologicalReplicates,3,Three,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3” is a total count of biological replicates, which fits the definition of NumberOfBiologicalReplicates.  
+SOURCE CHECK:      The methods state that “ESC-MSC used for transcriptomic and proteomic profiling were generated in three independent experiments,” supporting the value 3.  
+CORRECTNESS CHECK: “3” is semantically equivalent to the reference value “Three” (digit vs. word).  
+COMPLETENESS CHECK: The value is complete as a replicate count.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,NumberOfFractions,12 fractions,12,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “12 fractions” states a total count of fractions generated per sample, which fits the NumberOfFractions definition.  
+SOURCE CHECK:      The methods explicitly say peptides were separated “into 12 fractions” by OFFGEL fractionation.  
+CORRECTNESS CHECK: This is semantically equivalent to the reference value “12” (same count, with an added word).  
+COMPLETENESS CHECK: The value is complete and unambiguous for the total number of fractions.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,NumberOfMissedCleavages,two,maximum two missed cleavages,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “two” is a numeric count specifying the maximum missed cleavages allowed in the database search — correct type for NumberOfMissedCleavages.  
+SOURCE CHECK:      The methods explicitly state “allowing for maximum two missed cleavages,” so the value is present in the paper text.  
+CORRECTNESS CHECK: “two” is semantically equivalent to the reference value “maximum two missed cleavages” (digit/word equivalence).  
+COMPLETENESS CHECK: The value is complete and unambiguous as the maximum allowed missed cleavages.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,Organism,Homo sapiens,Homo sapiens,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,OrganismPart,bone marrow,bone marrow,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,PooledSample,pooled,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “pooled” is describing that multiple samples were combined, which fits the PooledSample concept (pooling vs not pooling) — correct type.  
+SOURCE CHECK:      The paper does not use the exact word “pooled,” but it explicitly states that “Unlabeled and SILAC (M, H) samples were mixed at a ratio 1:1:1,” which is an unambiguous synonym of pooling.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the described mixing/pooling of samples.  
+COMPLETENESS CHECK: “pooled” is incomplete because it does not specify *what* was pooled (light/medium/heavy SILAC samples) and the pooling ratio (1:1:1), which are key qualifiers of the pooling step.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC4746666,PrecursorMassTolerance,4.5 ppm,20 ppm; 4.5 ppm,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,ReductionReagent,DTT,DTT,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Separation,ReproSil-Pur 120 C18-AQ 3 μm diameter beads,ReproSil-Pur 120 C18-AQ 3 μ m diameter beads,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “ReproSil-Pur 120 C18-AQ 3 μm diameter beads” describes the LC stationary phase/packing material (C18 beads) used for on-line separation, so it is the correct type for Separation.  
+SOURCE CHECK:      This value appears explicitly in the Methods: “Emitter columns were packed in-house with ReproSil-Pur 120 C18-AQ 3 μm diameter beads…”.  
+CORRECTNESS CHECK: It matches the reference value “ReproSil-Pur 120 C18-AQ 3 μ m diameter beads” (same material; only minor spacing/formatting differences in “μm”).  
+COMPLETENESS CHECK: The value is complete and unambiguous (brand/material, pore size “120”, chemistry “C18-AQ”, and particle size “3 μm” are all included).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC4746666,Sex,male,male,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC4746666,Temperature,37 °C,37°C,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “37 °C” is a temperature value describing the growth/culture temperature, which fits the Temperature annotation type.  
+SOURCE CHECK:      The methods explicitly state “All cells were cultured at 37 °C…”, so this value is present in the paper text.  
+CORRECTNESS CHECK: “37 °C” is equivalent to the reference value “37°C” (formatting difference only), so it matches the reference.  
+COMPLETENESS CHECK: The value is complete and unambiguous as a temperature.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,CleavageAgent,trypsin,trypsin; Trypsin/P,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,DevelopmentalStage,three DAP,unpollinated pistil (S0); three DAP (Day After Pollination) (S3); seven DAP (S7),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “three DAP” describes a developmental time point/stage (3 days after pollination) of the biological source — correct type for DevelopmentalStage.  
+SOURCE CHECK:      “three DAP” appears explicitly in the Methods section (“three DAP and seven DAP seeds”).  
+CORRECTNESS CHECK: It matches the reference value “three DAP (Day After Pollination) (S3)”.  
+COMPLETENESS CHECK:“three DAP” is sufficiently specific and unambiguous as a developmental stage in this study (days after pollination); no critical qualifier is missing.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,DevelopmentalStage,seven DAP,unpollinated pistil (S0); three DAP (Day After Pollination) (S3); seven DAP (S7),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “seven DAP” denotes a developmental timepoint/stage (seven days after pollination) of the biological material — correct type for DevelopmentalStage.  
+SOURCE CHECK:      “seven DAP” appears explicitly in the Methods (“seeds were manually collected … at … seven DAP”).  
+CORRECTNESS CHECK: It matches the reference value “seven DAP (S7)” (same stage; “S7” is just the sample label).  
+COMPLETENESS CHECK:“seven DAP” is a complete developmental-stage descriptor; adding “(S7)” or “seeds” would be extra context but not required to identify the stage.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,DevelopmentalStage,mature pistils,unpollinated pistil (S0); three DAP (Day After Pollination) (S3); seven DAP (S7),True,low,TYPE_MISMATCH,False,True,True,OrganismPart,False,False,False,"TYPE CHECK:        “mature pistils” names a plant organ/tissue rather than a developmental stage descriptor (e.g., adult, P7) — Correct type: OrganismPart.  
+SOURCE CHECK:      The methods explicitly mention “the mature pistils were manually dissected and collected…”.  
+CORRECTNESS CHECK: It does not match the reference developmental-stage/timepoint values (“unpollinated pistil (S0)”, “three DAP (S3)”, “seven DAP (S7)”) and omits the specific stage/timepoint designation.  
+COMPLETENESS CHECK: Incomplete for the intended stage concept because it lacks the key qualifier tying it to the defined stage (e.g., “unpollinated (S0)” or DAP-based timing).  
+HALLUCINATED: no  
+VERDICT: low",
+PMC5535869,EnrichmentMethod,antibody beads,acetylpeptide enrichment,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “antibody beads” refers to an affinity-based peptide enrichment approach, which fits the EnrichmentMethod category.  
+SOURCE CHECK:      The methods explicitly state that tryptic peptides were “incubated with pre-washed antibody beads … to enrich Kac peptides,” so this value is present.  
+CORRECTNESS CHECK: It is consistent with the referenced “acetylpeptide enrichment,” but the extracted value omits that these are anti-acetyllysine (Kac) antibody beads, so it only partially matches the reference.  
+COMPLETENESS CHECK: Incomplete — specifying acetyl-lysine/Kac antibody-based enrichment is a critical qualifier (not just generic “antibody beads”).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC5535869,FlowRateChromatogram,300 µL∙min−1,300 nL/min,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “300 µL∙min−1” is an LC flow rate value with units, so it is the correct type for FlowRateChromatogram.  
+SOURCE CHECK:      “300 µL∙min−1” appears explicitly in the LC-MS/MS methods (“constant flow rate of 300 µL∙min−1”).  
+CORRECTNESS CHECK: It does **not** match the reference value “300 nL/min”; µL/min and nL/min differ by 1000-fold and are not semantically equivalent.  
+COMPLETENESS CHECK: The value is complete (numeric value + unit).  
+HALLUCINATED: no  
+VERDICT: low",
+PMC5535869,FragmentMassTolerance,0.02 Da,0.02 Da,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,GradientTime,24 min,24 min; 8 min; 5 min; 3 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,GradientTime,8 min,24 min; 8 min; 5 min; 3 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,GradientTime,5 min,24 min; 8 min; 5 min; 3 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,GradientTime,3 min,24 min; 8 min; 5 min; 3 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,Instrument,"Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)",Q Exactive mass spectrometer,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)” is a mass spectrometer make/model name — correct type for Instrument.  
+SOURCE CHECK:      The methods explicitly state “Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)”.  
+CORRECTNESS CHECK: This matches the reference value “Q Exactive mass spectrometer” (the “TM” mark and manufacturer/location are equivalent extra detail).  
+COMPLETENESS CHECK: The instrument model is fully specified and unambiguous.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,Label,label-free,label-free approach,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “label-free” is a quantitative labeling strategy (i.e., no metabolic/isobaric label) and fits the Label annotation type.  
+SOURCE CHECK:      The abstract explicitly states “label-free approach,” which supports “label-free.”  
+CORRECTNESS CHECK: “label-free” is semantically equivalent to and matches the reference value “label-free approach.”  
+COMPLETENESS CHECK: The value is complete; “label-free” unambiguously identifies the labeling strategy.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,MaterialType,tissue,Tissue,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,Modification,carbamidomethylation on Cys,carbamidomethylation on Cys; oxidation on Met; acetylation on Lys protein N-terminal,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,Modification,oxidation on Met,carbamidomethylation on Cys; oxidation on Met; acetylation on Lys protein N-terminal,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,Modification,acetylation on Lys protein N-terminal,carbamidomethylation on Cys; oxidation on Met; acetylation on Lys protein N-terminal,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,NumberOfBiologicalReplicates,3,three biological replicates,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3” is a numeric count of biological replicates, which fits the NumberOfBiologicalReplicates definition.  
+SOURCE CHECK:      The methods state the samples were prepared “with three biological replicates,” so this value is present in the paper.  
+CORRECTNESS CHECK: “3” is equivalent to the reference value “three biological replicates” (digit vs word).  
+COMPLETENESS CHECK: The value is complete as a total replicate count and needs no further qualifier.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,NumberOfMissedCleavages,4,up to 4 missing cleavages,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “4” is a numeric maximum for allowed missed cleavages in a database search — correct type for NumberOfMissedCleavages.  
+SOURCE CHECK:      The methods state “Trypsin/P … allowing up to 4 missing cleavages,” which explicitly supports this value.  
+CORRECTNESS CHECK: “4” matches the reference value “up to 4 missing cleavages.”  
+COMPLETENESS CHECK:The value is complete; no additional qualifier is needed beyond the maximum count.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,Organism,Oryza sativa,Oryza sativa L.; rice,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Oryza sativa” is a species name and fits the Organism annotation type definition.  
+SOURCE CHECK:      The methods mention searching against a “uniprot_Oryza sativa database,” and the study is described as being in rice.  
+CORRECTNESS CHECK: “Oryza sativa” is semantically equivalent to the reference value “Oryza sativa L.” (same species; author abbreviation omitted) and matches “rice” as a common-name synonym.  
+COMPLETENESS CHECK: The binomial “Oryza sativa” is sufficiently complete to identify the organism; the missing “L.” does not change the organism identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,OrganismPart,pistil,pistil; developing seeds,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,OrganismPart,seeds,pistil; developing seeds,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “seeds” is a plant tissue/organ term, so it fits the OrganismPart definition.  
+SOURCE CHECK:      “seeds” is explicitly mentioned in the Methods (“three DAP and seven DAP seeds” and “developing seeds”).  
+CORRECTNESS CHECK: It is semantically consistent with the reference value “developing seeds” (a less specific form of the same organism part).  
+COMPLETENESS CHECK:“seeds” is somewhat incomplete because the paper specifies *developing* seeds at defined stages (three and seven DAP), which is a meaningful qualifier.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC5535869,PrecursorMassTolerance,10 ppm,10 ppm,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,ReductionReagent,DL-Dithiothreitol,DTT,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “DL-Dithiothreitol” is a reducing agent used to reduce disulfide bonds (i.e., DTT) — correct type for ReductionReagent.  
+SOURCE CHECK:      It appears explicitly in the methods: “10 mM DTT (DL-Dithiothreitol)”.  
+CORRECTNESS CHECK: “DL-Dithiothreitol” is the expanded chemical name for “DTT,” matching the reference value “DTT.”  
+COMPLETENESS CHECK: The value is complete and unambiguous (full chemical name of DTT).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,SamplingTime,three days after pollination,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “three days after pollination” is a time point describing when samples (developing seeds) were collected — correct type for SamplingTime.  
+SOURCE CHECK:      The methods/abstract explicitly mention collection at “three and seven days after pollination” and “three DAP,” supporting this value.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s stated sampling time (3 DAP).  
+COMPLETENESS CHECK:The value is complete and unambiguous as a sampling time point (equivalent to “3 DAP”).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,SamplingTime,seven days after pollination,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “seven days after pollination” specifies a sample collection time point, so it fits the SamplingTime definition.  
+SOURCE CHECK:      The abstract explicitly mentions samples collected “at three and seven days after pollination,” and the methods describe “seven DAP seeds,” supporting this value.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s stated sampling time point (7 DAP).  
+COMPLETENESS CHECK: The value is complete and unambiguous (equivalent to “7 DAP” / “seven DAP”).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,Separation,reversed-phase analytical column,reversed-phase,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “reversed-phase analytical column” describes the chromatographic approach/stationary phase (reversed-phase LC) -- correct type for Separation.  
+SOURCE CHECK:      The methods explicitly state peptides were “separated with a reversed-phase analytical column.”  
+CORRECTNESS CHECK: This matches the reference value “reversed-phase” (same separation mode; extracted value is a more specific phrasing).  
+COMPLETENESS CHECK: The separation mode is clear and unambiguous; while column chemistry details (e.g., C18) are not given, this is still a complete Separation description at the level provided in the paper.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5535869,Strain,Nipponbare,Nipponbare,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5535869,CellType,MISSING,rice suspension cell,True,low,NO_MATCH,False,True,False,,False,False,False,Not extracted -- present in ground truth.,rice suspension cell
+PMC5830451,AcquisitionMethod,Data-dependent acquisition,Data-dependent acquisition,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,AlkylationReagent,iodoacetamide,iodoacetamide (IAA),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “iodoacetamide” is a cysteine-alkylating reagent used during proteomics sample prep — correct type for AlkylationReagent.  
+SOURCE CHECK:      The paper explicitly mentions “iodoacetamide (IAA)” and describes dispensing “IAA solution” to alkylate sulfhydryl groups.  
+CORRECTNESS CHECK: “iodoacetamide” matches the reference value “iodoacetamide (IAA)” (same reagent; reference includes abbreviation).  
+COMPLETENESS CHECK: The value is complete and unambiguous (the abbreviation “IAA” is optional, not identity-changing).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5830451,CellLine,HeLa cells (ATCC),HeLa cells (ATCC),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,CleavageAgent,Lys-C,trypsin (MS grade); Lys-C (MS grade),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Lys-C” is a protease used for protein digestion, which fits the CleavageAgent definition.  
+SOURCE CHECK:      “Lys-C (MS grade)” is explicitly mentioned in the Methods (Reagents and chemicals; sample prep steps).  
+CORRECTNESS CHECK: “Lys-C” matches the reference value “Lys-C (MS grade)” (same enzyme; grade qualifier does not change identity).  
+COMPLETENESS CHECK: The enzyme name is complete and unambiguous; omitting “(MS grade)” does not remove a critical identity qualifier.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5830451,CleavageAgent,trypsin,trypsin (MS grade); Lys-C (MS grade),True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “trypsin” is a protease used for protein digestion, so it fits the CleavageAgent definition.  
+SOURCE CHECK:      “Trypsin (MS grade)” is explicitly mentioned in the Methods (reagents list and digestion steps).  
+CORRECTNESS CHECK: It matches the reference value “trypsin (MS grade)” (case-insensitive match; “MS grade” qualifier is present in the paper).  
+COMPLETENESS CHECK:The study uses both Lys-C and trypsin for digestion, so reporting only “trypsin” is incomplete because it omits the additional cleavage agent (Lys-C).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC5830451,CollisionEnergy,28%,28%,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,Disease,type 1 diabetic,type 1 diabetes (T1D); non-diabetic control,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “type 1 diabetic” denotes a disease state/diagnosis (donor with type 1 diabetes) — correct type for Disease.  
+SOURCE CHECK:      The abstract explicitly mentions “type 1 diabetic and control donors,” so the value is present in the paper text.  
+CORRECTNESS CHECK: “type 1 diabetic” is semantically equivalent to the reference value “type 1 diabetes (T1D)”.  
+COMPLETENESS CHECK: The value is complete enough to identify the disease (type 1 diabetes), even though phrased adjectivally.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5830451,Disease,non-diabetic,type 1 diabetes (T1D); non-diabetic control,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “non-diabetic” describes a disease status/diagnosis category (i.e., absence of diabetes) and fits the Disease annotation type.  
+SOURCE CHECK:      “non-diabetic” appears in the paper text (e.g., “between non-diabetic and T1D islets”).  
+CORRECTNESS CHECK: “non-diabetic” is semantically equivalent to the reference value “non-diabetic control.”  
+COMPLETENESS CHECK:“non-diabetic” is sufficiently specific to identify the disease status (control/non-diseased) and does not omit a qualifier that changes identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5830451,FlowRateChromatogram,60 nL/min,60 nL/min; 400 nL/min; 500 nL/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,FragmentMassTolerance,7 ppm,4.5 ppm,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “7 ppm” is a mass-tolerance value and could fit the FragmentMassTolerance category, but in the paper it is specifically the **MS/MS deisotoping tolerance**, not the fragment ion matching tolerance.  
+SOURCE CHECK:      The paper explicitly states “the match tolerance, de novo tolerance, and deisotoping tolerance for MS/MS search were 20, 10, and **7 ppm**, respectively.”  
+CORRECTNESS CHECK: It does not match the reference value “4.5 ppm” (and “4.5 ppm” in the paper corresponds to the **main precursor search tolerance**, not an MS/MS fragment tolerance).  
+COMPLETENESS CHECK:“7 ppm” is complete (numeric value + unit).  
+HALLUCINATED: no  
+VERDICT: low",
+PMC5830451,FragmentationMethod,high energy dissociation,high energy dissociation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,GradientTime,150-min,150 min; 20 min,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “150-min” is a chromatographic gradient duration, which fits the GradientTime definition.  
+SOURCE CHECK:      The methods state “A linear 150-min gradient of 5–28% Buffer B … was used for separation,” so this value is present.  
+CORRECTNESS CHECK: “150-min” matches the reference value “150 min” (unit/format difference only).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a total gradient length.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5830451,Instrument,Orbitrap Fusion Lumos Tribrid MS (ThermoFisher),Orbitrap Fusion Lumos Tribrid MS (ThermoFisher),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,IonizationType,Electrospray,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “Electrospray” refers to electrospray ionization (ESI), which is an ionization source type — correct type for IonizationType.  
+SOURCE CHECK:      The methods explicitly state “Electrospray voltage of 1.9 kV was applied at the source,” so electrospray is supported by the paper text.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the described electrospray-based source conditions.  
+COMPLETENESS CHECK:The value is generally complete (ESI), but it is less specific than commonly used terms like “nano-ESI”; the paper does not explicitly state “nano-ESI,” only electrospray conditions.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC5830451,Label,LFQ,LFQ,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,MaterialType,cells,cells; tissue,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,MaterialType,tissue,cells; tissue,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,Modification,N-terminal protein acetylation,carbamidomethylation (of cysteine); methionine oxidation; N-terminal protein acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,Modification,methionine oxidation,carbamidomethylation (of cysteine); methionine oxidation; N-terminal protein acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,Modification,Carbamidomethylation of cysteine residues,carbamidomethylation (of cysteine); methionine oxidation; N-terminal protein acetylation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Carbamidomethylation of cysteine residues” is a post-translational/chemical modification specified for database searching, so it fits the Modification annotation type.  
+SOURCE CHECK:      This phrase is present in the Methods (Data analysis): “Carbamidomethylation of cysteine residues was set as a fixed modification.”  
+CORRECTNESS CHECK: It matches the reference value “carbamidomethylation (of cysteine)” (same modification, cysteine-specific).  
+COMPLETENESS CHECK: The value is complete and unambiguous (modification + target residue are specified).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC5830451,NumberOfMissedCleavages,2,2,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,Organism,Homo sapiens,Homo sapiens,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,OrganismPart,pancreatic islet,pancreatic islet,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,PrecursorMassTolerance,±10 ppm,10 ppm,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “±10 ppm” is a mass tolerance setting for dynamic exclusion during MS acquisition, not the precursor mass tolerance used for database-search precursor matching, so it does not fit PrecursorMassTolerance.  
+SOURCE CHECK:      “±10 ppm” appears in the Methods in the sentence on dynamic exclusion (“mass tolerance of ±10 ppm”).  
+CORRECTNESS CHECK: It does not match the reference value “10 ppm” for precursor mass tolerance in the search; the paper’s actual precursor tolerances are “<20 [ppm]” (first search) and “4.5 ppm” (main search).  
+COMPLETENESS CHECK: The value itself is complete, but it refers to the wrong experimental parameter for this annotation type.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC5830451,ReductionReagent,DTT,DTT,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC5830451,Separation,LC column was prepared from a 70-cm-long Self-Pack PicoFrit column with an i.d. of 30 µm and a tip size of 10 µm,slurry-packed with 3-μm C18 packing,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        This value describes the on-line LC column used for separation (column format/dimensions), so it is broadly the correct type for Separation, but it does not specify the stationary phase/chemistry as required by the definition.  
+SOURCE CHECK:      This sentence appears verbatim in the SPE-LC-MS setup section of the provided paper text.  
+CORRECTNESS CHECK: It does not match the reference value “slurry-packed with 3-μm C18 packing” because it omits the C18 packing/stationary phase information.  
+COMPLETENESS CHECK: Incomplete for Separation—the critical qualifier (C18 packing material / stationary phase) is missing, so the chromatographic separation cannot be fully identified.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC5830451,Temperature,37 °C,37°C,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “37 °C” is a temperature value describing the growth condition, which fits the Temperature annotation type.  
+SOURCE CHECK:      The methods explicitly state “All cells were cultured at 37 °C and 5% CO2,” so this value is present in the paper text.  
+CORRECTNESS CHECK: “37 °C” is semantically identical to the reference value “37°C” (formatting/spacing difference only).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a temperature.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC6918071,CleavageAgent,Tryptic,trypsin,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “Tryptic” refers to digestion by trypsin (i.e., trypsin-generated peptides), so it conceptually fits CleavageAgent, but it is phrased as an adjective rather than naming the protease explicitly.  
+SOURCE CHECK:      The paper explicitly states “Tryptic peptides were generated…” and refers to “the tryptic digest,” so “tryptic” is present in the text.  
+CORRECTNESS CHECK: “Tryptic” is semantically equivalent to the reference value “trypsin” (tryptic digestion implies trypsin).  
+COMPLETENESS CHECK: The value is incomplete/indirect because it does not explicitly name the enzyme “trypsin.”  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC6918071,Depletion,sulfur-depleted,sulfur-depleted,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,GradientTime,4-h gradients,4-h gradients,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,MaterialType,tissue,tissue,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,NumberOfBiologicalReplicates,3,three biological replicates per tissue,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3” is a numeric count, which fits the definition of NumberOfBiologicalReplicates.  
+SOURCE CHECK:      The methods state “we used three biological replicates per tissue (trophosome, vestimentum, and plume) and condition…”.  
+CORRECTNESS CHECK: “3” matches the reference value “three biological replicates per tissue” (digit/word equivalence).  
+COMPLETENESS CHECK: The count is complete as a replicate number (the “per tissue and condition” context is extra detail but not required for this field).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC6918071,NumberOfSamples,18,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “18” is a total count of samples processed, which fits the NumberOfSamples definition.  
+SOURCE CHECK:      The methods explicitly state “which resulted in a total of 18 samples,” so this value is present in the paper text.  
+CORRECTNESS CHECK: No reference values were provided; “18” is directly supported by the paper statement and is therefore correct.  
+COMPLETENESS CHECK: The value is complete as a standalone total sample count (no additional qualifier is required to identify the number).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC6918071,NumberOfTechnicalReplicates,3,triplicates; Two,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3” is a numeric count of technical replicates per sample, which fits the NumberOfTechnicalReplicates definition.  
+SOURCE CHECK:      The methods state that samples were “run in technical triplicates,” which corresponds to 3 technical replicates.  
+CORRECTNESS CHECK: “3” matches the reference value “triplicates” (semantic equivalence: triplicate = 3).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a replicate count.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC6918071,Organism,Riftia pachyptila,Riftia pachyptila; Candidatus Endoriftia persephone,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,OrganismPart,trophosome,trophosomes; plume; tentacular crown; lamellae; body wall; lateral portions of the vestimentum,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “trophosome” is a named tissue/organ of origin in Riftia and fits the OrganismPart definition.  
+SOURCE CHECK:      “trophosome” is explicitly mentioned multiple times in the Methods (e.g., “trophosome samples were dissected…” and “three biological replicates per tissue (trophosome, vestimentum, and plume)”).  
+CORRECTNESS CHECK: “trophosome” matches the reference value “trophosomes” (singular vs plural is semantically equivalent).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a specific tissue name.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC6918071,OrganismPart,plume,trophosomes; plume; tentacular crown; lamellae; body wall; lateral portions of the vestimentum,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,OrganismPart,tentacular crown,trophosomes; plume; tentacular crown; lamellae; body wall; lateral portions of the vestimentum,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,OrganismPart,lamellae,trophosomes; plume; tentacular crown; lamellae; body wall; lateral portions of the vestimentum,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,OrganismPart,body wall,trophosomes; plume; tentacular crown; lamellae; body wall; lateral portions of the vestimentum,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC6918071,OrganismPart,vestimentum,trophosomes; plume; tentacular crown; lamellae; body wall; lateral portions of the vestimentum,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “vestimentum” is a named tissue/organ from Riftia pachyptila, so it fits the OrganismPart definition.  
+SOURCE CHECK:      “vestimental samples were cut off from the lateral portions of the vestimentum” appears explicitly in the Methods.  
+CORRECTNESS CHECK: The value matches the referenced organ concept, aligning best with the reference value “lateral portions of the vestimentum” (same organ, less specific).  
+COMPLETENESS CHECK: Mostly complete, but slightly less specific than the paper’s wording because it omits the qualifier “lateral portions,” which describes the sampled sub-region.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC6918071,ReductionReagent,dithiothreitol,DTT,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “dithiothreitol” is a chemical reducing agent used to reduce disulfide bonds — correct type for ReductionReagent.  
+SOURCE CHECK:      The methods explicitly mention “0.1 M dithiothreitol (DTT)” in the SDT buffer.  
+CORRECTNESS CHECK: “dithiothreitol” is the full chemical name for “DTT,” matching the reference value “DTT.”  
+COMPLETENESS CHECK: The value is complete and unambiguous (the reagent identity is fully specified).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,AcquisitionMethod,data dependent acquisition,data dependent,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “data dependent acquisition” names an MS acquisition scheme (DDA) — correct type for AcquisitionMethod.  
+SOURCE CHECK:      The LC-MS/MS methods explicitly state that “data dependent acquisition” was performed.  
+CORRECTNESS CHECK: “data dependent acquisition” matches the reference value “data dependent” (same method, expanded wording).  
+COMPLETENESS CHECK:The value is complete and unambiguous for the acquisition scheme used.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,AlkylationReagent,iodoacetamide,iodoacetamide,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,CleavageAgent,Trypsin/Lys-C mix,Trypsin/Lys-C mix,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,CollisionEnergy,normalized collision energy of 27%,27%,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “normalized collision energy of 27%” reports an MS/MS collision energy setting, so it is the correct type for CollisionEnergy.  
+SOURCE CHECK:      The LC-MS/MS section explicitly states “fragmented by HCD with a normalized collision energy of 27%.”  
+CORRECTNESS CHECK: This matches the reference value “27%” (same value with additional wording).  
+COMPLETENESS CHECK:The value is complete because it includes both the collision energy magnitude and that it is normalized (%).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Disease,prostate cancer,prostate cancer; benign prostatic hyperplasia,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,Disease,benign prostate hyperplasia,prostate cancer; benign prostatic hyperplasia,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “benign prostate hyperplasia” is a disease/diagnosis description — correct type for Disease.  
+SOURCE CHECK:      The paper mentions this condition (as “BPH” and as “benign prostate hyperplasia” in the proteomic data analysis section).  
+CORRECTNESS CHECK: It is semantically equivalent to the reference value “benign prostatic hyperplasia” (same disease; wording variant).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a disease name.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Disease,urothelial cancer of the bladder,prostate cancer; benign prostatic hyperplasia,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “urothelial cancer of the bladder” is a disease diagnosis term, so it is the correct type for Disease.  
+SOURCE CHECK:      The methods explicitly mention “patients diagnosed with urothelial cancer of the bladder (UCC; n = 5)”.  
+CORRECTNESS CHECK: This does not match either reference value (“prostate cancer” or “benign prostatic hyperplasia”).  
+COMPLETENESS CHECK: The value is complete and specific (it includes the disease and anatomical site).  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7144211,Disease,renal cell carcinoma,prostate cancer; benign prostatic hyperplasia,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “renal cell carcinoma” is a disease/diagnosis term, so it is the correct type for Disease.  
+SOURCE CHECK:      The paper explicitly mentions “renal cell carcinoma (RCC; n = 6)”.  
+CORRECTNESS CHECK: It does not match either reference value (“prostate cancer” or “benign prostatic hyperplasia”).  
+COMPLETENESS CHECK:“renal cell carcinoma” is a complete, unambiguous disease name.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7144211,treatment,radical prostatectomy,radical prostatectomy; intensity-modulated radiation therapy,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,treatment,intensity-modulated radiation therapy,radical prostatectomy; intensity-modulated radiation therapy,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,EnrichmentMethod,size exclusion chromatography (SEC)-based separation of EV from iodixanol,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “size exclusion chromatography (SEC)-based separation of EV from iodixanol” describes a pre-MS enrichment/cleanup step used to isolate the analyte-containing material (EV) prior to proteomic analysis, which fits EnrichmentMethod.
+SOURCE CHECK:      This phrase is present in the Methods section (“…SEC-based separation of EV from iodixanol…”).
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s described workflow for preparing EV samples for LC-MS/MS.
+COMPLETENESS CHECK:The method is described with sufficient specificity (SEC-based separation and what it separates: EV from iodixanol); no critical qualifier appears missing.
+HALLUCINATED: no
+VERDICT: high",
+PMC7144211,FractionIdentifier,9–10,EV-enriched; protein-enriched; THP-enriched,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “9–10” is a numeric fraction label/range referring to collected gradient fractions, which fits the FractionIdentifier definition.  
+SOURCE CHECK:      The methods explicitly mention “pooled EV-rich fractions 9–10” and later “Fractions 9 and 10… were pooled,” so this value is present in the paper text.  
+CORRECTNESS CHECK: “9–10” does not match any provided reference value (“EV-enriched”, “protein-enriched”, “THP-enriched”), which are fraction *types/categories* rather than fraction *identifiers*.  
+COMPLETENESS CHECK:“9–10” is largely complete, but it is slightly context-truncated (the paper states “fractions 9–10”); still, the identifier itself is unambiguous.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7144211,FractionationMethod,bottom-up Optiprep density gradient centrifugation,top-down Optiprep density gradient centrifugation; bottom-up OptiPrep density gradient (ODG),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “bottom-up Optiprep density gradient centrifugation” describes an off-line density-gradient fractionation step applied prior to LC-MS/MS analysis, fitting the FractionationMethod definition.  
+SOURCE CHECK:      This method is explicitly described in the paper under “Urine fractionation by bottom-up Optiprep density gradient centrifugation.”  
+CORRECTNESS CHECK: It matches the reference value “bottom-up OptiPrep density gradient (ODG)” (same method; minor capitalization/spelling variant).  
+COMPLETENESS CHECK:The value is sufficiently specific to identify the fractionation approach (bottom-up OptiPrep/iodixanol density gradient centrifugation).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,FragmentationMethod,higher energy collisional dissociation,higher energy collisional dissociation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,GradientTime,50-min gradient,50-min; 5 min,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “50-min gradient” describes a total LC gradient length — correct type for GradientTime.  
+SOURCE CHECK:      The methods explicitly state “The peptides were separated with a **50-min gradient** from 8% to 35% of solvent B.”  
+CORRECTNESS CHECK: This matches the reference value “50-min” (same gradient duration; “gradient” is an equivalent wording).  
+COMPLETENESS CHECK:The value is complete and unambiguous for the LC gradient time.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Instrument,Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific),Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific)” is a mass spectrometer make/model description — correct type for Instrument.  
+SOURCE CHECK:      This instrument is explicitly mentioned in the LC-MS/MS section (“…coupled to a Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific)…”).  
+CORRECTNESS CHECK: It matches the reference value “Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer” (the vendor in parentheses is additional but consistent).  
+COMPLETENESS CHECK: The value is complete and unambiguous (model + manufacturer).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,IonizationType,nano‐electrospray ionization,nano-electrospray,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “nano‐electrospray ionization” is an ionization source type — correct type for IonizationType.  
+SOURCE CHECK:      The methods state the instrument was “equipped with a nano‐electrospray ionization source,” so it is present in the paper text.  
+CORRECTNESS CHECK: This matches the reference value “nano-electrospray” (same ionization type; “ionization” is an explicit expansion).  
+COMPLETENESS CHECK: The value is complete and unambiguous for the ionization source used.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Label,Label-free quantification (LFQ),label-free quantification (LFQ),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,MaterialType,biofluid,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “biofluid” is a broad material class, fitting the MaterialType definition (e.g., urine is a biofluid) — correct type.  
+SOURCE CHECK:      The paper explicitly refers to “biofluids” in the abstract and uses urine samples throughout the methods, supporting “biofluid” as the material class.  
+CORRECTNESS CHECK: No reference values were provided; “biofluid” is consistent with the described sample material (urine).  
+COMPLETENESS CHECK: The value is complete at the intended broad class level; no additional qualifier is required for MaterialType.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,MaterialType,tissue,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “tissue” is a broad material class and fits the MaterialType definition.  
+SOURCE CHECK:      The methods explicitly mention “resected prostate cancer tissue specimens/tissue samples,” so “tissue” is supported by the paper text.  
+CORRECTNESS CHECK: No reference values were provided; “tissue” is a well-supported MaterialType for the tumour specimens described.  
+COMPLETENESS CHECK:“tissue” is complete at the MaterialType level (it is intentionally broad and does not require the specific tissue/organ).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Modification,Carbamidomethyl (C),carbamidomethylation (C); oxidation (M); N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Carbamidomethyl (C)” denotes a specific protein/peptide modification used in the MS data analysis parameters, so it fits the Modification type definition.  
+SOURCE CHECK:      The LC‑MS/MS methods explicitly state “Carbamidomethyl (C), as a fixed modification…”.  
+CORRECTNESS CHECK: This matches the reference value “carbamidomethylation (C)” (same modification, abbreviated form).  
+COMPLETENESS CHECK: The value is complete and unambiguous (residue specified as C).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Modification,oxidation (M),carbamidomethylation (C); oxidation (M); N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,Modification,acetylation of the protein N-terminus,carbamidomethylation (C); oxidation (M); N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “acetylation of the protein N-terminus” describes a post-translational modification used in the database search settings, so it is the correct type for Modification.  
+SOURCE CHECK:      The methods explicitly state “oxidation (M) and acetylation of the protein N-terminus as dynamic modifications were included.”  
+CORRECTNESS CHECK: This matches the reference value “N-terminal acetylation” (same modification described with different wording).  
+COMPLETENESS CHECK: The value is complete and unambiguous (specifies N-terminus acetylation).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,NumberOfMissedCleavages,two,two,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,NumberOfTechnicalReplicates,Three,Three repeated runs,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Three” is a count of technical replicates per sample (three repeated LC-MS/MS runs) — correct type for NumberOfTechnicalReplicates.  
+SOURCE CHECK:      The methods explicitly state “Three repeated runs per sample were performed,” supporting the value three.  
+CORRECTNESS CHECK: “Three” matches the reference value “Three repeated runs” (same replicate count).  
+COMPLETENESS CHECK: The value is complete as a technical replicate count; no additional qualifier is required for this annotation type.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Organism,homo sapiens,Homo sapiens,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,OrganismPart,urine,urine; resected prostate cancer tissue,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,OrganismPart,prostate,urine; resected prostate cancer tissue,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “prostate” is an organ/tissue source term, so it fits the OrganismPart definition.  
+SOURCE CHECK:      The methods mention “resected prostate cancer tissue specimens” and “prostate lobe,” so “prostate” is supported by the paper text.  
+CORRECTNESS CHECK: It does not exactly match the reference values (“urine”, “resected prostate cancer tissue”); it is only a partial/less-specific match to “resected prostate cancer tissue.”  
+COMPLETENESS CHECK: The value is somewhat incomplete because it omits the critical qualifier that the tissue was *prostate cancer tissue* (resected tumour tissue), not just prostate in general.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7144211,ReductionReagent,DTT,DTT,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7144211,Separation,"nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific)",,False,low,TYPE_MISMATCH,False,True,True,Instrument,False,False,False,"TYPE CHECK:        “nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific)” is an LC instrument/system description, not an on-line LC separation method (stationary phase/column chemistry) — Correct type: Instrument.  
+SOURCE CHECK:      This phrasing is present in the LC-MS/MS methods (“loaded on a nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific)”).  
+CORRECTNESS CHECK: No reference values are provided; regardless, this does not provide a Separation method (e.g., C18/RPLC column chemistry) and so is not correct for Separation.  
+COMPLETENESS CHECK: Not applicable — the issue is category/type, not missing qualifiers within the same type.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7144211,Sex,men,male,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “men” denotes donor sex (male) — correct type for Sex.  
+SOURCE CHECK:      The abstract explicitly states “uEV in men with benign and malignant prostate disease,” so the value is present.  
+CORRECTNESS CHECK: “men” is semantically equivalent to the reference value “male,” matching the reference.  
+COMPLETENESS CHECK: The value is complete and unambiguous for sex.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7144211,Time,3 months after local treatment,3 months,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3 months after local treatment” is a broad experimental time point description, so it fits the Time annotation type.  
+SOURCE CHECK:      This phrase is present in the paper text (“Matched urine samples were collected … 3 months after local treatment”).  
+CORRECTNESS CHECK: It is semantically equivalent to the reference value “3 months” (adds contextual qualifier “after local treatment”).  
+COMPLETENESS CHECK:The value is complete; the added context clarifies what the 3-month interval refers to without changing the timepoint identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,AcquisitionMethod,data-dependent mode,data-dependent,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “data-dependent mode” describes an MS acquisition scheme (i.e., DDA) rather than an instrument name, so it is the correct type for AcquisitionMethod.  
+SOURCE CHECK:      The methods explicitly state the instrument “was operated in a data-dependent mode” (and similarly “data-dependent auto-MS/MS mode”).  
+CORRECTNESS CHECK: “data-dependent mode” is semantically equivalent to the reference value “data-dependent” (DDA), so it matches.  
+COMPLETENESS CHECK: The value is sufficiently specific to identify the acquisition scheme (DDA); no critical qualifier is missing.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,AlkylationReagent,iodoacetamide,iodoacetamide,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CellLine,HeLa,HeLa; THP-1,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CellLine,THP-1,HeLa; THP-1,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CellPart,ribosome,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “ribosome” refers to a subcellular complex/fraction and fits the CellPart definition.  
+SOURCE CHECK:      The methods explicitly describe “whole ribosome isolation” and refer to “free ribosomes (40S, 60S, and 80S monosomes)” and “ribosomal composition,” so “ribosome” is present in the text.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s described ribosome isolation/fractions.  
+COMPLETENESS CHECK: “ribosome” is generally complete, though the paper sometimes specifies subclasses (e.g., 40S/60S/80S monosomes vs polysomes); that specificity is not strictly required to identify the cell part.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,CellPart,polysome,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “polysome” refers to a subcellular ribonucleoprotein fraction (polysomes) isolated from cells, which fits the CellPart definition.  
+SOURCE CHECK:      The methods explicitly describe “polysome analysis” and pooling “fractions … corresponding to … polysomes.”  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper text.  
+COMPLETENESS CHECK: The value is sufficiently specific and unambiguous as a cell fraction; singular vs. plural (“polysome” vs “polysomes”) does not change identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,CleavageAgent,LysC,trypsin; LysC,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CleavageAgent,trypsin,trypsin; LysC,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CollisionEnergy,NCE 28,NCE 28; 23 to 65 eV; 42.0 eV,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CollisionEnergy,23 to 65 eV,NCE 28; 23 to 65 eV; 42.0 eV,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,CollisionEnergy,42.0 eV,NCE 28; 23 to 65 eV; 42.0 eV,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,Compound,human recombinant IFNβ 1000 U/mL,1000	U/mL of human recombinant IFNβ,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “human recombinant IFNβ 1000 U/mL” names a chemical/biologic compound (IFNβ) with a bundled concentration, which is valid for the Compound annotation type.  
+SOURCE CHECK:      The methods explicitly state cells were “stimulated with 1000 U/mL of human recombinant IFNβ,” so this value is present in the paper (word order reversed).  
+CORRECTNESS CHECK: This is semantically equivalent to the reference value “1000 U/mL of human recombinant IFNβ” (same compound and dose).  
+COMPLETENESS CHECK:The compound identity (“human recombinant IFNβ”) is unambiguous; including “1000 U/mL” adds context and does not omit any critical qualifier.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,FlowRateChromatogram,50 μL/min,0.5 mL/min; 250 nL/min; 300 nL/min,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “50 μL/min” is a numeric flow rate with units, which fits the FlowRateChromatogram definition (LC flow rate).  
+SOURCE CHECK:      The methods explicitly state “flow rate of 50 μL/min” for the high-pH reverse-phase fractionation on an Agilent 1100 HPLC.  
+CORRECTNESS CHECK: It does not match any provided reference value (“0.5 mL/min”, “250 nL/min”, “300 nL/min”); it corresponds to a different LC step (offline high-pH RP fractionation) than those reference flow rates.  
+COMPLETENESS CHECK: The value is complete and unambiguous (includes both number and unit).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,FlowRateChromatogram,250 nL/min,0.5 mL/min; 250 nL/min; 300 nL/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,FlowRateChromatogram,0.5 mL/min,0.5 mL/min; 250 nL/min; 300 nL/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,FlowRateChromatogram,0.25 μL/min,0.5 mL/min; 250 nL/min; 300 nL/min,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “0.25 μL/min” is an LC flow rate value with units, which fits the FlowRateChromatogram definition.  
+SOURCE CHECK:      “0.25 μL/min flow rate” appears explicitly in the methods section describing the Impact II LC-MS/MS analysis.  
+CORRECTNESS CHECK: 0.25 μL/min is unit-equivalent to the reference value “250 nL/min” (since 0.25 μL/min = 250 nL/min), so it matches that reference.  
+COMPLETENESS CHECK: The value is complete and unambiguous (numeric value + unit).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,FlowRateChromatogram,0.35 μL/min,0.5 mL/min; 250 nL/min; 300 nL/min,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “0.35 μL/min” is an LC flow rate value with units, so it fits the FlowRateChromatogram definition.  
+SOURCE CHECK:      The paper explicitly states “the analysis was performed at 0.35 μL/min flow rate” in the timsTOF Pro LC-MS/MS methods.  
+CORRECTNESS CHECK: It does not match any provided reference value (“0.5 mL/min”, “250 nL/min”, or “300 nL/min”).  
+COMPLETENESS CHECK: The value is complete (numeric value + correct unit).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,FractionIdentifier,fractions 6–65,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “fractions 6–65” refers to fraction numbers/labels from a fractionation workflow, so it fits the FractionIdentifier concept, but it is a range rather than an identifier for a single fraction.  
+SOURCE CHECK:      The paper explicitly states “only fractions 6–65 … were submitted for LC-MS/MS analysis.”  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s fraction numbering.  
+COMPLETENESS CHECK: This is incomplete for FractionIdentifier because it does not give an ID for each fraction (e.g., “fraction 6”, “fraction 7”, …) and instead reports a span of fractions.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,FractionationMethod,high pH reverse-phase (RP) fractionation,reverse-phase (RP) fractionation on an Agilent 1100 HPLC; size-exclusion chromatography (SEC),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “high pH reverse-phase (RP) fractionation” describes an off-line peptide fractionation approach performed prior to LC-MS/MS runs — correct type for FractionationMethod.  
+SOURCE CHECK:      This is explicitly mentioned in the methods: “peptides … were then subjected to high pH reverse-phase (RP) fractionation…”.  
+CORRECTNESS CHECK: It semantically matches the reference value “reverse-phase (RP) fractionation on an Agilent 1100 HPLC” (same fractionation method; the extracted value omits the instrument).  
+COMPLETENESS CHECK:The fractionation method identity is complete (“high pH reverse-phase fractionation”); the specific HPLC system/column details are additional but not required to identify the method.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,FractionationMethod,size exclusion chromatography (SEC),reverse-phase (RP) fractionation on an Agilent 1100 HPLC; size-exclusion chromatography (SEC),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “size exclusion chromatography (SEC)” is a chromatography-based pre-LC-MS fractionation step that generates collected fractions for downstream LC-MS/MS — correct type for FractionationMethod.  
+SOURCE CHECK:      The methods explicitly describe “size exclusion chromatography (SEC)” and collection of 80 fractions prior to LC-MS/MS analysis.  
+CORRECTNESS CHECK: This matches the reference value “size-exclusion chromatography (SEC)”.  
+COMPLETENESS CHECK: The value is complete and unambiguous (method name plus acronym).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,FractionationMethod,linear 10–50% sucrose gradient,reverse-phase (RP) fractionation on an Agilent 1100 HPLC; size-exclusion chromatography (SEC),True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “linear 10–50% sucrose gradient” describes an offline fractionation step (sucrose gradient ultracentrifugation to separate ribosomal/polysome fractions) performed prior to LC-MS/MS analysis, so it fits FractionationMethod.  
+SOURCE CHECK:      This phrase appears explicitly in the Methods under “Polysome and ribosome isolation” (“loaded onto a linear 10–50% sucrose gradient…”).  
+CORRECTNESS CHECK: It does not match either reference value (“reverse-phase (RP) fractionation on an Agilent 1100 HPLC” or “size-exclusion chromatography (SEC)”) and is a different fractionation approach.  
+COMPLETENESS CHECK: The value is complete and specific enough to identify the fractionation method (a 10–50% sucrose gradient).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,FragmentMassTolerance,0.05 Da,0.05 Da,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,FragmentationMethod,HCD,HCD,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,GeneticModification,HA-tagged IFI35,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “HA-tagged IFI35” describes a tagging construct (HA epitope tag fused to IFI35), which is a genetic alteration of the expressed protein—correct type for GeneticModification.  
+SOURCE CHECK:      The methods explicitly state “HA-tagged IFI35 was generated…”, so it is present in the paper text.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s described construct.  
+COMPLETENESS CHECK: The value includes both the tag (HA) and the tagged protein (IFI35), so it is complete and unambiguous.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,GradientTime,60-min gradient,180 min; 90 min; 60 min; 2 min; 13 min,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “60-min gradient” states a total LC gradient length, so it is the correct type for GradientTime.  
+SOURCE CHECK:      The methods explicitly state the peptides were “eluted from the column over a 60-min gradient” (high-pH RP fractionation).  
+CORRECTNESS CHECK: This matches the reference value “60 min” (equivalent formatting).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a gradient duration.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,GradientTime,180 min,180 min; 90 min; 60 min; 2 min; 13 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,GradientTime,90-min gradients,180 min; 90 min; 60 min; 2 min; 13 min,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “90-min gradients” describes the LC gradient length, which fits the GradientTime definition (total LC gradient length) — correct type.  
+SOURCE CHECK:      The methods explicitly state “Standard 90-min gradients were …” in the tandem LC-MS/MS section.  
+CORRECTNESS CHECK: This matches the reference value “90 min” (unit/format variation only).  
+COMPLETENESS CHECK:The gradient duration is clearly specified as 90 minutes; while additional steps (e.g., ramp to 100% B and hold) are described elsewhere, “90-min gradients” is still a complete and unambiguous gradient-time value as written.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Instrument,Q-Exactive mass spectrometer (Thermo Fisher),Q-Exactive mass spectrometer (Thermo Fisher); timsTOF trapped ion mobility quadrupole time of flight mass spectrometer,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,Instrument,quadrupole time of flight mass spectrometer (Impact II; Bruker Daltonics),Q-Exactive mass spectrometer (Thermo Fisher); timsTOF trapped ion mobility quadrupole time of flight mass spectrometer,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “quadrupole time of flight mass spectrometer (Impact II; Bruker Daltonics)” is a mass spectrometer make/model description — correct type for Instrument.  
+SOURCE CHECK:      This exact instrument description appears in the Methods (“Impact II; Bruker Daltonics”).  
+CORRECTNESS CHECK: It does not match either provided reference value (“Q-Exactive…” or “timsTOF…”) but it is a correct additional instrument explicitly used in the study.  
+COMPLETENESS CHECK: The value is complete and unambiguous (instrument type + model + manufacturer).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,Instrument,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer (timsTOF Pro; Bruker Daltonics),Q-Exactive mass spectrometer (Thermo Fisher); timsTOF trapped ion mobility quadrupole time of flight mass spectrometer,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        This value names a mass spectrometer make/model (“timsTOF Pro; Bruker Daltonics”) and therefore fits the Instrument definition.  
+SOURCE CHECK:      The methods explicitly state “a timsTOF trapped ion mobility quadrupole time of flight mass spectrometer (timsTOF Pro; Bruker Daltonics)”.  
+CORRECTNESS CHECK: It semantically matches the reference value “timsTOF trapped ion mobility quadrupole time of flight mass spectrometer” (and adds the specific model “timsTOF Pro”).  
+COMPLETENESS CHECK:The value is complete, giving both instrument type and the specific model/manufacturer.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,IonizationType,Captive spray nanospray ionization source,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Captive spray nanospray ionization source” describes the ionization source used (a nanospray ESI implementation) — correct type for IonizationType.  
+SOURCE CHECK:      This phrase appears explicitly in the methods (“…using nanoBooster with methanol and a Captive spray nanospray ionization source…” and again for timsTOF runs).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the ionization source described in the paper.  
+COMPLETENESS CHECK: The value is sufficiently specific to identify the ionization type (nanospray/ESI via CaptiveSpray); no critical qualifier is missing.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Label,SILAC,"SILAC; “light” (“L”)-labeled cells, L-arginine (84 mg/L) and L-lysine (146 mg/L); “medium” (“M”)-labeled cells, 13C6-L-arginine (87 mg/L) and D4-Llysine (150 mg/L); “heavy” (“H”)-labeled cells, 13C6 15N4-L-arginine (89 mg/L) and 13C6 15N2-L-lysine (154 mg/L); label-free quantitation (LFQ)",True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,Label,label-free quantitation,"SILAC; “light” (“L”)-labeled cells, L-arginine (84 mg/L) and L-lysine (146 mg/L); “medium” (“M”)-labeled cells, 13C6-L-arginine (87 mg/L) and D4-Llysine (150 mg/L); “heavy” (“H”)-labeled cells, 13C6 15N4-L-arginine (89 mg/L) and 13C6 15N2-L-lysine (154 mg/L); label-free quantitation (LFQ)",True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “label-free quantitation” names a quantitative labeling/measurement mode (LFQ) rather than an isotope/isobaric tag, so it fits the Label definition.  
+SOURCE CHECK:      The methods explicitly state “label-free quantitation (LFQ) was enabled” (for immunoprecipitation experiments and ribosome composition analysis), so it is present in the paper text.  
+CORRECTNESS CHECK: This matches the reference value “label-free quantitation (LFQ)” (same concept; minor formatting difference).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a label/quantitation mode (optionally could include “LFQ”, but not required).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,MaterialType,cells,cells,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,MaterialType,cell line,cells,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “cell line” is a broad material class describing the biological source material — correct type for MaterialType.  
+SOURCE CHECK:      The methods explicitly describe cultured HeLa cells and THP-1 cells (both cell lines), which unambiguously supports “cell line” as the material type even if the exact phrase is not used.  
+CORRECTNESS CHECK: “cell line” is semantically consistent with the reference value “cells” (cell line–derived cells).  
+COMPLETENESS CHECK: The value is complete at the required broad-class level for MaterialType.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Modification,carbamidomethyl,carbamidomethylation; oxidation (methionine); deamidation (NQ); N-acetylation (protein N-terminus),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “carbamidomethyl” refers to the carbamidomethyl modification (typically on cysteine) and fits the Modification category.
+SOURCE CHECK:      It is explicitly present in the paper in the database search settings as “fixed modifications, carbamidomethyl”.
+CORRECTNESS CHECK: It matches the reference value “carbamidomethylation” (same modification, different grammatical form).
+COMPLETENESS CHECK: The value is sufficiently specific to identify the modification; specifying the target residue (Cys) would add detail but is not required to disambiguate it here.
+HALLUCINATED: no
+VERDICT: high",
+PMC7294662,Modification,methionine oxidation,carbamidomethylation; oxidation (methionine); deamidation (NQ); N-acetylation (protein N-terminus),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “methionine oxidation” is a post-translational/chemical modification term, so it fits the Modification annotation type.  
+SOURCE CHECK:      “methionine oxidation” appears explicitly in the “Protein identification and quantification” section as a variable modification in the database search parameters.  
+CORRECTNESS CHECK: This is semantically equivalent to the reference value “oxidation (methionine)”.  
+COMPLETENESS CHECK: The value is complete and unambiguous (it specifies the residue affected: methionine).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Modification,deamidation (NQ),carbamidomethylation; oxidation (methionine); deamidation (NQ); N-acetylation (protein N-terminus),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,Modification,N-acetylation,carbamidomethylation; oxidation (methionine); deamidation (NQ); N-acetylation (protein N-terminus),True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “N-acetylation” is a post-translational/chemical modification term, so it fits the Modification annotation type.  
+SOURCE CHECK:      The paper explicitly lists “N-acetylation (protein N-terminus)” as a variable modification in the MaxQuant search parameters, so this value is supported by the text.  
+CORRECTNESS CHECK: It corresponds to the reference value “N-acetylation (protein N-terminus)” but is not an exact match because the site qualifier is omitted.  
+COMPLETENESS CHECK: The value is incomplete: the paper specifies **protein N-terminus** acetylation, whereas “N-acetylation” alone could be confused with other acetylation contexts.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,NumberOfBiologicalReplicates,3,3; three replicates,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,NumberOfFractions,80 fractions,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “80 fractions” is a total count of fractions generated per sample/run, which fits the definition of NumberOfFractions.  
+SOURCE CHECK:      The methods explicitly state “Samples were collected into **80 fractions**…”.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value matches the explicit count reported in the paper text.  
+COMPLETENESS CHECK:The value is complete as a count; the paper context indicates these are SEC fractions, but the count itself is unambiguous.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Organism,Homo sapiens,Homo sapiens,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,PooledSample,pooled,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “pooled” indicates that multiple samples/fractions/cells were combined, which fits the PooledSample concept (pooling occurred).  
+SOURCE CHECK:      The paper explicitly uses “pooled” (e.g., “Cells of the same SILAC label were pooled” and “fractions 6–65 were pooled…”).  
+CORRECTNESS CHECK: No reference values were provided; “pooled” is consistent with the described procedures indicating pooling.  
+COMPLETENESS CHECK: For a binary “whether pooled” annotation, “pooled” is sufficient, though it does not specify *what* was pooled.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,PrecursorMassTolerance,5 ppm,10 ppm,True,low,HALLUCINATED,False,True,False,,False,False,True,"TYPE CHECK:        “5 ppm” is a mass-tolerance value and fits the definition of PrecursorMassTolerance.  
+SOURCE CHECK:      The methods describe precursor (peptide) mass accuracy settings of 20 ppm (first search) and 10 ppm (second search) and also state mass measurement error is typically within 5 ppm, but they do not state a precursor search tolerance of “5 ppm” — so this exact value is absent.  
+CORRECTNESS CHECK: It does not match the reference value “10 ppm” (the paper’s stated precursor search tolerance is 10 ppm, not 5 ppm).  
+COMPLETENESS CHECK:“5 ppm” would be complete as a tolerance value, but it is not the correct one for this paper.  
+HALLUCINATED: yes  
+VERDICT: low",
+PMC7294662,PrecursorMassTolerance,10 ppm,10 ppm,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,PrecursorMassTolerance,20 ppm,10 ppm,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “20 ppm” is a mass tolerance value for precursor matching in a database search, so it is the correct type for PrecursorMassTolerance.  
+SOURCE CHECK:      The methods state for shotgun SILAC experiments: “peptide mass accuracy, **20 ppm** for first search, **10 ppm** for second search,” so “20 ppm” is present in the paper.  
+CORRECTNESS CHECK: The extracted value does **not** match the provided reference value “10 ppm” (it corresponds to the *first search* tolerance, whereas the reference corresponds to the *second search* tolerance).  
+COMPLETENESS CHECK: The value is complete as a tolerance, but it lacks the qualifier “first search” vs “second search,” which is important here because both are reported.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,ReductionReagent,DTT,dithiothreitol,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “DTT” is a chemical reducing agent used to reduce disulfide bonds — correct type for ReductionReagent.  
+SOURCE CHECK:      “DTT” is explicitly mentioned in the methods (e.g., “Lysis Buffer (4% SDS, 10 mM DTT, …)” and “adding 6 μg of DTT”).  
+CORRECTNESS CHECK: “DTT” is the standard abbreviation for “dithiothreitol,” matching the reference value “dithiothreitol.”  
+COMPLETENESS CHECK: The value is complete and unambiguous as the reducing reagent identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Separation,Reprosil-Pur C-18-AQ beads,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Reprosil-Pur C-18-AQ beads” describes the reverse-phase C18 stationary phase/packing material used in the LC column, which fits the Separation definition.  
+SOURCE CHECK:      The methods explicitly state that the analytical column “was packed with 3.0-μm-diameter Reprosil-Pur C-18-AQ beads (Dr. Maisch)” (and also 1.9-μm Reprosil-Pur C-18-AQ beads in later LC setups).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is a correct and directly supported Separation description from the text.  
+COMPLETENESS CHECK:The value is complete and unambiguous as a column packing/stationary phase descriptor; no critical qualifier is missing for identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Separation,analytical column was from 75-μm-inner-diameter fused silica capillary,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        This value describes an LC column hardware characteristic (75‑µm ID fused silica analytical column), which is part of the on-line LC setup and can fall under Separation, but it does not describe the stationary phase/column chemistry that defines the separation method.  
+SOURCE CHECK:      This phrasing appears in the Methods (“The analytical column was from 75‑μm-inner-diameter fused silica capillary…”).  
+CORRECTNESS CHECK: With no reference_values provided, it is not possible to directly match; conceptually it is consistent with an LC separation description but is not the key separation chemistry reported elsewhere in the text.  
+COMPLETENESS CHECK: Incomplete — it omits the stationary phase/packing (e.g., C18/Reprosil-Pur C18-AQ beads) that is critical to identify the separation method.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7294662,Temperature,37 °C,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “37 °C” is a temperature value describing the growth/incubation temperature, which fits the Temperature definition.  
+SOURCE CHECK:      “37 °C” is explicitly stated multiple times in the Methods (e.g., cell culture and incubation steps).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s stated incubation temperature.  
+COMPLETENESS CHECK: The value is complete and unambiguous (numeric temperature with unit).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7294662,Time,4 h,4 h; 24 h,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,Time,24 h,4 h; 24 h,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7294662,Treatment,IFNβ stimulation,stimulated; unstimulated,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “IFNβ stimulation” describes an experimental treatment applied to cells, so it is the correct type for Treatment.  
+SOURCE CHECK:      The methods explicitly describe cells being “stimulated with … human recombinant IFNβ” and repeatedly refer to “IFNβ stimulation,” so it is present in the paper text.  
+CORRECTNESS CHECK: This is consistent with the reference value “stimulated” (it specifies the stimulating agent as IFNβ), but it does not match “unstimulated.”  
+COMPLETENESS CHECK: The treatment is incomplete as written because the paper specifies key qualifiers for the stimulation (e.g., 1000 U/mL IFNβ and variable time lengths such as 4 h, 8 h, 24 h), which are not included.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7367873,AcquisitionMethod,data-dependent acquisition,data-dependent acquisition,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,AlkylationReagent,chloroacetamide,chloroacetamide,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Bait,14-3-3β,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “14-3-3β” is a specific protein used as the affinity-target in the co-IP AP-MS setup, so it fits the Bait type definition (as the bait protein in a tagged construct).  
+SOURCE CHECK:      The paper explicitly mentions “pEGFP(C1)-14-3-3β” and “eGFP-14-3-3β” in the Co-IP/MS sections, supporting “14-3-3β” as present in the source.  
+CORRECTNESS CHECK: No reference values were provided; based on the methods, 14-3-3β is indeed the bait protein being immunoprecipitated (via its GFP tag).  
+COMPLETENESS CHECK: The value is incomplete because the actual bait construct used for pull-down is GFP-tagged (e.g., “eGFP-14-3-3β” / “pEGFP(C1)-14-3-3β”), and the tag is part of the bait identifier in AP-MS context.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7367873,Bait,GAB2,,False,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “GAB2” is a specific protein name and could in principle be a Bait value (it is not just a tag), so it fits the Bait type definition.  
+SOURCE CHECK:      “GAB2” appears repeatedly in the paper text (e.g., pmKate2-N-GAB2, pCMV-GAB2-3Flag, GRB-associated-binding protein 2 (GAB2)).  
+CORRECTNESS CHECK: No reference values are provided; however, in the MS Co-IP experiment described, the affinity capture is performed with α-GFP nanobodies on eGFP-14-3-3β (or eGFP control), indicating the bait is eGFP-14-3-3β rather than GAB2, so “GAB2” is not supported as the bait for the AP-MS/pull-down in this methods text.  
+COMPLETENESS CHECK: Even where GAB2 is used in pull-downs (α-FLAG M2 beads), it is specified as a tagged construct (pCMV-GAB2-3Flag); “GAB2” alone omits the bait construct/tag context and is therefore not a complete bait identifier for those pull-downs.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7367873,CellLine,HeLa Kyoto cells,HeLa Kyoto,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “HeLa Kyoto cells” is the name of an immortalized cell line, so it fits the CellLine annotation type.  
+SOURCE CHECK:      “HeLa Kyoto cells” appears explicitly in the Methods (Cell culture; also in multiple later method sections).  
+CORRECTNESS CHECK: This matches the reference value “HeLa Kyoto” (the added word “cells” is a non-substantive suffix).  
+COMPLETENESS CHECK: The value is complete and unambiguous for identifying the cell line.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,CellLine,Caco-2 BBe1 cells,HeLa Kyoto,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “Caco-2 BBe1 cells” is the name of an immortalized cell line — correct type for CellLine.  
+SOURCE CHECK:      “Caco-2 BBe1 cells” appears explicitly in the Cell culture methods section.  
+CORRECTNESS CHECK: The extracted value does not match the provided reference value “HeLa Kyoto” (it is a different cell line), but it is still a real cell line used/mentioned in this paper.  
+COMPLETENESS CHECK:The value is complete and specific (includes the BBe1 subline designation).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7367873,CellLine,SW-480 cells,HeLa Kyoto,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “SW-480 cells” names an immortalized cell line — correct type for CellLine.  
+SOURCE CHECK:      “SW-480 cells” appears explicitly in the Methods (Cell culture).  
+CORRECTNESS CHECK: It does not match the provided reference value “HeLa Kyoto” (it is a different cell line).  
+COMPLETENESS CHECK: The value is complete and unambiguous (SW-480 is the cell line name; “cells” is just context).  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7367873,CleavageAgent,trypsin,trypsin,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,CollisionEnergy,normalized collision energy was 32,30%; 32; 35%; 55,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “normalized collision energy was 32” reports an MS/MS collision energy setting (normalized CE) — correct type for CollisionEnergy.  
+SOURCE CHECK:      This phrase appears in the LC-MS/MS measurement for phosphopeptide library experiments (“normalized collision energy was 32”).  
+CORRECTNESS CHECK: It matches the reference value “32”.  
+COMPLETENESS CHECK:The value is complete as stated in the paper (normalized collision energy 32; NCE is commonly reported without an explicit unit/percent).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,CollisionEnergy,35% normalized collision energy (NCE),30%; 32; 35%; 55,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “35% normalized collision energy (NCE)” is a collision energy setting used for MS/MS fragmentation — correct type for CollisionEnergy.  
+SOURCE CHECK:      This exact setting is stated in the phosphoproteomics acquisition method: “fragmented by collision-induced dissociation (CID) using 35% normalized collision energy (NCE)”.  
+CORRECTNESS CHECK: It semantically matches the reference value “35%” (same NCE value, with added context).  
+COMPLETENESS CHECK: The value is complete (numeric value + unit/context as normalized collision energy).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,CollisionEnergy,30% normalized collision energy (NCE),30%; 32; 35%; 55,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “30% normalized collision energy (NCE)” is a collision energy setting for MS/MS fragmentation (normalized CE) — correct type for CollisionEnergy.  
+SOURCE CHECK:      This exact phrasing appears in the LC-MS/MS settings for the 14-3-3 co-IP runs: “fragmented by high-energy collision-induced dissociation (HCD) using 30% normalized collision energy (NCE)”.  
+CORRECTNESS CHECK: It matches the reference value “30%” (same collision energy, with added context).  
+COMPLETENESS CHECK: The value is complete and unambiguous (includes both the numeric setting and that it is NCE).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Compound,Calyculin A 20 nM,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Calyculin A 20 nM” names a chemical compound with a bundled concentration, which is valid for the Compound annotation type.  
+SOURCE CHECK:      The paper explicitly reports Calyculin A used at “20 nM” (written as “20 nM Calyculin A”); the reordered form “Calyculin A 20 nM” is an unambiguous equivalent.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the compound and concentration described in the methods.  
+COMPLETENESS CHECK: The compound name is fully specified and unambiguous; adding the concentration does not omit any identity-defining information.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Compound,recombinant PP1c 1 μM,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “recombinant PP1c 1 μM” names a specific reagent added to the sample (a protein phosphatase, with bundled concentration), which fits the Compound definition.  
+SOURCE CHECK:      The methods state that lysates/supernatants were “incubated with recombinant PP1c/PP2Ac … at a final phosphatase concentration of 1 µM,” supporting “recombinant PP1c 1 µM.”  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s described use of recombinant PP1c at 1 µM.  
+COMPLETENESS CHECK: The value is sufficiently specific (identifies PP1c and its 1 µM concentration); no critical qualifier is missing.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Compound,recombinant PP2Ac 1 μM,,False,low,TYPE_MISMATCH,False,True,True,Treatment,False,False,False,"TYPE CHECK:        “recombinant PP2Ac 1 μM” describes an experimental phosphatase treatment (adding recombinant PP2Ac at a given concentration), not a small-molecule/chemical compound — Correct type: Treatment.  
+SOURCE CHECK:      The methods state that lysates/supernatants were “incubated with recombinant PP1c/PP2Ac … at a final phosphatase concentration of 1 µM,” so this value is present in the paper.  
+CORRECTNESS CHECK: No reference values were provided; the value is consistent with the paper’s described PP2Ac incubation at 1 µM, but it does not satisfy the intended Compound annotation.  
+COMPLETENESS CHECK: As written it is specific (PP2Ac + 1 µM), but as a treatment description it omits other key treatment qualifiers (e.g., incubation time/temperature) mentioned elsewhere (e.g., 1 h at 30 °C).  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7367873,EnrichmentMethod,Fe-IMAC,Fe-IMAC; phosphopeptide enrichment,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,FlowRateChromatogram,0.3 µL/min,300 nL/min; 5 µL/min; 0.3 µL/min; 30 µL/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,FlowRateChromatogram,300 nL/min,300 nL/min; 5 µL/min; 0.3 µL/min; 30 µL/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,FractionationMethod,High-pH RP tip fractionation,high-pH reversed-phase tip fractionation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “High-pH RP tip fractionation” describes an off-line pre-LC-MS fractionation approach (high-pH reversed-phase fractionation in tips/StageTips) — correct type for FractionationMethod.  
+SOURCE CHECK:      The methods explicitly state “TMT labeling and high pH RP tip fractionation…” and “High-pH RP tip fractionation was performed in Stage Tips,” so it is present in the paper text.  
+CORRECTNESS CHECK: This matches the reference value “high-pH reversed-phase tip fractionation” (same method; “RP” = reversed-phase).  
+COMPLETENESS CHECK: The value is sufficiently specific and unambiguous (high-pH reversed-phase, tip-based fractionation); no critical qualifier is missing.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,FragmentMassTolerance,0.05 Da,0.05 Da,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,FragmentationMethod,collision-induced dissociation,collision induced dissociation (CID); higher-energy collision-induced dissociation (HCD),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “collision-induced dissociation” is an ion-fragmentation technique name — correct type for FragmentationMethod.  
+SOURCE CHECK:      The methods explicitly state precursors were “fragmented by collision-induced dissociation (CID)” during the phosphoproteomics MS2 acquisition.  
+CORRECTNESS CHECK: This matches the reference value “collision induced dissociation (CID)” (same method, standard spelling/hyphenation variant).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a fragmentation method (CID).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,FragmentationMethod,higher-energy collision-induced dissociation,collision induced dissociation (CID); higher-energy collision-induced dissociation (HCD),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “higher-energy collision-induced dissociation” names an ion-fragmentation technique — correct type for FragmentationMethod.  
+SOURCE CHECK:      The paper does not spell out this full phrase, but it explicitly uses the standard abbreviation “HCD,” which is an unambiguous synonym.  
+CORRECTNESS CHECK: This matches the reference value “higher-energy collision-induced dissociation (HCD)”.  
+COMPLETENESS CHECK: The value is complete and unambiguous as a fragmentation method name.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,GeneticModification,pcDNA3-FLAG-HA-14-3-3β,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “pcDNA3-FLAG-HA-14-3-3β” denotes an expression construct encoding a tagged protein (FLAG-HA–tagged 14-3-3β), which fits the GeneticModification definition.  
+SOURCE CHECK:      The value appears explicitly in the Methods section (“pcDNA3-FLAG-HA-14-3-3β was originally a gift…”).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the construct described in the paper text.  
+COMPLETENESS CHECK: The value is complete as a specific tagging/expression construct identifier (includes the tag and target protein).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,GeneticModification,pEGFP(C1)-14-3-3β,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “pEGFP(C1)-14-3-3β” is a genetic expression construct/plasmid used for GFP-tagging/expressing 14-3-3β, which fits the GeneticModification definition.  
+SOURCE CHECK:      “pEGFP(C1)-14-3-3β” appears explicitly in the METHODS (Plasmids and cloning; Co-IP experiments).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s described construct.  
+COMPLETENESS CHECK: The plasmid/construct name is specific and unambiguous for the genetic modification used (eGFP fusion of 14-3-3β).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,GradientTime,120 min,60 min; 90 min,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “120 min” is a duration specifying the total LC gradient/analysis time, which fits the GradientTime definition.  
+SOURCE CHECK:      Present in the paper text: the phosphopeptide library LC-MS/MS method states “120 min analysis time” with an elution program.  
+CORRECTNESS CHECK: It does not match either reference value (“60 min” or “90 min”); however, “120 min” is an additional gradient/analysis time explicitly used for the phosphopeptide library LC-MS/MS runs.  
+COMPLETENESS CHECK: The value is complete and unambiguous as a gradient time.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7367873,GradientTime,90 min,60 min; 90 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,GradientTime,60 min,60 min; 90 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Instrument,Q Exactive Plus mass spectrometer,Fusion Lumos; Q Exactive Plus,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Q Exactive Plus mass spectrometer” is a mass spectrometer make/model description — correct type for Instrument.  
+SOURCE CHECK:      The methods explicitly state “a Q Exactive Plus mass spectrometer (Thermo Fisher Scientific)”.  
+CORRECTNESS CHECK: This matches the reference value “Q Exactive Plus” (the added words “mass spectrometer” do not change identity).  
+COMPLETENESS CHECK:The instrument model is complete and unambiguous; manufacturer detail is optional and not required for completeness.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Instrument,Fusion Lumos Tribrid mass spectrometer,Fusion Lumos; Q Exactive Plus,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Fusion Lumos Tribrid mass spectrometer” is a mass spectrometer model name, so it fits the Instrument definition.  
+SOURCE CHECK:      The methods explicitly state “a Fusion Lumos Tribrid mass spectrometer (Thermo Fisher Scientific)”.  
+CORRECTNESS CHECK: This is semantically equivalent to the reference value “Fusion Lumos” (same instrument family/model).  
+COMPLETENESS CHECK:The model designation is sufficiently specific and unambiguous; omission of the “Orbitrap” prefix/manufacturer name does not change the instrument identity here.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Label,TMT-6plex,label-free; TMT-6plex,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Label,LFQ,label-free; TMT-6plex,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “LFQ” refers to label-free quantification (i.e., no isobaric/metabolic labeling) and is therefore a valid representation of a Label value.  
+SOURCE CHECK:      “LFQ” appears in the paper text (e.g., “LFQ values were then transformed into log2” in the MS-Co-IP data analysis section).  
+CORRECTNESS CHECK: “LFQ” is semantically equivalent to the reference value “label-free,” matching that reference.  
+COMPLETENESS CHECK: The value is sufficiently specific/unambiguous as a standard abbreviation for label-free quantification.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,MaterialType,cell line,cell line,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Modification,phosphorylation,phosphorylation; oxidation (M); carbamidomethylation; N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Modification,Oxidation on Methionine,phosphorylation; oxidation (M); carbamidomethylation; N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        ""Oxidation on Methionine"" is a post-translational/chemical modification used in database searching (variable modification) — correct type for Modification.  
+SOURCE CHECK:      It is explicitly stated in the Methods (e.g., “Oxidation on Methionine … selected as variable modifications” / “oxidation of methionine … were specified as variable modification”).  
+CORRECTNESS CHECK: This matches the reference value ""oxidation (M)"" (same modification, different phrasing).  
+COMPLETENESS CHECK: The value is complete and unambiguous (identifies oxidation specifically on methionine).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Modification,N-terminal protein acetylation,phosphorylation; oxidation (M); carbamidomethylation; N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “N-terminal protein acetylation” is a post-translational modification (PTM) term, so it fits the Modification annotation type.  
+SOURCE CHECK:      The methods explicitly mention “N-terminal protein acetylation” as a variable modification in the MaxQuant/Andromeda search settings.  
+CORRECTNESS CHECK: This matches the reference value “N-terminal acetylation” (same modification, with “protein” as an explicit qualifier).  
+COMPLETENESS CHECK: The value is complete and unambiguous for this PTM.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Modification,Carbamidomethylation on cysteines,phosphorylation; oxidation (M); carbamidomethylation; N-terminal acetylation,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Carbamidomethylation on cysteines” is a post-translational/chemical modification specified in the database search parameters, so it fits the Modification annotation type.  
+SOURCE CHECK:      The paper explicitly states “Carbamidomethylation on cysteines was specified as a fixed modification.”  
+CORRECTNESS CHECK: This matches the reference value “carbamidomethylation” (same modification, with the residue specificity added).  
+COMPLETENESS CHECK: The value is complete and unambiguous; specifying “on cysteines” adds clarity rather than omitting required detail.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,NumberOfBiologicalReplicates,3,three independent replicates,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3” is a total count of biological replicates, which fits the NumberOfBiologicalReplicates definition.  
+SOURCE CHECK:      The methods explicitly state “The experiment was carried out in three independent replicates” and also refer to “three replicates” in the TMT setup.  
+CORRECTNESS CHECK: “3” is semantically equivalent to the reference value “three independent replicates” (digit vs. word).  
+COMPLETENESS CHECK: The value is complete and unambiguous as a replicate count.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,NumberOfFractions,four fractions,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “four fractions” states a total count of fractions generated per sample, which fits the NumberOfFractions definition.  
+SOURCE CHECK:      The methods explicitly state “resulting in a total of four fractions.”  
+CORRECTNESS CHECK: No reference values were provided; the extracted value matches the paper’s stated total (4).  
+COMPLETENESS CHECK: The count is complete and unambiguous (word form “four” is equivalent to “4”).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,NumberOfMissedCleavages,6,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “6” is a numeric maximum count of missed cleavages allowed in a database search, which fits the NumberOfMissedCleavages definition.  
+SOURCE CHECK:      The methods explicitly state “Search parameters: None, missed cleavages 6 …” in the phosphopeptide library data analysis section.  
+CORRECTNESS CHECK: No reference values were provided; “6” is directly supported by the paper text.  
+COMPLETENESS CHECK: The value is complete as a standalone maximum missed-cleavage setting.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,NumberOfTechnicalReplicates,two,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “two” is a count and fits the definition of NumberOfTechnicalReplicates (technical replicates per sample).  
+SOURCE CHECK:      The methods state “independent triplicates with **two technical data points each**,” which supports “two.”  
+CORRECTNESS CHECK: No reference values were provided; “two” is consistent with the paper text for technical replicates.  
+COMPLETENESS CHECK:The value is complete as a replicate count; no additional qualifier is required to interpret it as 2 technical replicates.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Organism,Homo sapiens,Homo sapiens,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Organism,Escherichia coli,Homo sapiens,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “Escherichia coli” is a species name, so it is the correct type for Organism.  
+SOURCE CHECK:      The methods explicitly mention expression in “E.coli BL21Star(DE3)pRARE,” so this value is present in the paper.  
+CORRECTNESS CHECK: It does not match the reference value “Homo sapiens”; the main biological samples/cell lines described (HeLa Kyoto, Caco-2 BBe1, SW-480) are human, while E. coli is only used as an expression host for recombinant protein.  
+COMPLETENESS CHECK: The organism name is complete and unambiguous.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7367873,PooledSample,pooled,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “pooled” indicates that samples were combined, which fits the PooledSample annotation type definition.  
+SOURCE CHECK:      The methods explicitly mention a “pooled sample” (TMT channel 130: “pooled sample, not included in analysis”), so this is present in the paper text.  
+CORRECTNESS CHECK: No reference values were provided; “pooled” is consistent with the paper’s “pooled sample” description.  
+COMPLETENESS CHECK:“pooled” is slightly less explicit than “pooled sample” but still unambiguously conveys that pooling occurred, which is the required information for this type.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,PrecursorMassTolerance,10 ppm,10 ppm,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,ReductionReagent,dithiothreitol,DTT (dithiothreitol),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “dithiothreitol” is a chemical reductant used to reduce disulfide bonds — correct type for ReductionReagent.  
+SOURCE CHECK:      “dithiothreitol” is explicitly mentioned in the methods (e.g., “reduced with 25 mM dithiothreitol” and also as “10 mM DTT”).  
+CORRECTNESS CHECK: “dithiothreitol” matches the reference value “DTT (dithiothreitol)” (DTT is the standard abbreviation).  
+COMPLETENESS CHECK:The value is complete and unambiguous as the full chemical name of the reduction reagent.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,SamplingTime,10–15 min,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “10–15 min” is a time duration that can specify a time point relative to a treatment, so it fits the SamplingTime concept.
+SOURCE CHECK:      The methods state: “HeLa Kyoto cells were incubated with 20 nM Calyculin A … for 10–15 min,” which contains “10–15 min.”
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s stated incubation time before lysis/sample processing.
+COMPLETENESS CHECK: The time is not fully specific as a sampling time without the context “after Calyculin A treatment/incubation” (i.e., 10–15 min post-treatment).
+HALLUCINATED: no
+VERDICT: medium",
+PMC7367873,Separation,"trap column (75 µm × 2 cm, packed in-house with 5 µm C18 resin; Reprosil PUR AQ, Dr. Maisch, Ammerbruch-Entringen, Germany)",reversed-phase C-18,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        This value describes LC column stationary phase/chemistry (in-house packed C18 resin; Reprosil PUR AQ), so it fits the Separation definition.  
+SOURCE CHECK:      This exact trap column description appears in the LC‑MS/MS methods (phosphoproteomics and co-IP LC setups).  
+CORRECTNESS CHECK: It is consistent with the reference value “reversed-phase C-18” (C18 reversed-phase resin).  
+COMPLETENESS CHECK: The chemistry is clear, but it specifies only the trap (pre-)column and not the full on-line separation/analytical column setup, so it is somewhat partial.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7367873,Separation,"analytical column (75 µm × 45 cm, packed in-house with 3 µm C18 resin; Reprosil Gold, Dr. Maisch)",reversed-phase C-18,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        The value describes the LC stationary phase/column chemistry (C18 resin; Reprosil Gold) used for on-line separation, so it is the correct type for Separation.  
+SOURCE CHECK:      This exact analytical column description appears in the paper text (in the LC-MS/MS phosphoproteomics and co-IP LC-MS/MS sections).  
+CORRECTNESS CHECK: It is semantically equivalent to the reference value “reversed-phase C-18” (C18 reverse-phase column).  
+COMPLETENESS CHECK: The column chemistry (C18) and material (Reprosil Gold) are specified, making the separation method unambiguous and complete.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Separation,"Waters nanoEase HSS C18 T3, 75 µm × 25 cm, 1.8 µm, 100",reversed-phase C-18,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Waters nanoEase HSS C18 T3, 75 µm × 25 cm, 1.8 µm, 100” describes the LC stationary phase/analytical column (C18) used for on-line separation, so it fits the Separation definition.  
+SOURCE CHECK:      This column is explicitly mentioned in the methods (“analytical column (Waters nanoEase HSS C18 T3, 75 µm × 25 cm, 1.8 µm, 100 Å)”).  
+CORRECTNESS CHECK: The value is a specific C18 reverse-phase column and is semantically consistent with the reference value “reversed-phase C-18.”  
+COMPLETENESS CHECK: The value is essentially complete; it appears slightly truncated because the pore size unit “Å” is missing after “100,” but the column identity (Waters nanoEase HSS C18 T3) is unambiguous.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Separation,"Precolumn C18 PepMap 100, 5 µm, 300 µm i.d. size-exclusion chromatography 5 mm, 100",reversed-phase C-18,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        This value describes an LC trapping/precolumn stationary phase (C18 PepMap 100) and its dimensions/particle size, so it fits the Separation definition (column chemistry/stationary phase description).  
+SOURCE CHECK:      The phrase appears in the Methods under “LC-MS/MS measurement for phosphopeptide library experiments” as the trapping cartridge description (“Precolumn C18 PepMap 100, 5 µm, 300 µm i.d. … 5 mm, 100 Å”).  
+CORRECTNESS CHECK: It is semantically equivalent to the reference value “reversed-phase C-18” because it explicitly specifies a C18 reverse-phase (trap) column.  
+COMPLETENESS CHECK: The extracted string is slightly truncated/garbled (ends with “100” missing “Å”, and includes an odd “size-exclusion chromatography” fragment), but still unambiguously identifies the C18 separation media.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7367873,SyntheticPeptide,PDP-Nal,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “PDP-Nal” is the name of a specifically synthesized peptide (a synthetic peptide reagent), so it fits the SyntheticPeptide category.  
+SOURCE CHECK:      “PDP-Nal” appears explicitly in the Methods section under “Directed peptide synthesis of PDP(m)-Nal” (“PDP-Nal and PDPm-Nal were synthesized…”).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper’s described synthetic peptide.  
+COMPLETENESS CHECK: The peptide name is complete and unambiguous as written (it identifies one of the synthesized peptides).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,SyntheticPeptide,PDPm-Nal,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “PDPm-Nal” is the name of a peptide that was chemically synthesized in the study, so it fits the SyntheticPeptide annotation (a synthetic peptide sample is being used).
+SOURCE CHECK:      “PDPm-Nal” is explicitly mentioned in the Methods section (“Directed peptide synthesis of PDP(m)-Nal”: “PDP-Nal and PDPm-Nal were synthesized…”).
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper text as a synthetic peptide used in experiments.
+COMPLETENESS CHECK: The peptide identifier “PDPm-Nal” is sufficiently specific and not truncated in a way that prevents identification.
+HALLUCINATED: no
+VERDICT: high",
+PMC7367873,Temperature,37 °C,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “37 °C” is a temperature value describing growth/incubation conditions, which fits the Temperature annotation type.  
+SOURCE CHECK:      The paper explicitly states that cells were “cultured at 37 °C” (cell culture section).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value matches the temperature reported in the text.  
+COMPLETENESS CHECK: The value is complete and unambiguous (numeric value with °C unit).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7367873,Treatment,PP1c,PP1c; PP2Ac; untreated,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,Treatment,PP2Ac,PP1c; PP2Ac; untreated,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7367873,CellType,MISSING,epithelial,True,low,NO_MATCH,False,True,False,,False,False,False,Not extracted -- present in ground truth.,epithelial
+PMC7367873,IonizationType,MISSING,nano-electrospray ionization source,True,low,NO_MATCH,False,True,False,,False,False,False,Not extracted -- present in ground truth.,nano-electrospray ionization source
+PMC7921882,AlkylationReagent,iodoacetamide,iodoacetamide,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,CleavageAgent,trypsin,trypsin,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,CollisionEnergy,normalized fragmentation energy at 27%,27%,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “normalized fragmentation energy at 27%” reports an MS/MS collision energy setting (normalized CE) — correct type for CollisionEnergy.  
+SOURCE CHECK:      The methods section explicitly states “a normalized fragmentation energy at 27%.”  
+CORRECTNESS CHECK: This matches the reference value “27%” (same normalized collision energy, just with additional wording).  
+COMPLETENESS CHECK:The value is complete; it includes both the normalization context and the numeric setting (27%).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7921882,Disease,dust mite allergies,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “dust mite allergies” is a disease/diagnosis description (allergic disease to house dust mites) — correct type for Disease.  
+SOURCE CHECK:      The abstract explicitly mentions “dust mite allergies” (and “house dust mite allergic individuals”), so it is present in the paper text.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the study’s stated disease focus (dust mite allergy).  
+COMPLETENESS CHECK: The value is sufficiently specific to identify the disease context (dust mite allergy) without missing a critical qualifier.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7921882,FlowRateChromatogram,300 nl/min,300 nl/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,GradientTime,120 min,120 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,Instrument,Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific),Q Exactive Orbitrap mass spectrometer,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific)” is a mass spectrometer make/model, so it is the correct type for Instrument.  
+SOURCE CHECK:      This instrument is explicitly mentioned in the Mass spectrometry section (“…coupled … to a Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific)”).  
+CORRECTNESS CHECK: It matches the reference value “Q Exactive Orbitrap mass spectrometer” (the vendor parenthetical is additional detail).  
+COMPLETENESS CHECK: The value is complete and unambiguous (model name is provided; manufacturer is optional).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7921882,IonizationType,nano electrospray,nano electrospray,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,Modification,carbamidomethylation (C),carbamidomethylation (C); deamidation (NQ); oxidation (M),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,Modification,deamidation (NQ),carbamidomethylation (C); deamidation (NQ); oxidation (M),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,Modification,oxidation (M),carbamidomethylation (C); deamidation (NQ); oxidation (M),True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,NumberOfSamples,16,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “16” is a total count of samples, which fits the NumberOfSamples definition.  
+SOURCE CHECK:      The paper explicitly states “high-resolution mass spectrometric analysis was performed with **16** house dust mite (HDM) SPT solutions and AVs…” so “16” is present in the text.  
+CORRECTNESS CHECK: No reference value is provided; however, “16” matches the explicitly stated count of Indian HDM SPT solutions/AVs analyzed. Note the study also mentions additional reference SPT solutions/extracts (ref-DP, ref-DF, ref-BT), so “16” may not reflect the *overall* total if those reference materials were also processed by MS.  
+COMPLETENESS CHECK: Potentially incomplete/underspecified because it is unclear whether the “total samples processed” should include the reference preparations in addition to the 16 Indian products.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7921882,Organism,Dermatophagoides pteronyssinus,Blomia tropicalis; Dermatophagoides farinae; Dermatophagoides pteronyssinus; Euroglyphus maynei,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,Organism,Dermatophagoides farinae,Blomia tropicalis; Dermatophagoides farinae; Dermatophagoides pteronyssinus; Euroglyphus maynei,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,Organism,Suidasia medanensis,Blomia tropicalis; Dermatophagoides farinae; Dermatophagoides pteronyssinus; Euroglyphus maynei,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “Suidasia medanensis” is a specific species name (an organism) — correct type for Organism.  
+SOURCE CHECK:      “Suidasia medanensis” appears explicitly in the abstract (“storage mite Suidasia medanensis”).  
+CORRECTNESS CHECK: It does not match any of the provided reference values (Blomia tropicalis, Dermatophagoides farinae, Dermatophagoides pteronyssinus, Euroglyphus maynei), so relative to the expert-annotated set it is not correct.  
+COMPLETENESS CHECK: The value is complete and unambiguous at the species level.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7921882,Organism,Cicer arietinum,Blomia tropicalis; Dermatophagoides farinae; Dermatophagoides pteronyssinus; Euroglyphus maynei,True,low,NO_MATCH,False,True,False,,False,False,False,"TYPE CHECK:        “Cicer arietinum” is a species name, so it fits the Organism annotation type.  
+SOURCE CHECK:      “Cicer arietinum (chickpea)” is explicitly mentioned in the abstract/results text as a detected contaminating source.  
+CORRECTNESS CHECK: It does not match any provided reference value (Blomia tropicalis, Dermatophagoides farinae, Dermatophagoides pteronyssinus, Euroglyphus maynei).  
+COMPLETENESS CHECK: The value is complete and unambiguous at the species level.  
+HALLUCINATED: no  
+VERDICT: low",
+PMC7921882,Organism,Blomia tropicalis,Blomia tropicalis; Dermatophagoides farinae; Dermatophagoides pteronyssinus; Euroglyphus maynei,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC7921882,ReductionReagent,dithiothreitol,dithiothreitol (DTT),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “dithiothreitol” is a chemical reducing agent used to reduce disulfide bonds — correct type for ReductionReagent.  
+SOURCE CHECK:      The methods explicitly state “Samples were then reduced with dithiothreitol (DTT) at 60 °C for 1 h,” so it is present in the paper text.  
+CORRECTNESS CHECK: It matches the reference value “dithiothreitol (DTT)” (same reagent; abbreviation omitted).  
+COMPLETENESS CHECK: “dithiothreitol” is a complete and unambiguous reagent name; including “(DTT)” would be optional, not identity-changing.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7921882,Separation,"reverse-phase nano-HPLC (Dionex Ultimate 3000, Thermo Fisher Scientific, Bremen, Germany)",reverse-phase RSLC C-18 nano-HPLC,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “reverse-phase nano-HPLC (Dionex Ultimate 3000, …)” describes an on-line reverse-phase nano-HPLC separation (the instrument detail is extra but the method is present) — correct type for Separation.  
+SOURCE CHECK:      This wording appears in the Mass spectrometry section (“separated by reverse-phase nano-HPLC (Dionex Ultimate 3000, …)”).  
+CORRECTNESS CHECK: It is directionally consistent with the reference “reverse-phase RSLC C-18 nano-HPLC,” but it does not explicitly include the RSLC/C18 specificity in the extracted value.  
+COMPLETENESS CHECK: Incomplete relative to the paper’s full separation description because the stationary phase/column chemistry (“Acclaim PepMap RSLC C18…”) is not captured in the extracted value.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC7921882,Separation,"Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific",reverse-phase RSLC C-18 nano-HPLC,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific” specifies the LC column/stationary phase (C18 reverse-phase nano-LC column) -- correct type for Separation.  
+SOURCE CHECK:      This exact column description appears in the Mass spectrometry methods (“The column (Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific) ...”).  
+CORRECTNESS CHECK: This is consistent with and semantically matches the reference value “reverse-phase RSLC C-18 nano-HPLC” (same RP RSLC C18 nano-LC setup, with the specific column named).  
+COMPLETENESS CHECK: The value is complete and unambiguous, including column chemistry (C18) and dimensions (75 μm × 15 cm).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC7921882,AcquisitionMethod,MISSING,top 12 method,True,low,NO_MATCH,False,True,False,,False,False,False,Not extracted -- present in ground truth.,top 12 method
+PMC7921882,NumberOfTechnicalReplicates,MISSING,4 to 6 independent experiments for each sample,True,low,NO_MATCH,False,True,False,,False,False,False,Not extracted -- present in ground truth.,4 to 6 independent experiments for each sample
+PMC8698288,AcquisitionMethod,data-dependent,data-dependent (dd) positive acquisition mode,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “data-dependent” names an MS acquisition scheme (i.e., DDA) and is the correct type for AcquisitionMethod.  
+SOURCE CHECK:      The methods explicitly state the instrument “was operated in data-dependent (dd) positive acquisition mode,” so “data-dependent” is present.  
+CORRECTNESS CHECK: “data-dependent” matches the reference value “data-dependent (dd) positive acquisition mode” as an equivalent/shortened form.  
+COMPLETENESS CHECK: The value is complete enough to identify the acquisition method (DDA); the omitted qualifiers (“dd”, “positive”) do not change the acquisition scheme identity.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Bait,MOB1,,False,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “MOB1” is a specific protein name and can serve as the affinity handle in an AP-MS/BioID pull-down context — correct type for Bait.  
+SOURCE CHECK:      The paper repeatedly mentions MOB1/TgMOB1 and specifically describes BioID using “FLAG-BirA*-MOB1,” so MOB1 is present in the source text.  
+CORRECTNESS CHECK: No reference values were provided; within this study the baited construct is TgMOB1 (as “FLAG-BirA*-MOB1”), so “MOB1” is directionally correct.  
+COMPLETENESS CHECK: The value is somewhat incomplete/ambiguous because the experiment uses the tagged fusion “FLAG-BirA*-MOB1” (and the organism-specific form TgMOB1); “MOB1” alone omits those qualifiers.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC8698288,CellLine,HFF-1,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “HFF-1” is the name of an immortalized cell line, so it fits the CellLine annotation type.  
+SOURCE CHECK:      “HFF-1” appears explicitly in the Methods (“The cell line HFF-1 (SCRC-1041; ATCC)…”).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value matches the cell line name stated in the paper.  
+COMPLETENESS CHECK: “HFF-1” is a complete, unambiguous cell line identifier (the catalog number is optional).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,CleavageAgent,Trypsin/LysC,Trypsin/LysC,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,CollisionEnergy,normalized collision energy of 27%,27%,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “normalized collision energy of 27%” states an MS/MS collision energy setting (NCE) — correct type for CollisionEnergy.  
+SOURCE CHECK:      The methods explicitly say “HCD MS/MS … (normalized collision energy of 27%).”  
+CORRECTNESS CHECK: This matches the reference value “27%” (same NCE value, just with additional wording).  
+COMPLETENESS CHECK: The value is complete and unambiguous (includes that it is normalized collision energy and gives the percentage).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Compound,biotin 150 µM,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “biotin 150 µM” names a chemical compound (biotin) with a bundled concentration, which is valid for the Compound annotation type.  
+SOURCE CHECK:      The methods explicitly state “biotin was added for a final concentration of 150 µM.”  
+CORRECTNESS CHECK: No reference values were provided, but this matches the compound described in the paper (biotin at 150 µM).  
+COMPLETENESS CHECK:The compound identity (biotin) is clear and unambiguous; the included concentration is additional context and does not omit any critical qualifier.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,EnrichmentMethod,agarose-streptavidin beads,agarose-streptavidin bead affinity purification,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “agarose-streptavidin beads” refers to the streptavidin-based capture/pull-down used to enrich biotinylated proteins prior to MS, which fits EnrichmentMethod (affinity enrichment).
+SOURCE CHECK:      The methods explicitly state “protein extracts were incubated with agarose-streptavidin beads” in the BioID workflow.
+CORRECTNESS CHECK: This is consistent with the reference value “agarose-streptavidin bead affinity purification,” but the extracted value is a shortened form (bead reagent without explicitly stating the affinity purification step).
+COMPLETENESS CHECK: Some procedural qualifier is missing (i.e., “streptavidin affinity purification/pull-down of biotinylated proteins”), so the enrichment method is not fully specified.
+HALLUCINATED: no
+VERDICT: medium",
+PMC8698288,FlowRateChromatogram,10 µL/min,250 nl/min,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “10 µL/min” is an LC flow rate value with units, so it fits the FlowRateChromatogram definition.  
+SOURCE CHECK:      The methods explicitly state samples were loaded “at 10 µL/min” during trap loading.  
+CORRECTNESS CHECK: It does not match the reference value “250 nl/min” (which is the analytical column flow rate); it instead corresponds to the trapping/loading flow rate.  
+COMPLETENESS CHECK: The value is complete (numeric value + unit) and unambiguous.  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC8698288,FlowRateChromatogram,250 nl/min,250 nl/min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,FragmentMassTolerance,0.02 Da,0.02 Da,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,FragmentationMethod,HCD,HCD,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,GradientTime,5 min,5 min; 120 min; 20 min; 5 min; 10 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,GradientTime,120 min,5 min; 120 min; 20 min; 5 min; 10 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,GradientTime,20 min,5 min; 120 min; 20 min; 5 min; 10 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,GradientTime,10 min,5 min; 120 min; 20 min; 5 min; 10 min,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Instrument,"Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer (Thermo Fisher Scientific, Inc., Waltham, MA, USA)",Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer (Thermo Fisher Scientific, Inc., Waltham, MA, USA)” is a mass spectrometer make/model description, so it is the correct type for Instrument.  
+SOURCE CHECK:      This instrument is explicitly mentioned in the Proteomics section (“Ultimate 3000 … coupled to a Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer”).  
+CORRECTNESS CHECK: It matches the reference value “Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer” (the vendor/location parenthetical is extra but consistent).  
+COMPLETENESS CHECK:The value is complete and unambiguous; adding the manufacturer details does not omit any critical identifier.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,IonizationType,ESI,electrospray ionization (ESI),True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “ESI” is an ionization source type (electrospray ionization) — correct type for IonizationType.  
+SOURCE CHECK:      The methods explicitly mention “ESI spray voltage was 1.9 kV,” supporting use of ESI in the experiment.  
+CORRECTNESS CHECK: “ESI” matches the reference value “electrospray ionization (ESI)” (standard abbreviation/expansion equivalence).  
+COMPLETENESS CHECK: The value is complete as an ionization type (the paper does not explicitly require a more specific form like “nano-ESI”).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Label,label-free quantification,label-free,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “label-free quantification” describes a labeling strategy (no label) used for quantitation — correct type for Label.  
+SOURCE CHECK:      The paper explicitly states “Protein label-free quantitation was performed…” and also refers to “label-free quantification” in the statistics section.  
+CORRECTNESS CHECK: “label-free quantification” is semantically equivalent to the reference value “label-free,” matching that reference.  
+COMPLETENESS CHECK: The value is complete and unambiguous (it clearly indicates label-free analysis).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,MaterialType,cells,cells,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Modification,Cysteine carbamidomethylation,cysteine carbamidomethylation; methionine oxidation; protein N-terminus acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Modification,Methionine oxidation,cysteine carbamidomethylation; methionine oxidation; protein N-terminus acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Modification,protein N-terminus acetylation,cysteine carbamidomethylation; methionine oxidation; protein N-terminus acetylation,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,NumberOfBiologicalReplicates,3,three biological replicates for each strain,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “3” is a total count of biological replicates, which fits the definition of NumberOfBiologicalReplicates.  
+SOURCE CHECK:      The methods explicitly state “The raw data were obtained from three biological replicates for each strain.”  
+CORRECTNESS CHECK: “3” matches the reference value “three biological replicates for each strain” (digit/word equivalence).  
+COMPLETENESS CHECK:The value is complete and unambiguous as a replicate count.  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,NumberOfMissedCleavages,2,2,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Organism,Toxoplasma gondii,Toxoplasma gondii,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,OrganismPart,tachyzoites,tachyzoites,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,PrecursorMassTolerance,10 ppm,10 ppm,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,SamplingTime,14 h of host cell infection,,False,low,TYPE_MISMATCH,False,True,True,Time,False,False,False,"TYPE CHECK:        “14 h of host cell infection” describes a time duration/time point in the protocol (time post-infection) rather than a sample collection time point — Correct type: Time.  
+SOURCE CHECK:      This phrase is present in the Methods (Biotinylation Assays): “Following 14 h of host cell infection, biotin was added…”.  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper text but does not satisfy SamplingTime as defined.  
+COMPLETENESS CHECK: The time value is essentially complete, though it could be more explicitly phrased as “14 h post-infection.”  
+HALLUCINATED: no  
+VERDICT: low",
+PMC8698288,Separation,nanoLC-MS/MS,reversed-phase C18,True,medium,PARTIAL,True,False,False,,True,False,False,"TYPE CHECK:        “nanoLC-MS/MS” refers to nano-flow LC coupled to tandem MS and thus only partially describes the on-line LC separation (it does not specify the stationary phase/column chemistry), but it still falls under Separation as a chromatographic approach descriptor.  
+SOURCE CHECK:      The paper explicitly states “Protein identification and quantitation were performed by nanoLC-MS/MS” (Section 2.10).  
+CORRECTNESS CHECK: It does not match the reference value “reversed-phase C18” because it omits the key C18/reversed-phase stationary phase detail (even though C18 columns are described elsewhere in the same section).  
+COMPLETENESS CHECK:The value is incomplete for Separation; it should specify the separation chemistry (e.g., reversed-phase/C18 column).  
+HALLUCINATED: no  
+VERDICT: medium",
+PMC8698288,Separation,"trapping cartridge (Acclaim PepMap C18 100 Å, 5 mm × 300 µm i.d., 160454; Thermo Fisher Scientific, Inc., Waltham, MA, USA)",reversed-phase C18,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        This value describes the LC stationary phase/column chemistry (Acclaim PepMap **C18** trapping cartridge), so it is the correct type for Separation.  
+SOURCE CHECK:      This trapping cartridge description appears explicitly in the Proteomics section (2.10) of the paper text.  
+CORRECTNESS CHECK: It matches the reference value “reversed-phase C18” (C18 is the reversed-phase chemistry).  
+COMPLETENESS CHECK:The value is a complete, specific column/stationary-phase description (even though it is the trap column rather than the analytical column, it still unambiguously indicates RP-C18 separation chemistry).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Separation,"50 cm by 75 µm inner diameter EASY-Spray column (ES803, PepMap RSLC, C18, 2 µm; Thermo Fisher Scientific, Inc., Waltham, MA, USA)",reversed-phase C18,True,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        This value describes the LC stationary phase/column chemistry (EASY-Spray PepMap RSLC C18, 2 µm) used for on-line separation, so it is the correct type for Separation.  
+SOURCE CHECK:      This exact column description appears in the Proteomics methods (“switched in-line to a 50 cm by 75 μm inner diameter EASY-Spray column (ES803, PepMap RSLC, C18, 2 μm)”).  
+CORRECTNESS CHECK: It matches the reference value “reversed-phase C18” because the column is explicitly a C18 (reverse-phase) LC column.  
+COMPLETENESS CHECK: The value is complete and unambiguous (column format, dimensions, and C18 chemistry are specified).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Strain,FLAG-BirA*,FLAG-BirA*; FLAG-BirA*-MOB1,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Strain,FLAG-BirA*-MOB1,FLAG-BirA*; FLAG-BirA*-MOB1,True,high,CORRECT,True,False,False,,True,True,False,Exact match with ground truth -- LLM skipped.,
+PMC8698288,Temperature,37 °C,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “37 °C” is a temperature value specifying growth/incubation conditions, which fits the Temperature annotation type.  
+SOURCE CHECK:      “37 °C” appears explicitly in the Methods (e.g., “Cell cultures were kept at 37 °C…” and other incubations at 37 °C).  
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper text.  
+COMPLETENESS CHECK: The value is complete and unambiguous (numeric value plus unit).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Time,14 h,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “14 h” is a time duration used in the experimental workflow, which fits the Time annotation type definition.  
+SOURCE CHECK:      The methods explicitly state “Following 14 h of host cell infection, biotin was added…”, so the value is present in the paper text.  
+CORRECTNESS CHECK: No reference values were provided; “14 h” is consistent with the paper’s described timing.  
+COMPLETENESS CHECK: The value is complete as a specific time duration with units (“h”).  
+HALLUCINATED: no  
+VERDICT: high",
+PMC8698288,Time,56 h,,False,high,CORRECT,True,False,False,,True,True,False,"TYPE CHECK:        “56 h” is a time duration used as an experimental incubation period, which fits the Time annotation type.
+SOURCE CHECK:      “56 h” appears in the Methods (Biotinylation assays): “biotin was added … and incubated for 56 h.”
+CORRECTNESS CHECK: No reference values were provided; the extracted value is consistent with the paper text.
+COMPLETENESS CHECK:“56 h” is a complete time duration with units and does not require additional qualifiers to identify it as the incubation time stated.
+HALLUCINATED: no
+VERDICT: high",

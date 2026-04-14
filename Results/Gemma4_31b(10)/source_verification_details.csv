@@ -1,0 +1,422 @@
+file_name,entity_type,pred_text,pred_line,confidence,verdict
+PMC10681723,Bait,Spt16,1,1.0,supported
+PMC10681723,Bait,Mcm2HBD,2,1.0,supported
+PMC10681723,CellType,budding yeast,3,1.0,supported
+PMC10681723,EnrichmentMethod,Tandem affinity purification,4,1.0,supported
+PMC10681723,EnrichmentMethod,Flag-tagged protein purification,5,1.0,supported
+PMC10681723,EnrichmentMethod,GFP nanobody-based purification,6,1.0,supported
+PMC10681723,EnrichmentMethod,GST pull-down,7,1.0,supported
+PMC10681723,EnrichmentMethod,histone pull-down,8,1.0,supported
+PMC10681723,EnrichmentMethod,FACT pull-down,9,1.0,supported
+PMC10681723,GeneticModification,Spt16-TAP,10,1.0,supported
+PMC10681723,GeneticModification,Flag-tagged,11,1.0,supported
+PMC10681723,GeneticModification,GFP-tagged,12,1.0,supported
+PMC10681723,GeneticModification,Spt16-ΔN,13,1.0,supported
+PMC10681723,Genotype,W303-1,14,1.0,supported
+PMC10681723,MaterialType,cells,15,1.0,supported
+PMC10681723,Organism,Saccharomyces cerevisiae,16,1.0,supported
+PMC10681723,Strain,W303-1,17,1.0,supported
+PMC10681723,Temperature,30°C,18,1.0,supported
+PMC4746666,AcquisitionMethod,data dependent mass spectrometric method,1,1.0,supported
+PMC4746666,Age,40y,2,1.0,supported
+PMC4746666,Age,39y,3,1.0,supported
+PMC4746666,Age,27y,4,1.0,supported
+PMC4746666,Age,20y,5,1.0,supported
+PMC4746666,AlkylationReagent,iodoacetamide,6,1.0,supported
+PMC4746666,CellLine,ES04 (WiCell institute),7,1.0,supported
+PMC4746666,CellPart,cytosolic (CYT),8,1.0,supported
+PMC4746666,CellPart,nuclear (NUC),9,1.0,supported
+PMC4746666,CellPart,chromatin-bound (CH),10,1.0,supported
+PMC4746666,CellType,human ESC-MSC,11,1.0,supported
+PMC4746666,CellType,human bone marrow-derived MSC (BM-MSC),12,1.0,supported
+PMC4746666,CellType,human embryonic stem cells (hESC),13,1.0,supported
+PMC4746666,CleavageAgent,Lys-C,14,1.0,supported
+PMC4746666,CleavageAgent,trypsin,15,1.0,supported
+PMC4746666,CollisionEnergy,normalized collision energy 25,16,1.0,supported
+PMC4746666,FlowRateChromatogram,250 nl/min,20,1.0,supported
+PMC4746666,FractionationMethod,in-solution isoelectric focusing,21,1.0,supported
+PMC4746666,FractionationMethod,OFFGEL fractionator,22,1.0,supported
+PMC4746666,FragmentMassTolerance,20 ppm,23,1.0,supported
+PMC4746666,FragmentationMethod,higher energy collisional dissociation,24,1.0,supported
+PMC4746666,FragmentationMethod,HCD,25,1.0,supported
+PMC4746666,GradientTime,100 min,26,1.0,supported
+PMC4746666,Instrument,"Q Exactive mass spectrometer (Thermo Scientific, Bremen, Germany)",27,1.0,supported
+PMC4746666,Label,SILAC,28,1.0,supported
+PMC4746666,MaterialType,cells,29,1.0,supported
+PMC4746666,Modification,N-terminal acetylation,30,1.0,supported
+PMC4746666,Modification,methionine oxidation,31,1.0,supported
+PMC4746666,Modification,cysteine carbamidomethylation,32,1.0,supported
+PMC4746666,NumberOfBiologicalReplicates,3,33,1.0,supported
+PMC4746666,NumberOfFractions,12 fractions,34,1.0,supported
+PMC4746666,NumberOfMissedCleavages,two,35,1.0,supported
+PMC4746666,Organism,Homo sapiens,36,1.0,supported
+PMC4746666,OrganismPart,bone marrow,37,1.0,supported
+PMC4746666,PooledSample,pooled,38,1.0,supported
+PMC4746666,PrecursorMassTolerance,4.5 ppm,39,1.0,supported
+PMC4746666,ReductionReagent,DTT,40,1.0,supported
+PMC4746666,Separation,EASY nLC-II,41,1.0,supported
+PMC4746666,Separation,ReproSil-Pur 120 C18-AQ 3 μm diameter beads,42,1.0,supported
+PMC4746666,Sex,male,43,1.0,supported
+PMC4746666,Temperature,37 °C,44,1.0,supported
+PMC5535869,AlkylationReagent,IAA,1,1.0,supported
+PMC5535869,CleavageAgent,trypsin,2,1.0,supported
+PMC5535869,DevelopmentalStage,three DAP,3,1.0,supported
+PMC5535869,DevelopmentalStage,seven DAP,4,1.0,supported
+PMC5535869,DevelopmentalStage,mature pistils,5,1.0,supported
+PMC5535869,EnrichmentMethod,antibody beads,6,1.0,supported
+PMC5535869,FlowRateChromatogram,300 µL∙min−1,10,1.0,supported
+PMC5535869,FragmentMassTolerance,0.02 Da,11,1.0,supported
+PMC5535869,GradientTime,24 min,12,1.0,supported
+PMC5535869,GradientTime,8 min,13,1.0,supported
+PMC5535869,GradientTime,5 min,14,1.0,supported
+PMC5535869,GradientTime,3 min,15,1.0,supported
+PMC5535869,Instrument,"Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)",16,1.0,supported
+PMC5535869,Label,label-free,17,1.0,supported
+PMC5535869,MaterialType,tissue,18,0.6,hallucinated
+PMC5535869,Modification,carbamidomethylation on Cys,19,1.0,supported
+PMC5535869,Modification,oxidation on Met,20,1.0,supported
+PMC5535869,Modification,acetylation on Lys protein N-terminal,21,1.0,supported
+PMC5535869,NumberOfBiologicalReplicates,3,22,1.0,supported
+PMC5535869,NumberOfMissedCleavages,4,23,1.0,supported
+PMC5535869,Organism,Oryza sativa,24,1.0,supported
+PMC5535869,OrganismPart,pistil,25,1.0,supported
+PMC5535869,OrganismPart,seeds,26,1.0,supported
+PMC5535869,PrecursorMassTolerance,10 ppm,27,1.0,supported
+PMC5535869,ReductionReagent,DTT,28,1.0,supported
+PMC5535869,ReductionReagent,DL-Dithiothreitol,29,1.0,supported
+PMC5535869,SamplingTime,three days after pollination,30,0.89,supported
+PMC5535869,SamplingTime,seven days after pollination,31,1.0,supported
+PMC5535869,Separation,reversed-phase pre-column,32,1.0,supported
+PMC5535869,Separation,reversed-phase analytical column,33,1.0,supported
+PMC5535869,Separation,Easy-nLC1000 UPLC system,34,1.0,supported
+PMC5535869,Strain,Nipponbare,35,1.0,supported
+PMC5535869,Time,three DAP,36,1.0,supported
+PMC5535869,Time,seven DAP,37,1.0,supported
+PMC5830451,AcquisitionMethod,Data-dependent acquisition,1,1.0,supported
+PMC5830451,AlkylationReagent,iodoacetamide,2,1.0,supported
+PMC5830451,AlkylationReagent,IAA,3,1.0,supported
+PMC5830451,CellLine,HeLa cells (ATCC),4,1.0,supported
+PMC5830451,CellType,mammalian cells,5,1.0,supported
+PMC5830451,CleavageAgent,Lys-C,6,1.0,supported
+PMC5830451,CleavageAgent,trypsin,7,1.0,supported
+PMC5830451,CollisionEnergy,28%,8,1.0,supported
+PMC5830451,Disease,type 1 diabetic,9,1.0,supported
+PMC5830451,Disease,non-diabetic,10,1.0,supported
+PMC5830451,FlowRateChromatogram,60 nL/min,13,1.0,supported
+PMC5830451,FragmentMassTolerance,7 ppm,14,1.0,supported
+PMC5830451,FragmentationMethod,high energy dissociation,15,1.0,supported
+PMC5830451,GradientTime,150-min,16,1.0,supported
+PMC5830451,Instrument,Orbitrap Fusion Lumos Tribrid MS (ThermoFisher),17,1.0,supported
+PMC5830451,IonizationType,Electrospray,18,1.0,supported
+PMC5830451,Label,LFQ,19,1.0,supported
+PMC5830451,MS2MassAnalyzer,Orbitrap,20,1.0,supported
+PMC5830451,MaterialType,cells,21,1.0,supported
+PMC5830451,MaterialType,tissue,22,1.0,supported
+PMC5830451,Modification,N-terminal protein acetylation,23,1.0,supported
+PMC5830451,Modification,methionine oxidation,24,1.0,supported
+PMC5830451,Modification,Carbamidomethylation of cysteine residues,25,1.0,supported
+PMC5830451,NumberOfMissedCleavages,2,26,1.0,supported
+PMC5830451,Organism,Homo sapiens,27,0.57,hallucinated
+PMC5830451,OrganismPart,pancreatic islet,28,1.0,supported
+PMC5830451,OriginSiteDisease,pancreatic islet,29,1.0,supported
+PMC5830451,PrecursorMassTolerance,±10 ppm,30,1.0,supported
+PMC5830451,ReductionReagent,DTT,31,1.0,supported
+PMC5830451,Separation,LC column was prepared from a 70-cm-long Self-Pack PicoFrit column with an i.d. of 30 µm and a tip size of 10 µm,32,1.0,supported
+PMC5830451,Temperature,37 °C,33,1.0,supported
+PMC5830451,Treatment,type 1 diabetic,34,1.0,supported
+PMC6918071,CleavageAgent,Tryptic,1,1.0,supported
+PMC6918071,Depletion,S depleted,2,1.0,supported
+PMC6918071,Depletion,sulfur-depleted,3,1.0,supported
+PMC6918071,GradientTime,4-h gradients,9,1.0,supported
+PMC6918071,MaterialType,tissue,10,1.0,supported
+PMC6918071,NumberOfBiologicalReplicates,3,11,1.0,supported
+PMC6918071,NumberOfSamples,18,12,1.0,supported
+PMC6918071,NumberOfTechnicalReplicates,3,13,1.0,supported
+PMC6918071,Organism,Riftia pachyptila,14,1.0,supported
+PMC6918071,OrganismPart,trophosome,15,1.0,supported
+PMC6918071,OrganismPart,plume,16,1.0,supported
+PMC6918071,OrganismPart,tentacular crown,17,1.0,supported
+PMC6918071,OrganismPart,lamellae,18,1.0,supported
+PMC6918071,OrganismPart,body wall,19,1.0,supported
+PMC6918071,OrganismPart,vestimentum,20,1.0,supported
+PMC6918071,ReductionReagent,dithiothreitol,21,1.0,supported
+PMC6918071,ReductionReagent,DTT,22,1.0,supported
+PMC6918071,Separation,one-dimensional LC-MS/MS,23,1.0,supported
+PMC6918071,SpikedCompound,human hair,24,1.0,supported
+PMC6918071,Treatment,S-rich,25,1.0,supported
+PMC6918071,Treatment,S-depleted,26,1.0,supported
+PMC7144211,AcquisitionMethod,data dependent acquisition,1,1.0,supported
+PMC7144211,AlkylationReagent,IAA,2,1.0,supported
+PMC7144211,AlkylationReagent,iodoacetamide,3,1.0,supported
+PMC7144211,CellPart,extracellular vesicles,4,1.0,supported
+PMC7144211,CleavageAgent,Trypsin/Lys-C mix,5,1.0,supported
+PMC7144211,CollisionEnergy,normalized collision energy of 27%,6,1.0,supported
+PMC7144211,Disease,prostate cancer,7,1.0,supported
+PMC7144211,Disease,benign prostate hyperplasia,8,1.0,supported
+PMC7144211,Disease,urothelial cancer of the bladder,9,1.0,supported
+PMC7144211,Disease,renal cell carcinoma,10,1.0,supported
+PMC7144211,DiseaseTreatment,radical prostatectomy,11,1.0,supported
+PMC7144211,DiseaseTreatment,intensity-modulated radiation therapy,12,1.0,supported
+PMC7144211,EnrichmentMethod,bottom-up Optiprep density gradient centrifugation,13,1.0,supported
+PMC7144211,EnrichmentMethod,size exclusion chromatography (SEC)-based separation of EV from iodixanol,14,1.0,supported
+PMC7144211,FractionIdentifier,9–10,21,1.0,supported
+PMC7144211,FractionationMethod,bottom-up Optiprep density gradient centrifugation,22,1.0,supported
+PMC7144211,FragmentationMethod,higher energy collisional dissociation,23,1.0,supported
+PMC7144211,FragmentationMethod,HCD,24,1.0,supported
+PMC7144211,GradientTime,50-min gradient,25,1.0,supported
+PMC7144211,Instrument,Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific),26,1.0,supported
+PMC7144211,IonizationType,nano‐electrospray ionization,27,1.0,supported
+PMC7144211,Label,Label-free quantification (LFQ),28,1.0,supported
+PMC7144211,MaterialType,biofluid,29,1.0,supported
+PMC7144211,MaterialType,tissue,30,1.0,supported
+PMC7144211,Modification,Carbamidomethyl (C),31,1.0,supported
+PMC7144211,Modification,oxidation (M),32,1.0,supported
+PMC7144211,Modification,acetylation of the protein N-terminus,33,1.0,supported
+PMC7144211,NumberOfMissedCleavages,two,34,1.0,supported
+PMC7144211,NumberOfTechnicalReplicates,Three,35,1.0,supported
+PMC7144211,Organism,homo sapiens,36,1.0,supported
+PMC7144211,OrganismPart,urine,37,1.0,supported
+PMC7144211,OrganismPart,prostate,38,1.0,supported
+PMC7144211,OrganismPart,bladder,39,1.0,supported
+PMC7144211,OrganismPart,renal,40,1.0,supported
+PMC7144211,OriginSiteDisease,prostate,41,1.0,supported
+PMC7144211,OriginSiteDisease,bladder,42,1.0,supported
+PMC7144211,OriginSiteDisease,renal,43,1.0,supported
+PMC7144211,ReductionReagent,DTT,44,1.0,supported
+PMC7144211,SamplingTime,3 months after local treatment,45,1.0,supported
+PMC7144211,Separation,"nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific)",46,1.0,supported
+PMC7144211,Sex,men,47,1.0,supported
+PMC7144211,Time,3 months after local treatment,48,1.0,supported
+PMC7144211,Treatment,radical prostatectomy,49,1.0,supported
+PMC7144211,Treatment,intensity-modulated radiation therapy,50,1.0,supported
+PMC7294662,AcquisitionMethod,data-dependent mode,1,1.0,supported
+PMC7294662,AcquisitionMethod,data-dependent auto-MS/MS mode,2,1.0,supported
+PMC7294662,AcquisitionMethod,data-dependent PASEF mode,3,1.0,supported
+PMC7294662,AlkylationReagent,iodoacetamide,4,1.0,supported
+PMC7294662,Bait,IFI35,5,1.0,supported
+PMC7294662,Bait,NMI,6,1.0,supported
+PMC7294662,Bait,STAT1,7,1.0,supported
+PMC7294662,Bait,PNPT1,8,1.0,supported
+PMC7294662,CellLine,HeLa,9,1.0,supported
+PMC7294662,CellLine,THP-1,10,1.0,supported
+PMC7294662,CellPart,ribosome,11,1.0,supported
+PMC7294662,CellPart,polysome,12,1.0,supported
+PMC7294662,CleavageAgent,LysC,13,1.0,supported
+PMC7294662,CleavageAgent,trypsin,14,1.0,supported
+PMC7294662,CollisionEnergy,NCE 28,15,1.0,supported
+PMC7294662,CollisionEnergy,23 to 65 eV,16,1.0,supported
+PMC7294662,CollisionEnergy,42 eV,17,1.0,supported
+PMC7294662,CollisionEnergy,42.0 eV,18,1.0,supported
+PMC7294662,Compound,human recombinant IFNβ 1000 U/mL,19,0.87,supported
+PMC7294662,Compound,siRPL28,20,1.0,supported
+PMC7294662,EnrichmentMethod,Immunoprecipitation,21,1.0,supported
+PMC7294662,EnrichmentMethod,IP-MS,22,1.0,supported
+PMC7294662,FlowRateChromatogram,50 μL/min,27,1.0,supported
+PMC7294662,FlowRateChromatogram,250 nL/min,28,1.0,supported
+PMC7294662,FlowRateChromatogram,0.5 mL/min,29,1.0,supported
+PMC7294662,FlowRateChromatogram,0.25 μL/min,30,1.0,supported
+PMC7294662,FlowRateChromatogram,0.35 μL/min,31,1.0,supported
+PMC7294662,FractionIdentifier,fractions 6–65,32,1.0,supported
+PMC7294662,FractionationMethod,high pH reverse-phase (RP) fractionation,33,1.0,supported
+PMC7294662,FractionationMethod,size exclusion chromatography (SEC),34,0.88,supported
+PMC7294662,FractionationMethod,linear 10–50% sucrose gradient,35,1.0,supported
+PMC7294662,FragmentMassTolerance,0.05 Da,36,1.0,supported
+PMC7294662,FragmentationMethod,HCD,37,1.0,supported
+PMC7294662,GeneticModification,HA-tagged IFI35,38,1.0,supported
+PMC7294662,GradientTime,60-min gradient,39,1.0,supported
+PMC7294662,GradientTime,180 min,40,1.0,supported
+PMC7294662,GradientTime,90-min gradients,41,1.0,supported
+PMC7294662,GradientTime,60 min,42,1.0,supported
+PMC7294662,Instrument,Q-Exactive mass spectrometer (Thermo Fisher),43,1.0,supported
+PMC7294662,Instrument,quadrupole time of flight mass spectrometer (Impact II; Bruker Daltonics),44,1.0,supported
+PMC7294662,Instrument,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer (timsTOF Pro; Bruker Daltonics),45,1.0,supported
+PMC7294662,IonizationType,Captive spray nanospray ionization source,46,1.0,supported
+PMC7294662,Label,SILAC,47,1.0,supported
+PMC7294662,Label,label-free quantitation,48,1.0,supported
+PMC7294662,Label,LFQ,49,1.0,supported
+PMC7294662,MaterialType,cells,50,1.0,supported
+PMC7294662,MaterialType,cell line,51,0.78,partial
+PMC7294662,Modification,carbamidomethyl,52,1.0,supported
+PMC7294662,Modification,methionine oxidation,53,1.0,supported
+PMC7294662,Modification,deamidation (NQ),54,1.0,supported
+PMC7294662,Modification,N-acetylation,55,1.0,supported
+PMC7294662,Modification,N-acetyl peptides,56,1.0,supported
+PMC7294662,NumberOfBiologicalReplicates,3,57,1.0,supported
+PMC7294662,NumberOfFractions,80 fractions,58,1.0,supported
+PMC7294662,Organism,Homo sapiens,59,1.0,supported
+PMC7294662,PooledSample,pooled,60,1.0,supported
+PMC7294662,PrecursorMassTolerance,5 ppm,61,1.0,supported
+PMC7294662,PrecursorMassTolerance,10 ppm,62,1.0,supported
+PMC7294662,PrecursorMassTolerance,20 ppm,63,1.0,supported
+PMC7294662,ReductionReagent,DTT,64,1.0,supported
+PMC7294662,SamplingTime,4 h IFNβ stimulation,65,1.0,supported
+PMC7294662,SamplingTime,24 h IFNβ stimulation,66,1.0,supported
+PMC7294662,Separation,Agilent 1100 HPLC system,67,1.0,supported
+PMC7294662,Separation,"Agilent Zorbax Extend column (1.0 × 50 mm, 3.5 μm particles)",68,0.87,supported
+PMC7294662,Separation,Easy nano LC 1000 nanoflow HPLC,69,1.0,supported
+PMC7294662,Separation,fused silica trap column,70,1.0,supported
+PMC7294662,Separation,analytical column was from 75-μm-inner-diameter fused silica capillary,71,1.0,supported
+PMC7294662,Separation,Aqua C-18 beads,72,1.0,supported
+PMC7294662,Separation,Reprosil-Pur C-18-AQ beads,73,1.0,supported
+PMC7294662,Separation,Easy nano LC 1000 HPLC,74,1.0,supported
+PMC7294662,Separation,fused silica fritted trap column,75,1.0,supported
+PMC7294662,Separation,"40-cm-long, 75-μm-inner-diameter fused silica analytical column",76,1.0,supported
+PMC7294662,Temperature,37 °C,77,1.0,supported
+PMC7294662,Time,4 h,78,1.0,supported
+PMC7294662,Time,24 h,79,1.0,supported
+PMC7294662,Treatment,IFNβ stimulation,80,1.0,supported
+PMC7294662,Treatment,siRPL28,81,1.0,supported
+PMC7294662,Treatment,siRPS26,82,0.77,partial
+PMC7294662,Treatment,siRPS28,83,0.86,supported
+PMC7367873,AcquisitionMethod,data-dependent acquisition,1,1.0,supported
+PMC7367873,AcquisitionMethod,DDA,2,1.0,supported
+PMC7367873,AlkylationReagent,chloroacetamide,3,1.0,supported
+PMC7367873,Bait,14-3-3β,4,1.0,supported
+PMC7367873,Bait,GAB2,5,1.0,supported
+PMC7367873,CellLine,HeLa Kyoto cells,6,1.0,supported
+PMC7367873,CellLine,Caco-2 BBe1 cells,7,1.0,supported
+PMC7367873,CellLine,SW-480 cells,8,1.0,supported
+PMC7367873,CleavageAgent,trypsin,9,1.0,supported
+PMC7367873,CollisionEnergy,normalized collision energy was 32,10,1.0,supported
+PMC7367873,CollisionEnergy,35% normalized collision energy (NCE),11,1.0,supported
+PMC7367873,CollisionEnergy,30% normalized collision energy (NCE),12,1.0,supported
+PMC7367873,Compound,Calyculin A 20 nM,13,1.0,supported
+PMC7367873,Compound,recombinant PP1c 1 μM,14,1.0,supported
+PMC7367873,Compound,recombinant PP2Ac 1 μM,15,0.93,supported
+PMC7367873,EnrichmentMethod,Fe-IMAC,16,1.0,supported
+PMC7367873,EnrichmentMethod,immunoprecipitation,17,1.0,supported
+PMC7367873,EnrichmentMethod,pull-down,18,1.0,supported
+PMC7367873,FlowRateChromatogram,0.3 µL/min,22,1.0,supported
+PMC7367873,FlowRateChromatogram,300 nL/min,23,1.0,supported
+PMC7367873,FractionationMethod,High-pH RP tip fractionation,24,1.0,supported
+PMC7367873,FragmentMassTolerance,0.05 Da,25,1.0,supported
+PMC7367873,FragmentationMethod,collision-induced dissociation,26,1.0,supported
+PMC7367873,FragmentationMethod,CID,27,1.0,supported
+PMC7367873,FragmentationMethod,higher-energy collision-induced dissociation,28,1.0,supported
+PMC7367873,FragmentationMethod,HCD,29,1.0,supported
+PMC7367873,GeneticModification,pcDNA3-FLAG-HA-14-3-3β,30,1.0,supported
+PMC7367873,GeneticModification,pEGFP(C1)-14-3-3β,31,1.0,supported
+PMC7367873,GeneticModification,pmKate2-N-GAB2,32,1.0,supported
+PMC7367873,GeneticModification,pCMV-GAB2-3Flag,33,1.0,supported
+PMC7367873,GeneticModification,pET-PPP1R2,34,1.0,supported
+PMC7367873,GeneticModification,pTXB1-His-TEV-PP1α-intein,35,1.0,supported
+PMC7367873,GeneticModification,His-tagged recombinant PPP2CA ΔL309,36,1.0,supported
+PMC7367873,GeneticModification,pETM20-His-TEV-PPP1R2,37,1.0,supported
+PMC7367873,GeneticModification,His-PP1c,38,1.0,supported
+PMC7367873,GradientTime,120 min,39,1.0,supported
+PMC7367873,GradientTime,90 min,40,1.0,supported
+PMC7367873,GradientTime,60 min,41,1.0,supported
+PMC7367873,Instrument,Q Exactive Plus mass spectrometer,42,1.0,supported
+PMC7367873,Instrument,Fusion Lumos Tribrid mass spectrometer,43,1.0,supported
+PMC7367873,IonizationType,positive ion mode,44,1.0,supported
+PMC7367873,IonizationType,positive ionization mode,45,1.0,supported
+PMC7367873,Label,TMT-6plex,46,1.0,supported
+PMC7367873,Label,LFQ,47,1.0,supported
+PMC7367873,MS2MassAnalyzer,Orbitrap,48,1.0,supported
+PMC7367873,MaterialType,cells,49,1.0,supported
+PMC7367873,MaterialType,cell line,50,1.0,supported
+PMC7367873,Modification,phosphorylation,51,1.0,supported
+PMC7367873,Modification,Oxidation on Methionine,52,1.0,supported
+PMC7367873,Modification,N-terminal protein acetylation,53,1.0,supported
+PMC7367873,Modification,Carbamidomethylation on cysteines,54,1.0,supported
+PMC7367873,NumberOfBiologicalReplicates,3,55,1.0,supported
+PMC7367873,NumberOfFractions,four fractions,56,1.0,supported
+PMC7367873,NumberOfMissedCleavages,6,57,1.0,supported
+PMC7367873,NumberOfMissedCleavages,two,58,1.0,supported
+PMC7367873,NumberOfTechnicalReplicates,two,59,1.0,supported
+PMC7367873,Organism,Homo sapiens,60,0.6,hallucinated
+PMC7367873,Organism,Escherichia coli,61,0.58,hallucinated
+PMC7367873,PooledSample,pooled,62,1.0,supported
+PMC7367873,PrecursorMassTolerance,10 ppm,63,1.0,supported
+PMC7367873,ReductionReagent,DTT,64,1.0,supported
+PMC7367873,ReductionReagent,dithiothreitol,65,1.0,supported
+PMC7367873,SamplingTime,10–15 min,66,1.0,supported
+PMC7367873,Separation,UltiMate 3000 RSLC nano LC system,67,1.0,supported
+PMC7367873,Separation,"Precolumn C18 PepMap 100, 5 µm, 300 µm i.d. size-exclusion chromatography 5 mm, 100",68,1.0,supported
+PMC7367873,Separation,"Waters nanoEase HSS C18 T3, 75 µm × 25 cm, 1.8 µm, 100",69,1.0,supported
+PMC7367873,Separation,Dionex Ultimate3000 nano-HPLC,70,1.0,supported
+PMC7367873,Separation,"trap column (75 µm × 2 cm, packed in-house with 5 µm C18 resin; Reprosil PUR AQ, Dr. Maisch, Ammerbruch-Entringen, Germany)",71,1.0,supported
+PMC7367873,Separation,"analytical column (75 µm × 45 cm, packed in-house with 3 µm C18 resin; Reprosil Gold, Dr. Maisch)",72,1.0,supported
+PMC7367873,SyntheticPeptide,phosphopeptide library,73,1.0,supported
+PMC7367873,SyntheticPeptide,PDP-Nal,74,1.0,supported
+PMC7367873,SyntheticPeptide,PDPm-Nal,75,1.0,supported
+PMC7367873,Temperature,37 °C,76,1.0,supported
+PMC7367873,Time,10–15 min,77,1.0,supported
+PMC7367873,Treatment,Calyculin A,78,1.0,supported
+PMC7367873,Treatment,PP1c,79,1.0,supported
+PMC7367873,Treatment,PP2Ac,80,1.0,supported
+PMC7921882,AlkylationReagent,iodoacetamide,1,1.0,supported
+PMC7921882,CleavageAgent,trypsin,2,1.0,supported
+PMC7921882,CleavageAgent,MS-grade trypsin,3,1.0,supported
+PMC7921882,CollisionEnergy,normalized fragmentation energy at 27%,4,1.0,supported
+PMC7921882,Disease,dust mite allergies,5,1.0,supported
+PMC7921882,EnrichmentMethod,ZipTips C18,6,1.0,supported
+PMC7921882,EnrichmentMethod,Pierce C18 Tips,7,1.0,supported
+PMC7921882,FlowRateChromatogram,300 nl/min,8,1.0,supported
+PMC7921882,GradientTime,120 min,9,1.0,supported
+PMC7921882,Instrument,Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific),10,1.0,supported
+PMC7921882,IonizationType,nano electrospray,11,1.0,supported
+PMC7921882,Modification,carbamidomethylation (C),12,1.0,supported
+PMC7921882,Modification,deamidation (NQ),13,1.0,supported
+PMC7921882,Modification,oxidation (M),14,1.0,supported
+PMC7921882,NumberOfSamples,16,15,1.0,supported
+PMC7921882,Organism,Dermatophagoides pteronyssinus,16,1.0,supported
+PMC7921882,Organism,Dermatophagoides farinae,17,1.0,supported
+PMC7921882,Organism,Suidasia medanensis,18,1.0,supported
+PMC7921882,Organism,Cicer arietinum,19,1.0,supported
+PMC7921882,Organism,Blomia tropicalis,20,1.0,supported
+PMC7921882,Organism,Homo sapiens,21,0.55,hallucinated
+PMC7921882,OrganismPart,serum,22,1.0,supported
+PMC7921882,ReductionReagent,dithiothreitol,23,1.0,supported
+PMC7921882,ReductionReagent,DTT,24,1.0,supported
+PMC7921882,Separation,"reverse-phase nano-HPLC (Dionex Ultimate 3000, Thermo Fisher Scientific, Bremen, Germany)",25,1.0,supported
+PMC7921882,Separation,"Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific",26,1.0,supported
+PMC7921882,Specimen,SPT solutions,27,1.0,supported
+PMC7921882,Specimen,allergy vaccines,28,1.0,supported
+PMC7921882,Specimen,extracts,29,1.0,supported
+PMC8698288,AcquisitionMethod,data-dependent,1,1.0,supported
+PMC8698288,AcquisitionMethod,dd,2,1.0,supported
+PMC8698288,Bait,MOB1,3,1.0,supported
+PMC8698288,CellLine,HFF-1,4,1.0,supported
+PMC8698288,CellType,Toxoplasma gondii tachyzoites,5,0.84,partial
+PMC8698288,CleavageAgent,Trypsin/LysC,6,1.0,supported
+PMC8698288,CollisionEnergy,normalized collision energy of 27%,7,1.0,supported
+PMC8698288,Compound,biotin 150 µM,8,0.55,hallucinated
+PMC8698288,EnrichmentMethod,proximity-dependent biotin labeling,9,1.0,supported
+PMC8698288,EnrichmentMethod,BioID,10,1.0,supported
+PMC8698288,EnrichmentMethod,agarose-streptavidin beads,11,1.0,supported
+PMC8698288,FlowRateChromatogram,10 µL/min,14,1.0,supported
+PMC8698288,FlowRateChromatogram,250 nl/min,15,1.0,supported
+PMC8698288,FragmentMassTolerance,0.02 Da,16,1.0,supported
+PMC8698288,FragmentationMethod,HCD,17,1.0,supported
+PMC8698288,GeneticModification,FLAG-BirA*,18,1.0,supported
+PMC8698288,GeneticModification,FLAG-BirA*-MOB1,19,1.0,supported
+PMC8698288,GradientTime,5 min,20,1.0,supported
+PMC8698288,GradientTime,120 min,21,1.0,supported
+PMC8698288,GradientTime,20 min,22,1.0,supported
+PMC8698288,GradientTime,5 min,23,1.0,supported
+PMC8698288,GradientTime,10 min,24,1.0,supported
+PMC8698288,Instrument,"Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer (Thermo Fisher Scientific, Inc., Waltham, MA, USA)",25,1.0,supported
+PMC8698288,IonizationType,ESI,26,1.0,supported
+PMC8698288,Label,label-free quantification,27,1.0,supported
+PMC8698288,MaterialType,cells,28,1.0,supported
+PMC8698288,Modification,Cysteine carbamidomethylation,29,1.0,supported
+PMC8698288,Modification,Methionine oxidation,30,1.0,supported
+PMC8698288,Modification,protein N-terminus acetylation,31,1.0,supported
+PMC8698288,NumberOfBiologicalReplicates,3,32,1.0,supported
+PMC8698288,NumberOfMissedCleavages,2,33,1.0,supported
+PMC8698288,Organism,Toxoplasma gondii,34,1.0,supported
+PMC8698288,OrganismPart,tachyzoites,35,1.0,supported
+PMC8698288,PrecursorMassTolerance,10 ppm,36,1.0,supported
+PMC8698288,SamplingTime,14 h of host cell infection,37,1.0,supported
+PMC8698288,SamplingTime,56 h,38,1.0,supported
+PMC8698288,Separation,nanoLC-MS/MS,39,1.0,supported
+PMC8698288,Separation,Ultimate 3000 liquid chromatography system,40,1.0,supported
+PMC8698288,Separation,"trapping cartridge (Acclaim PepMap C18 100 Å, 5 mm × 300 µm i.d., 160454; Thermo Fisher Scientific, Inc., Waltham, MA, USA)",41,1.0,supported
+PMC8698288,Separation,"50 cm by 75 µm inner diameter EASY-Spray column (ES803, PepMap RSLC, C18, 2 µm; Thermo Fisher Scientific, Inc., Waltham, MA, USA)",42,1.0,supported
+PMC8698288,Strain,FLAG-BirA*,43,1.0,supported
+PMC8698288,Strain,FLAG-BirA*-MOB1,44,1.0,supported
+PMC8698288,Temperature,37 °C,45,1.0,supported
+PMC8698288,Time,14 h,46,1.0,supported
+PMC8698288,Time,56 h,47,1.0,supported
+PMC8698288,Treatment,biotin,48,1.0,supported

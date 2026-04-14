@@ -1,0 +1,314 @@
+Entity_Type,GT_File,GT_Text,GT_Line,Pred_File,Pred_Text,Pred_Line,Similarity,Match_Type
+AcquisitionMethod,PMC4746666,data dependent,1,PMC4746666,data dependent mass spectrometric method,1,0.9500,Semantic
+AcquisitionMethod,PMC4746666,data dependent mass spectrometric method,6,PMC4746666,data dependent mass spectrometric method,1,1.0000,Exact
+AcquisitionMethod,PMC5830451,Data-dependent acquisition,1,PMC5830451,Data-dependent acquisition,1,1.0000,Exact
+AcquisitionMethod,PMC7144211,data dependent,1,PMC7144211,data dependent acquisition,1,0.9500,Semantic
+AcquisitionMethod,PMC7294662,data-dependent,1,PMC7294662,data-dependent mode,1,0.9500,Semantic
+AcquisitionMethod,PMC7294662,data-dependent,1,PMC7294662,data-dependent auto-MS/MS mode,2,0.9500,Semantic
+AcquisitionMethod,PMC7294662,data-dependent,1,PMC7294662,data-dependent PASEF mode,3,0.9500,Semantic
+AcquisitionMethod,PMC7367873,data-dependent acquisition,1,PMC7367873,data-dependent acquisition,1,1.0000,Exact
+AcquisitionMethod,PMC7367873,data-dependent acquisition,1,PMC7367873,DDA,2,0.9500,Semantic
+AcquisitionMethod,PMC8698288,data-dependent (dd) positive acquisition mode,1,PMC8698288,data-dependent,1,0.9500,Semantic
+AcquisitionMethod,PMC8698288,data-dependent (dd) positive acquisition mode,1,PMC8698288,dd,2,0.8900,CompoundConcentrationMerge
+Age,PMC4746666,40y,2,PMC4746666,40y,2,1.0000,Exact
+Age,PMC4746666,39y,3,PMC4746666,39y,3,1.0000,Exact
+Age,PMC4746666,27y,4,PMC4746666,27y,4,1.0000,Exact
+Age,PMC4746666,20y,5,PMC4746666,20y,5,1.0000,Exact
+AlkylationReagent,PMC4746666,iodoacetamide,7,PMC4746666,iodoacetamide,6,1.0000,Exact
+AlkylationReagent,PMC5830451,iodoacetamide (IAA),2,PMC5830451,iodoacetamide,2,0.9500,Semantic
+AlkylationReagent,PMC5830451,iodoacetamide (IAA),2,PMC5830451,IAA,3,0.9500,Semantic
+AlkylationReagent,PMC7144211,iodoacetamide,2,PMC7144211,IAA,2,0.9500,Semantic
+AlkylationReagent,PMC7144211,iodoacetamide,2,PMC7144211,iodoacetamide,3,1.0000,Exact
+AlkylationReagent,PMC7294662,iodoacetamide,2,PMC7294662,iodoacetamide,4,1.0000,Exact
+AlkylationReagent,PMC7367873,chloroacetamide,2,PMC7367873,chloroacetamide,3,1.0000,Exact
+AlkylationReagent,PMC7921882,iodoacetamide,2,PMC7921882,iodoacetamide,1,1.0000,Exact
+Bait,PMC10681723,Spt16,2,PMC10681723,Spt16,1,1.0000,Exact
+Bait,PMC10681723,Spt16-ΔN,3,PMC10681723,Spt16,1,0.9500,Semantic
+CellLine,PMC4746666,hESC ES04 (WiCell institute),8,PMC4746666,ES04 (WiCell institute),7,0.9500,Semantic
+CellLine,PMC5830451,HeLa cells (ATCC),3,PMC5830451,HeLa cells (ATCC),4,1.0000,Exact
+CellLine,PMC7294662,HeLa,3,PMC7294662,HeLa,9,1.0000,Exact
+CellLine,PMC7294662,THP-1,4,PMC7294662,THP-1,10,1.0000,Exact
+CellLine,PMC7367873,HeLa Kyoto,3,PMC7367873,HeLa Kyoto cells,6,0.9500,Semantic
+CellPart,PMC4746666,cytosolic (CYT),9,PMC4746666,cytosolic (CYT),8,1.0000,Exact
+CellPart,PMC4746666,nuclear (NUC),10,PMC4746666,nuclear (NUC),9,1.0000,Exact
+CellPart,PMC4746666,chromatin-bound (CH),11,PMC4746666,chromatin-bound (CH),10,1.0000,Exact
+CellType,PMC4746666,mesenchymal stem cells (MSC),12,PMC4746666,human embryonic stem cells (hESC),13,0.9300,DomainSemantic
+CellType,PMC4746666,embryonic stem cells (ESC),13,PMC4746666,human embryonic stem cells (hESC),13,0.9300,DomainSemantic
+CellType,PMC4746666,bone marrow-derived MSC (BM-MSC),14,PMC4746666,human ESC-MSC,11,0.8800,TagContainment
+CellType,PMC4746666,bone marrow-derived MSC (BM-MSC),14,PMC4746666,human bone marrow-derived MSC (BM-MSC),12,0.9500,Semantic
+CleavageAgent,PMC4746666,trypsin,15,PMC4746666,trypsin,15,1.0000,Exact
+CleavageAgent,PMC4746666,Lys-C,16,PMC4746666,Lys-C,14,1.0000,Exact
+CleavageAgent,PMC4746666,Trypsin/P,17,PMC4746666,trypsin,15,0.9500,Semantic
+CleavageAgent,PMC5535869,trypsin,2,PMC5535869,trypsin,2,1.0000,Exact
+CleavageAgent,PMC5535869,Trypsin/P,3,PMC5535869,trypsin,2,0.9500,Semantic
+CleavageAgent,PMC5830451,trypsin (MS grade),4,PMC5830451,trypsin,7,0.9500,Semantic
+CleavageAgent,PMC5830451,Lys-C (MS grade),5,PMC5830451,Lys-C,6,0.9500,Semantic
+CleavageAgent,PMC6918071,trypsin,1,PMC6918071,Tryptic,1,0.9300,DomainSemantic
+CleavageAgent,PMC7144211,Trypsin/Lys-C mix,3,PMC7144211,Trypsin/Lys-C mix,5,1.0000,Exact
+CleavageAgent,PMC7294662,trypsin,5,PMC7294662,trypsin,14,1.0000,Exact
+CleavageAgent,PMC7294662,LysC,6,PMC7294662,LysC,13,1.0000,Exact
+CleavageAgent,PMC7367873,trypsin,5,PMC7367873,trypsin,9,1.0000,Exact
+CleavageAgent,PMC7921882,trypsin,3,PMC7921882,trypsin,2,1.0000,Exact
+CleavageAgent,PMC7921882,trypsin,3,PMC7921882,MS-grade trypsin,3,0.9500,Semantic
+CleavageAgent,PMC8698288,Trypsin/LysC,2,PMC8698288,Trypsin/LysC,6,1.0000,Exact
+CollisionEnergy,PMC4746666,normalized collision energy 25,18,PMC4746666,normalized collision energy 25,16,1.0000,Exact
+CollisionEnergy,PMC5830451,28%,6,PMC5830451,28%,8,1.0000,Exact
+CollisionEnergy,PMC7144211,27%,4,PMC7144211,normalized collision energy of 27%,6,0.9500,Semantic
+CollisionEnergy,PMC7294662,NCE 28,8,PMC7294662,NCE 28,15,1.0000,Exact
+CollisionEnergy,PMC7294662,23 to 65 eV,9,PMC7294662,23 to 65 eV,16,1.0000,Exact
+CollisionEnergy,PMC7294662,42.0 eV,10,PMC7294662,42.0 eV,18,1.0000,Exact
+CollisionEnergy,PMC7367873,30%,6,PMC7367873,30% normalized collision energy (NCE),12,0.9500,Semantic
+CollisionEnergy,PMC7367873,32,7,PMC7367873,normalized collision energy was 32,10,0.8900,CompoundConcentrationMerge
+CollisionEnergy,PMC7367873,35%,8,PMC7367873,35% normalized collision energy (NCE),11,0.9500,Semantic
+CollisionEnergy,PMC7921882,27%,4,PMC7921882,normalized fragmentation energy at 27%,4,0.9500,Semantic
+CollisionEnergy,PMC8698288,27%,3,PMC8698288,normalized collision energy of 27%,7,0.9500,Semantic
+Compound,PMC7294662,1000	U/mL of human recombinant IFNβ,7,PMC7294662,human recombinant IFNβ 1000 U/mL,19,0.8800,TagContainment
+Depletion,PMC6918071,sulfur-depleted,2,PMC6918071,S depleted,2,0.8800,TagContainment
+Depletion,PMC6918071,sulfur-depleted,2,PMC6918071,sulfur-depleted,3,1.0000,Exact
+DevelopmentalStage,PMC5535869,unpollinated pistil (S0),4,PMC5535869,mature pistils,5,0.8800,TagContainment
+DevelopmentalStage,PMC5535869,three DAP (Day After Pollination) (S3),5,PMC5535869,three DAP,3,0.9500,Semantic
+DevelopmentalStage,PMC5535869,seven DAP (S7),6,PMC5535869,seven DAP,4,0.9500,Semantic
+Disease,PMC5830451,type 1 diabetes (T1D),7,PMC5830451,type 1 diabetic,9,0.7830,High-Overlap
+Disease,PMC5830451,non-diabetic control,8,PMC5830451,type 1 diabetic,9,0.8800,TagContainment
+Disease,PMC5830451,non-diabetic control,8,PMC5830451,non-diabetic,10,0.9500,Semantic
+Disease,PMC7144211,prostate cancer,5,PMC7144211,prostate cancer,7,1.0000,Exact
+Disease,PMC7144211,prostate cancer,5,PMC7144211,benign prostate hyperplasia,8,0.8800,TagContainment
+Disease,PMC7144211,prostate cancer,5,PMC7144211,urothelial cancer of the bladder,9,0.8800,TagContainment
+Disease,PMC7144211,benign prostatic hyperplasia,6,PMC7144211,benign prostate hyperplasia,8,0.8800,TagContainment
+EnrichmentMethod,PMC10681723,tandem affinity purification (TAP),4,PMC10681723,Tandem affinity purification,4,0.9500,Semantic
+EnrichmentMethod,PMC5535869,acetylpeptide enrichment,7,PMC5535869,antibody beads,6,0.9100,EnrichmentSemantic
+EnrichmentMethod,PMC7367873,Fe-IMAC,10,PMC7367873,Fe-IMAC,16,1.0000,Exact
+EnrichmentMethod,PMC7367873,phosphopeptide enrichment,11,PMC7367873,Fe-IMAC,16,0.9100,EnrichmentSemantic
+EnrichmentMethod,PMC8698288,agarose-streptavidin bead affinity purification,4,PMC8698288,agarose-streptavidin beads,11,0.8800,TagContainment
+FlowRateChromatogram,PMC4746666,250 nL/min,22,PMC4746666,250 nl/min,20,1.0000,Exact
+FlowRateChromatogram,PMC5535869,300 nL/min,11,PMC5535869,300 µL∙min−1,10,0.8700,NumericReplicate
+FlowRateChromatogram,PMC5830451,60 nL/min,11,PMC5830451,60 nL/min,13,1.0000,Exact
+FlowRateChromatogram,PMC7294662,0.5 mL/min,15,PMC7294662,0.5 mL/min,29,1.0000,Exact
+FlowRateChromatogram,PMC7294662,0.5 mL/min,15,PMC7294662,0.25 μL/min,30,0.8700,NumericReplicate
+FlowRateChromatogram,PMC7294662,0.5 mL/min,15,PMC7294662,0.35 μL/min,31,0.8700,NumericReplicate
+FlowRateChromatogram,PMC7294662,250 nL/min,16,PMC7294662,50 μL/min,27,0.8010,High-Overlap
+FlowRateChromatogram,PMC7294662,250 nL/min,16,PMC7294662,250 nL/min,28,1.0000,Exact
+FlowRateChromatogram,PMC7367873,300 nL/min,15,PMC7367873,300 nL/min,23,1.0000,Exact
+FlowRateChromatogram,PMC7367873,5 µL/min,16,PMC7367873,0.3 µL/min,22,0.8800,TagContainment
+FlowRateChromatogram,PMC7367873,0.3 µL/min,17,PMC7367873,0.3 µL/min,22,1.0000,Exact
+FlowRateChromatogram,PMC7367873,30 µL/min,18,PMC7367873,0.3 µL/min,22,0.8800,TagContainment
+FlowRateChromatogram,PMC7921882,300 nl/min,5,PMC7921882,300 nl/min,8,1.0000,Exact
+FlowRateChromatogram,PMC8698288,250 nl/min,7,PMC8698288,250 nl/min,15,1.0000,Exact
+FractionationMethod,PMC4746666,Isoelectric focusing (OFFGEL fractionator),24,PMC4746666,in-solution isoelectric focusing,21,0.8800,TagContainment
+FractionationMethod,PMC4746666,Isoelectric focusing (OFFGEL fractionator),24,PMC4746666,OFFGEL fractionator,22,0.9500,Semantic
+FractionationMethod,PMC7144211,top-down Optiprep density gradient centrifugation,19,PMC7144211,bottom-up Optiprep density gradient centrifugation,22,0.8800,TagContainment
+FractionationMethod,PMC7144211,bottom-up OptiPrep density gradient (ODG),20,PMC7144211,bottom-up Optiprep density gradient centrifugation,22,0.8800,TagContainment
+FractionationMethod,PMC7294662,reverse-phase (RP) fractionation on an Agilent 1100 HPLC,18,PMC7294662,high pH reverse-phase (RP) fractionation,33,0.8800,TagContainment
+FractionationMethod,PMC7294662,size-exclusion chromatography (SEC),19,PMC7294662,size exclusion chromatography (SEC),34,0.8800,TagContainment
+FractionationMethod,PMC7367873,high-pH reversed-phase tip fractionation,19,PMC7367873,High-pH RP tip fractionation,24,0.8800,TagContainment
+FragmentMassTolerance,PMC4746666,20 ppm,25,PMC4746666,20 ppm,23,1.0000,Exact
+FragmentMassTolerance,PMC5535869,0.02 Da,12,PMC5535869,0.02 Da,11,1.0000,Exact
+FragmentMassTolerance,PMC7294662,0.05 Da,21,PMC7294662,0.05 Da,36,1.0000,Exact
+FragmentMassTolerance,PMC7367873,0.05 Da,22,PMC7367873,0.05 Da,25,1.0000,Exact
+FragmentMassTolerance,PMC8698288,0.02 Da,9,PMC8698288,0.02 Da,16,1.0000,Exact
+FragmentationMethod,PMC4746666,higher energy collisional dissociation (HCD),23,PMC4746666,higher energy collisional dissociation,24,0.9500,Semantic
+FragmentationMethod,PMC4746666,higher energy collisional dissociation (HCD),23,PMC4746666,HCD,25,0.9500,Semantic
+FragmentationMethod,PMC5830451,high energy dissociation,14,PMC5830451,high energy dissociation,15,1.0000,Exact
+FragmentationMethod,PMC7144211,higher energy collisional dissociation,21,PMC7144211,higher energy collisional dissociation,23,1.0000,Exact
+FragmentationMethod,PMC7144211,higher energy collisional dissociation,21,PMC7144211,HCD,24,0.9500,Semantic
+FragmentationMethod,PMC7294662,HCD,20,PMC7294662,HCD,37,1.0000,Exact
+FragmentationMethod,PMC7367873,collision induced dissociation (CID),20,PMC7367873,collision-induced dissociation,26,0.9500,Semantic
+FragmentationMethod,PMC7367873,collision induced dissociation (CID),20,PMC7367873,CID,27,0.9500,Semantic
+FragmentationMethod,PMC7367873,collision induced dissociation (CID),20,PMC7367873,higher-energy collision-induced dissociation,28,0.8800,TagContainment
+FragmentationMethod,PMC7367873,higher-energy collision-induced dissociation (HCD),21,PMC7367873,collision-induced dissociation,26,0.9500,Semantic
+FragmentationMethod,PMC7367873,higher-energy collision-induced dissociation (HCD),21,PMC7367873,CID,27,0.9500,Semantic
+FragmentationMethod,PMC7367873,higher-energy collision-induced dissociation (HCD),21,PMC7367873,higher-energy collision-induced dissociation,28,0.9500,Semantic
+FragmentationMethod,PMC7367873,higher-energy collision-induced dissociation (HCD),21,PMC7367873,HCD,29,0.9500,Semantic
+FragmentationMethod,PMC8698288,HCD,8,PMC8698288,HCD,17,1.0000,Exact
+GeneticModification,PMC10681723,Spt16-ΔN,7,PMC10681723,Spt16-TAP,10,0.8800,TagContainment
+GeneticModification,PMC10681723,Spt16-ΔN,7,PMC10681723,Spt16-ΔN,13,1.0000,Exact
+GeneticModification,PMC10681723,Spt16-TAP tag,8,PMC10681723,Spt16-TAP,10,0.9500,Semantic
+GeneticModification,PMC10681723,Spt16-TAP tag,8,PMC10681723,Spt16-ΔN,13,0.8800,TagContainment
+GradientTime,PMC4746666,100 min,26,PMC4746666,100 min,26,1.0000,Exact
+GradientTime,PMC5535869,24 min,13,PMC5535869,24 min,12,1.0000,Exact
+GradientTime,PMC5535869,8 min,14,PMC5535869,8 min,13,1.0000,Exact
+GradientTime,PMC5535869,5 min,15,PMC5535869,5 min,14,1.0000,Exact
+GradientTime,PMC5535869,3 min,16,PMC5535869,3 min,15,1.0000,Exact
+GradientTime,PMC5830451,150 min,16,PMC5830451,150-min,16,0.8700,NumericReplicate
+GradientTime,PMC6918071,4-h gradients,8,PMC6918071,4-h gradients,9,1.0000,Exact
+GradientTime,PMC7144211,50-min,22,PMC7144211,50-min gradient,25,0.9500,Semantic
+GradientTime,PMC7144211,5 min,23,PMC7144211,50-min gradient,25,0.8500,KeyTermInLongText
+GradientTime,PMC7294662,180 min,22,PMC7294662,180 min,40,1.0000,Exact
+GradientTime,PMC7294662,90 min,23,PMC7294662,60-min gradient,39,0.8500,KeyTermInLongText
+GradientTime,PMC7294662,90 min,23,PMC7294662,90-min gradients,41,0.8700,NumericReplicate
+GradientTime,PMC7294662,60 min,24,PMC7294662,60-min gradient,39,0.8700,NumericReplicate
+GradientTime,PMC7294662,60 min,24,PMC7294662,90-min gradients,41,0.8500,KeyTermInLongText
+GradientTime,PMC7294662,60 min,24,PMC7294662,60 min,42,1.0000,Exact
+GradientTime,PMC7294662,2 min,25,PMC7294662,60-min gradient,39,0.8500,KeyTermInLongText
+GradientTime,PMC7294662,2 min,25,PMC7294662,90-min gradients,41,0.8500,KeyTermInLongText
+GradientTime,PMC7294662,13 min,26,PMC7294662,60-min gradient,39,0.8500,KeyTermInLongText
+GradientTime,PMC7294662,13 min,26,PMC7294662,90-min gradients,41,0.8500,KeyTermInLongText
+GradientTime,PMC7367873,60 min,23,PMC7367873,60 min,41,1.0000,Exact
+GradientTime,PMC7367873,90 min,24,PMC7367873,90 min,40,1.0000,Exact
+GradientTime,PMC7921882,120 min,6,PMC7921882,120 min,9,1.0000,Exact
+GradientTime,PMC8698288,5 min,10,PMC8698288,5 min,20,1.0000,Exact
+GradientTime,PMC8698288,5 min,10,PMC8698288,5 min,23,1.0000,Exact
+GradientTime,PMC8698288,120 min,11,PMC8698288,120 min,21,1.0000,Exact
+GradientTime,PMC8698288,20 min,12,PMC8698288,20 min,22,1.0000,Exact
+GradientTime,PMC8698288,5 min,13,PMC8698288,5 min,20,1.0000,Exact
+GradientTime,PMC8698288,5 min,13,PMC8698288,5 min,23,1.0000,Exact
+GradientTime,PMC8698288,10 min,14,PMC8698288,10 min,24,1.0000,Exact
+Instrument,PMC4746666,Q Exactive mass spectrometer (Thermo Scientific),27,PMC4746666,"Q Exactive mass spectrometer (Thermo Scientific, Bremen, Germany)",27,0.8900,CompoundConcentrationMerge
+Instrument,PMC5535869,Q Exactive mass spectrometer,17,PMC5535869,"Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)",16,0.8900,CompoundConcentrationMerge
+Instrument,PMC5830451,Orbitrap Fusion Lumos Tribrid MS (ThermoFisher),18,PMC5830451,Orbitrap Fusion Lumos Tribrid MS (ThermoFisher),17,1.0000,Exact
+Instrument,PMC7144211,Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer,24,PMC7144211,Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific),26,0.9500,Semantic
+Instrument,PMC7294662,Q-Exactive mass spectrometer (Thermo Fisher),27,PMC7294662,Q-Exactive mass spectrometer (Thermo Fisher),43,1.0000,Exact
+Instrument,PMC7294662,Q-Exactive mass spectrometer (Thermo Fisher),27,PMC7294662,quadrupole time of flight mass spectrometer (Impact II; Bruker Daltonics),44,0.8800,TagContainment
+Instrument,PMC7294662,Q-Exactive mass spectrometer (Thermo Fisher),27,PMC7294662,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer (timsTOF Pro; Bruker Daltonics),45,0.8800,TagContainment
+Instrument,PMC7294662,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer,28,PMC7294662,Q-Exactive mass spectrometer (Thermo Fisher),43,0.8800,TagContainment
+Instrument,PMC7294662,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer,28,PMC7294662,quadrupole time of flight mass spectrometer (Impact II; Bruker Daltonics),44,0.8800,TagContainment
+Instrument,PMC7294662,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer,28,PMC7294662,timsTOF trapped ion mobility quadrupole time of flight mass spectrometer (timsTOF Pro; Bruker Daltonics),45,0.9500,Semantic
+Instrument,PMC7367873,Fusion Lumos,25,PMC7367873,Fusion Lumos Tribrid mass spectrometer,43,0.9500,Semantic
+Instrument,PMC7367873,Q Exactive Plus,26,PMC7367873,Q Exactive Plus mass spectrometer,42,0.9500,Semantic
+Instrument,PMC7921882,Q Exactive Orbitrap mass spectrometer,7,PMC7921882,Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific),10,0.9500,Semantic
+Instrument,PMC8698288,Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer,15,PMC8698288,"Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer (Thermo Fisher Scientific, Inc., Waltham, MA, USA)",25,0.9500,Semantic
+IonizationType,PMC7144211,nano-electrospray,25,PMC7144211,nano‐electrospray ionization,27,0.8800,TagContainment
+IonizationType,PMC7367873,nano-electrospray ionization source,27,PMC7367873,positive ion mode,44,0.8800,TagContainment
+IonizationType,PMC7367873,nano-electrospray ionization source,27,PMC7367873,positive ionization mode,45,0.8800,TagContainment
+IonizationType,PMC7921882,nano electrospray,8,PMC7921882,nano electrospray,11,1.0000,Exact
+IonizationType,PMC8698288,electrospray ionization (ESI),16,PMC8698288,ESI,26,0.9500,Semantic
+Label,PMC4746666,triple SILAC,28,PMC4746666,SILAC,28,0.9500,Semantic
+Label,PMC5535869,label-free approach,18,PMC5535869,label-free,17,0.9500,Semantic
+Label,PMC5830451,LFQ,19,PMC5830451,LFQ,19,1.0000,Exact
+Label,PMC7144211,label-free quantification (LFQ),26,PMC7144211,Label-free quantification (LFQ),28,1.0000,Exact
+Label,PMC7294662,SILAC,29,PMC7294662,SILAC,47,1.0000,Exact
+Label,PMC7294662,"“light” (“L”)-labeled cells, L-arginine (84 mg/L) and L-lysine (146 mg/L)",30,PMC7294662,label-free quantitation,48,0.8800,TagContainment
+Label,PMC7294662,"“medium” (“M”)-labeled cells, 13C6-L-arginine (87 mg/L) and D4-Llysine (150 mg/L)",31,PMC7294662,label-free quantitation,48,0.8800,TagContainment
+Label,PMC7294662,"“heavy” (“H”)-labeled cells, 13C6 15N4-L-arginine (89 mg/L) and 13C6 15N2-L-lysine (154 mg/L)",32,PMC7294662,label-free quantitation,48,0.8800,TagContainment
+Label,PMC7294662,label-free quantitation (LFQ),33,PMC7294662,label-free quantitation,48,0.9500,Semantic
+Label,PMC7294662,label-free quantitation (LFQ),33,PMC7294662,LFQ,49,0.9200,LabelFree
+Label,PMC7367873,label-free,28,PMC7367873,LFQ,47,0.9200,LabelFree
+Label,PMC7367873,TMT-6plex,29,PMC7367873,TMT-6plex,46,1.0000,Exact
+Label,PMC8698288,label-free,17,PMC8698288,label-free quantification,27,0.9500,Semantic
+MaterialType,PMC10681723,cells,9,PMC10681723,cells,15,1.0000,Exact
+MaterialType,PMC4746666,cell line,31,PMC4746666,cells,29,0.9500,Semantic
+MaterialType,PMC5535869,Tissue,19,PMC5535869,tissue,18,1.0000,Exact
+MaterialType,PMC5830451,cells,20,PMC5830451,cells,21,1.0000,Exact
+MaterialType,PMC5830451,tissue,21,PMC5830451,tissue,22,1.0000,Exact
+MaterialType,PMC6918071,tissue,12,PMC6918071,tissue,10,1.0000,Exact
+MaterialType,PMC7294662,cells,34,PMC7294662,cells,50,1.0000,Exact
+MaterialType,PMC7294662,cells,34,PMC7294662,cell line,51,0.9500,Semantic
+MaterialType,PMC7367873,cell line,30,PMC7367873,cells,49,0.9500,Semantic
+MaterialType,PMC7367873,cell line,30,PMC7367873,cell line,50,1.0000,Exact
+MaterialType,PMC8698288,cells,18,PMC8698288,cells,28,1.0000,Exact
+Modification,PMC4746666,N-terminal acetylation,32,PMC4746666,N-terminal acetylation,30,1.0000,Exact
+Modification,PMC4746666,methionine oxidation,33,PMC4746666,methionine oxidation,31,1.0000,Exact
+Modification,PMC4746666,cysteine carbamidomethylation,34,PMC4746666,cysteine carbamidomethylation,32,1.0000,Exact
+Modification,PMC5535869,carbamidomethylation on Cys,20,PMC5535869,carbamidomethylation on Cys,19,1.0000,Exact
+Modification,PMC5535869,oxidation on Met,21,PMC5535869,oxidation on Met,20,1.0000,Exact
+Modification,PMC5535869,acetylation on Lys protein N-terminal,22,PMC5535869,acetylation on Lys protein N-terminal,21,1.0000,Exact
+Modification,PMC5830451,carbamidomethylation (of cysteine),22,PMC5830451,Carbamidomethylation of cysteine residues,25,0.8800,TagContainment
+Modification,PMC5830451,methionine oxidation,23,PMC5830451,methionine oxidation,24,1.0000,Exact
+Modification,PMC5830451,N-terminal protein acetylation,24,PMC5830451,N-terminal protein acetylation,23,1.0000,Exact
+Modification,PMC7144211,carbamidomethylation (C),27,PMC7144211,Carbamidomethyl (C),31,0.9500,Semantic
+Modification,PMC7144211,oxidation (M),28,PMC7144211,oxidation (M),32,1.0000,Exact
+Modification,PMC7144211,N-terminal acetylation,29,PMC7144211,acetylation of the protein N-terminus,33,0.8800,TagContainment
+Modification,PMC7294662,carbamidomethylation,35,PMC7294662,carbamidomethyl,52,0.9500,Semantic
+Modification,PMC7294662,oxidation (methionine),36,PMC7294662,methionine oxidation,53,0.8800,TagContainment
+Modification,PMC7294662,deamidation (NQ),37,PMC7294662,deamidation (NQ),54,1.0000,Exact
+Modification,PMC7294662,N-acetylation (protein N-terminus),38,PMC7294662,N-acetylation,55,0.9500,Semantic
+Modification,PMC7294662,N-acetylation (protein N-terminus),38,PMC7294662,N-acetyl peptides,56,0.8800,TagContainment
+Modification,PMC7367873,phosphorylation,31,PMC7367873,phosphorylation,51,1.0000,Exact
+Modification,PMC7367873,oxidation (M),32,PMC7367873,Oxidation on Methionine,52,0.8900,CompoundConcentrationMerge
+Modification,PMC7367873,carbamidomethylation,33,PMC7367873,Carbamidomethylation on cysteines,54,0.9500,Semantic
+Modification,PMC7367873,N-terminal acetylation,34,PMC7367873,N-terminal protein acetylation,53,0.8900,CompoundConcentrationMerge
+Modification,PMC7921882,carbamidomethylation (C),9,PMC7921882,carbamidomethylation (C),12,1.0000,Exact
+Modification,PMC7921882,deamidation (NQ),10,PMC7921882,deamidation (NQ),13,1.0000,Exact
+Modification,PMC7921882,oxidation (M),11,PMC7921882,oxidation (M),14,1.0000,Exact
+Modification,PMC8698288,cysteine carbamidomethylation,19,PMC8698288,Cysteine carbamidomethylation,29,1.0000,Exact
+Modification,PMC8698288,methionine oxidation,20,PMC8698288,Methionine oxidation,30,1.0000,Exact
+Modification,PMC8698288,protein N-terminus acetylation,21,PMC8698288,protein N-terminus acetylation,31,1.0000,Exact
+NumberOfBiologicalReplicates,PMC4746666,Three,35,PMC4746666,3,33,0.8700,NumericReplicate
+NumberOfBiologicalReplicates,PMC5535869,three biological replicates,23,PMC5535869,3,22,0.8700,NumericReplicate
+NumberOfBiologicalReplicates,PMC6918071,three biological replicates per tissue,9,PMC6918071,3,11,0.8700,NumericReplicate
+NumberOfBiologicalReplicates,PMC7294662,3,39,PMC7294662,3,57,1.0000,Exact
+NumberOfBiologicalReplicates,PMC7294662,three replicates,40,PMC7294662,3,57,0.8700,NumericReplicate
+NumberOfBiologicalReplicates,PMC7367873,three independent replicates,35,PMC7367873,3,55,0.8700,NumericReplicate
+NumberOfBiologicalReplicates,PMC8698288,three biological replicates for each strain,22,PMC8698288,3,32,0.8700,NumericReplicate
+NumberOfFractions,PMC4746666,12,37,PMC4746666,12 fractions,34,0.8700,NumericReplicate
+NumberOfMissedCleavages,PMC4746666,maximum two missed cleavages,36,PMC4746666,two,35,0.9500,Semantic
+NumberOfMissedCleavages,PMC5535869,up to 4 missing cleavages,24,PMC5535869,4,23,0.9000,Near-Exact
+NumberOfMissedCleavages,PMC5830451,2,25,PMC5830451,2,26,1.0000,Exact
+NumberOfMissedCleavages,PMC7144211,two,30,PMC7144211,two,34,1.0000,Exact
+NumberOfMissedCleavages,PMC8698288,2,23,PMC8698288,2,33,1.0000,Exact
+NumberOfTechnicalReplicates,PMC7144211,Three repeated runs,31,PMC7144211,Three,35,0.9500,Semantic
+Organism,PMC10681723,Saccharomyces cerevisiae,11,PMC10681723,Saccharomyces cerevisiae,16,1.0000,Exact
+Organism,PMC4746666,Homo sapiens,38,PMC4746666,Homo sapiens,36,1.0000,Exact
+Organism,PMC5535869,Oryza sativa L.,25,PMC5535869,Oryza sativa,24,0.9500,Semantic
+Organism,PMC5830451,Homo sapiens,26,PMC5830451,Homo sapiens,27,1.0000,Exact
+Organism,PMC6918071,Riftia pachyptila,13,PMC6918071,Riftia pachyptila,14,1.0000,Exact
+Organism,PMC7144211,Homo sapiens,32,PMC7144211,homo sapiens,36,1.0000,Exact
+Organism,PMC7294662,Homo sapiens,41,PMC7294662,Homo sapiens,59,1.0000,Exact
+Organism,PMC7367873,Homo sapiens,36,PMC7367873,Homo sapiens,60,1.0000,Exact
+Organism,PMC7921882,Blomia tropicalis,13,PMC7921882,Blomia tropicalis,20,1.0000,Exact
+Organism,PMC7921882,Dermatophagoides farinae,14,PMC7921882,Dermatophagoides pteronyssinus,16,0.8800,TagContainment
+Organism,PMC7921882,Dermatophagoides farinae,14,PMC7921882,Dermatophagoides farinae,17,1.0000,Exact
+Organism,PMC7921882,Dermatophagoides pteronyssinus,15,PMC7921882,Dermatophagoides pteronyssinus,16,1.0000,Exact
+Organism,PMC7921882,Dermatophagoides pteronyssinus,15,PMC7921882,Dermatophagoides farinae,17,0.8800,TagContainment
+Organism,PMC8698288,Toxoplasma gondii,24,PMC8698288,Toxoplasma gondii,34,1.0000,Exact
+OrganismPart,PMC4746666,bone marrow,39,PMC4746666,bone marrow,37,1.0000,Exact
+OrganismPart,PMC5535869,pistil,27,PMC5535869,pistil,25,1.0000,Exact
+OrganismPart,PMC5535869,developing seeds,28,PMC5535869,seeds,26,0.9500,Semantic
+OrganismPart,PMC5830451,pancreatic islet,27,PMC5830451,pancreatic islet,28,1.0000,Exact
+OrganismPart,PMC6918071,trophosomes,15,PMC6918071,trophosome,15,0.9500,Semantic
+OrganismPart,PMC6918071,plume,16,PMC6918071,plume,16,1.0000,Exact
+OrganismPart,PMC6918071,tentacular crown,17,PMC6918071,tentacular crown,17,1.0000,Exact
+OrganismPart,PMC6918071,lamellae,18,PMC6918071,lamellae,18,1.0000,Exact
+OrganismPart,PMC6918071,body wall,19,PMC6918071,body wall,19,1.0000,Exact
+OrganismPart,PMC6918071,lateral portions of the vestimentum,20,PMC6918071,vestimentum,20,0.9500,Semantic
+OrganismPart,PMC7144211,urine,33,PMC7144211,urine,37,1.0000,Exact
+OrganismPart,PMC7144211,resected prostate cancer tissue,34,PMC7144211,prostate,38,0.9500,Semantic
+OrganismPart,PMC8698288,tachyzoites,25,PMC8698288,tachyzoites,35,1.0000,Exact
+PrecursorMassTolerance,PMC4746666,4.5 ppm,41,PMC4746666,4.5 ppm,39,1.0000,Exact
+PrecursorMassTolerance,PMC5535869,10 ppm,29,PMC5535869,10 ppm,27,1.0000,Exact
+PrecursorMassTolerance,PMC5830451,10 ppm,28,PMC5830451,±10 ppm,30,0.9500,Semantic
+PrecursorMassTolerance,PMC7294662,10 ppm,42,PMC7294662,10 ppm,62,1.0000,Exact
+PrecursorMassTolerance,PMC7367873,10 ppm,37,PMC7367873,10 ppm,63,1.0000,Exact
+PrecursorMassTolerance,PMC8698288,10 ppm,26,PMC8698288,10 ppm,36,1.0000,Exact
+ReductionReagent,PMC4746666,DTT,42,PMC4746666,DTT,40,1.0000,Exact
+ReductionReagent,PMC5535869,DTT,30,PMC5535869,DTT,28,1.0000,Exact
+ReductionReagent,PMC5535869,DTT,30,PMC5535869,DL-Dithiothreitol,29,0.9500,Semantic
+ReductionReagent,PMC5830451,DTT,29,PMC5830451,DTT,31,1.0000,Exact
+ReductionReagent,PMC6918071,DTT,21,PMC6918071,dithiothreitol,21,0.9500,Semantic
+ReductionReagent,PMC6918071,DTT,21,PMC6918071,DTT,22,1.0000,Exact
+ReductionReagent,PMC7144211,DTT,35,PMC7144211,DTT,44,1.0000,Exact
+ReductionReagent,PMC7294662,dithiothreitol,43,PMC7294662,DTT,64,0.9500,Semantic
+ReductionReagent,PMC7367873,DTT (dithiothreitol),38,PMC7367873,DTT,64,0.9500,Semantic
+ReductionReagent,PMC7367873,DTT (dithiothreitol),38,PMC7367873,dithiothreitol,65,0.9500,Semantic
+ReductionReagent,PMC7921882,dithiothreitol (DTT),17,PMC7921882,dithiothreitol,23,0.9500,Semantic
+ReductionReagent,PMC7921882,dithiothreitol (DTT),17,PMC7921882,DTT,24,0.9500,Semantic
+Separation,PMC4746666,ReproSil-Pur 120 C18-AQ 3 μ m diameter beads,43,PMC4746666,ReproSil-Pur 120 C18-AQ 3 μm diameter beads,42,0.9300,DomainSemantic
+Separation,PMC5535869,reversed-phase,31,PMC5535869,reversed-phase pre-column,32,0.9500,Semantic
+Separation,PMC5535869,reversed-phase,31,PMC5535869,reversed-phase analytical column,33,0.9500,Semantic
+Separation,PMC5830451,slurry-packed with 3-μm C18 packing,30,PMC5830451,LC column was prepared from a 70-cm-long Self-Pack PicoFrit column with an i.d. of 30 µm and a tip size of 10 µm,32,0.8800,TagContainment
+Separation,PMC7367873,reversed-phase C-18,39,PMC7367873,"Precolumn C18 PepMap 100, 5 µm, 300 µm i.d. size-exclusion chromatography 5 mm, 100",68,0.9300,DomainSemantic
+Separation,PMC7367873,reversed-phase C-18,39,PMC7367873,"Waters nanoEase HSS C18 T3, 75 µm × 25 cm, 1.8 µm, 100",69,0.9300,DomainSemantic
+Separation,PMC7367873,reversed-phase C-18,39,PMC7367873,"trap column (75 µm × 2 cm, packed in-house with 5 µm C18 resin; Reprosil PUR AQ, Dr. Maisch, Ammerbruch-Entringen, Germany)",71,0.9300,DomainSemantic
+Separation,PMC7367873,reversed-phase C-18,39,PMC7367873,"analytical column (75 µm × 45 cm, packed in-house with 3 µm C18 resin; Reprosil Gold, Dr. Maisch)",72,0.9300,DomainSemantic
+Separation,PMC7921882,reverse-phase RSLC C-18 nano-HPLC,18,PMC7921882,"reverse-phase nano-HPLC (Dionex Ultimate 3000, Thermo Fisher Scientific, Bremen, Germany)",25,0.9300,DomainSemantic
+Separation,PMC7921882,reverse-phase RSLC C-18 nano-HPLC,18,PMC7921882,"Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific",26,0.9300,DomainSemantic
+Separation,PMC8698288,reversed-phase C18,27,PMC8698288,"trapping cartridge (Acclaim PepMap C18 100 Å, 5 mm × 300 µm i.d., 160454; Thermo Fisher Scientific, Inc., Waltham, MA, USA)",41,0.9300,DomainSemantic
+Separation,PMC8698288,reversed-phase C18,27,PMC8698288,"50 cm by 75 µm inner diameter EASY-Spray column (ES803, PepMap RSLC, C18, 2 µm; Thermo Fisher Scientific, Inc., Waltham, MA, USA)",42,0.9300,DomainSemantic
+Sex,PMC4746666,male,44,PMC4746666,male,43,1.0000,Exact
+Sex,PMC7144211,male,36,PMC7144211,men,47,0.9500,Semantic
+Strain,PMC5535869,Nipponbare,32,PMC5535869,Nipponbare,35,1.0000,Exact
+Strain,PMC8698288,FLAG-BirA*,28,PMC8698288,FLAG-BirA*,43,1.0000,Exact
+Strain,PMC8698288,FLAG-BirA*,28,PMC8698288,FLAG-BirA*-MOB1,44,0.9500,Semantic
+Strain,PMC8698288,FLAG-BirA*-MOB1,29,PMC8698288,FLAG-BirA*,43,0.9500,Semantic
+Strain,PMC8698288,FLAG-BirA*-MOB1,29,PMC8698288,FLAG-BirA*-MOB1,44,1.0000,Exact
+Temperature,PMC4746666,37°C,45,PMC4746666,37 °C,44,0.8800,TagContainment
+Temperature,PMC5830451,37°C,31,PMC5830451,37 °C,33,0.8800,TagContainment
+Time,PMC7144211,3 months,37,PMC7144211,3 months after local treatment,48,0.9500,Semantic
+Time,PMC7294662,4 h,44,PMC7294662,4 h,78,1.0000,Exact
+Time,PMC7294662,24 h,45,PMC7294662,24 h,79,1.0000,Exact
+Treatment,PMC7294662,stimulated,46,PMC7294662,IFNβ stimulation,80,0.9300,DomainSemantic
+Treatment,PMC7294662,unstimulated,47,PMC7294662,IFNβ stimulation,80,0.9300,DomainSemantic
+Treatment,PMC7367873,PP1c,40,PMC7367873,PP1c,79,1.0000,Exact
+Treatment,PMC7367873,PP2Ac,41,PMC7367873,PP2Ac,80,1.0000,Exact
+treatment,PMC7144211,radical prostatectomy,7,PMC7144211,radical prostatectomy,11,1.0000,Exact
+treatment,PMC7144211,intensity-modulated radiation therapy,8,PMC7144211,intensity-modulated radiation therapy,12,1.0000,Exact
