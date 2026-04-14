@@ -1,0 +1,56 @@
+AcquisitionMethod: data-dependent mode
+AlkylationReagent: iodoacetamide
+CellLine: HeLa
+CellLine: THP-1
+CellPart: ribosome
+CellPart: polysome
+CleavageAgent: LysC
+CleavageAgent: trypsin
+CollisionEnergy: NCE 28
+CollisionEnergy: 23 to 65 eV
+CollisionEnergy: 42.0 eV
+Compound: human recombinant IFNβ 1000 U/mL
+FactorValue: 1000 U/mL
+FactorValue: 4 h
+FactorValue: 24 h
+FlowRateChromatogram: 50 μL/min
+FlowRateChromatogram: 250 nL/min
+FlowRateChromatogram: 0.5 mL/min
+FlowRateChromatogram: 0.25 μL/min
+FlowRateChromatogram: 0.35 μL/min
+FractionIdentifier: fractions 6–65
+FractionationMethod: high pH reverse-phase (RP) fractionation
+FractionationMethod: size exclusion chromatography (SEC)
+FractionationMethod: linear 10–50% sucrose gradient
+FragmentMassTolerance: 0.05 Da
+FragmentationMethod: HCD
+GeneticModification: HA-tagged IFI35
+GradientTime: 60-min gradient
+GradientTime: 180 min
+GradientTime: 90-min gradients
+Instrument: Q-Exactive mass spectrometer (Thermo Fisher)
+Instrument: quadrupole time of flight mass spectrometer (Impact II; Bruker Daltonics)
+Instrument: timsTOF trapped ion mobility quadrupole time of flight mass spectrometer (timsTOF Pro; Bruker Daltonics)
+IonizationType: Captive spray nanospray ionization source
+Label: SILAC
+Label: label-free quantitation
+MaterialType: cells
+MaterialType: cell line
+Modification: carbamidomethyl
+Modification: methionine oxidation
+Modification: deamidation (NQ)
+Modification: N-acetylation
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: 80 fractions
+Organism: Homo sapiens
+PooledSample: pooled
+PrecursorMassTolerance: 5 ppm
+PrecursorMassTolerance: 10 ppm
+PrecursorMassTolerance: 20 ppm
+ReductionReagent: DTT
+Separation: Reprosil-Pur C-18-AQ beads
+Separation: analytical column was from 75-μm-inner-diameter fused silica capillary
+Temperature: 37 °C
+Time: 4 h
+Time: 24 h
+Treatment: IFNβ stimulation

@@ -1,0 +1,20 @@
+AlkylationReagent: iodoacetamide
+CleavageAgent: trypsin
+CollisionEnergy: normalized fragmentation energy at 27%
+Disease: dust mite allergies
+FlowRateChromatogram: 300 nl/min
+GradientTime: 120 min
+Instrument: Q Exactive Orbitrap mass spectrometer (Thermo Fisher Scientific)
+IonizationType: nano electrospray
+Modification: carbamidomethylation (C)
+Modification: deamidation (NQ)
+Modification: oxidation (M)
+NumberOfSamples: 16
+Organism: Dermatophagoides pteronyssinus
+Organism: Dermatophagoides farinae
+Organism: Suidasia medanensis
+Organism: Cicer arietinum
+Organism: Blomia tropicalis
+ReductionReagent: dithiothreitol
+Separation: reverse-phase nano-HPLC (Dionex Ultimate 3000, Thermo Fisher Scientific, Bremen, Germany)
+Separation: Acclaim PepMap RSLC C18, 75 μm × 15 cm, Dionex, Thermo Fisher Scientific

@@ -1,0 +1,20 @@
+CleavageAgent: Tryptic
+Depletion: sulfur-depleted
+FactorValue: trophosome
+FactorValue: vestimentum
+FactorValue: plume
+FactorValue: S-rich
+FactorValue: S-depleted
+GradientTime: 4-h gradients
+MaterialType: tissue
+NumberOfBiologicalReplicates: 3
+NumberOfSamples: 18
+NumberOfTechnicalReplicates: 3
+Organism: Riftia pachyptila
+OrganismPart: trophosome
+OrganismPart: plume
+OrganismPart: tentacular crown
+OrganismPart: lamellae
+OrganismPart: body wall
+OrganismPart: vestimentum
+ReductionReagent: dithiothreitol

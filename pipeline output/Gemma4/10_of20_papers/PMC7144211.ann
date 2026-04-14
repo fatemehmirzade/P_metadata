@@ -1,0 +1,38 @@
+AcquisitionMethod: data dependent acquisition
+AlkylationReagent: iodoacetamide
+CleavageAgent: Trypsin/Lys-C mix
+CollisionEnergy: normalized collision energy of 27%
+Disease: prostate cancer
+Disease: benign prostate hyperplasia
+Disease: urothelial cancer of the bladder
+Disease: renal cell carcinoma
+DiseaseTreatment: radical prostatectomy
+DiseaseTreatment: intensity-modulated radiation therapy
+EnrichmentMethod: size exclusion chromatography (SEC)-based separation of EV from iodixanol
+FactorValue: prostate cancer
+FactorValue: benign prostate hyperplasia
+FactorValue: radical prostatectomy
+FactorValue: intensity-modulated radiation therapy
+FactorValue: urothelial cancer of the bladder
+FactorValue: renal cell carcinoma
+FractionIdentifier: 9–10
+FractionationMethod: bottom-up Optiprep density gradient centrifugation
+FragmentationMethod: higher energy collisional dissociation
+GradientTime: 50-min gradient
+Instrument: Q Exactive HF Hybrid Quadrupole-Orbitrap Mass Spectrometer (Thermo Fisher Scientific)
+IonizationType: nano‐electrospray ionization
+Label: Label-free quantification (LFQ)
+MaterialType: biofluid
+MaterialType: tissue
+Modification: Carbamidomethyl (C)
+Modification: oxidation (M)
+Modification: acetylation of the protein N-terminus
+NumberOfMissedCleavages: two
+NumberOfTechnicalReplicates: Three
+Organism: homo sapiens
+OrganismPart: urine
+OrganismPart: prostate
+ReductionReagent: DTT
+Separation: nanoflow HPLC system (Easy-nLC1000, Thermo Fisher Scientific)
+Sex: men
+Time: 3 months after local treatment

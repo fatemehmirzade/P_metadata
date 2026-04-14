@@ -1,0 +1,31 @@
+CleavageAgent: trypsin
+DevelopmentalStage: three DAP
+DevelopmentalStage: seven DAP
+DevelopmentalStage: mature pistils
+EnrichmentMethod: antibody beads
+FactorValue: pistils
+FactorValue: three DAP
+FactorValue: seven DAP
+FlowRateChromatogram: 300 µL∙min−1
+FragmentMassTolerance: 0.02 Da
+GradientTime: 24 min
+GradientTime: 8 min
+GradientTime: 5 min
+GradientTime: 3 min
+Instrument: Q Exactive TM mass spectrometer (Thermo, Waltham, MA, USA)
+Label: label-free
+MaterialType: tissue
+Modification: carbamidomethylation on Cys
+Modification: oxidation on Met
+Modification: acetylation on Lys protein N-terminal
+NumberOfBiologicalReplicates: 3
+NumberOfMissedCleavages: 4
+Organism: Oryza sativa
+OrganismPart: pistil
+OrganismPart: seeds
+PrecursorMassTolerance: 10 ppm
+ReductionReagent: DL-Dithiothreitol
+SamplingTime: three days after pollination
+SamplingTime: seven days after pollination
+Separation: reversed-phase analytical column
+Strain: Nipponbare

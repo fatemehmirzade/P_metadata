@@ -1,0 +1,57 @@
+AcquisitionMethod: data-dependent acquisition
+AlkylationReagent: chloroacetamide
+Bait: 14-3-3β
+Bait: GAB2
+CellLine: HeLa Kyoto cells
+CellLine: Caco-2 BBe1 cells
+CellLine: SW-480 cells
+CleavageAgent: trypsin
+CollisionEnergy: normalized collision energy was 32
+CollisionEnergy: 35% normalized collision energy (NCE)
+CollisionEnergy: 30% normalized collision energy (NCE)
+Compound: Calyculin A 20 nM
+Compound: recombinant PP1c 1 μM
+Compound: recombinant PP2Ac 1 μM
+EnrichmentMethod: Fe-IMAC
+FactorValue: untreated
+FactorValue: PP1 treated
+FactorValue: PP2A treated
+  FlowRateChromatogram: 0.3 µL/min
+FlowRateChromatogram: 300 nL/min
+FractionationMethod: High-pH RP tip fractionation
+FragmentMassTolerance: 0.05 Da
+FragmentationMethod: collision-induced dissociation
+FragmentationMethod: higher-energy collision-induced dissociation
+GeneticModification: pcDNA3-FLAG-HA-14-3-3β
+GeneticModification: pEGFP(C1)-14-3-3β
+GradientTime: 120 min
+GradientTime: 90 min
+GradientTime: 60 min
+Instrument: Q Exactive Plus mass spectrometer
+Instrument: Fusion Lumos Tribrid mass spectrometer
+Label: TMT-6plex
+Label: LFQ
+MaterialType: cell line
+Modification: phosphorylation
+Modification: Oxidation on Methionine
+Modification: N-terminal protein acetylation
+Modification: Carbamidomethylation on cysteines
+NumberOfBiologicalReplicates: 3
+NumberOfFractions: four fractions
+NumberOfMissedCleavages: 6
+NumberOfTechnicalReplicates: two
+Organism: Homo sapiens
+Organism: Escherichia coli
+PooledSample: pooled
+PrecursorMassTolerance: 10 ppm
+ReductionReagent: dithiothreitol
+SamplingTime: 10–15 min
+Separation: trap column (75 µm × 2 cm, packed in-house with 5 µm C18 resin; Reprosil PUR AQ, Dr. Maisch, Ammerbruch-Entringen, Germany)
+Separation: analytical column (75 µm × 45 cm, packed in-house with 3 µm C18 resin; Reprosil Gold, Dr. Maisch)
+Separation: Waters nanoEase HSS C18 T3, 75 µm × 25 cm, 1.8 µm, 100 
+Separation: Precolumn C18 PepMap 100, 5 µm, 300 µm i.d. size-exclusion chromatography 5 mm, 100 
+SyntheticPeptide: PDP-Nal
+SyntheticPeptide: PDPm-Nal
+Temperature: 37 °C
+Treatment: PP1c
+Treatment: PP2Ac

@@ -1,0 +1,14 @@
+Bait: Spt16
+Bait: Mcm2HBD
+CellType: budding yeast
+EnrichmentMethod: Tandem affinity purification
+EnrichmentMethod: Flag-tagged protein purification
+EnrichmentMethod: GFP nanobody-based purification
+GeneticModification: Spt16-TAP
+GeneticModification: Flag-tagged
+GeneticModification: GFP-tagged
+GeneticModification: Spt16-ΔN
+MaterialType: cells
+Organism: Saccharomyces cerevisiae
+Strain: W303-1
+Temperature: 30°C

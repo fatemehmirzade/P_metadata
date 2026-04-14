@@ -1,0 +1,38 @@
+AcquisitionMethod: data-dependent
+Bait: MOB1
+CellLine: HFF-1
+CleavageAgent: Trypsin/LysC
+CollisionEnergy: normalized collision energy of 27%
+Compound: biotin 150 µM
+EnrichmentMethod: agarose-streptavidin beads
+FactorValue: FLAG-BirA*
+FactorValue: FLAG-BirA*-MOB1
+FlowRateChromatogram: 10 µL/min
+FlowRateChromatogram: 250 nl/min
+FragmentMassTolerance: 0.02 Da
+FragmentationMethod: HCD
+GradientTime: 5 min
+GradientTime: 120 min
+GradientTime: 20 min
+GradientTime: 10 min
+Instrument: Q-Exactive Hybrid Quadrupole-Orbitrap mass spectrometer (Thermo Fisher Scientific, Inc., Waltham, MA, USA)
+IonizationType: ESI
+Label: label-free quantification
+MaterialType: cells
+Modification: Cysteine carbamidomethylation
+Modification: Methionine oxidation
+Modification: protein N-terminus acetylation
+NumberOfBiologicalReplicates: 3
+NumberOfMissedCleavages: 2
+Organism: Toxoplasma gondii
+OrganismPart: tachyzoites
+PrecursorMassTolerance: 10 ppm
+SamplingTime: 14 h of host cell infection
+Separation: nanoLC-MS/MS
+Separation: trapping cartridge (Acclaim PepMap C18 100 Å, 5 mm × 300 µm i.d., 160454; Thermo Fisher Scientific, Inc., Waltham, MA, USA)
+Separation: 50 cm by 75 µm inner diameter EASY-Spray column (ES803, PepMap RSLC, C18, 2 µm; Thermo Fisher Scientific, Inc., Waltham, MA, USA)
+Strain: FLAG-BirA*
+Strain: FLAG-BirA*-MOB1
+Temperature: 37 °C
+Time: 14 h
+Time: 56 h
