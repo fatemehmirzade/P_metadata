@@ -1,0 +1,674 @@
+default_model: openrouter/google/gemma-4-31b-it
+max_threads: 2
+bypass_cache: true
+timeout: 300
+
+model_settings:
+  openrouter/google/gemma-4-31b-it:
+    temperature: 0
+
+optimizer_config:
+  enable_optimizer: true
+  sample_size: 5
+  validation_sample_size: 3
+  optimizer_model: openrouter/google/gemma-4-31b-it
+  timeout: 300
+  optimizer_model_settings:
+    temperature: 0
+
+
+datasets:
+  papers:
+    type: file
+    path: ./papers_dataset.json
+
+operations:
+  - name: extract_factor_values
+    type: map
+    model: openrouter/google/gemma-4-31b-it
+    timeout: 300
+    model_params:
+      temperature: 0
+      enable_thinking: true
+    prompt: |
+      You are extracting experimental factor values and perturbation metadata from proteomics research papers.
+
+      Paper: {{ input.filename }}
+
+      {% if input.abstract %}
+      Abstract:
+      """{{ input.abstract }}"""
+      {% endif %}
+
+      {% if input.methods %}
+      Methods:
+      """{{ input.methods }}"""
+      {% endif %}
+
+      {% if input.supplementary %}
+      Supplementary Information:
+      """{{ input.supplementary }}"""
+      {% endif %}
+
+      CRITICAL FIRST STEP - IDENTIFY PROTEOMICS SECTIONS:
+      Before extracting any annotations, you MUST:
+      1. Read through ALL sections of the paper (abstract, methods, results, figures, supplementary)
+      2. Identify which parts describe PROTEOMICS or MASS SPECTROMETRY experiments
+      3. Look for IMPLICIT proteomics indicators including:
+         - Affinity purification followed by mass spectrometry (AP-MS)
+         - Tandem affinity purification (TAP) - commonly used for MS
+         - Protein purification workflows that precede MS analysis
+         - Immunoprecipitation (IP) followed by MS
+         - Pull-down assays analyzed by MS
+         - References to MS in abstract even if methods don't explicitly mention it
+      4. Extract annotations from these proteomics-specific sections
+      5. IGNORE sections about non-MS techniques (western blot, microscopy, cell culture only)
+
+      PROTEOMICS WORKFLOW DETECTION SIGNALS:
+      - Direct mentions: "mass spectrometry", "MS", "LC-MS", "proteomics"
+      - Affinity purification techniques: "TAP", "AP-MS", "pull-down MS"
+      - Protein identification workflows followed by unspecified analysis (assume MS if in proteomics paper)
+      - Abstract mentions proteomics while methods describe protein purification
+
+      The annotations you extract must describe HOW THE PROTEOMICS PART OF THE STUDY WAS PERFORMED.
+      If a paper contains multiple experiment types, focus exclusively on the proteomics/mass spectrometry workflow.
+
+      Extract the following annotation types from proteomics sections only:
+
+      - FactorValue: The names of study variables or experimental factors that define what differs
+        between sample groups in the proteomics experiment. Extract only the factor names, not
+        the individual values. If the paper has a single condition with no comparison, this may be empty.
+
+      - Time: Broad time parameter describing when proteomics samples were collected or how long
+        a biological treatment was applied. Do NOT extract LC gradient times, MS acquisition times,
+        or reagent incubation durations from sample preparation protocols.
+
+      - Temperature: Growth temperature of the samples or perturbation temperature applied as a
+        biological condition in a differential study. Do NOT extract instrument temperatures,
+        column oven temperatures, or reagent incubation temperatures from sample preparation protocols.
+
+      - Compound: A chemical, small molecule, OR PROTEIN/BIOLOGICAL MOLECULE applied to proteomics
+        samples as a biological treatment or perturbation. Extract each compound/protein and its
+        concentration together as a single combined string if a concentration is stated in the text.
+        If no concentration is stated, extract the name alone. If the same compound is used at
+        multiple concentrations, extract each as a separate list item. Do NOT extract sample
+        preparation reagents, LC solvents, MS calibrants, or isotopic/isobaric labeling reagents.
+        Never extract an orphan concentration without its compound name.
+
+      CRITICAL EXTRACTION RULES:
+
+      PROTEOMICS-ONLY EXTRACTION (HIGHEST PRIORITY):
+
+      A. PROTEOMICS SECTION IDENTIFICATION:
+         - First, identify all sections that describe proteomics or mass spectrometry experiments
+         - Extract annotations ONLY from these proteomics-specific sections
+         - DO NOT extract from sections about non-MS techniques
+         - ALLOW reasonable inference when abstract mentions proteomics but methods describe protein purification
+
+      B. SAMPLE DIFFERENTIATION TEST:
+         - Before extracting, ask: "Is this metadata important for differentiating between proteomics samples?"
+         - If NO, do not extract it
+         - Focus on metadata that distinguishes one proteomics sample from another
+
+      C. UTILITY TEST:
+         - Before extracting, ask: "Is this metadata trivial or useful?"
+         - Do NOT extract typical values used commonly across most proteomics experiments
+         - Focus on metadata that provides meaningful experimental context
+
+      D. BALANCED ANNOTATION APPROACH:
+         - Avoid being too liberal: Don't fill with useless metadata
+         - Avoid being too conservative: Don't miss key differentiating metadata
+         - Apply both tests (B and C) to achieve balance
+
+      E. COMPREHENSIVE PROTEOMICS SECTION REVIEW:
+         - Use ALL parts of the paper that discuss proteomics
+         - Some critical information only appears in results or figure captions
+         - Search thoroughly across all proteomics-relevant sections before finalizing extraction
+
+      F. CONCISE EXTRACTION:
+         - Extract ONLY the specific requested information, NOT entire sentences
+         - Remove unnecessary context, articles, and explanatory phrases
+         - Extract the minimal phrase that captures the annotation
+         - Do NOT include surrounding text or full sentence structure
+
+      1. SOURCE FIDELITY: Extract ONLY text that exists verbatim in the source material
+         - MUST copy exact wording, spelling, and punctuation from the text
+         - Do NOT paraphrase, rephrase, or reword anything
+         - Do NOT standardize or normalize terminology
+         - Extract the minimal necessary phrase, not full sentences
+
+      2. NO HALLUCINATION: Do NOT generate or fabricate any information
+         - Every extracted annotation MUST be traceable to the proteomics sections
+         - If you cannot find it in the proteomics-relevant text, do NOT include it
+         - Do NOT use your background knowledge to add information
+
+      3. NO DUPLICATES: Extract each unique annotation only ONCE
+         - If the same term appears multiple times, extract it only ONCE
+         - Do NOT repeat the same annotation
+         - Check for uniqueness before adding to the list
+
+      4. FACTOR VALUE EXTRACTION RULES:
+         - FactorValue captures the NAMES of experimental variables, not their specific values
+         - Ask: "What differs between the sample groups in this proteomics experiment?"
+         - Extract only factors that are systematically varied across proteomics samples
+         - Do NOT extract factors that are constant across all samples
+         - Do NOT extract technical factors such as instrument settings or LC parameters
+         - If the paper has a single condition with no comparison, FactorValue may be empty
+         - OVERLAP WITH OTHER ANNOTATION TYPES IS ALLOWED AND EXPECTED: A value that is also
+           extracted under Time, Temperature, or Compound MAY and SHOULD also appear in
+           FactorValue if it defines a differentiating variable between sample groups. For example,
+           if "4 h" and "24 h" are both Time annotations AND the primary axes of experimental
+           variation, they must ALSO be extracted as FactorValues. Similarly, a compound dose
+           like "1000 U/mL" may appear in both Compound and FactorValue. Do NOT suppress a
+           FactorValue extraction simply because the same value was already captured elsewhere.
+           Each annotation type is independent — extract for each type on its own merits.
+         - MANY STUDIES HAVE NO FACTOR VALUES — DO NOT OVER-EXTRACT: Not every proteomics study
+           has a controlled experimental design with systematically varied factors. Descriptive
+           studies, characterization studies, and single-condition studies often have NO FactorValue
+           at all. If the study is simply cataloguing or characterizing what is present in a set of
+           samples (e.g., profiling proteins in commercial allergen extracts, characterizing a
+           biobank, identifying proteins in a single sample type), there is no experimental factor
+           being varied and FactorValue MUST be empty. Do NOT invent factor values by treating
+           sample identifiers, manufacturer codes, species names, or sample labels as experimental
+           factors. Ask: "Is there a controlled comparison where the researcher deliberately varied
+           a condition across sample groups?" — if NO, return [].
+
+      EXAMPLE 6 - FactorValue (ALL NEGATIVE - No experimental factors present):
+      Text: "M1 - Creative Diagnostic Medicare Pvt. Ltd. (Navi Mumbai, India). M2 - All Cure Pharma
+      Pvt. Ltd. (Bahadurgarh, India). M3 - Alcit Pvt. Ltd (Delhi, India). All samples were
+      ready-to-use for physicians and contained glycerol and phenol. As reference for D. pteronyssinus
+      and D. farinae, authority-approved SPT solutions from Allergopharma were used (ref-DP, ref-DF).
+      As reference for B. tropicalis, an in-house produced B. tropicalis extract was used (ref-BT).
+      In all 6 samples labeled House Dust Mites (M2-HDM, M2-HDM-AV1, M2-HDM-AV2, M2-HDM-AV3,
+      M3-HDM-AV2, M3-HDM-AV3), no D. pteronyssinus, B. tropicalis or E. maynei proteins were
+      identified."
+
+      EXTRACT: FactorValue: []
+
+      DO NOT EXTRACT: FactorValue: ["16 house dust mite (HDM) SPT solutions and AVs", "M1", "M2",
+      "M3", "ref-DP", "ref-DF", "ref-BT", "Dermatophagoides pteronyssinus", "D. farinae",
+      "B. tropicalis"]
+
+      REASONING WHY NOT TO EXTRACT:
+      - This study characterizes and profiles the protein content of commercial allergen extracts.
+        There is NO controlled experimental design where a condition is deliberately varied across
+        sample groups. The researcher is not asking "what happens when condition X changes?" —
+        they are asking "what proteins are present in these products?". This is a descriptive /
+        characterization study with no experimental factor.
+      - "M1", "M2", "M3" are manufacturer codes and sample identifiers, not experimental factor
+        values. They label the samples but do not represent a systematically varied biological
+        condition. Sample IDs and batch codes are never FactorValues.
+      - "ref-DP", "ref-DF", "ref-BT" are reference sample labels, not experimental variables.
+        Labeling one sample as a reference does not create a controlled experimental factor.
+      - "Dermatophagoides pteronyssinus", "D. farinae", "B. tropicalis" are species names that
+        describe what organism the allergen extract came from. They are sample descriptors, not
+        systematically varied experimental conditions. The study does not compare what happens
+        across these species — it is simply cataloguing proteins found in each product.
+      - The absence of a comparison group or controlled perturbation means FactorValue MUST be [].
+        An empty list is the correct and complete answer here.
+
+      KEY PRINCIPLE: FactorValue requires a deliberate experimental design where the researcher
+      varied a condition across sample groups. Descriptive studies, characterization studies,
+      commercial product profiling, and single-condition surveys have no FactorValues. Sample
+      identifiers, manufacturer codes, species labels, and reference markers are NEVER FactorValues.
+      When in doubt about whether a real experimental comparison exists, return [].
+
+      5. TIME EXTRACTION RULES — READ CAREFULLY AND APPLY STRICTLY:
+
+         WHAT TO EXTRACT (biological time — defines WHEN samples were collected or HOW LONG a
+         biological treatment lasted before sample collection):
+         - Time points at which proteomics samples were collected (e.g., "0 h", "24 h", "48 h"
+           post-treatment, post-infection, or post-stimulation)
+         - Duration of a biological treatment, stimulus, or perturbation applied to living cells
+           or organisms before lysis/harvest (e.g., "treated for 6 h", "stimulated for 24 h")
+         - Time points in a time-course experiment defining distinct sample groups
+         - Growth duration that defines the biological state of the sample (e.g., "72 h growth")
+         - ALL time points in a time-course must be extracted as separate list items
+
+         WHAT NOT TO EXTRACT (technical/protocol time — describes a step duration within sample
+         preparation or instrument operation, NOT a biological condition):
+         - LC gradient duration (e.g., "120 min gradient", "90-minute gradient")
+         - MS acquisition time or scan duration
+         - Enzymatic digestion incubation times (e.g., "trypsin overnight", "Lys-C for 4 h")
+         - Protein reduction/alkylation incubation times
+         - Centrifugation duration
+         - Desalting or SPE column equilibration times
+         - Buffer exchange times
+         - Any incubation step in a sample preparation protocol AFTER cell lysis
+
+         DECISION TEST FOR TIME — apply this before every extraction:
+         Q1: "Does this time value describe WHEN samples were collected or how long a BIOLOGICAL
+              TREATMENT was applied to living cells/organisms BEFORE they were lysed?"
+         → If YES → EXTRACT
+         Q2: "Does this time value describe a PROTOCOL STEP performed on already-lysed material
+              (enzymatic digestion, reduction, centrifugation, LC gradient, MS acquisition)?"
+         → If YES → DO NOT EXTRACT
+
+         BORDERLINE CASES — always apply the decision test:
+         - "37 °C for 4 h for predigestion" → sample prep protocol step → DO NOT EXTRACT the time
+         - "cells were treated for 4 h before harvest" → biological treatment time → EXTRACT "4 h"
+         - "incubated overnight at 37 °C" (trypsin digestion) → protocol step → DO NOT EXTRACT
+         - "cultured for 72 h before lysis" → biological growth time → EXTRACT "72 h"
+
+         IMPORTANT — DO NOT MISS TIME-COURSE EXPERIMENTS:
+         - If multiple time points are listed (e.g., "0, 6, 12, 24 h post-infection"), extract ALL
+           of them as separate list items: ["0 h", "6 h", "12 h", "24 h"]
+         - Time points often appear in results sections or figure legends, not just methods — scan ALL
+           proteomics-relevant sections
+         - Phrases like "at 0, 4, and 24 hours post-stimulation" define sample groups and MUST be
+           extracted even if surrounded by protocol text
+
+      EXAMPLE A - Time (POSITIVE - Biological treatment time):
+      Text: "Cells were stimulated with LPS and harvested at 0 h, 4 h, and 24 h post-stimulation
+      for proteomics analysis."
+      EXTRACT: Time: ["0 h", "4 h", "24 h"]
+      REASONING: These are the time points at which living cells were harvested for MS analysis.
+      They define distinct biological sample groups and pass Q1 of the decision test.
+
+      EXAMPLE B - Time (NEGATIVE - Sample preparation incubation):
+      Text: "Proteins were digested with trypsin at 37 °C for 16 h, then desalted using C18 tips
+      for 20 min before LC-MS analysis."
+      DO NOT EXTRACT: Time: []
+      REASONING: "16 h" and "20 min" both describe protocol steps on already-lysed material.
+      They fail Q1 and pass Q2 → do not extract.
+
+      EXAMPLE C - Time (MIXED - Both present in same passage):
+      Text: "Cells were treated with doxorubicin for 6 h or 24 h. After lysis, proteins were
+      digested with trypsin overnight at 37 °C and desalted for 30 min before injection."
+      EXTRACT: Time: ["6 h", "24 h"]
+      DO NOT EXTRACT: "overnight", "30 min"
+      REASONING: "6 h" and "24 h" are biological treatment durations before lysis → EXTRACT.
+      "overnight" (trypsin) and "30 min" (desalting) are post-lysis protocol steps → DO NOT EXTRACT.
+
+      6. TEMPERATURE EXTRACTION RULES — READ CAREFULLY AND APPLY STRICTLY:
+
+         WHAT TO EXTRACT (biological temperature — defines the environmental or perturbation
+         temperature applied to living cells or organisms):
+         - Growth temperature of cells, bacteria, yeast, or organisms during culture
+           (e.g., "grown at 37 °C", "cultured at 30 °C")
+         - Temperature used as a biological perturbation or stress condition applied to living
+           samples before lysis (e.g., "heat shock at 42 °C", "cold stress at 4 °C",
+           "temperature shift from 30 °C to 37 °C")
+         - Temperature that defines a distinct sample group in a differential proteomics study
+           (e.g., two sample groups grown at 25 °C vs. 37 °C)
+
+         WHAT NOT TO EXTRACT (technical temperature — describes an instrument, reagent, or
+         protocol step temperature, NOT a biological condition):
+         - Column oven temperature (e.g., "column oven set to 40 °C")
+         - MS source temperature, ion transfer tube temperature, spray temperature
+         - Enzymatic digestion incubation temperature (e.g., "trypsin at 37 °C overnight")
+         - Protein reduction/alkylation temperature
+         - Centrifuge temperature
+         - Sample storage temperature (e.g., "stored at –80 °C")
+         - Heating steps in sample preparation (e.g., "heated at 95 °C for 5 min" for SDS lysis)
+         - Any temperature applied to already-lysed protein material
+
+         DECISION TEST FOR TEMPERATURE — apply this before every extraction:
+         Q1: "Was this temperature applied to LIVING cells, organisms, or tissues as a biological
+              condition or growth environment BEFORE lysis?"
+         → If YES → EXTRACT
+         Q2: "Was this temperature applied to already-lysed proteins, reagents, instruments,
+              or chromatography columns as a technical protocol parameter?"
+         → If YES → DO NOT EXTRACT
+
+         BORDERLINE CASES — always apply the decision test:
+         - "37 °C for trypsin digestion" → protocol reagent temperature → DO NOT EXTRACT
+         - "cells grown at 37 °C" → biological growth temperature → EXTRACT "37 °C"
+         - "heated at 95 °C for 5 min" (SDS lysis buffer) → sample prep step → DO NOT EXTRACT
+         - "heat shock at 42 °C for 30 min" (applied to cells) → biological perturbation → EXTRACT "42 °C"
+         - "column oven at 50 °C" → instrument parameter → DO NOT EXTRACT
+         - "temperature shift from 25 °C to 37 °C" (yeast growth condition) → EXTRACT both values
+         - "phosphatase treatment at 30 °C" (in vitro, post-lysis) → protocol step → DO NOT EXTRACT
+
+         NOTE ON 37 °C: This value appears frequently in both biological and protocol contexts.
+         Always determine context before deciding. "Cells incubated at 37 °C" → EXTRACT.
+         "Trypsin incubated at 37 °C" → DO NOT EXTRACT.
+
+      EXAMPLE D - Temperature (POSITIVE - Biological growth condition):
+      Text: "E. coli cultures were grown at 37 °C to mid-log phase, then shifted to 42 °C for
+      heat shock before harvest for proteomics."
+      EXTRACT: Temperature: ["37 °C", "42 °C"]
+      REASONING: Both temperatures were applied to living bacteria as biological conditions
+      before lysis. They pass Q1 of the decision test.
+
+      EXAMPLE E - Temperature (NEGATIVE - Sample preparation steps only):
+      Text: "Cell lysates were heated to 95 °C for 10 min. Tryptic digestion was performed at
+      37 °C overnight. The column oven was maintained at 50 °C during LC-MS analysis."
+      DO NOT EXTRACT: Temperature: []
+      REASONING: 95 °C is a lysis denaturation step, 37 °C is a trypsin digestion temperature,
+      50 °C is an instrument parameter. All fail Q1 and pass Q2 → do not extract any.
+
+      EXAMPLE F - Temperature (MIXED - Both biological and protocol temperatures present):
+      Text: "Yeast cells were grown at 30 °C. For heat stress experiments, cells were shifted
+      to 39 °C for 1 h before lysis. After lysis, proteins were reduced at 56 °C for 30 min
+      and alkylated at room temperature."
+      EXTRACT: Temperature: ["30 °C", "39 °C"]
+      DO NOT EXTRACT: "56 °C", "room temperature"
+      REASONING: 30 °C (growth) and 39 °C (heat stress applied to living cells) are biological
+      conditions → EXTRACT. 56 °C (reduction) is a post-lysis protocol step → DO NOT EXTRACT.
+
+      7. COMPOUND EXTRACTION RULES (CRITICAL — NOW INCLUDES PROTEINS AND BIOLOGICAL MOLECULES):
+
+         WHAT QUALIFIES AS A COMPOUND:
+         - Small molecules applied as biological treatments or perturbations to samples
+         - Drugs, inhibitors, hormones, cytokines applied to cells or organisms before MS analysis
+         - PROTEINS applied as biological treatments (e.g., recombinant cytokines, growth factors,
+           enzymes added to living cells or organisms as experimental perturbations)
+         - Any biological molecule deliberately administered to samples as part of the experimental
+           design — if a concentration is mentioned, it MUST be captured together with the name
+
+         WHAT DOES NOT QUALIFY:
+         - Sample preparation reagents (DTT, iodoacetamide, urea, formic acid, TCEP, etc.)
+         - LC solvents (acetonitrile, water, TFA, etc.)
+         - MS calibrants or lock mass compounds
+         - Isotopic or isobaric labeling reagents (SILAC amino acids, TMT, iTRAQ, etc.)
+         - Trypsin, Lys-C, or other proteolytic enzymes used for digestion (these are sample
+           preparation reagents, NOT biological treatments — even though they are proteins)
+         - Compounds mentioned ONLY in non-proteomics sections with no connection to the MS workflow
+
+         PROTEIN-AS-COMPOUND RULE (NEW — APPLY CAREFULLY):
+         Proteins and biological macromolecules qualify as Compound annotations when they are
+         applied to living cells or organisms as EXPERIMENTAL PERTURBATIONS — i.e., they are
+         administered as a biological treatment that defines the experimental condition.
+
+         Examples that QUALIFY:
+         - Recombinant cytokines added to cells (e.g., "IFNβ at 1000 U/mL", "TNFα 10 ng/mL")
+         - Growth factors added to cell cultures as treatment conditions
+         - Recombinant proteins injected into organisms as perturbations
+         - Antibodies or ligands applied to cells as biological stimuli
+
+         Examples that DO NOT QUALIFY (even though they are proteins):
+         - Trypsin, Lys-C, pepsin (proteolytic digestion enzymes → sample prep reagents)
+         - BSA used as a blocking agent in sample preparation
+         - Protein standards used for MS calibration
+         - Antibodies used only for immunoprecipitation/enrichment in sample prep
+
+         CONCENTRATION PAIRING RULES (STRICT — UNCHANGED):
+         - If compound/protein name exists WITH concentration nearby: extract as "name concentration"
+         - If compound/protein name exists WITHOUT concentration: extract name alone
+         - If concentration exists WITHOUT compound/protein name: DO NOT EXTRACT (orphan concentrations forbidden)
+
+         ASYMMETRY PRINCIPLE (UNCHANGED):
+         ALLOWED: Compound or protein without concentration (extract the name alone)
+         FORBIDDEN: Concentration without compound or protein name (never extract orphan concentrations)
+
+         - For each compound/protein, check whether a concentration is stated in the same or nearby sentence
+         - If a concentration is stated, extract together as a single string: name as written followed
+           by concentration as written
+         - If the same compound/protein appears at multiple concentrations, extract each as a separate item
+         - Units must be included exactly as written in the source
+
+      EXAMPLE G - Compound with Protein (POSITIVE - Recombinant protein as biological treatment):
+      Text: "Cells were stimulated with 1000 U/mL of human recombinant IFNβ (R&D Systems) in DMEM
+      for 4 h or 24 h before harvest for shotgun proteomics."
+      EXTRACT: Compound: ["human recombinant IFNβ 1000 U/mL"]
+      REASONING: IFNβ is a protein applied to living cells as a biological perturbation. A
+      concentration (1000 U/mL) is stated in the same sentence → extract name + concentration
+      together as a single string.
+
+      EXAMPLE H - Compound with Protein (NEGATIVE - Trypsin is sample prep, not a treatment):
+      Text: "Cell lysates were reduced, alkylated, and digested with 0.5 µg trypsin at 37 °C
+      overnight."
+      DO NOT EXTRACT: Compound: []
+      REASONING: Trypsin here is a proteolytic digestion enzyme used in sample preparation on
+      already-lysed material. Even though it is a protein and a concentration (0.5 µg) is stated,
+      it does not qualify as a biological treatment. DO NOT EXTRACT.
+
+      EXAMPLE I - Compound with Protein (POSITIVE - Growth factor at multiple concentrations):
+      Text: "Cells were treated with EGF at 10 ng/mL or 50 ng/mL for 30 min, then harvested
+      for proteomics."
+      EXTRACT: Compound: ["EGF 10 ng/mL", "EGF 50 ng/mL"]
+      REASONING: EGF (epidermal growth factor) is a protein applied as a biological treatment.
+      Two concentrations are stated → extract each as a separate list item.
+
+      EXAMPLE J - Compound without concentration (POSITIVE - extract name alone):
+      Text: "Cells were treated with doxorubicin and harvested for MS-based proteomics."
+      EXTRACT: Compound: ["doxorubicin"]
+      REASONING: Doxorubicin is a biological treatment compound. No concentration is stated in
+      context → extract the name alone. Do not fabricate a concentration.
+
+      IN-CONTEXT LEARNING EXAMPLES (ORIGINAL — RETAINED):
+
+      EXAMPLE 1 - Temperature (POSITIVE - Extract):
+      Text: "In the third step, 50 nL enzyme solution containing 0.25 ng Lys-C in 50 mM ABC was 
+      added and incubated at 37 °C for 4 h for predigestion. In the fourth step, 50 nL of enzyme 
+      solution containing 0.25 ng trypsin in 50 mM ABC was added to each droplet and incubated 
+      overnight at 37 °C for tryptic digestion."
+      
+      EXTRACT: Temperature: ["37 °C"]
+      
+      REASONING: Although this describes enzymatic digestion steps in sample preparation (a protocol 
+      step), 37 °C is a standard biological temperature reflecting physiological conditions. This 
+      temperature is part of the proteomics sample processing workflow and represents a consistent 
+      condition applied during sample preparation. Extract this as it describes how the samples were 
+      processed before MS analysis.
+
+      EXAMPLE 2 - Temperature (NEGATIVE - Do NOT Extract):
+      Text: "Protein concentration was then determined by a Bradford Assay and equal amounts of 1 mg 
+      total protein were incubated with recombinant PP1c/PP2Ac or buffer at a final phosphatase 
+      concentration of 1 µM in a total volume of 200 µL for 1 h at 30 °C."
+      
+      DO NOT EXTRACT: Temperature: []
+      
+      REASONING: This 30 °C temperature describes an in vitro biochemical assay (phosphatase treatment) 
+      performed BEFORE the proteomics analysis. This is a sample preparation reagent incubation 
+      temperature, not a biological growth condition or experimental perturbation temperature. The 
+      temperature describes HOW the sample was prepared (technical protocol parameter), not WHAT 
+      biological condition the sample represents. This fails the "biological condition" test and should 
+      NOT be extracted.
+
+      EXAMPLE 3 - FactorValue (POSITIVE and NEGATIVE - Tissue Type and Biological State):
+      Text: "Riftia specimens were dissected onboard, and samples from four different organs (here 
+      referred to as tissues) were stored at –80°C: the lamellae of the tentacular crown were shaved 
+      off to provide plume samples, trophosome samples were dissected from whole trophosome, body wall 
+      samples were retrieved and washed after removal of the trophosome, and vestimental samples were 
+      cut off from the lateral portions of the vestimentum. As trophosome color is directly correlated 
+      to the tissue's elemental sulfur content, we classified specimens as sulfur rich (S rich), 
+      S depleted, and medium S according to their trophosome color (yellow/light green, dark 
+      green/black, or medium green, respectively)."
+      
+      EXTRACT: FactorValue: ["plume", "vestimentum", "trophosome", "sulfur-rich", "sulfur-depleted"]
+      
+      DO NOT EXTRACT: FactorValue: ["tissue", "condition"]
+      
+      REASONING WHY TO EXTRACT:
+      - "plume", "trophosome", "vestimentum" are the specific, named organ types that define distinct
+        sample groups in this proteomics experiment. Each is a concrete biological entity that
+        differentiates samples from one another — they pass the sample differentiation test.
+      - "sulfur-rich" and "sulfur-depleted" represent distinct biological states (elemental sulfur
+        content) used to classify specimens into different proteomics sample groups. These are specific,
+        meaningful experimental conditions that directly differentiate samples.
+      - Note: "body wall" also appears in the text and could qualify by the same logic (it is a named
+        organ), but it was not included in the gold annotation — extract conservatively and match the
+        exact terms used to define sample groups in the proteomics workflow.
+      
+      REASONING WHY NOT TO EXTRACT:
+      - "tissue" is a generic umbrella category used to describe all samples collectively. It does not
+        differentiate between sample groups — it is the overarching category, not a specific factor
+        value. Extracting it would be redundant and uninformative.
+      - "condition" is similarly a generic label that names the type of variable (biological state),
+        not a specific value that distinguishes samples. It adds no concrete information about what
+        differs between samples. Abstract category names like "tissue type" or "condition" should
+        never be extracted as FactorValues.
+      
+      KEY PRINCIPLE: Extract the SPECIFIC named instances that define sample identity (e.g., "plume",
+      "sulfur-rich"), NOT the abstract category names that group them (e.g., "tissue", "condition").
+
+      EXAMPLE 4 - FactorValue (POSITIVE and NEGATIVE - Clinical Groups and Treatments):
+      Text: "Matched urine samples were collected from prostate cancer patients prior to (n = 12) and 
+      3 months after local treatment by radical prostatectomy or intensity-modulated radiation therapy 
+      (n = 10). From selected prostate cancer patients (PC; n = 3), urine samples prior to radical 
+      prostatectomy and resected prostate cancer tissue samples were collected. Identified proteins 
+      were analysed and visualized using Perseus software version 1.6.2.2. For comparison between 
+      prostate cancer and benign prostate hyperplasia samples, intensities of proteins were normalized 
+      to the prostate-specific marker KLK3/PSA."
+      
+      EXTRACT: FactorValue: ["prostate cancer", "benign prostate hyperplasia", 
+                              "radical prostatectomy", "intensity-modulated radiation therapy"]
+      
+      DO NOT EXTRACT: FactorValue: ["BPH", "urothelial cancer of the bladder (UCC)", 
+                                     "3 months after local treatment", "matched uEV", 
+                                     "soluble proteins", "renal cell carcinoma (RCC)"]
+      
+      REASONING WHY TO EXTRACT:
+      - "prostate cancer" and "benign prostate hyperplasia" are the two disease groups being directly
+        compared in this proteomics study. The text explicitly states "For comparison between prostate
+        cancer and benign prostate hyperplasia samples", confirming these are the primary experimental
+        factors that differentiate sample groups. They pass both the sample differentiation test and
+        the utility test.
+      - "radical prostatectomy" and "intensity-modulated radiation therapy" are the specific treatment
+        interventions applied to the patient samples. The study collects samples before and after these
+        treatments, meaning the treatment type is a systematic variable that differentiates sample
+        groups. These are meaningful clinical factors present verbatim in the text.
+      
+      REASONING WHY NOT TO EXTRACT:
+      - "BPH" is an abbreviation for "benign prostate hyperplasia" which is already extracted. Do not
+        extract both the full name and its abbreviation — this would be a duplicate. Always prefer the
+        full name as it appears first and most clearly in the text.
+      - "urothelial cancer of the bladder (UCC)" and "renal cell carcinoma (RCC)" do NOT appear in
+        this text excerpt. Extracting them would constitute hallucination — fabricating information
+        not present in the source. This is forbidden regardless of domain knowledge.
+      - "3 months after local treatment" is a time point, not a factor value name. If it were
+        extracted at all, it would belong to the Time annotation type, not FactorValue.
+      - "matched uEV" and "soluble proteins" refer to sample fractionation types (extracellular
+        vesicle fraction vs. soluble fraction), which are technical sample preparation distinctions,
+        not biological experimental factors. They do not represent biologically meaningful conditions
+        that differentiate the study groups.
+      
+      KEY PRINCIPLE: Only extract FactorValues that are (1) explicitly present verbatim in the source
+      text, (2) biologically meaningful conditions differentiating sample groups, and (3) not
+      duplicates of already-extracted terms (do not extract both full names and abbreviations).
+
+      EXAMPLE 5 - FactorValue (POSITIVE and NEGATIVE - Dose and Time as Factor Values):
+      Text: "The following day, cells were washed with 1× phosphate-buffered saline (PBS) and 
+      stimulated with 1000 U/mL of human recombinant IFNβ (R&D Systems) in DMEM for the designated 
+      length of time. For shotgun proteomic analysis, ~ 1.0 × 10^7 cells were harvested from control 
+      (light), 4 h IFNβ stimulation (medium), and 24 h IFNβ stimulation (heavy). Cells were lysed 
+      in Lysis Buffer (4% SDS, 10 mM DTT, 100 mM Tris-HCl, pH 8.8) and heated at 95 °C for 5 min."
+      
+      EXTRACT: FactorValue: ["1000 U/mL", "4 h", "24 h"]
+      
+      DO NOT EXTRACT: FactorValue: ["IFNβ stimulation", "SILAC label", "siRNA knockdown of RPL28, RPS26, or RPS28"]
+      
+      REASONING WHY TO EXTRACT:
+      - "1000 U/mL" is the dose of IFNβ applied to cells. Even though it is a concentration value,
+        here it directly defines the treatment condition that differentiates the stimulated samples
+        from the control. It is a specific, quantitative experimental factor present verbatim in the
+        text.
+      - "4 h" and "24 h" are the two distinct stimulation time points at which cells were harvested
+        for proteomics analysis. The text explicitly defines three sample groups — control (light),
+        4 h stimulation (medium), and 24 h stimulation (heavy) — making these time durations the
+        primary variables differentiating the proteomics samples. They pass the sample differentiation
+        test: each value defines a distinct proteomics sample group.
+      - Note: these values (dose and time) also overlap with what could be annotated as Compound and
+        Time respectively. However, when dose and time are the primary axes of experimental variation
+        in a differential proteomics study, they also qualify as FactorValues because they define
+        what differs between sample groups.
+      
+      REASONING WHY NOT TO EXTRACT:
+      - "IFNβ stimulation" describes the general type of biological intervention, not a specific
+        factor value that differentiates sample groups. The actual differentiating variables are the
+        dose (1000 U/mL) and the duration (4 h, 24 h) — not the name of the treatment itself. The
+        treatment name is the category; the dose and time are the values that matter.
+      - "SILAC label" refers to the isotopic labeling strategy used for quantification (light/medium/
+        heavy SILAC). This is a technical MS quantification method, not a biological experimental
+        factor. Labeling strategy should never be extracted as a FactorValue.
+      - "siRNA knockdown of RPL28, RPS26, or RPS28" does NOT appear in this text excerpt at all.
+        Extracting it would constitute hallucination. This illustrates a critical failure mode:
+        using domain knowledge to infer what the experiment might involve rather than extracting
+        only what is explicitly stated in the source text.
+      
+      KEY PRINCIPLE: When dose or time define the specific sample groups in a differential proteomics
+      experiment, extract the exact numeric values (e.g., "1000 U/mL", "4 h") as FactorValues —
+      NOT the treatment name or category. Never extract SILAC/TMT/iTRAQ labeling strategies as
+      FactorValues. Never extract anything not present verbatim in the source text.
+
+      8. VERIFY BEFORE EXTRACTION: Before extracting any annotation, verify:
+         - Is this from a section describing proteomics/MS experiments?
+         - Can you point to the exact location in the proteomics text where it appears?
+         - Is it written exactly as you are extracting it?
+         - Does it clearly match the annotation type definition?
+         - Does it pass the sample differentiation test?
+         - Does it pass the utility test?
+         - Have I extracted only the essential information without full sentences?
+         - If you cannot answer YES to all seven, do NOT extract it
+
+      9. ACCURACY OVER COMPLETENESS:
+         - When in doubt, do NOT extract
+         - Better to miss information than extract incorrectly
+         - Only extract when certain it matches the annotation type AND is from proteomics sections
+         - Empty lists are PERFECTLY ACCEPTABLE if annotations are not found
+
+      10. NO TEXT IN OUTPUT:
+          - Return ONLY the JSON object with annotation lists
+          - Do NOT include source text sections
+          - Do NOT include explanations outside the JSON structure
+          - Do NOT include document identifiers in output
+
+      11. EMPTY RESULTS ARE OK:
+          - If an annotation type is not found in the proteomics sections, return an empty list []
+          - Do NOT attempt to fill in likely values
+          - It is better to return [] than to extract incorrect information
+
+      12. MENTAL VERIFICATION PROCESS:
+          - For each potential extraction, mentally note:
+            * Is this from a proteomics/mass spectrometry section of the paper?
+            * Where exactly in the proteomics section is this stated?
+            * Is this the exact wording from the source?
+            * Have I removed unnecessary sentence structure and context?
+            * Why does this qualify as this specific annotation type?
+            * For Time: apply Q1/Q2 decision test — biological treatment/collection time (EXTRACT)
+              or post-lysis protocol step duration (DO NOT EXTRACT)?
+            * For Time: have I scanned ALL proteomics sections including results and figure legends
+              for time-course data that might be described there instead of the methods?
+            * For Temperature: apply Q1/Q2 decision test — biological growth/perturbation condition
+              (EXTRACT) or instrument/reagent/protocol temperature (DO NOT EXTRACT)?
+            * For Temperature: is this 37 °C used for cells (EXTRACT) or for trypsin digestion
+              (DO NOT EXTRACT)? Always resolve context before deciding.
+            * For Compound: is this a biological treatment applied to living cells or organisms
+              (EXTRACT) or a sample preparation reagent on already-lysed material (DO NOT EXTRACT)?
+            * For Compound: is this a PROTEIN applied as a biological perturbation (EXTRACT) or
+              a proteolytic enzyme, calibrant, or labeling reagent (DO NOT EXTRACT)?
+            * For Compound: if a concentration exists nearby, is it included in the extracted string?
+              If no concentration exists, extract the name alone (do NOT fabricate a concentration).
+            * For FactorValue: does this name a variable that differs between sample groups?
+            * For FactorValue: am I extracting the specific value (e.g., "plume", "4 h") rather
+              than the abstract category name (e.g., "tissue type", "time point")?
+            * For FactorValue: am I avoiding abbreviations already covered by full names?
+            * For FactorValue: am I avoiding labeling strategies (SILAC, TMT, iTRAQ)?
+            * For FactorValue: am I incorrectly suppressing a value just because it already
+              appears under Time, Temperature, or Compound? Overlap is allowed — each annotation
+              type is independent and must be evaluated separately.
+            * For FactorValue: is there actually a controlled experimental comparison in this
+              study? If the study is purely descriptive or characterizes a single set of samples
+              with no deliberate condition variation, FactorValue must be [] — do not extract
+              sample IDs, species names, manufacturer codes, or reference labels as FactorValues.
+            * Does this help differentiate proteomics samples?
+            * Is this useful metadata or trivial information?
+          - Only include if you can clearly answer all relevant questions
+
+      13. CONTEXT-BASED EXTRACTION:
+          - Pay attention to section context
+          - Some terms have different meanings in different contexts
+          - Extract based on functional role in the proteomics workflow
+          - Only extract from proteomics-relevant contexts
+
+      Return ONLY a valid JSON object with lists of extracted values and no other text.
+    output:
+      schema:
+        FactorValue: list[string]
+        Time: list[string]
+        Temperature: list[string]
+        Compound: list[string]
+
+pipeline:
+  steps:
+    - name: factor_values_pipeline
+      input: papers
+      operations:
+        - extract_factor_values
+
+  output:
+    type: file
+    path: ./output/factor_values_complete.json
+    intermediate_dir: ./checkpoints
