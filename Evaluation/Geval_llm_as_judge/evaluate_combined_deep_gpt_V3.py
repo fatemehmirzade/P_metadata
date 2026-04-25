@@ -44,8 +44,9 @@ REASONING_EFFORT = "medium"
 USE_LLM_JUDGE    = True
 LIMIT            = None
 
-CACHE_DIR     = os.path.join(BASE_DIR, ".prompt_cache")
-CACHE_ENABLED = True
+_CACHE_MODEL_SLUG = EVALUATION_MODEL.replace("/", "_").replace(" ", "_")
+CACHE_DIR         = os.path.join(BASE_DIR, f".prompt_cache_{_CACHE_MODEL_SLUG}")
+CACHE_ENABLED     = True
 
 AGENT_FILE_SUFFIX = {
     "BiologicalAgent":         "biological",
@@ -656,7 +657,7 @@ class DiskResponseCache:
 
     @staticmethod
     def _make_key(paper_id: str, task: str, field_name: str, primary_value: str) -> str:
-        blob = f"{paper_id}|{task}|{field_name.lower()}|{primary_value}"
+        blob = f"{EVALUATION_MODEL}|{paper_id}|{task}|{field_name.lower()}|{primary_value}"
         return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
     def get(self, paper_id: str, task: str, field_name: str,
@@ -1908,7 +1909,7 @@ def main():
     print(f"  Limit          : {LIMIT if LIMIT else 'ALL papers'}")
     print()
     print("Cache architecture:")
-    print("  Layer 1 (disk):   key = SHA-256(paper_id|task|field_name|value)")
+    print(f"  Layer 1 (disk):   key = SHA-256(model|paper_id|task|field_name|value)")
     print("                    Static system prompt excluded → cross-paper hits possible.")
     print("  Layer 2 (OpenAI): Static system prompt prefix cached automatically.")
     print("                    Paper text in conversation turn, not system prompt.")
