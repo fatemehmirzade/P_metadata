@@ -71,7 +71,7 @@ export OPENROUTER_API_KEY="sk-or-v1-your-key-here"
 ## 3. How to Run
 
 ```bash
-python fixed_code.py --model claude
+python H_Pipeline_Evaluation.py --model claude
 ```
 
 ---
