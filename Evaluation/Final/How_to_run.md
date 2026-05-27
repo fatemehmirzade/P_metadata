@@ -2,7 +2,7 @@
 
 ## Overview
 
-This pipeline evaluates the quality of metadata extracted from proteomics papers by LLM-based agents (Claude, GPT, Gemini, LLaMA). It uses **Gemma-4-31B-IT** as an LLM judge (via OpenRouter) to assess each extracted value against the original paper text, producing verdicts of `high`, `medium`, or `low`.
+This pipeline evaluates the quality of metadata extracted from proteomics papers by LLM based agents (Claude, GPT, Gemini, LLaMA). It uses **Gemma-4-31B-IT** as an LLM judge (via OpenRouter) to assess each extracted value against the original paper text, producing verdicts of `high`, `medium`, or `low`.
 
 ---
 
