@@ -1,7 +1,6 @@
 default_model: openrouter/google/gemma-4-31b-it
-max_threads: 2
+max_threads: 4
 bypass_cache: true
-timeout: 300
 
 model_settings:
   openrouter/google/gemma-4-31b-it:
@@ -12,10 +11,8 @@ optimizer_config:
   sample_size: 5
   validation_sample_size: 3
   optimizer_model: openrouter/google/gemma-4-31b-it
-  timeout: 300
   optimizer_model_settings:
     temperature: 0
-
 
 datasets:
   papers:
@@ -26,7 +23,6 @@ operations:
   - name: extract_factor_values
     type: map
     model: openrouter/google/gemma-4-31b-it
-    timeout: 300
     model_params:
       temperature: 0
       enable_thinking: true
