@@ -40,7 +40,6 @@ MODEL_EXTRACTION_DIRS = {
 
 AGENTS = ["BiologicalAgent", "TechnicalAgent", "ExperimentalDesignAgent"]
 
-# Judge model 
 EVALUATION_MODEL      = "google/gemma-4-31b-it"
 OPENROUTER_BASE_URL   = "https://openrouter.ai/api/v1"
 MODEL_TEMPERATURE     = 0
@@ -49,7 +48,6 @@ MODEL_ENABLE_THINKING = True
 USE_LLM_JUDGE = True
 LIMIT          = None
 
-# Cache dir 
 _CACHE_MODEL_SLUG = EVALUATION_MODEL.replace("/", "_").replace(" ", "_")
 CACHE_DIR         = os.path.join(BASE_DIR, f".prompt_cache_{_CACHE_MODEL_SLUG}")
 CACHE_ENABLED     = True
@@ -57,9 +55,8 @@ CACHE_ENABLED     = True
 MAX_WORKERS = 4
 
 MAX_RETRIES = 3
-RETRY_DELAY = 2  
+RETRY_DELAY = 2
 
-# Thread
 _thread_local = threading.local()
 
 AGENT_FILE_SUFFIX = {
@@ -68,12 +65,15 @@ AGENT_FILE_SUFFIX = {
     "ExperimentalDesignAgent": "experimental",
 }
 
-# technology type, phenotype, mass analyzer and ethnicity
 SKIP_MISSED_FIELDS = {
     "pxd_id", "dataset_id", "accession", "pride_id", "proteomexchange_id",
     "repository", "doi", "pubmed_id", "pmid",
     "technology_type", "phenotype", "mass_analyzer", "ethnicity",
 }
+
+SKIP_ANNOTATION_FIELDS = {"phenotype", "ethnicity", "mass_analyzer", "technology_type"}
+
+_ALWAYS_LLM_FIELDS = {"material_type", "acquisition_method"}
 
 _NOT_EXTRACTED_VALUES = {"unknown", "n/a", "not available", "none", "null", "na", ""}
 
@@ -166,18 +166,12 @@ SAFE_DEFAULTS = {
     "number_of_fractions":  {"1", "none", "not applicable"},
     "replicates":           {"1"},
     "technical_replicates": {"1"},
-    "material_type":        {"tissue", "cell line", "primary cells", "biofluid",
-                             "whole organism", "plasma", "serum", "organoid"},
-    "acquisition_method":   {"dda", "dia", "data-dependent acquisition", "data-dependent",
-                             "data dependent acquisition"},
     "experimental_design":  {"treated vs control", "case vs control", "time course",
                              "dose response", "cross-sectional", "longitudinal"},
 }
 
 CONCENTRATION_FIELDS = {"reduction_concentration", "alkylation_concentration"}
 
-
-#  SDRF TSV -> golden values
 
 SDRF_COLUMN_TO_FIELD: dict[str, str] = {
     "characteristics[organism]":            "species",
@@ -193,7 +187,7 @@ SDRF_COLUMN_TO_FIELD: dict[str, str] = {
     "characteristics[phenotype]":           "phenotype",
     "characteristics[individual]":          "individual",
     "comment[label]":                       "label",
-    "comment[fraction identifier]":         "_fraction_identifier",   
+    "comment[fraction identifier]":         "_fraction_identifier",
     "comment[ms2 mass analyzer]":           "mass_analyzer",
     "comment[instrument]":                  "instrument",
     "comment[dissociation method]":         "fragmentation",
@@ -232,14 +226,13 @@ def _parse_sdrf_value(raw: str) -> str | None:
 
 
 def _collapse_technical_replicates(golden: dict[str, list[str]]) -> None:
-    """ technical_replicates -> maximum numeric value"""
     if "technical_replicates" not in golden:
         return
     vals = golden["technical_replicates"]
     numeric_vals = []
     for v in vals:
         try:
-            numeric_vals.append(int(v))
+            numeric_vals.append(int(float(v)))
         except (ValueError, TypeError):
             pass
     if numeric_vals:
@@ -264,7 +257,6 @@ def _deduplicate_cell_type_vs_organ(golden: dict[str, list[str]]) -> None:
 
 
 def load_golden_from_sdrf(pxd_id: str) -> dict[str, list[str]]:
-    """golden references: SDRF TSV of dataset"""
     dataset_dir = os.path.join(TEST_SET, pxd_id)
     sdrf_path   = None
     if os.path.isdir(dataset_dir):
@@ -328,6 +320,9 @@ def load_golden_from_sdrf(pxd_id: str) -> dict[str, list[str]]:
                 golden.setdefault("number_of_samples", [str(len(meaningful))])
     _collapse_technical_replicates(golden)
     _deduplicate_cell_type_vs_organ(golden)
+    for skip_field in SKIP_ANNOTATION_FIELDS:
+        if skip_field in golden:
+            del golden[skip_field]
     n_fields = len(golden)
     n_vals   = sum(len(v) for v in golden.values())
     print(f"    SDRF golden: {n_fields} fields, {n_vals} total values")
@@ -458,8 +453,19 @@ CORE EVALUATION QUESTIONS (answer in order)
                      standard material_type values inferable from context;
                      abbreviation expansions (IAA = iodoacetamide, HCD =
                      higher-energy collisional dissociation, etc.).
-                  -- If absent AND not a safe default -> HALLUCINATED: yes
-                     (rule A -> VERDICT: low).
+                  -- INFERABLE FIELDS: For material_type and acquisition_method,
+                     the value may be reasonably inferable from the experimental
+                     context even when not explicitly stated in the paper text.
+                     For material_type, infer from what biological material was
+                     used (e.g. cell lines, tissue, biofluid, etc.).
+                     For acquisition_method, infer from the described MS workflow,
+                     instrument settings, or analysis software (e.g. MaxQuant DDA,
+                     Spectronaut DIA, etc.).
+                     Do NOT mark these as HALLUCINATED solely because the exact
+                     term is absent. Instead, assess whether the value is a
+                     reasonable inference from the described experiment.
+                  -- If absent AND not a safe default AND not reasonably
+                     inferable -> HALLUCINATED: yes (rule A -> VERDICT: low).
                   -- If present but in a different context -> HALLUCINATED: no,
                      VALUE_CORRECT: no (rule D).
 
@@ -715,6 +721,42 @@ HALLUCINATED:      no
 VERDICT:           high
 CORRECTED_VALUE:   NONE
 
+Example 6 -- HIGH: material_type inferred from context
+field_name=material_type, candidate_value="cell line",
+reference_values=[]
+
+TYPE CHECK:        Broad material class -- correct field.
+SOURCE CHECK:      Paper describes experiments on HEK293T cells, which is a cell line.
+                   "cell line" is reasonably inferable from the experimental context.
+TRUTH CHECK:       Factually correct -- HEK293T is indeed a cell line.
+COMPLETENESS CHECK:Complete.
+MATCHED_REFERENCE: NONE
+TYPE_CORRECT:      yes
+CORRECT_TYPE_NAME: NONE
+VALUE_CORRECT:     yes
+VALUE_COMPLETE:    yes
+HALLUCINATED:      no
+VERDICT:           high
+CORRECTED_VALUE:   NONE
+
+Example 7 -- HIGH: acquisition_method inferred from workflow
+field_name=acquisition_method, candidate_value="DDA",
+reference_values=[]
+
+TYPE CHECK:        MS acquisition scheme -- correct field.
+SOURCE CHECK:      Paper describes using MaxQuant for analysis and top-N MS2 scans,
+                   which is characteristic of DDA. Reasonably inferable.
+TRUTH CHECK:       Factually correct based on the described workflow.
+COMPLETENESS CHECK:Complete.
+MATCHED_REFERENCE: NONE
+TYPE_CORRECT:      yes
+CORRECT_TYPE_NAME: NONE
+VALUE_CORRECT:     yes
+VALUE_COMPLETE:    yes
+HALLUCINATED:      no
+VERDICT:           high
+CORRECTED_VALUE:   NONE
+
 =================================================================
 METADATA FIELD DEFINITIONS
 =================================================================
@@ -733,6 +775,10 @@ _ANNOTATION_GEVAL_CRITERIA = (
     "(2) SOURCE: is it present in or a valid safe default for the paper text? "
     "    Absent and not a safe default -> HALLUCINATED: yes -> low. "
     "    Present but wrong context -> HALLUCINATED: no, VALUE_CORRECT: no (rule D). "
+    "    IMPORTANT: For material_type and acquisition_method, the value may be "
+    "    reasonably inferable from the experimental context even when not explicitly "
+    "    stated. Do NOT mark as HALLUCINATED solely because the exact term is absent. "
+    "    Assess whether the value is a reasonable inference from the experiment. "
     "(3) TRUTH: is it factually correct per the paper and field definition? "
     "    Synonyms, abbreviations, digit/word swaps = CORRECT. "
     "    Differing from reference_values is NEVER a reason to fail. "
@@ -762,7 +808,12 @@ _ANNOTATION_GEVAL_STEPS = [
     "when subjects are controls; developmental stage terms inferable from subjects; "
     "'label-free' when no labeling is used; '1' for fractions/replicates when not discussed; "
     "standard material_type values inferable from context; abbreviation expansions. "
-    "If ABSENT and not a safe default: HALLUCINATED: yes -> VERDICT: low (rule A). "
+    "IMPORTANT: For material_type and acquisition_method, the value may be reasonably "
+    "inferable from the experimental context (e.g. cell lines imply material_type='cell line', "
+    "MaxQuant + top-N scans imply acquisition_method='DDA'). Do NOT mark as HALLUCINATED "
+    "solely because the exact term is absent — assess whether it is a reasonable inference. "
+    "If ABSENT and not a safe default and not reasonably inferable: "
+    "HALLUCINATED: yes -> VERDICT: low (rule A). "
     "If PRESENT but in wrong context: HALLUCINATED: no, VALUE_CORRECT: no (rule D).",
 
     "TRUTH CHECK: assess whether the candidate is factually correct AND fits the field "
@@ -880,7 +931,7 @@ def _build_messages(paper_text: str, entity_context: dict) -> list[dict]:
                 {
                     "type": "text",
                     "text": _STATIC_SYSTEM_PROMPT,
-                    "cache_control": {"type": "ephemeral"},   
+                    "cache_control": {"type": "ephemeral"},
                 }
             ],
         },
@@ -893,7 +944,7 @@ def _build_messages(paper_text: str, entity_context: dict) -> list[dict]:
                         "PAPER TEXT (title + abstract + methods) — use as source of truth "
                         "for all SOURCE CHECK and TRUTH CHECK assessments:\n\n" + paper_text
                     ),
-                    "cache_control": {"type": "ephemeral"}, 
+                    "cache_control": {"type": "ephemeral"},
                 }
             ],
         },
@@ -936,7 +987,6 @@ def _extract_text_content(raw_message) -> str:
         return content
     return ""
 
-# prompt caching + retries
 
 class Gemma4Judge(DeepEvalBaseLLM):
 
@@ -1338,6 +1388,13 @@ def _run_geval_semantic(field_name, extracted_value, gt_candidates):
             "IMPORTANT: This is a concentration field. The reagent name is extracted "
             "separately in a companion field. A value with only numeric quantity + unit "
             "(e.g. '2.5 mM') WITHOUT the reagent name is COMPLETE (VALUE_COMPLETE: yes). ")
+    if field_name.lower() in _ALWAYS_LLM_FIELDS:
+        expected_str += (
+            "IMPORTANT: This is a material_type or acquisition_method field. "
+            "The value may be reasonably inferable from the experimental context "
+            "even when not explicitly stated in the paper text. "
+            "Do NOT mark as HALLUCINATED solely because the exact term is absent. "
+            "Assess whether the value is a reasonable inference from the experiment. ")
     expected_str += (
         f"Reference values for MATCHED_REFERENCE tracking only: "
         f"{'; '.join(gt_candidates)}"
@@ -1506,6 +1563,12 @@ def _second_pass_coverage(field_name, gt_v, predictions):
     return _geval_covers(field_name, gt_v, predictions)
 
 
+def _is_golden_skip_value(val: str) -> bool:
+    if not val:
+        return True
+    return val.strip().lower() in _SDRF_SKIP_VALUES
+
+
 def evaluate_paper_with_geval(paper_id, tier_rows, all_golden, source_text):
     _get_judge_model().set_paper_context(source_text, paper_id=paper_id)
 
@@ -1517,8 +1580,8 @@ def evaluate_paper_with_geval(paper_id, tier_rows, all_golden, source_text):
 
     covered_gt_refs: dict[str, set] = defaultdict(set)
 
-    work_items = []       
-    shortcut_results = {} 
+    work_items = []
+    shortcut_results = {}
 
     for idx, tr in enumerate(tier_rows):
         field_name      = tr["annotation_type"]
@@ -1528,12 +1591,27 @@ def evaluate_paper_with_geval(paper_id, tier_rows, all_golden, source_text):
                                        ([golden_value] if golden_value else []))
 
         if not extracted_value or _is_not_extracted(str(extracted_value)):
-            shortcut_results[idx] = {
-                "verdict": None, "value_correct": None, "value_complete": None,
-                "hallucination": None, "type_mismatch": None, "correct_type": None,
-                "corrected_value": None, "matched_reference": None,
-                "issue_summary": "Skipped (sentinel / empty — not extracted)",
-                "match_type": "SKIPPED", "any_match": False, "geval_score": None}
+            golden_meaningful = (golden_value
+                                 and not _is_golden_skip_value(golden_value)
+                                 and field_name.lower() not in SKIP_ANNOTATION_FIELDS)
+            if golden_meaningful:
+                tr["extracted_value"] = "MISSING"
+                shortcut_results[idx] = {
+                    "verdict": "missing", "value_correct": False,
+                    "value_complete": False, "hallucination": False,
+                    "type_mismatch": False, "correct_type": None,
+                    "corrected_value": golden_value,
+                    "matched_reference": None,
+                    "issue_summary": "Not extracted — golden value exists",
+                    "match_type": "MISSING", "any_match": False,
+                    "geval_score": None}
+            else:
+                shortcut_results[idx] = {
+                    "verdict": None, "value_correct": None, "value_complete": None,
+                    "hallucination": None, "type_mismatch": None, "correct_type": None,
+                    "corrected_value": None, "matched_reference": None,
+                    "issue_summary": "Skipped (sentinel / empty — not extracted)",
+                    "match_type": "SKIPPED", "any_match": False, "geval_score": None}
             continue
 
         if tr.get("tier1_exact"):
@@ -1543,7 +1621,8 @@ def evaluate_paper_with_geval(paper_id, tier_rows, all_golden, source_text):
             shortcut_results[idx] = result
             continue
 
-        if extracted_value.strip().lower() in SAFE_DEFAULTS.get(field_name, set()):
+        if (extracted_value.strip().lower() in SAFE_DEFAULTS.get(field_name, set())
+                and field_name.lower() not in _ALWAYS_LLM_FIELDS):
             shortcut_results[idx] = _safe_default_result(field_name, extracted_value)
             continue
 
@@ -1948,10 +2027,15 @@ def process_model(model_name, model_result_dir, extraction_dir, out_dir):
 
         tier_rows = []
         for _, row in pxd_df.iterrows():
+            if row["field"].lower() in SKIP_ANNOTATION_FIELDS:
+                continue
+            golden_val_raw = row["golden"]
+            if _is_golden_skip_value(golden_val_raw):
+                golden_val_raw = ""
             tier = expand_match_type(row["match_type"])
             tier_rows.append({"paper_id": pxd_id, "agent": row["agent"],
                 "annotation_type": row["field"], "extracted_value": row["llm"],
-                "golden_value": row["golden"],
+                "golden_value": golden_val_raw,
                 "match_score": round(float(row["score"]), 4),
                 "match_type": row["match_type"],
                 "tier1_exact": tier["tier1_exact"],
@@ -1960,7 +2044,7 @@ def process_model(model_name, model_result_dir, extraction_dir, out_dir):
                 "tier4_hierarchical": tier["tier4_hierarchical"],
                 "tier5_semantic": tier["tier5_semantic"],
                 "any_match": tier["any_match"], "no_match": tier["no_match"],
-                "verdict": None, "has_golden": True,
+                "verdict": None, "has_golden": bool(golden_val_raw),
                 "type_mismatch": None, "correct_type": None,
                 "value_correct": None, "value_complete": None,
                 "hallucination": None, "source_evidence": "",
@@ -1971,7 +2055,11 @@ def process_model(model_name, model_result_dir, extraction_dir, out_dir):
             for field, val in pred_dict.items():
                 if field in sdrf_fields_this_paper or _is_not_extracted(str(val)):
                     continue
+                if field.lower() in SKIP_ANNOTATION_FIELDS:
+                    continue
                 golden_val = flat_golden.get(field, "")
+                if _is_golden_skip_value(golden_val):
+                    golden_val = ""
                 tier_rows.append({"paper_id": pxd_id, "agent": agent,
                     "annotation_type": field, "extracted_value": val,
                     "golden_value": golden_val, "match_score": None,
@@ -1994,6 +2082,7 @@ def process_model(model_name, model_result_dir, extraction_dir, out_dir):
                 tr["annotation_type"].lower()
                 for tr in tier_rows
                 if tr["extracted_value"]
+                and tr["extracted_value"] != "MISSING"
                 and not _is_not_extracted(str(tr["extracted_value"]))}
 
             missed_rows = []
@@ -2009,11 +2098,21 @@ def process_model(model_name, model_result_dir, extraction_dir, out_dir):
                     print(f"        [skip] {field}: all golden values are "
                           f"'not applicable' variants — not missing")
                     continue
+                if field.lower() == "technical_replicates":
+                    numeric_golden = []
+                    for gv in golden_vals_filtered:
+                        try:
+                            numeric_golden.append(int(float(gv)))
+                        except (ValueError, TypeError):
+                            pass
+                    if numeric_golden:
+                        golden_vals_filtered = [str(max(numeric_golden))]
                 preds_for_field = [
                     tr["extracted_value"]
                     for tr in tier_rows
                     if tr["annotation_type"].lower() == field.lower()
                     and tr["extracted_value"]
+                    and tr["extracted_value"] != "MISSING"
                     and not _is_not_extracted(str(tr["extracted_value"]))]
                 for golden_val in golden_vals_filtered:
                     if not golden_val:
@@ -2022,6 +2121,13 @@ def process_model(model_name, model_result_dir, extraction_dir, out_dir):
                         if _second_pass_coverage(field, golden_val, preds_for_field):
                             continue
                     if field in covered_gt_refs and golden_val in covered_gt_refs[field]:
+                        continue
+                    already_missing = any(
+                        tr["annotation_type"].lower() == field.lower()
+                        and tr["extracted_value"] == "MISSING"
+                        and tr.get("golden_value", "").strip().lower() == golden_val.strip().lower()
+                        for tr in tier_rows)
+                    if already_missing:
                         continue
                     print(f"        [missed] {field}: golden='{golden_val}' not extracted - MISSING")
                     sdrf_agent = FIELD_TO_AGENT.get(field, "BiologicalAgent")
@@ -2352,7 +2458,6 @@ def main():
     for k, v in cache_stats.items():
         print(f"  {k:<35} {v}")
 
-    # Plot
     print("Generating summary plots...")
     plot_results(df, per_paper_df, model_name, out_dir)
 
