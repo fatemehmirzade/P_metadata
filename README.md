@@ -46,10 +46,10 @@ export API_KEY="your-key"
 ## Run
 
 ```bash
-# 1. Prepare input data
+#1. Prepare input data
 python prepare_data.py
 
-# 2. Run extraction pipelines
+#2. Run extraction pipelines
 docetl run 01_biological_info.yaml
 docetl run 02_ms_instruments.yaml
 docetl run 03_sample_prep.yaml
@@ -58,13 +58,13 @@ docetl run 05_data_analysis.yaml
 docetl run 06_clinical_experimental.yaml
 docetl run 07_factor_values.yaml
 
-# 3. Merge outputs into .ann files
+#3. Merge outputs into .ann files
 python merge_and_generate_ann.py
 
-# 4. Filter annotations
+#4. Filter annotations
 python filtering.py
 
-# 5. Validate with LLM-as-judge
+#5. Validate with LLM as judge
 python Judge_validation_V_final.py
 ```
 
