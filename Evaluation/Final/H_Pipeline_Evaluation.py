@@ -238,7 +238,7 @@ def _collapse_technical_replicates(golden: dict[str, list[str]]) -> None:
     if numeric_vals:
         max_val = max(numeric_vals)
         golden["technical_replicates"] = [str(max_val)]
-        print(f"      [FIX] technical_replicates: collapsed {vals} → ['{max_val}']")
+        print(f"       technical_replicates: collapsed {vals} → ['{max_val}']")
 
 
 def _deduplicate_cell_type_vs_organ(golden: dict[str, list[str]]) -> None:
@@ -248,12 +248,12 @@ def _deduplicate_cell_type_vs_organ(golden: dict[str, list[str]]) -> None:
     remaining = [v for v in golden["cell_type"] if v.lower() not in organ_lower]
     removed = len(golden["cell_type"]) - len(remaining)
     if removed > 0:
-        print(f"      [FIX] cell_type: removed {removed} values that duplicate organ entries")
+        print(f"      cell_type: removed {removed} values that duplicate organ entries")
     if remaining:
         golden["cell_type"] = remaining
     else:
         del golden["cell_type"]
-        print(f"      [FIX] cell_type: fully subsumed by organ — removed from golden")
+        print(f"      cell_type: fully subsumed by organ — removed from golden")
 
 
 def load_golden_from_sdrf(pxd_id: str) -> dict[str, list[str]]:
