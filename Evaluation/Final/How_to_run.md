@@ -201,7 +201,7 @@ Each value is judged for completeness against `all extracted values`, the **full
 
 This prevents penalising correct partial extractions when a field legitimately has multiple values (e.g. `material_type = ["cell line", "primary cells"]`).
 
-### Two-Pass Strategy
+### Two Pass Strategy
 
 **Pass 1** judges all values using the raw (unfiltered) sibling set. This establishes initial verdicts and identifies bad values (hallucinations, type mismatches, wrong values).
 
@@ -223,7 +223,7 @@ Certain values are accepted as correct without needing explicit mention in the p
 
 For `reduction_concentration` and `alkylation concentration`, a value containing only a numeric quantity and unit (e.g. `"10 mM"`) is considered **complete** even without the reagent name, since the reagent is extracted separately in `reduction reagent` / `alkylation reagent`.
 
-### Always-LLM Fields
+### Always LLM Fields
 
 `material_type` and `acquisition_method` always invoke the LLM judge (never short-circuited), because their values are frequently inferable from context rather than stated explicitly.
 
