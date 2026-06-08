@@ -261,7 +261,7 @@ Contains structured per paper results with parsed judge check narratives (TYPE C
 
 Per paper accuracy is defined as:
 
-$$\text{accuracy} = \frac{\text{judge\_n\_correct}}{\text{total\_extracted}}$$
+$$\text{accuracy} = \frac{\text{judge-correct}}{\text{total-extracted}}$$
 
 where `judge_n_correct` counts values that simultaneously satisfy all four conditions: not a type mismatch, `value_correct = true`, `value_complete = true` and not hallucinated.
 
