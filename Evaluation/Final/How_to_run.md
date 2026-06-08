@@ -231,7 +231,7 @@ For `reduction_concentration` and `alkylation concentration`, a value containing
 
 ## 8. Output Files
 
-### CSV Files (written incrementally — available during execution)
+### CSV Files 
 
 | File | Description |
 |---|---|
