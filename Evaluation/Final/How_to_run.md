@@ -225,7 +225,7 @@ For `reduction_concentration` and `alkylation concentration`, a value containing
 
 ### Always LLM Fields
 
-`material_type` and `acquisition_method` always invoke the LLM judge (never short-circuited), because their values are frequently inferable from context rather than stated explicitly.
+`material_type` and `acquisition_method` always invoke the LLM judge (never short circuited), because their values are frequently inferable from context rather than stated explicitly.
 
 ---
 
