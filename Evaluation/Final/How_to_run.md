@@ -6,7 +6,7 @@ This pipeline evaluates the quality of metadata extracted from proteomics papers
 
 Three specialised extraction agents are evaluated per model:
 
-- **BiologicalAgent** — sample-level metadata (species, tissue, disease, sex, age, etc.)
+- **BiologicalAgent** — sample level metadata (species, tissue, disease, sex, age, etc.)
 - **TechnicalAgent** — MS instrument and protocol metadata (instrument, cleavage agent, labeling, fragmentation, etc.)
 - **ExperimentalDesignAgent** — study design metadata (replicates, samples, fractions, experimental design, etc.)
 
@@ -175,7 +175,7 @@ The LLM judge assigns one of three verdicts to each extracted value:
 | Verdict | Meaning |
 |---|---|
 | **high** | Correct type, present in or inferable from the paper, factually accurate, and the full set of extracted values is complete |
-| **medium** | Correct type and factually valid, but the full set of extracted values does not fully cover what the paper describes. `corrected_value` suggestion is provided. |
+| **medium** | Correct type and factually valid, but the full set of extracted values does not fully cover what the paper describes. `corrected value` suggestion is provided. |
 | **low** | Hallucinated (absent from paper and not a safe default), type mismatch (value belongs to a different field) or factually incorrect |
 
 > **Note:** The `missing` verdict seen in earlier versions of this README is no longer produced. This pipeline does not use golden SDRF files, so missed fields are tracked only in the coverage CSV (`was_extracted: false`), not as judge verdicts.
@@ -195,9 +195,9 @@ The LLM judge assigns one of three verdicts to each extracted value:
 
 ## 7. Evaluation Logic
 
-### The Sibling-Value Rule (Completeness)
+### The Sibling Value Rule (Completeness)
 
-Each value is judged for completeness against `all_extracted_values` — the **full set** of values extracted for that field across all agents — not in isolation. If the set collectively covers what the paper describes, every individual value in it is marked complete (`VALUE_COMPLETE: yes`, verdict = `high`).
+Each value is judged for completeness against `all extracted values`, the **full set** of values extracted for that field across all agents not in isolation. If the set collectively covers what the paper describes, every individual value in it is marked complete (`VALUE_COMPLETE: yes`, verdict = `high`).
 
 This prevents penalising correct partial extractions when a field legitimately has multiple values (e.g. `material_type = ["cell line", "primary cells"]`).
 
@@ -221,7 +221,7 @@ Certain values are accepted as correct without needing explicit mention in the p
 
 ### Concentration Fields
 
-For `reduction_concentration` and `alkylation_concentration`, a value containing only a numeric quantity and unit (e.g. `"10 mM"`) is considered **complete** even without the reagent name, since the reagent is extracted separately in `reduction_reagent` / `alkylation_reagent`.
+For `reduction_concentration` and `alkylation concentration`, a value containing only a numeric quantity and unit (e.g. `"10 mM"`) is considered **complete** even without the reagent name, since the reagent is extracted separately in `reduction reagent` / `alkylation reagent`.
 
 ### Always-LLM Fields
 
@@ -260,14 +260,14 @@ Cache statistics (hit rate, total calls, disk entries) are printed at the end of
 json_outputs/<PXD_ID>.json
 ```
 
-Contains structured per-paper results with parsed judge check narratives (TYPE CHECK, SOURCE CHECK, TRUTH CHECK, COMPLETENESS CHECK) split into separate fields.
+Contains structured per paper results with parsed judge check narratives (TYPE CHECK, SOURCE CHECK, TRUTH CHECK, COMPLETENESS CHECK) split into separate fields.
 
 ### Plot Files (generated after all papers complete)
 
 | File | Description |
 |---|---|
 | `llm_judge_annotation_quality_counts.png` | Stacked bar chart — quality breakdown (correct / hallucinated / mismatch / wrong / incomplete) per paper |
-| `llm_judge_accuracy.png` | Per paper accuracy bars with overall mean line and 0.70 threshold marker |
+| `llm_judge_accuracy.png` | Per paper accuracy bars with overall mean line and threshold marker |
 | `llm_judge_aggregate.png` | Aggregate quality counts and percentages summed across all papers |
 
 ---
