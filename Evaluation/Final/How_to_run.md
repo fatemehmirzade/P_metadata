@@ -229,22 +229,7 @@ For `reduction_concentration` and `alkylation concentration`, a value containing
 
 ---
 
-## 8. Disk Response Cache
-
-All LLM judge responses are cached to disk to avoid redundant API calls across runs. The cache is keyed by a SHA-256 hash:
-
-$$\text{key} = \text{SHA256}(\text{model} \;\|\; \text{paper\_id} \;\|\; \text{task} \;\|\; \text{field\_name} \;\|\; \text{primary\_value})$$
-
-Cache files are stored in:
-```
-/Users/fateme/Desktop/Hari_results/.prompt_cache_google_gemma-4-31b-it/
-```
-
-Cache statistics (hit rate, total calls, disk entries) are printed at the end of each run. To disable caching, set `CACHE_ENABLED = False` in the script.
-
----
-
-## 9. Output Files
+## 8. Output Files
 
 ### CSV Files (written incrementally — available during execution)
 
@@ -272,7 +257,7 @@ Contains structured per paper results with parsed judge check narratives (TYPE C
 
 ---
 
-## 10. Accuracy Metric
+## 9. Accuracy Metric
 
 Per paper accuracy is defined as:
 
@@ -282,7 +267,7 @@ where `judge_n_correct` counts values that simultaneously satisfy all four condi
 
 ---
 
-## 11. Concurrency & Reliability
+## 10. Concurrency & Reliability
 
 - Judge calls run in parallel using a `ThreadPoolExecutor` with `MAX_WORKERS=4` threads (overridable via `--workers`).
 - Each thread holds its own `GEval` metric instance to avoid shared state.
