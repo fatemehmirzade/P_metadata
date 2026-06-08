@@ -257,17 +257,7 @@ Contains structured per paper results with parsed judge check narratives (TYPE C
 
 ---
 
-## 9. Accuracy Metric
-
-Per paper accuracy is defined as:
-
-$$\text{accuracy} = \frac{\text{judge-correct}}{\text{total-extracted}}$$
-
-where `judge_n_correct` counts values that simultaneously satisfy all four conditions: not a type mismatch, `value_correct = true`, `value_complete = true` and not hallucinated.
-
----
-
-## 10. Concurrency & Reliability
+## 9. Concurrency & Reliability
 
 - Judge calls run in parallel using a `ThreadPoolExecutor` with `MAX_WORKERS=4` threads (overridable via `--workers`).
 - Each thread holds its own `GEval` metric instance to avoid shared state.
