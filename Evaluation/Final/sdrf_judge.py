@@ -59,8 +59,7 @@ SDRF_COLUMN_MAP = {
     "comment[ms2 mass analyzer]":                    "mass_analyzer",
 }
 
-# Category label attached to each canonical field (used for the "agent" column
-# in the output CSVs and for grouping in the plots).
+#category label attached to each canonical field (used for the "agent" column in the output CSVs and for grouping in the plots)
 FIELD_CATEGORY = {
     "species": "Biological", "organ": "Biological", "cell_type": "Biological",
     "cell_line": "Biological", "disease": "Biological", "sex": "Biological",
@@ -75,53 +74,42 @@ FIELD_CATEGORY = {
     "replicates": "ExperimentalDesign", "factor_value": "ExperimentalDesign",
 }
 
-# LLM used as the judge model via OpenRouter
+#LLM used as the judge model via OpenRouter
 EVALUATION_MODEL      = "google/gemma-4-31b-it"
 OPENROUTER_BASE_URL   = "https://openrouter.ai/api/v1"
 MODEL_TEMPERATURE     = 0
-# Enable extended thinking mode for the judge model when supported
+#enable extended thinking mode for the judge model when supported
 MODEL_ENABLE_THINKING = True
 
-# Global flag controlling whether the LLM judge is invoked during evaluation
 USE_LLM_JUDGE = True
-# Set to an integer to restrict evaluation to the first N papers None means all
+
 LIMIT         = None
 
-# File system safe slug for the evaluation model used to name the cache directory
 _CACHE_MODEL_SLUG = EVALUATION_MODEL.replace("/", "_").replace(" ", "_")
 CACHE_DIR         = os.path.join(BASE_DIR, f".prompt_cache_{_CACHE_MODEL_SLUG}")
-# Toggle on or off the disk based response cache
+
 CACHE_ENABLED     = True
 
-# Maximum number of concurrent threads used for LLM judge calls
 MAX_WORKERS = 4
-# Number of retry attempts before giving up on a single API call
+
 MAX_RETRIES = 3
-# Base delay in seconds between successive retry attempts
+
 RETRY_DELAY = 2
 
-# Values longer than this threshold are treated as evidence sentences rather than metadata values
+#values longer than this threshold are treated as evidence sentences rather than metadata values
 MAX_VALUE_LENGTH = 120
 
-# Thread local storage used to pass per call context into GEval without shared state
 _thread_local = threading.local()
 
-# Fields that are intentionally excluded from evaluation because they are boilerplate,
-# ambiguous or out of scope. technology_type is constant SDRF boilerplate.
 SKIP_ANNOTATION_FIELDS = {"phenotype", "ethnicity", "technology_type"}
 
-# Fields where the extracted value may be reasonably INFERRED from experimental
-# context even when the exact term is absent from the paper text. The judge is
-# told not to mark these as hallucinated solely because the literal term is missing.
 _ALWAYS_LLM_FIELDS = {"material_type", "acquisition_method", "enrichment_method"}
 
-# Fields where the judge must verify the value comes from the actual MS/proteomics
-# experiment context, not from unrelated assays (transfection, binding, validation).
+
 _CONTEXT_SENSITIVE_FIELDS = {"cell_line", "cell_type", "organ", "material_type", "species"}
 
-PROMPT_VERSION = "v7-sdrf-2026-07"
+PROMPT_VERSION = "v7"
 
-#normalised string representations that indicate a field was not successfully extracted
 _NOT_EXTRACTED_VALUES = {"unknown", "n/a", "not available", "none", "null", "na", ""}
 
 def _is_not_extracted(value: str) -> bool:
@@ -137,11 +125,11 @@ _DEGENERATE_UNICODE_PATTERN = re.compile(
 )
 
 def _garble_score(text: str) -> int:
-    """count small-model token-corruption artifacts (stray capital S, doubled words)"""
-    glued    = len(re.findall(r"[a-z]S\b", text))              # "materialS", "TheS"
-    isolated = len(re.findall(r"(?:^|\s)S(?=\s)", text))       # lone " S " tokens
-    runs     = len(re.findall(r"\bS{2,}\b", text))             # "SS", "SSS"
-    doubled  = len(re.findall(r"\b(\w{3,})\s+\1\b", text, re.IGNORECASE))  # "The The"
+    """count small-model token-corruption artifacts (stray capital S doubled words)"""
+    glued    = len(re.findall(r"[a-z]S\b", text))              
+    isolated = len(re.findall(r"(?:^|\s)S(?=\s)", text))       
+    runs     = len(re.findall(r"\bS{2,}\b", text))             
+    doubled  = len(re.findall(r"\b(\w{3,})\s+\1\b", text, re.IGNORECASE))  
     return glued + isolated + runs + doubled
 
 
@@ -170,10 +158,10 @@ def _sanitize_reason(text: str) -> str:
     if not text:
         return text
     text = text.replace("\r", "\n")
-    text = re.sub(r"([a-z])S\b", r"\1", text)               # "materialS" -> "material"
-    text = re.sub(r"(?:^|(?<=\s))S(?=\s|$)", "", text)      # drop isolated " S "
-    text = re.sub(r"\bS{2,}\b", "", text)                   # drop "SS" / "SSS"
-    text = re.sub(r"\b(\w{2,})(\s+\1\b)+", r"\1", text, flags=re.IGNORECASE)  # "The The" -> "The"
+    text = re.sub(r"([a-z])S\b", r"\1", text)               
+    text = re.sub(r"(?:^|(?<=\s))S(?=\s|$)", "", text)      
+    text = re.sub(r"\bS{2,}\b", "", text)                  
+    text = re.sub(r"\b(\w{2,})(\s+\1\b)+", r"\1", text, flags=re.IGNORECASE)  
     lines, prev_blank = [], False
     for ln in text.split("\n"):
         ln = re.sub(r"[ \t]{2,}", " ", ln).rstrip()
@@ -1119,8 +1107,7 @@ def _flatten_extraction_values(val) -> list[str]:
     return results
 
 
-# Generic words inside a modification string that are NOT the modification's own
-# name and must not be used to claim the modification is present in the text.
+#generic words inside a modification string that are NOT the modifications own name and must not be used to claim the modification is present in the text.
 _MOD_NAME_STOPWORDS = {
     "acid", "derivative", "label", "labeled", "labelled", "residue", "residues",
     "modification", "modified", "protein", "peptide", "terminal", "terminus",
@@ -1129,16 +1116,11 @@ _MOD_NAME_STOPWORDS = {
 
 
 def _modification_named_in_text(mod_value: str, paper_text: str) -> bool:
-    """True only when the modification's OWN name (not a reagent) is explicitly in the text.
-
-    Modifications are judged against the paper text alone: a reagent such as
-    iodoacetamide does NOT count as the modification 'Carbamidomethyl' being present.
-    Matching is stem-based (first 6 chars) so 'Carbamidomethyl' matches
-    'carbamidomethylation' and 'Deamidated' matches 'deamidation'.
-    """
+    """True only when the modification's OWN name (not a reagent) is explicitly in the text & modifications are judged against the paper text alone: a reagent such as
+    iodoacetamide does NOT count as the modification 'Carbamidomethyl' being present. matching is stem-based (first 6 chars) so 'Carbamidomethyl' matches 'carbamidomethylation' and 'Deamidated' matches 'deamidation'"""
     if not mod_value or not paper_text:
         return False
-    core = re.sub(r"\([^)]*\)", " ", mod_value)          # drop residue target, e.g. "(C)"
+    core = re.sub(r"\([^)]*\)", " ", mod_value)          
     core = re.sub(r"[^a-zA-Z]+", " ", core).lower()
     tokens = [t for t in core.split() if len(t) >= 5 and t not in _MOD_NAME_STOPWORDS]
     if not tokens:
@@ -1198,7 +1180,6 @@ def _run_geval_semantic(field_name: str,
             "because the exact term is absent. "
         )
 
-    # --- EXPERIMENTAL CONTEXT warning for context-sensitive fields ---
     fn = field_name.lower()
     if fn in _CONTEXT_SENSITIVE_FIELDS:
         expected_str += (
@@ -1370,11 +1351,7 @@ def _run_geval_semantic(field_name: str,
             print(f"  [corrected value rejected] garbled or too long: '{corrected_value[:60]}...'")
             corrected_value = None
 
-    # MODIFICATION guard: the paper text is the ONLY reference. A modification is
-    # valid only when its own name is explicitly present in the text; reagents
-    # (iodoacetamide, chloroacetamide, NEM, ...) do NOT by themselves make a
-    # modification correct, and a modification absent from the text must never be
-    # suggested as a corrected value.
+
     if fn == "modification":
         paper_text = _get_judge_model()._paper_text
         if not _modification_named_in_text(extracted_value, paper_text):
